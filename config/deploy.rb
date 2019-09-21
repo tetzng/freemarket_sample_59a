@@ -32,18 +32,6 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
-
-  desc 'upload credentials.yml'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/credentials.yml', "#{shared_path}/config/credentials.yml")
-    end
-  end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
 end
 
 # Default branch is :master
