@@ -42,20 +42,21 @@ Things you may want to cover:
 |content|text||
 
 ### Association
+- belongs_to :user
+- has_many :shopping_origin_addresses
 - has_many :products
 - has_many :puchases
-- has_many :likes
 - has_many :comments
 - has_one_attached :avatar
 - has_many :likes, through: :like_users
-- has_many :likes
+
 
 
 ## shopping_origin_addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|references|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
