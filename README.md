@@ -39,11 +39,17 @@ Things you may want to cover:
 |birthday_day|integer|null: false|
 |phone_num|integer|null: false|
 |authentication_num|integer|null: false|
+|content|text||
 
 ### Association
 - has_many :products
 - has_many :puchases
 - has_many :likes
+- has_many :comments
+- has_one_attached :avatar
+- has_many :likes, through: :like_users
+- has_many :likes
+
 
 ## shopping_origin_addressesテーブル
 
@@ -63,7 +69,6 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :shopping_origin_address
 - has_many :products
 
 
@@ -83,35 +88,14 @@ Things you may want to cover:
 - has_many :puchases
 
 
-## profilesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false|
-|content|text|null: false|
-
-### Association
-- belongs_to :user
-
-
-
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false|
-|image_1|text|null: false|
-|image_2|text|null: false|
-|image_3|text|null: false|
-|image_4|text|null: false|
-|image_5|text|null: false|
-|image_6|text|null: false|
-|image_7|text|null: false|
-|image_8|text|null: false|
-|image_9|text|null: false|
-|image_10|text|null: false|
 |name|string|null: false|
-|description|text|null: false|
+|description|text||
+|category_id|string|null: false|
 |condition|string|null: false|
 |delivery_charge|string|null: false|
 |delivery_area|string|null: false|
@@ -122,6 +106,10 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- has_many :likes
+- has_many :comments
+- mount_uploader :image, ImageUploader
+- add_index :products
 
 
 ## purchasesテーブル
@@ -135,6 +123,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- has_many :comments
 
 
 ## likesテーブル
@@ -146,6 +135,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- belongs_to :product
 
 
 ## likes_userテーブル
@@ -157,7 +147,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_many :products 
+- belongs_to :product 
 
 
 
@@ -165,12 +155,12 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|content|text|null: false|
+|content|text||
 |user_id|references|null: false|
 |produts_id|integer|null: false|
 |produts_id|integer|null: false|
 
 ### Association
 - belongs_to :user
-- has_many :products
-- has_many :purchases
+- belongs_to :product
+- belongs_to :purchase
