@@ -62,8 +62,8 @@ Things you may want to cover:
 |phone_num|integer|null: false|
 
 ### Association
-- belongs_to :users
-- belongs_to :shopping_origin_addresses
+- belongs_to :user
+- belongs_to :shopping_origin_address
 - has_many :products
 
 
@@ -71,14 +71,14 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|references|null: false|
 |card_num|integer|null: false|
 |limit_month|integer|null: false|
 |limit_year|integer|null: false|
 |security_code|integer|null: false|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_many :products
 - has_many :puchases
 
@@ -91,31 +91,15 @@ Things you may want to cover:
 |content|text|null: false|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 
-
-## pointsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false|
-|get_point|integer|null: false|
-|point_limit|string|null: false|
-|saler_id|integer|null: false|
-|buyer_id|integer|null: false|
-
-
-### Association
-- belongs_to :users
-- has_many :products
-- has_many :puchases
 
 
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|references|null: false|
 |image_1|text|null: false|
 |image_2|text|null: false|
 |image_3|text|null: false|
@@ -137,45 +121,44 @@ Things you may want to cover:
 |status|string|null: false|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 
 ## purchasesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|create_user_id|integer|null: false|
-|product_id|integer|null: false|
+|user_id|references|null: false|
+|selar_id|integer|null: false|
 |buyer_id|integer|null: false|
 |status|string|null: false|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 
 ## likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|create_user_id|integer|null: false|
+|user_id|references|null: false|
 |product_id|integer|null: false|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 
-## todo_listsテーブル
+## likes_userテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|integer|null: false|
-|purchase_id|integer|null: false|
-
+|user_id|references|null: false|
+|product_id|integer|null: false|
 
 ### Association
-- belongs_to :users
-- has_many :products
-- has_many :purchases
+- belongs_to :user
+- has_many :products 
+
 
 
 ## commentsテーブル
@@ -183,11 +166,11 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
-|create_user_id|integer|null: false|
+|user_id|references|null: false|
 |produts_id|integer|null: false|
 |produts_id|integer|null: false|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_many :products
 - has_many :purchases
