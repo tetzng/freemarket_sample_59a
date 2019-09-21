@@ -1,18 +1,26 @@
-class CreateUsers < ActiveRecord::Migration[5.2]
+class Products < ActiveRecord::Migration[5.2]
   def change
-    create_table :createusers do |t|
-      t.text    :nickname,               null: false, unique: true, index: true
-      t.integer :email,              null: false, default: ""
-      t.integer :encrypted_password, null: false, default: ""
-      t.text    :first_name
-      t.text    :last_name
-      t.text    :first_name_kana
-      t.text    :last_name_kana
-      t.integer :birthday_year
-      t.integer :birthday_month
-      t.integer :birthday_day
-      t.integer :phone_num
-      t.integer :authentication_num
+    create_table :products do |t|
+      t.integer  :user_id,   null: false, unique: true, index: true
+      t.text     :image_1
+      t.text     :image_2
+      t.text     :image_3
+      t.text     :image_4
+      t.text     :image_5
+      t.text     :image_6
+      t.text     :image_7
+      t.text     :image_8
+      t.text     :image_9
+      t.text     :image_10
+      t.string   :name,             null: false
+      t.text     :description
+      t.string   :condition,        null: false
+      t.string   :delivery_charge,  null: false
+      t.string   :delivery_area,    null: false
+      t.string   :delivery_days,    null: false
+      t.integer  :price,            null: false
+      t.integer  :saler_id,         null: false
+      t.string   :status,           null: false
 
       ## Recoverable
       # t.string   :reset_password_token

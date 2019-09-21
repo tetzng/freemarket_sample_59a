@@ -23,17 +23,17 @@ Things you may want to cover:
 
 * ...
 
-## create_usersテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|text|null: false|
-|e-mail|integer|null: false|
-|password|integer|null: false|
-|first_name|integer|null: false|
-|last_name|text|null: false|
-|first_name_kana|text|null: false|
-|last_name_kana|text|null: false|
+|nickname|string|null: false|
+|e-mail|string|null: false|
+|encrypted_password|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |birthday_year|integer|null: false|
 |birthday_month|integer|null: false|
 |birthday_day|integer|null: false|
@@ -49,20 +49,20 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|create_user_id|integer|null: false|
-|first_name|text|null: false|
-|last_name|text|null: false|
-|first_name_kana|text|null: false|
-|last_name_kana|text|null: false|
+|user_id|integer|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |postcode|integer|null: false|
-|prefecture|text|null: false|
-|city|text|null: false|
-|house_num|text|null: false|
-|buiding_num|text|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|house_num|string|null: false|
+|buiding_num|string|null: false|
 |phone_num|integer|null: false|
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 - belongs_to :shopping_origin_addresses
 - has_many :products
 
@@ -71,14 +71,14 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|create_user_id|text|null: false|
+|user_id|integer|null: false|
 |card_num|integer|null: false|
 |limit_month|integer|null: false|
 |limit_year|integer|null: false|
 |security_code|integer|null: false|
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 - has_many :products
 - has_many :puchases
 
@@ -87,57 +87,57 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|create_user_id|integer|null: false|
+|user_id|integer|null: false|
 |content|text|null: false|
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 
 
 ## pointsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|create_user_id|integer|null: false|
-|get_point|text|null: false|
-|point_limit|text|null: false|
+|user_id|integer|null: false|
+|get_point|integer|null: false|
+|point_limit|string|null: false|
 |saler_id|integer|null: false|
 |buyer_id|integer|null: false|
 
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 - has_many :products
 - has_many :puchases
 
 
-## projectsテーブル
+## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|create_user_id|integer|null: false|
-|image_1|string|null: false|
-|image_2|string|null: false|
-|image_3|string|null: false|
-|image_4|string|null: false|
-|image_5|string|null: false|
-|image_6|string|null: false|
-|image_7|string|null: false|
-|image_8|string|null: false|
-|image_9|string|null: false|
-|image_10|string|null: false|
-|name|text|null: false|
+|user_id|integer|null: false|
+|image_1|text|null: false|
+|image_2|text|null: false|
+|image_3|text|null: false|
+|image_4|text|null: false|
+|image_5|text|null: false|
+|image_6|text|null: false|
+|image_7|text|null: false|
+|image_8|text|null: false|
+|image_9|text|null: false|
+|image_10|text|null: false|
+|name|string|null: false|
 |description|text|null: false|
-|condition|integer|null: false|
-|delivery_charge|integer|null: false|
-|delivery_area|integer|null: false|
-|delivery_days|integer|null: false|
+|condition|string|null: false|
+|delivery_charge|string|null: false|
+|delivery_area|string|null: false|
+|delivery_days|string|null: false|
 |price|integer|null: false|
 |saler_id|integer|null: false|
-|status|integer|null: false|
+|status|string|null: false|
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 
 
 ## purchasesテーブル
@@ -147,10 +147,10 @@ Things you may want to cover:
 |create_user_id|integer|null: false|
 |product_id|integer|null: false|
 |buyer_id|integer|null: false|
-|status|integer|null: false|
+|status|string|null: false|
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 
 
 ## likesテーブル
@@ -161,7 +161,7 @@ Things you may want to cover:
 |product_id|integer|null: false|
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 
 
 ## todo_listsテーブル
@@ -173,7 +173,7 @@ Things you may want to cover:
 
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 - has_many :products
 - has_many :purchases
 
@@ -188,6 +188,6 @@ Things you may want to cover:
 |produts_id|integer|null: false|
 
 ### Association
-- belongs_to :create_users
+- belongs_to :users
 - has_many :products
 - has_many :purchases

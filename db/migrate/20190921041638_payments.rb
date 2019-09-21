@@ -1,7 +1,7 @@
 class Payments < ActiveRecord::Migration[5.2]
   def change
     create_table :payments do |t|
-      t.text    :create_user_id,   null: false
+      t.integer :user_id,          null: false
       t.integer :card_num,         null: false
       t.integer :limit_month,      null: false
       t.integer :limit_year,       null: false

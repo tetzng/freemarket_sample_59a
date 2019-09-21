@@ -1,26 +1,18 @@
-class Projects < ActiveRecord::Migration[5.2]
+class Users < ActiveRecord::Migration[5.2]
   def change
-    create_table :projects do |t|
-      t.integer  :create_user_id,   null: false, unique: true, index: true
-      t.string   :image_1
-      t.string   :image_2
-      t.string   :image_3
-      t.string   :image_4
-      t.string   :image_5
-      t.string   :image_6
-      t.string   :image_7
-      t.string   :image_8
-      t.string   :image_9
-      t.string   :image_10
-      t.text     :name,             null: false
-      t.text     :description
-      t.integer  :condition,        null: false
-      t.integer  :delivery_charge,  null: false
-      t.integer  :delivery_area,    null: false
-      t.integer  :delivery_days,    null: false
-      t.integer  :price,            null: false
-      t.integer  :saler_id,         null: false
-      t.integer  :status,           null: false
+    create_table :users do |t|
+      t.string  :nickname,               null: false, unique: true, index: true
+      t.string  :email,              null: false, default: ""
+      t.string  :encrypted_password, null: false, default: ""
+      t.string  :first_name
+      t.string  :last_name
+      t.string  :first_name_kana
+      t.string  :last_name_kana
+      t.integer :birthday_year
+      t.integer :birthday_month
+      t.integer :birthday_day
+      t.integer :phone_num
+      t.integer :authentication_num
 
       ## Recoverable
       # t.string   :reset_password_token

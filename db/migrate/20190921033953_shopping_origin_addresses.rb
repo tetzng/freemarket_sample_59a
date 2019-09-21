@@ -1,16 +1,16 @@
 class ShoppingOriginAddresses < ActiveRecord::Migration[5.2]
   def change
     create_table :ShoppingOriginAddresses do |t|
-      t.integer :create_user_id,     null: false, unique: true, index: true
-      t.text    :first_name,         null: false, default: ""
-      t.text    :last_name,          null: false, default: ""
-      t.text    :first_name_kana,    null: false
-      t.text    :last_name_kana,     null: false
+      t.integer :user_id,            null: false, unique: true, index: true
+      t.string  :first_name,         null: false, default: ""
+      t.string  :last_name,          null: false, default: ""
+      t.string  :first_name_kana,    null: false
+      t.string  :last_name_kana,     null: false
       t.integer :postcode,           null: false
-      t.text    :prefecture,         null: false
-      t.text    :city,               null: false
-      t.text    :house_num,          null: false
-      t.text    :buiding_num,        null: false
+      t.string  :prefecture,         null: false
+      t.string  :city,               null: false
+      t.string  :house_num,          null: false
+      t.string  :buiding_num,        null: false
       t.integer :phone_num,          null: false
 
       ## Recoverable
