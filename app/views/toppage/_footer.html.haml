@@ -8,12 +8,12 @@
       .toppage-footer-top__linkicon
         = image_tag 'mercari-icon.png', 
         class: 'toppage-footer-top__mercariicon',size: '68x68' 
-        %a{href:'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', 
-        id: 'toppage-appleicon'}
+        %a{ href:'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', 
+        id: 'toppage-appleicon' }
           = image_tag 'app-store.svg', 
           class:'toppage-footer-top__appstoreicon' 
         %a{href:'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', 
-        id:'toppage-googleicon'}
+        id:'toppage-googleicon' }
           = image_tag 'google-play.svg',class: 'toppage-footer-top__googleicon'
     .toppage-footer-top__photo
       = image_tag 'download-app-pc-smartphon.png', 
@@ -21,7 +21,7 @@
 %footer.toppage-footer-bottom
   %nav.toppage-footer-bottom__navmain
     .toppage-footer-bottom__summary
-      %h2{class:'toppage-footer-bottom__navtitle'}メルカリについて
+      %h2{ class:'toppage-footer-bottom__navtitle'}メルカリについて
       %ul{class:'toppage-footer-bottom__navlist'}
         %li{class:'toppage-footer-bottom__nav'}
           %a{href:'/',class:'toppage-footer-bottom__navurl'}会社概要（運営会社）
