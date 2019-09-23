@@ -70,6 +70,7 @@ gem 'fog-aws'
 gem 'font-awesome-sass', '>=5.11.1'
 gem 'haml-rails'
 gem 'jquery-rails'
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
