@@ -1,0 +1,43 @@
+.toppage-header-top
+  .toppage-header-top__header
+    .toppage-header-top__header-contents
+      = image_tag "mercari-logo-red.svg", alt: "mercari-logo", class: "toppage-header-top__header-contents--mercari-logo"
+      .toppage-header-top__header-search
+        %form{action: "/", method: "post"}
+          %input{name: "seach", class: "toppage-header-top__header-search--search-form", placeholder: "何かお探しですか？"}
+        .toppage-header-top__header-search--search-btn
+          = icon('fas', 'search', alt: 'search-icon', class: 'toppage-header-top__header-search--search-btn')
+  .toppage-header-top__footer
+    %nav.toppage-header-top__footer-search
+      %ul.toppage-header-top__footer-search-categories
+        %li
+          %h2
+            =link_to root_path do
+              = icon('fas', 'list-ul lg', alt: "list-icon", style: "color:#ea352d")
+              %span カテゴリーから探す
+          %ul.first-category__wrapper
+            %li.first-category
+              %h3
+                レディース
+                %ul.second-category__wrapper
+                  %li.second-category
+                    トップス
+                    %ul.third-category__wrapper
+                      %li.third-category
+                        3.Tシャツ/カットソー(半袖/袖なし)
+                      %li.third-category
+                        3.Tシャツ/カットソー(七分/長袖)
+                      %li.third-category
+                        3.シャツ/ブラウス(半袖/袖なし)
+        %li.toppage-header-top__footer-search-brand
+          %h2
+            = link_to root_path do
+              = icon('fas', "tag lg", alt: "tag-icon", style: "color:#ea352d", class:"toppage-header-top__footer-search-brand--icon")
+              %span ブランドから探す
+    .toppage-header-top__footer-contents
+      .toppage-header-top__footer-contents--new-register-btn
+        = link_to root_path do
+          新規会員登録
+      .toppage-header-top__footer-contents--user-login-btn
+        = link_to root_path do
+          ログイン
