@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  */
+@import "config/reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "config/reset";
 @import "config/colors";
 @import "bread-crumbs";
 @import "mypage";
