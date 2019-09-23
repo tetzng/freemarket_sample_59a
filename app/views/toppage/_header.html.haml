@@ -1,20 +1,20 @@
 .toppage-header-top
   .toppage-header-top__header
     .toppage-header-top__header-contents
-      = image_tag "mercari-logo-red.svg", alt: "mercari-logo", class: "toppage-header-top__header-contents--mercari-logo"
+      = image_tag 'mercari-logo-red.svg', alt: 'mercari-logo', class: 'toppage-header-top__header-contents--mercari-logo'
       .toppage-header-top__header-search
-        %form{action: "/", method: "post"}
-          %input{name: "seach", class: "toppage-header-top__header-search--search-form", placeholder: "何かお探しですか？"}
+        %form{action: '/', method: 'post'}
+          %input{name: 'seach', class: 'toppage-header-top__header-search--search-form', placeholder: '何かお探しですか？'}
         .toppage-header-top__header-search--search-btn
           = icon('fas', 'search', alt: 'search-icon', class: 'toppage-header-top__header-search--search-btn')
   .toppage-header-top__footer
     %nav.toppage-header-top__footer-search
       %ul.toppage-header-top__footer-search-categories
-        %li
+        %li.toppage-header-top__footer-search-wrapper
           %h2
             =link_to root_path do
-              = icon('fas', 'list-ul lg', alt: "list-icon", style: "color:#ea352d")
-              %span カテゴリーから探す
+              = icon('fas', 'list-ul lg', alt: 'list-icon', style: 'color:#ea352d')
+              %span.toppage-header-top__footer-search-text カテゴリーから探す
           %ul.first-category__wrapper
             %li.first-category
               %h3
@@ -24,16 +24,29 @@
                     トップス
                     %ul.third-category__wrapper
                       %li.third-category
-                        3.Tシャツ/カットソー(半袖/袖なし)
+                        Tシャツ/カットソー(半袖/袖なし)
                       %li.third-category
-                        3.Tシャツ/カットソー(七分/長袖)
+                        Tシャツ/カットソー(七分/長袖)
                       %li.third-category
-                        3.シャツ/ブラウス(半袖/袖なし)
+                        シャツ/ブラウス(半袖/袖なし)
         %li.toppage-header-top__footer-search-brand
           %h2
             = link_to root_path do
-              = icon('fas', "tag lg", alt: "tag-icon", style: "color:#ea352d", class:"toppage-header-top__footer-search-brand--icon")
+              = icon('fas', 'tag lg', alt: 'tag-icon', style: 'color:#ea352d', class:'toppage-header-top__footer-search-brand--icon')
               %span ブランドから探す
+          %ul.brand__wrapper
+            %li.brand
+              %h3 アディダス
+            %li.brand
+              %h3 ナイキ
+            %li.brand
+              %h3 ルイ・ヴィトン
+            %li.brand
+              %h3 シャネル
+            %li.brand
+              %h3 シュプリーム
+            %li.brand
+              %h3 ブランド一覧
     .toppage-header-top__footer-contents
       .toppage-header-top__footer-contents--new-register-btn
         = link_to root_path do

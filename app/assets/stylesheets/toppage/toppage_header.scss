@@ -1,12 +1,3 @@
-// @media (max-width: 320px) {
-//   /* 横幅が320px以下の場合に適用するスタイル */
-//   div#sidebar { width: 100%; }
-// }
-// @media (min-width: 800px) {
-//   /* 横幅が800px以上の場合に適用するスタイル */
-//   div#sidebar { width: 240px }
-// }
-
 *, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
@@ -83,15 +74,18 @@ a {
       &-search  {
         height: 44px;
         line-height: 44px;
+        padding-right: 20px;
         a, a:visited {
           color:#333333;
         }
         &-categories  {
-          padding-right: 20px;
           font-weight: 600;
           a:hover {
             color: $sky_blue;
           }
+        }
+        &-text  {
+          padding-right: 20px;
         }
         &-brand {
           font-weight: bold;
@@ -133,15 +127,17 @@ a {
           padding: 8px 10px;
           transition: all 0.3s ease-out 0s;
           margin-left: 8px;
+          &:hover {
+            background-color: $sky_blue;
+            color: $white;
+          }
           a, a:visited {
             color: $sky_blue;
             transition: 0.3s;
+            &:hover{
+              color: $white;
+            }
           }
-          &:hover {
-            color: white;
-            background-color: $sky_blue;
-          }
-
         }
     }
   }
@@ -152,8 +148,6 @@ a {
 }
 ul.toppage-header-top__footer-search-categories li{
   float: left;
-  width: 179px;
-  height: 48px;
 }
 ul.toppage-header-top__footer-search-categories li a{
   display: block;
@@ -178,25 +172,26 @@ ul.toppage-header-top__footer-search-categories:after{
   font-size: 14px;
   margin: 0;
   width: 224px;
+  padding: 0 16px;
+
+  &:hover {
+    background-color: $red;
+    color: $white;
+    opacity: 1;
+    }
 
   &__wrapper {
+    height: 572px;
+    width: 224px;
     font-weight: normal;
     position: absolute;
-    top: 44px;
     background: $white;
-    box-shadow: 0 1px 1px 0;
+    box-shadow: 0 1px 1px 0 $menu-shadow;
     box-sizing: border-box;
-    height: 100%;
     left: -40px;
     position: absolute;
     top: 44px;
-    width: 224px;
     z-index: 1000;
-
-    &:hover {
-    background-color: $red;
-    color: $white;
-    }
   }
 }
 
@@ -207,21 +202,24 @@ ul.toppage-header-top__footer-search-categories:after{
   color: $black;
   font-size: 14px;
   margin: 0;
+  width: 224px;
+  padding: 0 16px;
+
+  &:hover {
+    background-color: $back_gray;
+    color: $black;
+    opacity: 1;
+    }
 
   &__wrapper {
+    height: 572px;
     font-weight: normal;
     position: absolute;
     top: 0;
     left: 224px;
     bottom: 0;
     background: #fff;
-    box-shadow: 1px 0 0 0 #eee inset;
-    width: 224px;
-
-    &:hover {
-    background-color: $back_gray;
-    color: $black;
-    }
+    box-shadow: 0 1px 1px 0 $menu-shadow;
   }
 }
 
@@ -232,25 +230,58 @@ ul.toppage-header-top__footer-search-categories:after{
   color: $black;
   font-size: 14px;
   margin: 0;
+  box-shadow: 0 $menu-shadow;
+  left: 224px;
+  padding: 0 10px;
 
-  &__wrapper {
+  &:hover {
+    background-color: $back_gray;
+    color: $black;
+    opacity: 1;
+    }
+
+  &__wrapper  {
+    height: 572px;
+    width: 320px;  
     font-weight: normal;
     background: $white;
     bottom: 0;
-    box-shadow: 0 1px 1px 0 $menu-shadow;
     box-sizing: border-box;
-    height: 100%;
-    width: 320px;  
-    left: 224px;
     position: absolute;
+    left: 224px;
     top: 0;
-
-    &:hover {
-    background-color: $back_gray;
-    color: $black;
+    box-shadow: 0 1px 1px 0 $menu-shadow;
     }
   }
-}
+
+  .brand {
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 0;
+    width: 224px;
+    padding: 0 16px;
+  
+    &:hover {
+      background-color: $red;
+      color: $white;
+      opacity: 1;
+      }
+  
+    &__wrapper {
+      height: 264px;
+      width: 224px;
+      font-weight: normal;
+      position: absolute;
+      background: $white;
+      box-shadow: 0 1px 1px 0 $menu-shadow;
+      box-sizing: border-box;
+      position: absolute;
+      top: 44px;
+      z-index: 1000;
+    }
+  }
+  
+
 
 
 
