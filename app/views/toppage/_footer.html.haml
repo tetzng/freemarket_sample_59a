@@ -1,5 +1,89 @@
-.toppage-footer-top
-    .toppage-footer-top__box
-        .toppage-footer-top__download
-        .toppage-footer-top__photo
-.toppage-footer-bottom
+%aside.toppage-footer-top
+  .toppage-footer-top__box
+    .toppage-footer-top__downloadlink
+      .toppage-footer-top__label
+        スマホでかんたんフリマアプリ
+      .toppage-footer-top__text
+        今すぐ無料ダウンロード！
+      .toppage-footer-top__linkicon
+        = image_tag 'mercari-icon.png',alt: '',class: 'toppage-footer-top__mercariicon',size: '68x68'
+        %a{ href: 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', id: 'toppage-appleicon'}
+          = image_tag "app-store.svg",alt: "",class: "toppage-footer-top__appstoreicon"
+        %a{ href: 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', id: 'toppage-googleicon'}
+          = image_tag 'google-play.svg',alt: '',class: 'toppage-footer-top__googleicon'
+    .toppage-footer-top__photo
+      = image_tag 'download-app-pc-smartphon.png',alt: '',class: 'toppage-footer-top__smartphonimage',size: '300x260'
+%footer.toppage-footer-bottom
+  %nav.toppage-footer-bottom__navmain
+    .toppage-footer-bottom__summary
+      %h2{class: 'toppage-footer-bottom__navtitle'}メルカリについて
+      %ul{class: 'toppage-footer-bottom__navlist'}
+        %li{class: 'toppage-footer-bottom__nav'}
+          %a{ href: '/',class: 'toppage-footer-bottom__navurl'}会社概要（運営会社）
+        %li{class: 'toppage-footer-bottom__nav'}
+          %a{ href: '/',class: 'toppage-footer-bottom__navurl'}採用情報
+        %li{class: 'toppage-footer-bottom__nav'}
+          %a{ href: '/',class: 'toppage-footer-bottom__navurl'}プレスリリース
+        %li{class: 'toppage-footer-bottom__nav'}
+          %a{ href: '/',class: 'toppage-footer-bottom__navurl'}公式ブログ
+        %li{class: 'toppage-footer-bottom__nav'}
+          %a{ href: '/',class: 'toppage-footer-bottom__navurl'}メルカリロゴ利用ガイドライン
+        %a{ href: 'https://twitter.com/mercari_jp',class: 'toppage-footer-bottom__iconbox'}
+          %p.toppage-footer-bottom__lefticon
+            %i.fab.fa-twitter.toppage-footer-bottom__icon
+        %a{ href: 'https://www.facebook.com/mercarijp',class: 'toppage-footer-bottom__iconbox'}
+          %p.toppage-footer-bottom_righticon
+            %i.fab.fa-facebook-square.toppage-footer-bottom__icon
+    .toppage-footer-bottom__guide
+      %h2{class: 'toppage-footer-bottom__navtitle'}ヘルプ&ガイド
+      %ul{class: 'toppage-footer-bottom__navlist'}
+        %li{class: 'toppage-footer-bottom__nav'}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}メルカリガイド
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}らくらくメルカリ便
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}ゆうゆうメルカリ便
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}大型メルカリ便
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}車体取引ガイド
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}メルカリあんしん・あんぜん宣言！
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}偽ブランド品撲滅への取り組み
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}メルカリボックス
+    .toppage-footer-bottom__privacy
+      %h2{class: "toppage-footer-bottom__navtitle"}プライバシーと利用規約
+      .toppage-footer-bottom__termsleft
+        %ul{class: "toppage-footer-bottom__navlist"}
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}プライバシーポリシー
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}メルカリ利用規約
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}安心スマホサポート制度に関する利用規約
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}コンプライアンスポリシー
+      .toppage-footer-bottom__termsright
+        %ul{class: "toppage-footer-bottom__navlist"}
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}個人データの安全管理に関する基本方針
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}特定商取引に関する表記
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}資金決済法に基づく表記
+          %li{class: "toppage-footer-bottom__nav"}
+            %a{ href: '/',class: "toppage-footer-bottom__navurl"}法令厳守と犯罪抑止のために
+    .toppage-footer-bottom__country
+      %h2{class: "toppage-footer-bottom__navtitle"}国
+      %ul{class: "toppage-footer-bottom__navlist"}
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}日本
+        %li{class: "toppage-footer-bottom__nav"}
+          %a{ href: '/',class: "toppage-footer-bottom__navurl"}United States
+  .toppage-footer-bottom__license
+    %a{ href:'/',class:'toppage-footer-bottom__mercarilogo' }
+      = image_tag "mercari-logo-white.svg",alt: "Mercari",class: "toppage-footer-bottom__logo"
+    %span.toppage-footer-bottom__information
+      © 2019 Mercari
