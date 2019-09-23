@@ -1,0 +1,137 @@
+.mypage-content
+  %section.mypage-content__user-icon
+    = link_to '#' do
+      %figure
+        = image_tag 'mypage-user-icon.png', size: '60x60'
+      %h2.mypage-content__user-name.bold
+        Test User
+      .mypage-content__status
+        .mypage-content__reviews
+          評価&nbsp
+          %span.mypage-content__reviews.bold<>
+            2
+        .mypage-content__sell
+          出品数
+          %span.mypage-content__sell.bold<>
+            0
+  %section.mypage-content__main-tab-container
+    %ul.mypage-content__tabs
+      %li.mypage-content__tab.mypage-content__tab--active
+        %h3
+          = link_to '#', id: 'mypage-content__tab-notification' do
+            お知らせ
+      %li.mypage-content__tab
+        %h3
+          = link_to '#', id: 'mypage-content__tab-todo' do
+            やることリスト
+    .mypage-content__tab-content
+      %ul.mypage-content__item-list.mypage-content__item-list--active{ id: 'mypage-content__item-list-notification' }
+        %li
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag 'mercari_profile.png', size: '48x48'
+            .mypage-content__item-body
+              .mypage-content__item-text
+                《メルペイはじめよう》セブン-イレブン、ファミリーマート、ローソンの人気商品が¥11〜で買えるクーポン配信中
+              %time
+                = icon 'far', 'clock'
+                %span
+                  2 時間前
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag 'mercari_profile.png', size: "48x48"
+            .mypage-content__item-body
+              .mypage-content__item-text
+                【最大1000円分ポイントプレゼント！】詳しくはこちら♪
+              %time
+                = icon 'far', 'clock'
+                %span
+                  7 時間前
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag 'mercari_profile.png', size: "48x48"
+            .mypage-content__item-body
+              .mypage-content__item-text
+                《もうP1,000はゲットしましたか？》友達・家族を招待すると1人の招待につき必ずP1,000がもらえる
+              %time
+                = icon 'far', 'clock'
+                %span
+                  2 日前
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag 'mercari_profile.png', size: "48x48"
+            .mypage-content__item-body
+              .mypage-content__item-text
+                《増税前のまとめ買いラストチャンス！あと払いで半額ポイント還元》6,000円分のお買い物が実質3,000円に！
+                %time
+                  = icon 'far', 'clock'
+                  %span
+                    3 日前
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag 'mercari_profile.png', size: '48x48'
+            .mypage-content__item-body
+              .mypage-content__item-text
+                《3連休最終日！すすメルペイでP1,000ゲット》10人招待したらP10,000もらえる！詳しくはこちらから
+                %time
+                  = icon 'far', 'clock'
+                  %span
+                    5 日前
+            = icon 'fas', 'chevron-right'
+        %li.mypage-content__go-list
+          = link_to '#' do
+            一覧を見る
+      %ul.mypage-content__item-list{ id: 'mypage-content__item-list-todo' }
+        %li.mypage-content__item-not-found
+          現在、やることリストはありません
+  %section.mypage-content__secondary-tab-container
+    %h2.mypage-content__tab-head
+      購入した商品
+    %ul.mypage-content__tabs
+      %li.mypage-content__tab.mypage-content__tab--active
+        %h3
+          = link_to '#', id: 'mypage-content__tab-transaction-now' do
+            取引中
+      %li.mypage-content__tab
+        %h3
+          = link_to '#', id: 'mypage-content__tab-transaction-old' do
+            過去の取引
+    .mypage-content__tab-content
+      %ul.mypage-content__item-list.mypage-content__item-list--active{ id: 'mypage-content__item-list-transaction-now' }
+        %li.mypage-content__item-not-found
+          取引中の商品がありません
+      %ul.mypage-content__item-list{ id: 'mypage-content__item-list-transaction-old' }
+        %li
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag 'mercari_profile.png', size: '48x48'
+            .mypage-content__item-body
+              .mypage-content__item-text
+                「SONY ワイヤレスイヤホン WF-1000XM3 新品・未開封品」 を購入しました。
+                %span
+                  取引が完了しました
+              .mypage-content__item-status.mypage-content__item-status--done
+                取引完了
+            = icon 'fas', 'chevron-right'
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag 'mercari_profile.png', size: '48x48'
+            .mypage-content__item-body
+              .mypage-content__item-text
+                「iPhone充電ケーブル3本セット」 を購入しました。
+                %span
+                  取引が完了しました
+              .mypage-content__item-status.mypage-content__item-status--done
+                取引完了
+            = icon 'fas', 'chevron-right'
+          %li.mypage-content__go-list
+            = link_to '#' do
+              一覧を見る

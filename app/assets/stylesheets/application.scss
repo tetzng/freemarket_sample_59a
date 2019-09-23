@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+@import "config/reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "config/colors";
+@import "bread-crumbs";
+@import "mypage";
+@import "mypage/mypage-content";
+@import "mypage/mypage-side-bar";
