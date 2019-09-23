@@ -27,8 +27,7 @@
           data: { toggle: "tab" } }
             やることリスト
     .mypage-content__tab-content
-      %ul{ class: 'mypage-content__item-list mypage-content__item-list--active',
-      id: 'mypage-content__item-list-notification' }
+      %ul.mypage-content__item-list.mypage-content__item-list--active{ id: 'mypage-content__item-list-notification' }
         %li
           %a.mypage-content__item-link{ href: '#' }
             %figure
@@ -108,12 +107,10 @@
           %a{ href: '#', id: 'mypage-content__tab-transaction-old' }
             過去の取引
     .mypage-content__tab-content
-      %ul{ class: 'mypage-content__item-list mypage-content__item-list--active',
-      id: 'mypage-content__item-list-transaction-now' }
+      %ul.mypage-content__item-list.mypage-content__item-list--active{ id: 'mypage-content__item-list-transaction-now' }
         %li.mypage-content__item-not-found
           取引中の商品がありません
-      %ul{ class: 'mypage-content__item-list',
-      id: 'mypage-content__item-list-transaction-old' }
+      %ul.mypage-content__item-list{ id: 'mypage-content__item-list-transaction-old' }
         %li
           %a.mypage-content__item-link{ href: '#' }
             %figure
