@@ -1,6 +1,6 @@
 .mypage-content
   %section.mypage-content__user-icon
-    %a{ href: '#' }
+    = link_to '#' do
       %figure
         = image_tag 'mypage-user-icon.png', size: '60x60'
       %h2.mypage-content__user-name.bold
@@ -18,20 +18,18 @@
     %ul.mypage-content__tabs
       %li.mypage-content__tab.mypage-content__tab--active
         %h3
-          %a{ href: '#', id: 'mypage-content__tab-notification',
-          data: { toggle: 'tab' } }
+          = link_to '#', id: 'mypage-content__tab-notification' do
             お知らせ
       %li.mypage-content__tab
         %h3
-          %a{ href: '#', id: 'mypage-content__tab-todo',
-          data: { toggle: "tab" } }
+          = link_to '#', id: 'mypage-content__tab-todo' do
             やることリスト
     .mypage-content__tab-content
       %ul.mypage-content__item-list.mypage-content__item-list--active{ id: 'mypage-content__item-list-notification' }
         %li
-          %a.mypage-content__item-link{ href: '#' }
+          = link_to '#', class: 'mypage-content__item-link' do
             %figure
-              = image_tag 'mercari_profile.png', size: "48x48"
+              = image_tag 'mercari_profile.png', size: '48x48'
             .mypage-content__item-body
               .mypage-content__item-text
                 《メルペイはじめよう》セブン-イレブン、ファミリーマート、ローソンの人気商品が¥11〜で買えるクーポン配信中
@@ -41,7 +39,7 @@
                   2 時間前
             = icon 'fas', 'chevron-right'
         %li
-          %a.mypage-content__item-link{ href: '#' }
+          = link_to '#', class: 'mypage-content__item-link' do
             %figure
               = image_tag 'mercari_profile.png', size: "48x48"
             .mypage-content__item-body
@@ -51,9 +49,9 @@
                 = icon 'far', 'clock'
                 %span
                   7 時間前
-            =icon 'fas', 'chevron-right'
+            = icon 'fas', 'chevron-right'
         %li
-          %a.mypage-content__item-link{ href: '#' }
+          = link_to '#', class: 'mypage-content__item-link' do
             %figure
               = image_tag 'mercari_profile.png', size: "48x48"
             .mypage-content__item-body
@@ -65,21 +63,21 @@
                   2 日前
             = icon 'fas', 'chevron-right'
         %li
-          %a.mypage-content__item-link{ href: '#' }
+          = link_to '#', class: 'mypage-content__item-link' do
             %figure
               = image_tag 'mercari_profile.png', size: "48x48"
             .mypage-content__item-body
               .mypage-content__item-text
                 《増税前のまとめ買いラストチャンス！あと払いで半額ポイント還元》6,000円分のお買い物が実質3,000円に！
                 %time
-                  =icon 'far', 'clock'
+                  = icon 'far', 'clock'
                   %span
                     3 日前
             = icon 'fas', 'chevron-right'
         %li
-          %a.mypage-content__item-link{ href: '#' }
+          = link_to '#', class: 'mypage-content__item-link' do
             %figure
-              = image_tag 'mercari_profile.png', size: "48x48"
+              = image_tag 'mercari_profile.png', size: '48x48'
             .mypage-content__item-body
               .mypage-content__item-text
                 《3連休最終日！すすメルペイでP1,000ゲット》10人招待したらP10,000もらえる！詳しくはこちらから
@@ -89,7 +87,7 @@
                     5 日前
             = icon 'fas', 'chevron-right'
         %li.mypage-content__go-list
-          %a{href: "#"}
+          = link_to '#' do
             一覧を見る
       %ul.mypage-content__item-list{ id: 'mypage-content__item-list-todo' }
         %li.mypage-content__item-not-found
@@ -100,11 +98,11 @@
     %ul.mypage-content__tabs
       %li.mypage-content__tab.mypage-content__tab--active
         %h3
-          %a{ href: '#', id: 'mypage-content__tab-transaction-now' }
+          = link_to '#', id: 'mypage-content__tab-transaction-now' do
             取引中
       %li.mypage-content__tab
         %h3
-          %a{ href: '#', id: 'mypage-content__tab-transaction-old' }
+          = link_to '#', id: 'mypage-content__tab-transaction-old' do
             過去の取引
     .mypage-content__tab-content
       %ul.mypage-content__item-list.mypage-content__item-list--active{ id: 'mypage-content__item-list-transaction-now' }
@@ -112,7 +110,7 @@
           取引中の商品がありません
       %ul.mypage-content__item-list{ id: 'mypage-content__item-list-transaction-old' }
         %li
-          %a.mypage-content__item-link{ href: '#' }
+          = link_to '#', class: 'mypage-content__item-link' do
             %figure
               = image_tag 'mercari_profile.png', size: '48x48'
             .mypage-content__item-body
@@ -123,7 +121,7 @@
               .mypage-content__item-status.mypage-content__item-status--done
                 取引完了
             = icon 'fas', 'chevron-right'
-          %a.mypage-content__item-link{ href: '#' }
+          = link_to '#', class: 'mypage-content__item-link' do
             %figure
               = image_tag 'mercari_profile.png', size: '48x48'
             .mypage-content__item-body
@@ -135,5 +133,5 @@
                 取引完了
             = icon 'fas', 'chevron-right'
           %li.mypage-content__go-list
-            %a{ href: '#' }
+            = link_to '#' do
               一覧を見る
