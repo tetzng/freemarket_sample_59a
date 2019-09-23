@@ -12,9 +12,10 @@
  *
  *= require_self
  */
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import "config/colors";
- @import "config/reset";
- @import "toppage/toppage_header";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+ @import 'config/colors';
+ @import 'config/reset';
+ @import 'toppage/toppage_header';
+ @import 'slider.scss'
 
