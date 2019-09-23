@@ -62,8 +62,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
 gem 'fog-aws'
-gem 'haml-rails'
 gem 'font-awesome-sass', '~> 5.11.1'
+gem 'haml-rails'
 
 
 group :production do

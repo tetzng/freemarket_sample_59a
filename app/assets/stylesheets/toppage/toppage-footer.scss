@@ -100,12 +100,15 @@ body {
     padding-right: 40px;
     margin-top: 18px;
     display: inline-block;
+    width: 40%;
+    vertical-align: top;
   }
   &__country{
     width: auto;
     padding-right: 40px;
     margin-top: 18px;
     display: inline-block;
+    vertical-align: top;
   }
   &__navtitle{
     font-size: 16px;
@@ -135,10 +138,6 @@ body {
     display: inline-block;
     font-size: 90%;
   }
-  &__privacy{
-    width: 40%;
-    vertical-align: top;
-  }
   &__termsleft{
     display: inline-block;
     width: 49%;
@@ -147,9 +146,6 @@ body {
   &__termsright{
     display: inline-block;
     width: 50%;
-    vertical-align: top;
-  }
-  &__country{
     vertical-align: top;
   }
   &__logo:hover{
