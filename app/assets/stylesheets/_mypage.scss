@@ -1,8 +1,5 @@
 :root {
   cursor: auto;
-}
-
-:root {
   background-color: #fff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -14,17 +11,12 @@
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-}
-*, ::before, ::after {
-  border-style: solid;
-  border-width: 0;
-}
-
-* {
   font-size: inherit;
   line-height: inherit;
 }
 *, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }

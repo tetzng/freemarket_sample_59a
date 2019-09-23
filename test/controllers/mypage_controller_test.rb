@@ -5,5 +5,4 @@ class MypageControllerTest < ActionDispatch::IntegrationTest
     get mypage_index_url
     assert_response :success
   end
-
 end
