@@ -8,36 +8,36 @@
   .l-chapter-container {
     height: 100%;
     width: 100%;
-    &__head {
-      box-sizing: border-box;
-      padding: 8px 24px;
-      height: 50px;
-      color: black;
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      border-bottom: 1px solid #f5f5f5;
-    }
-    form {
-      height: 518px;
-      box-sizing: border-box;
-      .setting-profile-icon {
-      padding: 72px 16px 24px;
-      background:url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?69765993);
-      background-size: contain;
-      text-align: center;
-        figure {
-          margin: 0 0 0;
-          display: inline-block;
-          width: 60px;
-          height: 60px;
-          vertical-align: middle;
-          .image-image {
-            border-radius: 50%;
+      &__head {
+        box-sizing: border-box;
+        padding: 8px 24px;
+        height: 50px;
+        color: black;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      form {
+        height: 518px;
+        box-sizing: border-box;
+        .setting-profile-icon {
+        padding: 72px 16px 24px;
+        background:url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?69765993);
+        background-size: contain;
+        text-align: center;
+          figure {
+            margin: 0 0 0;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            vertical-align: middle;
+            .image-image {
+              border-radius: 50%;
+            }
           }
         }
-      }
-    
+      
         .input-default {
           box-sizing: border-box;
           width: 220px;
@@ -55,41 +55,40 @@
             border: 1px solid blue;
           }
         }
-    }
+      }
     .setting-profile-content {
       height: 362px;
       box-sizing: border-box;
       padding: 40px 16px;
-        .textarea-default {
-          box-sizing: border-box;
-          border: 0;
-          display: block;
-          width: 100%;
-          max-width: 100%;
-          min-height: 216px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          background-color: white;
-          font-size: 16px;
-          line-height: 1.5;
-          &:focus {
-            outline: none;
-            border: 1px solid blue;
-          }
+      .textarea-default {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-height: 216px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: white;
+        font-size: 16px;
+        line-height: 1.5;
+        &:focus {
+          outline: none;
+          border: 1px solid blue;
         }
-        .btn-default.btn-red {
-          margin: 16px 0 0;
-          background-color: red;
-          border: 1px solid red;
-          color: white;
-          display: block;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          text-align: center;
-          transition: all ease-out .3s;
-          cursor: pointer;
-        }
+      }
+      .btn-default.btn-red {
+        margin: 16px 0 0;
+        background-color: red;
+        border: 1px solid red;
+        color: white;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        text-align: center;
+        transition: all ease-out .3s;
+        cursor: pointer;
+      }
     }
   }  
 }
