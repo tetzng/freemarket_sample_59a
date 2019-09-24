@@ -4,7 +4,7 @@
   .indentification-content
     %section.indentification-content__mypage
       %h2.indentification-content__head 本人情報の登録
-      %form{ acotion: '/', method:'get', class: 'indentification-content__form' }
+      %form.indentification-content__form{ acotion: '/', method: 'get' }
         %div
           %p.indentification-content__info
             お客様の本人情報を登録してください。
@@ -25,13 +25,13 @@
         .indentification-content__group
           %label.indentification-content__zipcode 郵便番号
           %span.indentification-content__arbitrary 任意
-          %input{ type: 'text', name: 'zip_code', placeholder: '例）1234567', class: 'indentification-content__default' }
+          %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）1234567' }
         .indentification-content__group
           %label.indentification-content__prefecture 都道府県
           %span.indentification-content__arbitrary 任意
           .indentification-content__select
             %i.fas.fa-chevron-down
-            %select.select-default{name: 'prefecture'}
+            %select.select-default{ name: 'prefecture' }
               %option　--
               %option 北海道
               %option 青森県
@@ -83,19 +83,18 @@
         .indentification-content__group
           %label.indentification-content__zipcode 市区町村
           %span.indentification-content__arbitrary 任意
-          %input{ type: 'text', name: 'zip_code', placeholder: '例）横浜市緑区', class: 'indentification-content__default' }
+          %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）横浜市緑区' }
         .indentification-content__group
           %label.indentification-content__zipcode 番地
           %span.indentification-content__arbitrary 任意
-          %input{ type: 'text', name: 'zip_code', placeholder: '例）青山1-1-1', class: 'indentification-content__default' }          
+          %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）青山1-1-1' }          
         .indentification-content__group
           %label.indentification-content__zipcode 建物名
           %span.indentification-content__arbitrary 任意
-          %input{ type: 'text', name: 'zip_code', placeholder: '例）柳ビル103', class: 'indentification-content__default' }
-          %button{ type: 'submit', class: 'indentification-content__button', } 登録する
+          %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）柳ビル103' }
+          %button.indentification-content__button{ type: 'submit' } 登録する
         %p.indentification-content__textlink{ id: 'textinfo' }
           = link_to '本人情報の登録について', 'https://www.mercari.com/jp/help_center/article/495/'
           %i.fas.fa-chevron-right
-            
   = render 'toppage/sell'
 = render 'toppage/footer'
