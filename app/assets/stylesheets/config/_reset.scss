@@ -9,15 +9,15 @@
     TODO with the prefix, should I group by selector or property for weight savings?
 */
 html{
-  color:#000;
-  background:#FFF;
+    color:#000;
+    background:#FFF;
 }
 /*
-  TODO remove settings on BODY since we can't namespace it.
+    TODO remove settings on BODY since we can't namespace it.
 */
 /*
-  TODO test putting a class on HEAD.
-      - Fails on FF.
+    TODO test putting a class on HEAD.
+        - Fails on FF.
 */
 body,
 div,

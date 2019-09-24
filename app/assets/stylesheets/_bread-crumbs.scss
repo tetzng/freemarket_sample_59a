@@ -1,0 +1,51 @@
+.bread-crumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  background: #f5f5f5;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  ul{
+    padding: 16px;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  li {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  li:last-child{
+    font-weight: 600;
+  }
+  a{
+    color: #333;
+  }
+  i {
+    margin: 0 8px;
+    font-size: 9px;
+    color: #888;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .bread-crumbs ul {
+    overflow: visible;
+    width: 700px;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+  }
+}
+@media screen and (min-width: 1068px){
+  .bread-crumbs {
+    ul {
+      width: 1020px;
+    }
+    li {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
