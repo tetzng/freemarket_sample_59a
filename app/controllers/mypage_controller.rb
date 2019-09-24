@@ -1,4 +1,8 @@
 class MypageController < ApplicationController
-  def index; end
-  def identification; end
+  def identification
+  end
+  def index
+  end
+  def profile
+  end
 end

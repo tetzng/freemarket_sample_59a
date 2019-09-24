@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'toppage#index'
-  get 'mypage/index'
   get 'mypage/identification'
+  get '/mypage', to: 'mypage#index'
+  get '/mypage/profile', to: 'mypage#profile'
 end
