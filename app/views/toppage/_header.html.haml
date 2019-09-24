@@ -58,11 +58,28 @@
 .toppage-slider
   %ul.toppage-slider__wrapper
     %li.toppage-slider__contents-01
-      .toppage-slider__contents-01--content
-        = image_tag 'index-keyvisual01.png', height: '390px'
+      .toppage-slider__contents-01-content
+        =link_to 'https://www.mercari.com/jp/featured/camp/' do
+          = image_tag 'index-keyvisual01.png', height: '390px', class: "toppage-slider__contents-01--camp-photo"
     %li.toppage-slider__contents-02
-      .toppage-slider__contents-02--content
-        = image_tag 'index-keyvisual01.png', height: '390px'
+      .toppage-slider__contents-02-content
+        = image_tag 'top-banner-main-device.png', class: 'toppage-slider__contents-02-content--device-photo', size: '440x390'
+        .toppage-slider__contents-02-content-wrapper
+          .toppage-slider__contents-02-content-wrapper--large-text
+            スマホで かんたん
+            %br
+            フリマアプリ
+          .toppage-slider__contents-02-content-wrapper--small-text
+            メルカリはスマホアプリからすぐに出品できる
+            %br
+            購入時も安心な独自システムのアプリです
+          .toppage-slider__contents-02-content-wrapper-logos
+            = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8' do
+              = image_tag 'app-store.svg', class: 'toppage-slider__contents-02-content-wrapper--app-logo', size: '170x50'
+            .toppage-slider__contents-02-content-wrapper-space
+            = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' do
+              = image_tag 'google-play.svg', id: 'toppage-slider__contents-02-content-wrapper--google-logo', size: '170x50'
+
   .slide-dots-contents
     %ul.slick-dots
       %li.slick-active{:role => "presentation"}

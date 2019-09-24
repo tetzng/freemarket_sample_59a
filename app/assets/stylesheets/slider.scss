@@ -48,7 +48,7 @@ button{
   bottom: 200px;
   left: 60px;
   cursor: pointer;
-  z-index: 1005;
+  z-index: 1006;
 }
 
 .fa-chevron-right {
@@ -64,8 +64,7 @@ button{
 
 .toppage-slider {
   height: 390px;
-  width: 100%;
-
+  width: 100vw;
   &__wrapper {
   height: 390px;
   width: 100vw;
@@ -73,32 +72,70 @@ button{
 
   &__contents-01  {
   box-sizing: border-box;
-  display: inline-block;
   height: auto;
-  margin: auto 0px;
   z-index: 1003;
   width: 100%;
-    &--content  {
+    &-content  {
+      width: 100vw;
       background-image: url('index_keyvisual_pattern.jpg');
-      background-position-x: 50%;
-      background-position-y: 50%;
-      background-size: cover;
+      background-size: 10% auto;
       }
-    }
+    &--camp-photo {
+      margin: 0 auto;
 
+    }
+    }
   &__contents-02  {
+    font-family: 'YuGothic' !important;
+    height: 390px;
     box-sizing: border-box;
     display: inline-block;
-    height: auto;
-    margin: auto 0px;
     z-index: 1003;
-    width: 100%;
-    background-color: lightgray;
+      &-content {
+        align-items: center;
+        background-image: url('top-banner-main.jpg');
+        background-size:  cover;
+        position: relative;
+        height: 390px;
+        &--device-photo {
+          position: absolute;
+          right: 151px;
+        }
+        &-wrapper {
+          width: 780px;
+          height: 320px;
+          padding: 20px 40px;
+          margin: 0 auto;
+          position: relative;
+          &--large-text {
+            font-size: 60px;
+            white-space: normal;
+            padding: 0px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            color: $black;
+            }
+          &--small-text {
+            white-space: normal;
+            padding: 0px;
+            font-size: 18px;
+            line-height: 1.77777;
+            margin-bottom: 24px;
+            color: $black;
+        }
+      }
     }
+  }
 }
+  
 
-.slick-slide img  {
-  margin: 0 auto;
+.toppage-slider__contents-02-content-wrapper-logos  {
+  display: flex !important;
+  align-items: center;
 }
+.toppage-slider__contents-02-content-wrapper-space  {
+ margin: 4px;
+  }
 
 

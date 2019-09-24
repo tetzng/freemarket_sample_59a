@@ -8,7 +8,7 @@ $(function() {
       // ドットを追加する要素を指定
       appendDots: $('.toppage-slider'),
       // スライダー矢印の指定
-      prevArrow:'<i class="fas fa-chvron-left", id="prev-arrow"></i>',
+      prevArrow:'<i class="fas fa-chevron-left", id="prev-arrow"></i>',
       nextArrow:'<i class="fas fa-chevron-right", id="next-arrow"></i>',
       // ドットの有無
       dots: true,
@@ -16,8 +16,6 @@ $(function() {
       autoplay: true,
       autoplaySpeed: 4000,
       speed: 800,
-      // スライダー内の画像の位置指定
-      centerMode: true,
   });
 
   // ドットの操作
