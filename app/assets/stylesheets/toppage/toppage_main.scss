@@ -45,7 +45,15 @@ body {
     margin: auto;
   }
 
-
+  
+  &__more-link{
+    color: rgb(0, 149, 238);
+    font-size: 14px;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
   &__item-more {
     color: rgb(0, 149, 238);
     font-size: 14px;
@@ -53,15 +61,6 @@ body {
     text-decoration: none;
     padding: 5px 16px 5px 5px;
     font-weight: 900;
-    a{
-      color: rgb(0, 149, 238);
-      font-size: 14px;
-      text-decoration: none;
-
-      width: 100%;
-      height: 100%;
-      display: inline-block;
-    }
   }
   &__text {
     font-size: 24px;
@@ -88,7 +87,7 @@ body {
         &:hover {
           border-color: rgb(0, 149, 238);
         }
-        a{
+        &__more-link{
           width: 100%;
           height: 100%;
           box-sizing: border-box;
@@ -158,8 +157,6 @@ body {
             right: 0;
             width: 50%;
             }
-            
-
           }
         }
   &__contents{
