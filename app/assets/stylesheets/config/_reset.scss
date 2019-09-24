@@ -12,12 +12,13 @@ html{
   color:#000;
   background:#FFF;
 }
+
 /*
-  TODO remove settings on BODY since we can't namespace it.
+    TODO remove settings on BODY since we can't namespace it.
 */
 /*
-  TODO test putting a class on HEAD.
-      - Fails on FF.
+    TODO test putting a class on HEAD.
+        - Fails on FF.
 */
 body,
 div,
@@ -55,9 +56,7 @@ fieldset,
 img {
   border:0;
 }
-/*
-  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
-*/
+
 address,
 caption,
 cite,
