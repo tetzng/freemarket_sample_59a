@@ -1,0 +1,82 @@
+:root {
+  cursor: auto;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #000;
+  font: 66.66667% sans-serif;
+}
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+.bold{
+  font-weight: 600;
+}
+ul, ol {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  touch-action: manipulation;
+}
+img {
+  vertical-align: middle;
+}
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+h3 {
+  font-size: 22px;
+}
+:focus {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: .7;
+}
+
+
+.mypage-container{
+  margin: 24px auto 0;
+  padding-bottom: 40px;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@media screen and (min-width: 768px){
+  .mypage-container{
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .mypage-container{
+    margin: 40px auto 0;
+    width: 1020px;
+  }
+}

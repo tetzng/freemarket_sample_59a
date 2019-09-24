@@ -1,5 +1,93 @@
-.toppage-footer-top
-    .toppage-footer-top__box
-        .toppage-footer-top__download
-        .toppage-footer-top__photo
-.toppage-footer-bottom
+%aside.toppage-footer-top
+  .toppage-footer-top__box
+    .toppage-footer-top__downloadlink
+      .toppage-footer-top__label
+        スマホでかんたんフリマアプリ
+      .toppage-footer-top__text
+        今すぐ無料ダウンロード！
+      .toppage-footer-top__linkicon
+        = image_tag 'mercari-icon.png',
+        class: 'toppage-footer-top__mercariicon',size: '68x68'
+        = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', id: 'toppage-appleicon' do
+          = image_tag 'app-store.svg',
+          class: 'toppage-footer-top__appstoreicon'
+        = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja',
+        id: 'toppage-googleicon' do
+          = image_tag 'google-play.svg', class: 'toppage-footer-top__googleicon'
+    .toppage-footer-top__photo
+      = image_tag 'download-app-pc-smartphon.png',
+      class: 'toppage-footer-top__smartphonimage',size: '300x260'
+%footer.toppage-footer-bottom
+  %nav.toppage-footer-bottom__navmain
+    .toppage-footer-bottom__summary
+      %h2.toppage-footer-bottom__navtitle メルカリについて
+      %ul.toppage-footer-bottom__navlist
+        %li.toppage-footer-bottom__nav
+          = link_to '会社概要（運営会社）', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to '採用情報', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to 'プレスリリース', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to '公式ブログ', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to 'メルカリロゴ利用ガイドライン', root_path, class: 'toppage-footer-bottom__navurl'
+        %a.toppage-footer-bottom__iconbox{ href: 'https://twitter.com/mercari_jp' }
+          %p.toppage-footer-bottom__lefticon
+            %i.fab.fa-twitter.toppage-footer-bottom__icon
+        %a.toppage-footer-bottom__iconbox{ href: 'https://www.facebook.com/mercarijp' }
+          %p.toppage-footer-bottom_righticon
+            %i.fab.fa-facebook-square.toppage-footer-bottom__icon
+    .toppage-footer-bottom__guide
+      %h2.toppage-footer-bottom__navtitle ヘルプ&ガイド
+      %ul.toppage-footer-bottom__navlist
+        %li.toppage-footer-bottom__nav
+          = link_to 'メルカリガイド', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to 'らくらくメルカリ便', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to 'ゆうゆうメルカリ便', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to '大型メルカリ便', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to '車体取引ガイド', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to 'メルカリあんしん・あんぜん宣言！', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to '偽ブランド品撲滅への取り組み', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to 'メルカリボックス', root_path, class: 'toppage-footer-bottom__navurl'
+    .toppage-footer-bottom__privacy
+      %h2.toppage-footer-bottom__navtitle プライバシーと利用規約
+      .toppage-footer-bottom__termsleft
+        %ul.toppage-footer-bottom__navlist
+          %li.toppage-footer-bottom__nav
+            = link_to 'プライバシーポリシー', root_path, class: 'toppage-footer-bottom__navurl'
+          %li.toppage-footer-bottom__nav
+            = link_to 'メルカリ利用規約', root_path, class: 'toppage-footer-bottom__navurl'
+          %li.toppage-footer-bottom__nav
+            = link_to '安心スマホサポート制度に関する利用規約', root_path, class: 'toppage-footer-bottom__navurl'
+          %li.toppage-footer-bottom__nav
+            = link_to 'コンプライアンスポリシー', root_path, class: 'toppage-footer-bottom__navurl'
+      .toppage-footer-bottom__termsright
+        %ul.toppage-footer-bottom__navlist
+          %li.toppage-footer-bottom__nav
+            = link_to '個人データの安全管理に関する基本方針', root_path, class: 'toppage-footer-bottom__navurl'
+          %li.toppage-footer-bottom__nav
+            = link_to '特定商取引に関する表記', root_path, class: 'toppage-footer-bottom__navurl'
+          %li.toppage-footer-bottom__nav
+            = link_to '資金決済法に基づく表記', root_path, class: 'toppage-footer-bottom__navurl'
+          %li.toppage-footer-bottom__nav
+            = link_to '法令厳守と犯罪抑止のために', root_path, class: 'toppage-footer-bottom__navurl'
+    .toppage-footer-bottom__country
+      %h2.toppage-footer-bottom__navtitle 国
+      %ul.toppage-footer-bottom__navlist
+        %li.toppage-footer-bottom__nav
+          = link_to '日本', root_path, class: 'toppage-footer-bottom__navurl'
+        %li.toppage-footer-bottom__nav
+          = link_to 'United States', root_path, class: 'toppage-footer-bottom__navurl'
+  .toppage-footer-bottom__license
+    %a.toppage-footer-bottom__mercarilogo{ href: '/' }
+      = image_tag 'mercari-logo-white.svg', alt: 'Mercari',
+      class: 'toppage-footer-bottom__logo'
+    %span.toppage-footer-bottom__information © 2019 Mercari
