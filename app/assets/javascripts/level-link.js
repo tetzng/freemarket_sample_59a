@@ -4,7 +4,6 @@ $(function () {
   $(".third-category__wrapper").hide();
   $(".brand__wrapper").hide();
 
-
   $(".toppage-header-top__footer-search-wrapper").hover(function () {
     $(".first-category__wrapper").show()
   }, function () {

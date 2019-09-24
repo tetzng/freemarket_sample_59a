@@ -189,12 +189,10 @@ ul.toppage-header-top__footer-search-categories:after{
     box-shadow: 0 1px 1px 0 $menu-shadow;
     box-sizing: border-box;
     left: -40px;
-    position: absolute;
     top: 44px;
     z-index: 1000;
   }
 }
-
 
 .second-category {
   display: block;
@@ -275,14 +273,10 @@ ul.toppage-header-top__footer-search-categories:after{
       background: $white;
       box-shadow: 0 1px 1px 0 $menu-shadow;
       box-sizing: border-box;
-      position: absolute;
       top: 44px;
       z-index: 1000;
     }
   }
-  
-
-
 
 
 
