@@ -65,6 +65,8 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# 静的データの管理（住所、都道府県など）
+gem 'active_hash', '~> 1.5.3'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'font-awesome-sass', '>=5.11.1'
