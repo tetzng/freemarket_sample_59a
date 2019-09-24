@@ -54,3 +54,18 @@
       .toppage-header-top__footer-contents--user-login-btn
         = link_to root_path do
           ログイン
+
+.toppage-slider
+  %ul.toppage-slider__wrapper
+    %li.toppage-slider__contents-01
+      .toppage-slider__contents-01--content
+        = image_tag 'index-keyvisual01.png', height: '390px'
+    %li.toppage-slider__contents-02
+      .toppage-slider__contents-02--content
+        = image_tag 'index-keyvisual01.png', height: '390px'
+  .slide-dots-contents
+    %ul.slick-dots
+      %li.slick-active{:role => "presentation"}
+        %button#slick-slide-control00
+      %li{:role => "presentation"}
+        %button#slick-slide-control01
