@@ -1,19 +1,23 @@
 .toppage-header-top
   .toppage-header-top__header
     .toppage-header-top__header-contents
-      = image_tag 'mercari-logo-red.svg', alt: 'mercari-logo', class: 'toppage-header-top__header-contents--mercari-logo'
+      = image_tag 'mercari-logo-red.svg', alt: 'mercari-logo',
+      class: 'toppage-header-top__header-contents--mercari-logo'
       .toppage-header-top__header-search
-        %form{action: '/', method: 'post'}
-          %input{name: 'seach', class: 'toppage-header-top__header-search--search-form', placeholder: '何かお探しですか？'}
+        %form{ action: '/', method: 'post' }
+          %input{ name: 'seach', class: 'toppage-header-top__header-search--search-form',
+          placeholder: '何かお探しですか？' }
         .toppage-header-top__header-search--search-btn
-          = icon('fas', 'search', alt: 'search-icon', class: 'toppage-header-top__header-search--search-btn')
+          = icon('fas', 'search', alt: 'search-icon',
+          class: 'toppage-header-top__header-search--search-btn')
   .toppage-header-top__footer
     %nav.toppage-header-top__footer-search
       %ul.toppage-header-top__footer-search-categories
         %li.toppage-header-top__footer-search-wrapper
           %h2
-            =link_to root_path do
-              = icon('fas', 'list-ul lg', alt: 'list-icon', style: 'color:#ea352d')
+            = link_to root_path do
+              = icon('fas', 'list-ul lg',
+              alt: 'list-icon', style: 'color:#ea352d')
               %span.toppage-header-top__footer-search-text カテゴリーから探す
           %ul.first-category__wrapper
             %li.first-category
@@ -32,7 +36,8 @@
         %li.toppage-header-top__footer-search-brand
           %h2
             = link_to root_path do
-              = icon('fas', 'tag lg', alt: 'tag-icon', style: 'color:#ea352d', class:'toppage-header-top__footer-search-brand--icon')
+              = icon('fas', 'tag lg', alt: 'tag-icon',
+              style: 'color:#ea352d', class:'toppage-header-top__footer-search-brand--icon')
               %span ブランドから探す
           %ul.brand__wrapper
             %li.brand
@@ -59,11 +64,13 @@
   %ul.toppage-slider__wrapper
     %li.toppage-slider__contents-01
       .toppage-slider__contents-01-content
-        =link_to 'https://www.mercari.com/jp/featured/camp/' do
-          = image_tag 'index-keyvisual01.png', height: '390px', class: "toppage-slider__contents-01--camp-photo"
+        = link_to 'https://www.mercari.com/jp/featured/camp/' do
+          = image_tag 'index-keyvisual01.png',
+          height: '390px', class: "toppage-slider__contents-01--camp-photo"
     %li.toppage-slider__contents-02
       .toppage-slider__contents-02-content
-        = image_tag 'top-banner-main-device.png', class: 'toppage-slider__contents-02-content--device-photo', size: '440x390'
+        = image_tag 'top-banner-main-device.png',
+        class: 'toppage-slider__contents-02-content--device-photo', size: '440x390'
         .toppage-slider__contents-02-content-wrapper
           .toppage-slider__contents-02-content-wrapper--large-text
             スマホで かんたん
@@ -75,14 +82,16 @@
             購入時も安心な独自システムのアプリです
           .toppage-slider__contents-02-content-wrapper-logos
             = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8' do
-              = image_tag 'app-store.svg', class: 'toppage-slider__contents-02-content-wrapper--app-logo', size: '170x50'
+              = image_tag 'app-store.svg',
+              class: 'toppage-slider__contents-02-content-wrapper--app-logo', size: '170x50'
             .toppage-slider__contents-02-content-wrapper-space
             = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' do
-              = image_tag 'google-play.svg', id: 'toppage-slider__contents-02-content-wrapper--google-logo', size: '170x50'
+              = image_tag 'google-play.svg',
+              id: 'toppage-slider__contents-02-content-wrapper--google-logo', size: '170x50'
 
   .slide-dots-contents
     %ul.slick-dots
-      %li.slick-active{:role => "presentation"}
+      %li.slick-active{ role: "presentation" }
         %button#slick-slide-control00
-      %li{:role => "presentation"}
+      %li{ role: "presentation" }
         %button#slick-slide-control01
