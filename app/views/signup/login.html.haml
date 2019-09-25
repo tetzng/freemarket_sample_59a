@@ -7,18 +7,18 @@
         = link_to '/signup/' do
           新規会員登録
       .signup-main__login-form-inner
-        %button{ id: 'facebook-login', class: 'signup-main__btn-default signup-main__btn-sns signup-main__btn-sns--facebook' }
+        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'facebook-login' }
           = icon 'fab', 'facebook-square'
           Facebookでログイン
-        %button{ id: 'google-login', class: 'signup-main__btn-default signup-main__btn-sns signup-main__btn-sns--google' }
+        %buttonsignup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'google-login' }
           Googleでログイン
       %form{ action: '/login/', method: 'POST', novalidate: 'novalidate' }
         .signup-main__login-form-inner
           .signup-main__form-group
-            %input{ type: 'email', name: 'email', value: '', placeholder: 'メールアドレス', class: 'signup-main__login-input-text signup-main__input-default' }
+            %input.signup-main__login-input-text.signup-main__input-default{ type: 'email', name: 'email', placeholder: 'メールアドレス' }
           .signup-main__form-group
-            %input{ type: 'password', name: 'password', placeholder: 'パスワード', class: 'signup-main__login-input-text signup-main__input-default' }
-          %button{ type: 'submit', class: 'signup-main__login-submit signup-main__btn-default signup-main__btn-red' }
+            %input.signup-main__login-input-text.signup-main__input-default{ type: 'password', name: 'password', placeholder: 'パスワード' }
+          %button.signup-main__login-submit.signup-main__btn-default.signup-main__btn-red{ type: 'submit' }
             ログイン
           = link_to '#' do
             パスワードをお忘れの方
