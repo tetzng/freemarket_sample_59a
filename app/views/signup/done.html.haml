@@ -12,4 +12,8 @@
             会員登録が完了しました。
           = link_to "/mypage/", class: "signup-main__btn-default signup-main__btn-red" do
             メルカリをはじめる
+      = link_to '#', target: "_blank", class: 'signup-main__banner-pc' do
+        = image_tag 'banner-pc.jpg'
+      = link_to '#', target: "_blank", class: 'signup-main__banner-sp' do
+        = image_tag 'banner-sp.jpg'
   = render 'signup/footer'
