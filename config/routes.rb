@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/signup/credit_card', to: 'signup#credit_card'
   get '/signup/done', to: 'signup#done'
   get '/login', to: 'signup#login'
+  devise_for :users
   root 'toppage#index'
   get 'toppage/buydetails'
   get 'mypage/identification'
