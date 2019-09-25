@@ -5,4 +5,6 @@ class MypageController < ApplicationController
   end
   def profile
   end
+  def logout
+  end
 end
