@@ -21,7 +21,7 @@
               %span.toppage-header-top__footer-search-text カテゴリーから探す
           %ul.first-category__wrapper
             %li.first-category
-              %h3
+              %p
                 レディース
                 %ul.second-category__wrapper
                   %li.second-category
@@ -41,17 +41,17 @@
               %span ブランドから探す
           %ul.brand__wrapper
             %li.brand
-              %h3 アディダス
+              %p アディダス
             %li.brand
-              %h3 ナイキ
+              %p ナイキ
             %li.brand
-              %h3 ルイ・ヴィトン
+              %p ルイ・ヴィトン
             %li.brand
-              %h3 シャネル
+              %p シャネル
             %li.brand
-              %h3 シュプリーム
+              %p シュプリーム
             %li.brand
-              %h3 ブランド一覧
+              %p ブランド一覧
     .toppage-header-top__footer-contents
       .toppage-header-top__footer-contents--new-register-btn
         = link_to root_path do
@@ -62,36 +62,36 @@
 
 .toppage-slider
   %ul.toppage-slider__wrapper
-    %li.toppage-slider__contents-01
-      .toppage-slider__contents-01-content
+    %li.toppage-slider__contents-first
+      .toppage-slider__contents-first-content
         = link_to 'https://www.mercari.com/jp/featured/camp/' do
           = image_tag 'index-keyvisual01.png',
-          height: '390px', class: "toppage-slider__contents-01--camp-photo"
-    %li.toppage-slider__contents-02
-      .toppage-slider__contents-02-content
+          height: '390px', class: 'toppage-slider__contents-first--camp-photo'
+    %li.toppage-slider__contents-second
+      .toppage-slider__contents-second-content
         = image_tag 'top-banner-main-device.png',
-        class: 'toppage-slider__contents-02-content--device-photo', size: '440x390'
-        .toppage-slider__contents-02-content-wrapper
-          .toppage-slider__contents-02-content-wrapper--large-text
+        class: 'toppage-slider__contents-second-content--device-photo', size: '440x390'
+        .toppage-slider__contents-second-content-wrapper
+          .toppage-slider__contents-second-content-wrapper--large-text
             スマホで かんたん
             %br
             フリマアプリ
-          .toppage-slider__contents-02-content-wrapper--small-text
+          .toppage-slider__contents-second-content-wrapper--small-text
             メルカリはスマホアプリからすぐに出品できる
             %br
             購入時も安心な独自システムのアプリです
-          .toppage-slider__contents-02-content-wrapper-logos
+          .toppage-slider__contents-second-content-wrapper-logos
             = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8' do
               = image_tag 'app-store.svg',
-              class: 'toppage-slider__contents-02-content-wrapper--app-logo', size: '170x50'
-            .toppage-slider__contents-02-content-wrapper-space
+              class: 'toppage-slider__contents-second-content-wrapper--app-logo', size: '170x50'
+            .toppage-slider__contents-second-content-wrapper-space
             = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' do
               = image_tag 'google-play.svg',
-              id: 'toppage-slider__contents-02-content-wrapper--google-logo', size: '170x50'
+              id: 'toppage-slider__contents-second-content-wrapper--google-logo', size: '170x50'
 
   .slide-dots-contents
     %ul.slick-dots
-      %li.slick-active{ role: "presentation" }
+      %li.slick-active{ role: 'presentation' }
         %button#slick-slide-control00
-      %li{ role: "presentation" }
+      %li{ role: 'presentation' }
         %button#slick-slide-control01

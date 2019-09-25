@@ -1,3 +1,5 @@
+@import "config/colors";
+
 button{
   margin: 0;
   padding: 0;
@@ -70,7 +72,7 @@ button{
   width: 100vw;
   }
 
-  &__contents-01  {
+  &__contents-first  {
   box-sizing: border-box;
   height: auto;
   z-index: 1003;
@@ -79,13 +81,14 @@ button{
       width: 100vw;
       background-image: url('index_keyvisual_pattern.jpg');
       background-size: 10% auto;
+      background-repeat: repeat;
       }
     &--camp-photo {
       margin: 0 auto;
 
     }
     }
-  &__contents-02  {
+  &__contents-second  {
     font-family: 'YuGothic' !important;
     height: 390px;
     box-sizing: border-box;
@@ -130,11 +133,11 @@ button{
 }
   
 
-.toppage-slider__contents-02-content-wrapper-logos  {
+.toppage-slider__contents-second-content-wrapper-logos  {
   display: flex !important;
   align-items: center;
 }
-.toppage-slider__contents-02-content-wrapper-space  {
+.toppage-slider__contents-second-content-wrapper-space  {
  margin: 4px;
   }
 
