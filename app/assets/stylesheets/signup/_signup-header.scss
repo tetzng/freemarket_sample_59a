@@ -1,0 +1,123 @@
+.signup-header{
+  text-align: center;
+  h1 {
+    display: inline-block;
+    margin: 11px 0 12px;
+  }
+  a {
+    display: inline-block;
+    width: 120px;
+    height: 33px;
+    margin-right: 8px;
+    line-height: 33px;
+  }
+  img {
+    width: 120px;
+    height: 33px;
+  }
+  &__progress-bar {
+    font-size: 0;
+    text-align: center;
+    ol {
+      margin: 0;
+    }
+    li:first-child .signup-header__progress-status:before {
+      display: none;
+    }
+    li:last-child .signup-header__progress-status:after {
+      display: none;
+    }
+  }
+  &__bar.signup-header__progress-bar {
+    padding: 16px 0;
+    border-top: 1px solid #eee;
+  }
+  &__list{
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    min-width: 40px;
+    margin: 0 5% 0 0;
+    font-size: 12px;
+    color: #888;
+    .signup-header__progress-status {
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: #ccc;
+      border-radius: 50%;
+      &:before{
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+        right: 50%;
+        }
+      &:after{
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+        left: 50%;
+      }
+    }
+    &--active{
+      font-weight: 600;
+      color: #ea352d;
+      .signup-header__progress-status {
+        background: #ea352d;
+        &:before{
+          background: #ea352d;
+        }
+      }
+    }
+    &--through {
+      .signup-header__progress-status {
+        background: #ea352d;
+        &:before{
+          background: #ea352d;
+        }
+        &:after{
+          background: #ea352d;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px){
+  .signup-header {
+    height: 128px;
+    h1 {
+      margin-top: 40px;
+    }
+    a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+    }
+    img {
+      width: 185px;
+      height: 49px;
+    }
+    &__progress-bar {
+      display: inline-block;
+      vertical-align: top;
+      li {
+        margin-right: 40px;
+        min-width: 60px;
+      }
+    }
+    &__bar.signup-header__progress-bar {
+      padding: 40px 0 0 44px;
+      border: 0;
+    }
+  }
+}
