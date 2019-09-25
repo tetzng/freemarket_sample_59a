@@ -16,6 +16,10 @@
     text-align: center;
     background-color: rgb(234,53,45);
     border-radius: 50%;
+    &:hover {
+      text-decoration: none;
+      opacity: 1;
+    }
   }
   &__content{
     padding-top: 32px;
