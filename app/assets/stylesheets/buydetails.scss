@@ -1,0 +1,130 @@
+.buydetails-mein{
+  display: block;
+}
+.buydetails-content{
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-width: 0;
+  &__head{
+    padding: 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    border-style: solid;
+    border-width: 0;
+    font-weight: bold;
+  }
+  &__item{
+    padding: 24px 12.5% 0;
+    border-top: 1px solid #f5f5f5;
+  }
+  &__info{
+    padding: 24px 12.5% 0;
+    border-top: 1px solid #f5f5f5;
+  }
+  &__inner{
+    max-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    h3{
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  &__item-name{
+  width: calc(100% - 80px);
+  margin: 0 0 0 16px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  }
+  &__form{
+    width: 100%;
+    display: block;
+    text-align: center;
+    p{
+      margin: 8px 0 0;
+      line-height: 1.5;
+      font-size: 22px;
+      font-weight: 600;
+      span{
+        margin: 0 0 0 8px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+  &__accordion{
+    background: #ccc;
+    margin: 16px 0 0;
+    padding: 0;
+    padding: 17px;
+  }
+  &__table{
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    li{
+      font-size: 18px;
+    }
+  }
+  &__pricecell{
+    text-align: left;
+    display: table-cell;
+    padding: 16px 0;
+    font-weight: 600;
+    width: 100%;
+    span{
+      font-size: 28px;
+      text-align: right;
+    }
+  }
+  &__text{
+    color: #ea352d;
+    line-height: 1.5;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  &__btn{
+    background: #888;
+    margin: 16px 0 0;
+    padding: 0;
+    padding: 17px;
+    width: 100%;
+    color: white;
+  }
+  &__info{
+    margin: 40px 0 0;
+    padding: 24px 12.5% 0;
+    border-top: 1px solid #f5f5f5;
+  }
+  &__user{
+    width: 100%;
+    display: block;
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  &__fix{
+    display: block;
+    text-align: right;
+    color: #0099e8;
+    width: 100%;
+    a{
+      text-decoration: none;
+    }
+  }
+  &__infotext{
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.4;
+    width: 100%;
+    display: block;
+  }
+}
+#buydetails-bottom{
+  padding-bottom:40px;
+}

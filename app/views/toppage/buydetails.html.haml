@@ -1,0 +1,42 @@
+.toppage-primary-wrapper
+  .buydetails-mein
+    %section.buydetails-content
+      %h2.buydetails-content__head 購入内容の確認
+      %section.buydetails-content__item
+        .buydetails-content__inner
+          %h3.buydetails-content__image
+            = image_tag 'coach-bag.jpg', size: '64x64', class: 'buydetails-contet__image'
+          %p.buydetails-content__item-name COACH コーチ ショルダーバッグ 国内正規品
+          %form.buydetails-content__form
+            %p.buydetails-contet__price
+              ¥15,000
+              %span.buydetails-content__fee 送料込み
+            %ul.buydetails-content__accordion
+              %li.buydetails-content__list
+                .buydetails-content__toggle ポイントはありません
+            %ul.buydetails-content__table
+              %li.buydetails-content__youpay
+                .buydetails-content__pricecell 支払い金額
+                .buydetails-content__pricecell
+                  %span.buydetails-content__datapay  ¥15,000
+            .buydetails-content__text 配送先と支払方法の入力を完了してください。
+            %button.buydetails-content__btn{ type: 'submit' } 購入する
+      %section.buydetails-content__info
+        .buydetails-content__inner
+          %h3 配送先
+          %address.buydetails-content__user
+            〒123-4567
+            %br
+            福岡県福岡市中央区天神１丁目１−１
+            %br
+            text user
+          = link_to '/' , class: 'buydetails-content__fix' do
+            %span 変更する
+            = icon 'fas', 'chevron-right'
+      %section.buydetails-content__info{ id: 'buydetails-bottom' }
+        .buydetails-content__inner
+          %h3 支払方法
+          %p.buydetails-content__infotext /
+          = link_to '/' , class: 'buydetails-content__fix' do
+            %span 変更する
+            = icon 'fas', 'chevron-right'
