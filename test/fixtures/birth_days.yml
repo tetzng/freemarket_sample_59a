@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  birth_dd_id: 1
+  day: MyString
+
+two:
+  birth_dd_id: 1
+  day: MyString

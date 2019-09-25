@@ -1,0 +1,21 @@
+%header.signup-header
+  %h1
+    = link_to root_path do
+      = image_tag 'mercari_top_logo.svg', alt: 'mercari'
+  %nav.signup-header__progress-bar.signup-header__bar
+    %ol.clearfix
+      %li.signup-header__list.signup-header__list--through
+        会員情報
+        .signup-header__progress-status
+      %li.signup-header__list.signup-header__list--through
+        電話番号認証
+        .signup-header__progress-status
+      %li.signup-header__list.signup-header__list--active
+        お届け先住所入力
+        .signup-header__progress-status
+      %li.signup-header__list
+        支払い方法
+        .signup-header__progress-status
+      %li.signup-header__list
+        完了
+        .signup-header__progress-status

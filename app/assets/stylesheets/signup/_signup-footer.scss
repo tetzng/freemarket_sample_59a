@@ -1,0 +1,46 @@
+.signup-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+  ul {
+    font-size: 0;
+  }
+  li {
+    margin-top: 16px;
+    font-size: 12px;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  a {
+    display: block;
+    color: #333;
+  }
+  &__logo {
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+  }
+  p{
+    margin-top: 8px;
+  }
+  small {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 768px){
+  .signup-footer {
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    li {
+    display: inline-block;
+    margin-left: 16px;
+    }
+  }
+}

@@ -15,15 +15,17 @@
  *= require_self
  */
 
-@import "config/colors";
-@import "config/reset";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "bread-crumbs";
-@import "mypage";
-@import "mypage/mypage-content";
-@import "mypage/mypage-side-bar";
+@import 'config/colors';
+@import 'config/reset';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'bread-crumbs';
+@import 'mypage';
+@import 'mypage/mypage-content';
+@import 'mypage/mypage-side-bar';
 @import 'toppage/toppage_header';
 @import 'slider';
-
-
+@import 'signup';
+@import 'signup/signup-header';
+@import 'signup/signup-footer';
+@import 'signup/signup-main';

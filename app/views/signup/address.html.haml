@@ -1,0 +1,54 @@
+.signup-container
+  = render 'signup/header-address'
+  %main.signup-main
+    %section.signup-main__container
+      %h2.signup-main__head.signup-main__head--registration 発送元・お届け先住所入力
+      = form_with model: @address, url: '/signup/credit_card/', method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+        .signup-main__content
+          .signup-main__form-group
+            %label{ for: 'name' } お名前
+            %span.signup-main__form-require 必須
+            %input.signup-main__input-default{ type: 'text', name: 'family_name', placeholder: '例) 山田' }
+            %input.signup-main__input-default{ type: 'text', name: 'first_name', placeholder: '例) 彩' }
+          .signup-main__form-group
+            %label{ for: 'name' } お名前カナ
+            %span.signup-main__form-require 必須
+            %input.signup-main__input-default{ type: 'text', name: 'family_name_kana', placeholder: '例) ヤマダ' }
+            %input.signup-main__input-default{ type: 'text', name: 'first_name_kana', placeholder: '例) アヤ' }
+          .signup-main__form-group
+            %label{ for: 'zip_code1' } 郵便番号
+            %span.signup-main__form-require 必須
+            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', name: 'zip_code1', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}' }
+            %ul.signup-main__has-error-text
+              %li 入力してください
+              %li フォーマットが不適切です
+          .signup-main__form-group
+            %label{ for: 'prefecture' } 都道府県
+            %span.signup-main__form-require 必須
+            .signup-main__select-wrap
+              = icon 'fas', 'chevron-down'
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+              = icon 'fas', 'chevron-down'
+          .signup-main__form-group
+            %label{ for: 'city' } 市区町村
+            %span.signup-main__form-require 必須
+            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', name: 'city', placeholder: '例) 横浜市緑区' }
+            %ul.signup-main__has-error-text
+              %li 入力してください
+          .signup-main__form-group
+            %label{ for: 'address1_label' } 番地
+            %span.signup-main__form-require 必須
+            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', name: 'address1', placeholder: '例) 青山1−1−1' }
+            %ul.signup-main__has-error-text
+              %li 入力してください
+          .signup-main__form-group
+            %label{ for: 'address2_label' } 建物名
+            %span.signup-main__form-arbitrary 任意
+            %input.signup-main__input-default{ type: 'text', name: 'address2', placeholder: '例) 柳ビル103' }
+          .signup-main__form-group
+            %label{ for: 'address2_label' } 電話
+            %span.signup-main__form-arbitrary 任意
+            %input.signup-main__input-default{ type: 'text', name: 'telephone', placeholder: '例) 09012345678' }
+          %input{ type: 'hidden', name: 'after_save_callback' }
+          %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' }次へ進む
+  = render 'signup/footer'
