@@ -71,9 +71,9 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'font-awesome-sass', '>=5.11.1'
 gem 'haml-rails'
-gem 'jquery-rails'
+gem "jquery-rails"
+gem 'font-awesome-sass', '~> 5.11.1'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 group :production do
   gem 'unicorn', '5.4.1'
 end

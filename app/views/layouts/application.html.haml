@@ -7,6 +7,11 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -# スライダー(Slick)のCSS読み込み
+    %link{ href: "//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.css",
+    rel: "stylesheet", type: "text/css" }/
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    -# スライダー(Slick)のJS読み込み
+    %script{ src: "//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js", type: "text/javascript" }
   %body
     = yield

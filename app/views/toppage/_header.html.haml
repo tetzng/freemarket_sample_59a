@@ -1,0 +1,97 @@
+.toppage-header-top
+  .toppage-header-top__header
+    .toppage-header-top__header-contents
+      = image_tag 'mercari-logo-red.svg', alt: 'mercari-logo',
+      class: 'toppage-header-top__header-contents--mercari-logo'
+      .toppage-header-top__header-search
+        %form{ action: '/', method: 'post' }
+          %input{ name: 'seach', class: 'toppage-header-top__header-search--search-form',
+          placeholder: '何かお探しですか？' }
+        .toppage-header-top__header-search--search-btn
+          = icon('fas', 'search', alt: 'search-icon',
+          class: 'toppage-header-top__header-search--search-btn')
+  .toppage-header-top__footer
+    %nav.toppage-header-top__footer-search
+      %ul.toppage-header-top__footer-search-categories
+        %li.toppage-header-top__footer-search-wrapper
+          %h2
+            = link_to root_path do
+              = icon('fas', 'list-ul lg',
+              alt: 'list-icon', style: 'color:#ea352d')
+              %span.toppage-header-top__footer-search-text カテゴリーから探す
+          %ul.first-category__wrapper
+            %li.first-category
+              %p
+                レディース
+                %ul.second-category__wrapper
+                  %li.second-category
+                    トップス
+                    %ul.third-category__wrapper
+                      %li.third-category
+                        Tシャツ/カットソー(半袖/袖なし)
+                      %li.third-category
+                        Tシャツ/カットソー(七分/長袖)
+                      %li.third-category
+                        シャツ/ブラウス(半袖/袖なし)
+        %li.toppage-header-top__footer-search-brand
+          %h2
+            = link_to root_path do
+              = icon('fas', 'tag lg', alt: 'tag-icon',
+              style: 'color:#ea352d', class: 'toppage-header-top__footer-search-brand--icon')
+              %span ブランドから探す
+          %ul.brand__wrapper
+            %li.brand
+              %p アディダス
+            %li.brand
+              %p ナイキ
+            %li.brand
+              %p ルイ・ヴィトン
+            %li.brand
+              %p シャネル
+            %li.brand
+              %p シュプリーム
+            %li.brand
+              %p ブランド一覧
+    .toppage-header-top__footer-contents
+      .toppage-header-top__footer-contents--new-register-btn
+        = link_to root_path do
+          新規会員登録
+      .toppage-header-top__footer-contents--user-login-btn
+        = link_to root_path do
+          ログイン
+
+.toppage-slider
+  %ul.toppage-slider__wrapper
+    %li.toppage-slider__contents-first
+      .toppage-slider__contents-first-content
+        = link_to 'https://www.mercari.com/jp/featured/camp/' do
+          = image_tag 'index-keyvisual01.png',
+          height: '390px', class: 'toppage-slider__contents-first--camp-photo'
+    %li.toppage-slider__contents-second
+      .toppage-slider__contents-second-content
+        = image_tag 'top-banner-main-device.png',
+        class: 'toppage-slider__contents-second-content--device-photo', size: '440x390'
+        .toppage-slider__contents-second-content-wrapper
+          .toppage-slider__contents-second-content-wrapper--large-text
+            スマホで かんたん
+            %br
+            フリマアプリ
+          .toppage-slider__contents-second-content-wrapper--small-text
+            メルカリはスマホアプリからすぐに出品できる
+            %br
+            購入時も安心な独自システムのアプリです
+          .toppage-slider__contents-second-content-wrapper-logos
+            = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8' do
+              = image_tag 'app-store.svg',
+              class: 'toppage-slider__contents-second-content-wrapper--app-logo', size: '170x50'
+            .toppage-slider__contents-second-content-wrapper-space
+            = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' do
+              = image_tag 'google-play.svg',
+              id: 'toppage-slider__contents-second-content-wrapper--google-logo', size: '170x50'
+
+  .slide-dots-contents
+    %ul.slick-dots
+      %li.slick-active{ role: 'presentation' }
+        %button#slick-slide-control00
+      %li{ role: 'presentation' }
+        %button#slick-slide-control01
