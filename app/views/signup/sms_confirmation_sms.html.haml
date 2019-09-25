@@ -4,30 +4,30 @@
     %section.signup-main__container
       %h2.signup-main__chapter-head.signup-main__chapter-head--registration
         電話番号認証
-      %form{ action: "/signup/address/", method: "GET", class: "signup-main__inner signup-main__inner--registration-form", novalidate: "novalidate" }
-        %input{ type: "hidden", value: "", name: "after_save_callback" }
+      %form{ action: '/signup/address/', method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' }
+        %input{ type: 'hidden', value: '', name: 'after_save_callback' }
         .signup-main__content
           .signup-main__form-group
-            %label{ for: "captcha" } 認証番号
-            %input{ type: "text", value: "", name: "captcha", placeholder: "認証番号を入力", class: "signup-main__input-default" }
+            %label{ for: 'captcha' } 認証番号
+            %input{ type: 'text', value: '', name: 'captcha', placeholder: '認証番号を入力', class: 'signup-main__input-default' }
           %p.signup-main__text
             SMSで届いた認証番号を入力してください
-          %button{ type: "submit", class: "signup-main__btn-default signup-main__btn-red" } 認証して完了
-      %form{ action: "#", method: "POST", class: "signup-main__inner signup-main__inner--registration-form", novalidate: "novalidate" }
-        %input{ type: "hidden", value: "", name: "after_save_callback" }
+          %button{ type: 'submit', class: 'signup-main__btn-default signup-main__btn-red' } 認証して完了
+      %form{ action: '#', method: 'POST', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' }
+        %input{ type: 'hidden', value: '', name: 'after_save_callback' }
         .signup-main__content
           %h3.signup-main__chapter-sub-head 30秒たっても認証番号が届かない方へ
           %p.signup-main__text 電話で認証番号を聞くこともできます。
-          %button{ type: "submit", class: "signup-main__btn-default signup-main__btn-red" } 電話で認証番号を聞く（通話無料）
+          %button{ type: 'submit', class: 'signup-main__btn-default signup-main__btn-red' } 電話で認証番号を聞く（通話無料）
       .signup-main__inner.signup-main__inner--registration-form
         .signup-main__content
           %h3.signup-main__chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
           %p
-            = link_to "signup/sms_confirmation/" do
+            = link_to 'signup/sms_confirmation/' do
               電話番号を再度入力する
           %p.signup-main__text
             ※SMSが届かない場合は
-            = link_to "#", target: "_blank" do
+            = link_to '#', target: '_blank' do
               SMS受信設定
             を確認して、もう一度電話番号を入力してください。
   = render 'signup/footer'

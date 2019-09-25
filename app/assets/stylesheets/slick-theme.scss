@@ -1,21 +1,21 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 // Default Variables
 
 // Slick icon entity codes outputs the following
-// "\2190" outputs ascii character "←"
-// "\2192" outputs ascii character "→"
-// "\2022" outputs ascii character "•"
+// '\2190' outputs ascii character '←'
+// '\2192' outputs ascii character '→'
+// '\2022' outputs ascii character '•'
 
-$slick-font-path: "./fonts/" !default;
-$slick-font-family: "slick" !default;
-$slick-loader-path: "./" !default;
+$slick-font-path: './fonts/' !default;
+$slick-font-family: 'slick' !default;
+$slick-loader-path: './' !default;
 $slick-arrow-color: white !default;
 $slick-dot-color: black !default;
 $slick-dot-color-active: $slick-dot-color !default;
-$slick-prev-character: "\2190" !default;
-$slick-next-character: "\2192" !default;
-$slick-dot-character: "\2022" !default;
+$slick-prev-character: '\2190' !default;
+$slick-next-character: '\2192' !default;
+$slick-dot-character: '\2022' !default;
 $slick-dot-size: 6px !default;
 $slick-opacity-default: 0.75 !default;
 $slick-opacity-on-hover: 1 !default;
@@ -43,16 +43,16 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-list {
     .slick-loading & {
-        background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+        background: #fff slick-image-url('ajax-loader.gif') center center no-repeat;
     }
 }
 
 /* Icons */
-@if $slick-font-family == "slick" {
+@if $slick-font-family == 'slick' {
     @font-face {
-        font-family: "slick";
-        src: slick-font-url("slick.eot");
-        src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+        font-family: 'slick';
+        src: slick-font-url('slick.eot');
+        src: slick-font-url('slick.eot?#iefix') format('embedded-opentype'), slick-font-url('slick.woff') format('woff'), slick-font-url('slick.ttf') format('truetype'), slick-font-url('slick.svg#slick') format('svg');
         font-weight: normal;
         font-style: normal;
     }
@@ -102,13 +102,13 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-prev {
     left: -25px;
-    [dir="rtl"] & {
+    [dir='rtl'] & {
         left: auto;
         right: -25px;
     }
     &:before {
         content: $slick-prev-character;
-        [dir="rtl"] & {
+        [dir='rtl'] & {
             content: $slick-next-character;
         }
     }
@@ -116,13 +116,13 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-next {
     right: -25px;
-    [dir="rtl"] & {
+    [dir='rtl'] & {
         left: -25px;
         right: auto;
     }
     &:before {
         content: $slick-next-character;
-        [dir="rtl"] & {
+        [dir='rtl'] & {
             content: $slick-prev-character;
         }
     }

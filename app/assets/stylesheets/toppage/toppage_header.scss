@@ -1,4 +1,4 @@
-@import "config/colors";
+@import 'config/colors';
 
 *, ::before, ::after {
   box-sizing: border-box;
@@ -21,7 +21,7 @@ a {
   width: 700px;
   margin: 0px auto;
   padding: 8px 0px 0px;
-  font-family: "游ゴシック", "YuGothic", "arial unicode ms",sans-serif;
+  font-family: '游ゴシック', 'YuGothic', 'arial unicode ms',sans-serif;
     &__header {
       display: flex;
       &-contents  {
@@ -169,7 +169,7 @@ ul.toppage-header-top__footer-search  {
 ul.toppage-header-top__footer-search-categories:after{
   height: 0;
   visibility: hidden;
-  content: ".";
+  content: '.';
   display: block;
   clear: both;
 }
