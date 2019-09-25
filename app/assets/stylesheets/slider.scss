@@ -87,7 +87,7 @@ button{
       margin: 0 auto;
 
     }
-    }
+  }
   &__contents-second  {
     font-family: 'YuGothic' !important;
     height: 390px;
@@ -131,14 +131,13 @@ button{
     }
   }
 }
-  
 
 .toppage-slider__contents-second-content-wrapper-logos  {
-  display: flex !important;
+  display: flex;
   align-items: center;
 }
 .toppage-slider__contents-second-content-wrapper-space  {
  margin: 4px;
-  }
+}
 
 
