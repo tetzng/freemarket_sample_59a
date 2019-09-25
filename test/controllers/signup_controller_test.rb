@@ -5,5 +5,4 @@ class SignupControllerTest < ActionDispatch::IntegrationTest
     get signup_index_url
     assert_response :success
   end
-
 end

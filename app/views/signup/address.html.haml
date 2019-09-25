@@ -30,7 +30,7 @@
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name
               = icon 'fas', 'chevron-down'
           .signup-main__form-group
-            %label{ for: 'city'} 市区町村
+            %label{ for: 'city' } 市区町村
             %span.signup-main__form-require 必須
             %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', name: 'city', placeholder: '例) 横浜市緑区' }
             %ul.signup-main__has-error-text
