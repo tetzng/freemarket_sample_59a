@@ -69,6 +69,7 @@ end
 # 静的データの管理（住所、都道府県など）
 gem 'active_hash', '~> 1.5.3'
 gem 'carrierwave'
+gem 'devise', '>=4.7.1'
 gem 'fog-aws'
 gem 'font-awesome-sass', '>=5.11.1'
 gem 'haml-rails'
