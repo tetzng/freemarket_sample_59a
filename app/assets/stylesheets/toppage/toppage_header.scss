@@ -78,7 +78,7 @@ a {
         line-height: 44px;
         padding-right: 20px;
         a, a:visited {
-          color:#333333;
+          color: $black;
         }
         &-categories  {
           font-weight: 600;
@@ -115,7 +115,6 @@ a {
           a, a:visited {
             color: $white;
             text-decoration: none;
-
           }
         }
         &--user-login-btn {
