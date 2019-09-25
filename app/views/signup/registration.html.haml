@@ -9,18 +9,18 @@
         .signup-main__content
           .signup-main__form-group
             %label{ for: 'nickname' } ニックネーム
-            %span{ class: 'signup-main__form-require' } 必須
-            %input{ type: 'text', value: '', name: 'nickname', placeholder: '例) メルカリ太郎', class: 'signup-main__input-default signup-main__input-default--has-error' }
+            %span.signup-main__form-require 必須
+            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', value: '', name: 'nickname', placeholder: '例) メルカリ太郎' }
             %ul.signup-main__has-error-text
               ニックネーム を入力してください
           .signup-main__form-group
             %label{ for: 'email' } メールアドレス
-            %span{ class: 'signup-main__form-require'} 必須
-            %input{ type: 'email', value: '', name: 'email', placeholder:'PC・携帯どちらでも可', class: 'signup-main__input-default' }
+            %span.signup-main__form-require 必須
+            %input.signup-main__input-default{ type: 'email', value: '', name: 'email', placeholder: 'PC・携帯どちらでも可' }
           %input{ type: 'hidden', value: '', name: 'login_type' }
           .signup-main__form-group
             %label{ for: 'password' } パスワード
-            %span{ class: 'signup-main__form-require' } 必須
+            %span.signup-main__form-require 必須
             %input{ type: 'password', name: 'password', placeholder: '7文字以上', class: 'signup-main__input-default' }
           .signup-main__form-group
             %label{ for: 'password' } パスワード (確認)
