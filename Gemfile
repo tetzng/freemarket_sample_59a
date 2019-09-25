@@ -66,12 +66,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'carrierwave'
+gem 'devise', '>=4.7.1'
 gem 'fog-aws'
 gem 'font-awesome-sass', '>=5.11.1'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'omniauth-rails_csrf_protection', '>=0.1.2'
+gem 'omniauth-facebook', '>=5.0.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
