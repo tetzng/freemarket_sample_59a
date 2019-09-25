@@ -8,24 +8,24 @@
           .signup-main__form-group
             %label{ for: 'payment_card_no' } カード番号
             %span.signup-main__form-require 必須
-            %input{ type: 'text', value: '', id: 'payment_card_no', placeholder: '半角数字のみ', class: 'signup-main__input-default signup-main__input-default--has-error', maxlength: '19' }
-            %ul{ id: 'card-no-error-wrapper', class: 'signup-main__has-error-text' }
+            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', id: 'payment_card_no', placeholder: '半角数字のみ', maxlength: '19' }
+            %ul.signup-main__has-error-text{ id: 'card-no-error-wrapper' }
               %li 半角数字で入力してください
             %ul.signup-main__card-list
               %li
-                = image_tag 'visa.svg', width: '49', height: '20', alt: ''
+                = image_tag 'visa.svg', width: '49', height: '20'
               %li
-                = image_tag 'master-card.svg', width: '34', height: '20', alt: ''
+                = image_tag 'master-card.svg', width: '34', height: '20'
               %li
-                = image_tag 'saison-card.svg', width: '30', height: '20', alt: ''
+                = image_tag 'saison-card.svg', width: '30', height: '20'
               %li
-                = image_tag 'jcb.svg', width: '32', height: '20', alt: ''
+                = image_tag 'jcb.svg', width: '32', height: '20'
               %li
-                = image_tag 'american_express.svg', width: '21', height: '20', alt: ''
+                = image_tag 'american_express.svg', width: '21', height: '20'
               %li
-                = image_tag 'dinersclub.svg', width: '32', height: '20', alt: ''
+                = image_tag 'dinersclub.svg', width: '32', height: '20'
               %li
-                = image_tag 'discover.svg', width: '32', height: '20', alt: ''
+                = image_tag 'discover.svg', width: '32', height: '20'
           .signup-main__form-group.signup-main__form-expire
             %label{ for: 'payment_card_expire' } 有効期限
             %span.signup-main__form-require 必須
@@ -38,13 +38,13 @@
               = f.collection_select :paymentyear_id, Paymentyear.all, :id, :num, id: 'payment_card_expire_yy', class: 'signup-main__select-default'
               = icon 'fas', 'chevron-down'
               %span 年
-            %ul{ id: 'expire-mm-error-wrapper', class: 'signup-main__has-error-text' }
-            %ul{ id: 'expire-yy-error-wrapper', class: 'signup-main__has-error-text' }
+            %ul.signup-main__has-error-text{ id: 'expire-mm-error-wrapper' }
+            %ul.signup-main__has-error-text{ id: 'expire-yy-error-wrapper' }
           .signup-main__form-group
             %label{ for: 'payment_card_security_code' } セキュリティコード
             %span.signup-main__form-require 必須
-            %input{ type: 'number', value: '', id: 'payment_card_security_code', placeholder: 'カード背面4桁もしくは3桁の番号', class: 'signup-main__input-default' }
-            %ul{ id: 'security-code-error-wrapper', class: 'signup-main__has-error-text' }
+            %input.signup-main__input-default{ type: 'number', id: 'payment_card_security_code', placeholder: 'カード背面4桁もしくは3桁の番号' }
+            %ul.signup-main__has-error-text{ id: 'security-code-error-wrapper' }
             .signup-main__seqcode
               .signup-main__seqcode--text{ id: 'seqcode-tips-toggle' }
                 %span.signup-main__form-question
@@ -53,10 +53,7 @@
               .signup-main__seqcode--info{ id: 'seqcode-tips-content' }
                 カードの裏面をご参照ください。
                 %br
-                = image_tag 'seq-card.png', alt: '', width: '240'
-          %input{ type: 'hidden', id: 'user_id', name: 'user_id', value: '562853486' }
-          %input{ type: 'hidden', id: 'encrypted_card_data', name: 'encrypted_card_data' }
-          %p{ id: 'primary-error', class: 'signup-main__has-error-text' }
-          %input{ type: 'hidden', value: '', name: 'after_save_callback' }
+                = image_tag 'seq-card.png', width: '240'
+          %p.signup-main__has-error-text{ id: 'primary-error' }
           = f.submit id: 'submit-button', class: 'signup-main__btn-default signup-main__btn-red', value: '次へ進む'
   = render 'signup/footer'
