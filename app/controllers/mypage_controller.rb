@@ -7,4 +7,6 @@ class MypageController < ApplicationController
   end
   def logout
   end
+  def card
+  end
 end
