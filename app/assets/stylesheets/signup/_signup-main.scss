@@ -253,6 +253,15 @@
   &__chapter-sub-head {
     font-size: 14px;
   }
+  &__form-arbitrary {
+    background: #ccc;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
   &__card-list {
     margin-top: 8px;
     font-size: 0;
@@ -380,12 +389,19 @@
   &__login-submit {
     margin: 24px 0 0;
   }
+  &__done{
+    text-align: center;
+    img{
+      width: 100%;
+    }
+  }
+  &__banner-pc {
+    display: none;
+  }
+  &__banner-sp {
+    max-width: 375px;
+  }
 }
-
-
-
-
-
 @media screen and (min-width: 768px){
   .signup-main{
     &__container {
@@ -400,9 +416,6 @@
       padding: 32px;
       }
     }
-    // &__inner{
-    //   padding: 64px;
-    // }
     &__sub-head{
       font-size: 16px;
     }
@@ -438,6 +451,12 @@
         padding: 24px 64px 32px;
       }
     }
+    &__banner-pc {
+      display: inline;
+    }
+    &__banner-sp {
+      display: none;
+    }
   }
 }
 @media screen and (min-width: 1068px){
@@ -451,35 +470,4 @@
       }
     }
   }
-}
-
-
-.btn-default.is-disabled, .btn-default:disabled {
-  border: 1px solid #888;
-  background: #888;
-  color: #fff;
-}
-
-.btn-default.is-disabled, .btn-default:disabled {
-  border: 1px solid #888;
-  background: #888;
-  color: #fff;
-}
-
-.sell-btn-box .btn-red .loading {
-  margin: 0 0 0 8px;
-}
-
-.sell-btn-box .btn-red span, .sell-btn-box .btn-red .loading {
-  vertical-align: middle;
-}
-.loading-black {
-  background: url(/jp/assets/img/common/common/loading-black.gif?84767044);
-  background-repeat: no-repeat;
-  background-size: 24px 24px;
-}
-.loading {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
 }
