@@ -1,0 +1,102 @@
+.signup-container
+  = render 'signup/header-address'
+  %main.signup-main
+    %section.signup-main__container
+      %h2.signup-main__head.signup-main__head--registration 発送元・お届け先住所入力
+      %form{ action: "/signup/credit_card/", method: "GET", class: "signup-main__inner signup-main__inner--registration-form", novalidate: "novalidate" }
+        .signup-main__content
+          .signup-main__form-group
+            %label{ for: "name" } お名前
+            %span.signup-main__form-require 必須
+            %input{ type: "text", value: "", name: "family_name", placeholder: "例) 山田", class: "signup-main__input-default" }
+            %input{ type: "text", value: "", name: "first_name", placeholder: "例) 彩", class: "signup-main__input-default" }
+          .signup-main__form-group
+            %label{ for: "name" } お名前カナ
+            %span.signup-main__form-require 必須
+            %input{ type: "text", value: "", name: "family_name_kana", placeholder: "例) ヤマダ", class: "signup-main__input-default" }
+            %input{ type: "text", value: "", name: "first_name_kana", placeholder: "例) アヤ", class: "signup-main__input-default" }
+          .signup-main__form-group
+            %label{ for: "zip_code1" } 郵便番号
+            %span.signup-main__form-require 必須
+            %input{ type: "text", value: "", name: "zip_code1", placeholder: "例) 123-4567", maxlength: "8", pattern: "\d{3}-\d{4}", data: { region: "jp" }, class: "signup-main__input-default signup-main__input-default--has-error" }
+            %ul.signup-main__has-error-text
+              %li 入力してください
+              %li フォーマットが不適切です
+          .signup-main__form-group
+            %label{ for: "prefecture" } 都道府県
+            %span.signup-main__form-require 必須
+            .signup-main__select-wrap
+              = icon 'fas', 'chevron-down'
+              -# 以下リスト、倉地さんのやつマージしたらActiveHashと置き換える
+              %select{ name: "prefecture", class: "signup-main__select-default" }
+                %option{ value: "北海道", selected: ""} 北海道
+                %option{ value: "青森県" }青森県
+                %option{ value: "岩手県" }岩手県
+                %option{ value: "宮城県" }宮城県
+                %option{ value: "秋田県" }秋田県
+                %option{ value: "山形県" }山形県
+                %option{ value: "福島県" }福島県
+                %option{ value: "茨城県" }茨城県
+                %option{ value: "栃木県" }栃木県
+                %option{ value: "群馬県" }群馬県
+                %option{ value: "埼玉県" }埼玉県
+                %option{ value: "千葉県" }千葉県
+                %option{ value: "東京都" }東京都
+                %option{ value: "神奈川県" }神奈川県
+                %option{ value: "新潟県" }新潟県
+                %option{ value: "富山県" }富山県
+                %option{ value: "石川県" }石川県
+                %option{ value: "福井県" }福井県
+                %option{ value: "山梨県" }山梨県
+                %option{ value: "長野県" }長野県
+                %option{ value: "岐阜県" }岐阜県
+                %option{ value: "静岡県" }静岡県
+                %option{ value: "愛知県" }愛知県
+                %option{ value: "三重県" }三重県
+                %option{ value: "滋賀県" }滋賀県
+                %option{ value: "京都府" }京都府
+                %option{ value: "大阪府" }大阪府
+                %option{ value: "兵庫県" }兵庫県
+                %option{ value: "奈良県" }奈良県
+                %option{ value: "和歌山県" }和歌山県
+                %option{ value: "鳥取県" }鳥取県
+                %option{ value: "島根県" }島根県
+                %option{ value: "岡山県" }岡山県
+                %option{ value: "広島県" }広島県
+                %option{ value: "山口県" }山口県
+                %option{ value: "徳島県" }徳島県
+                %option{ value: "香川県" }香川県
+                %option{ value: "愛媛県" }愛媛県
+                %option{ value: "高知県" }高知県
+                %option{ value: "福岡県" }福岡県
+                %option{ value: "佐賀県" }佐賀県
+                %option{ value: "長崎県" }長崎県
+                %option{ value: "熊本県" }熊本県
+                %option{ value: "大分県" }大分県
+                %option{ value: "宮崎県" }宮崎県
+                %option{ value: "鹿児島県" }鹿児島県
+                %option{ value: "沖縄県" }沖縄県
+                %option{ value: "未定" }未定
+          .signup-main__form-group
+            %label{ for: "city"} 市区町村
+            %span.signup-main__form-require 必須
+            %input{ type: "text", value: "", name: "city", placeholder: "例) 横浜市緑区", class: "signup-main__input-default signup-main__input-default--has-error" }
+            %ul.signup-main__has-error-text
+              %li 入力してください
+          .signup-main__form-group
+            %label{ for: "address1_label" } 番地
+            %span.signup-main__form-require 必須
+            %input{ type: "text", value: "", name: "address1", placeholder: "例) 青山1−1−1", class: "signup-main__input-default signup-main__input-default--has-error" }
+            %ul.signup-main__has-error-text
+              %li 入力してください
+          .signup-main__form-group
+            %label{ for: "address2_label" } 建物名
+            %span{ class: "form-arbitrary" } 任意
+            %input{ type: "text", value: "", name: "address2", placeholder: "例) 柳ビル103", class: "signup-main__input-default" }
+          .signup-main__form-group
+            %label{ for: "address2_label" } 電話
+            %span.signup-main__form-arbitrary 任意
+            %input{ type: "text", value: "", name: "telephone", placeholder: "例) 09012345678", class: "signup-main__input-default" }
+          %input{ type: "hidden", value: "", name: "after_save_callback" }
+          %button{ type: "submit", class: "signup-main__btn-default signup-main__btn-red" }次へ進む
+  = render 'signup/footer'
