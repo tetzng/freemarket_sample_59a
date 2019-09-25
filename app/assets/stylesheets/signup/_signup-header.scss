@@ -15,23 +15,6 @@
     width: 120px;
     height: 33px;
   }
-  &__progress-bar {
-    font-size: 0;
-    text-align: center;
-    ol {
-      margin: 0;
-    }
-    li:first-child .signup-header__progress-status:before {
-      display: none;
-    }
-    li:last-child .signup-header__progress-status:after {
-      display: none;
-    }
-  }
-  &__bar.signup-header__progress-bar {
-    padding: 16px 0;
-    border-top: 1px solid #eee;
-  }
   &__list{
     position: relative;
     z-index: 1;
@@ -90,6 +73,23 @@
         }
       }
     }
+  }
+  &__progress-bar {
+    font-size: 0;
+    text-align: center;
+    ol {
+      margin: 0;
+    }
+    li:first-child .signup-header__progress-status:before {
+      display: none;
+    }
+    li:last-child .signup-header__progress-status:after {
+      display: none;
+    }
+  }
+  &__bar.signup-header__progress-bar {
+    padding: 16px 0;
+    border-top: 1px solid #eee;
   }
 }
 @media screen and (min-width: 768px){
