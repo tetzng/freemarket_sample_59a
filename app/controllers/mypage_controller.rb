@@ -9,4 +9,6 @@ class MypageController < ApplicationController
   end
   def card
   end
+  def card_create
+  end
 end
