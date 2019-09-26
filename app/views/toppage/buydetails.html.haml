@@ -1,5 +1,6 @@
-.toppage-primary-wrapper
-  .buydetails-mein
+.signup-container
+  = render 'signup/header'
+  .buydetails-mein.clearfix
     %section.buydetails-content
       %h2.buydetails-content__head 購入内容の確認
       %section.buydetails-content__item
@@ -40,3 +41,4 @@
           = link_to '/', class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'
+  = render 'signup/footer'
