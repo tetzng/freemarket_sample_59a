@@ -11,12 +11,13 @@ a {
 }
 
 .toppage-primary-wrapper  {
-  width: 100vw;
-  height: 100vw;
-  background-color: rgb(255, 255, 255);
+  // width: 100vw;
+  // height: 100vw;
   box-sizing: border-box;
 }
-
+.toppage-header-wrapper{
+  background-color: rgb(255, 255, 255);
+}
 .toppage-header-top {
   width: 700px;
   margin: 0px auto;
@@ -284,3 +285,8 @@ ul.toppage-header-top__footer-search-categories:after{
       z-index: 1000;
     }
   }
+@media (min-width: 1068px){
+  .toppage-header-top {
+    width: 1020px;
+  }
+}
