@@ -74,8 +74,8 @@
               = link_to '#', target: '_blank' do
                 利用規約
               に同意したものとみなします
-
-          %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' } 次へ進む
+          = link_to signup_sms_confirmation_path, class: 'signup-main__fake-link' do
+            %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' } 次へ進む
           .signup-main__form-group.signup-main__text--right
             %p
               = link_to 'sms_confirmation', target: '_blank' do
