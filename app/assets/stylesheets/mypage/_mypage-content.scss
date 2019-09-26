@@ -192,6 +192,36 @@
   &__chapter-container{
     background: #fff;
   }
+  &__payment-list li {
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+    form {
+      position: relative;
+    }
+  }
+  &__payment-num {
+    margin: 8px 0 0;
+    font-size: 16px;
+  }
+  &__payment-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 6px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ea352d;
+    color: #ea352d;
+  }
+  &__add-card {
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+  }
+  &__not-regist a {
+    display: block;
+    margin-top: 40px;
+    text-align: right;
+  }
 }
 
 @media screen and (min-width: 768px){
