@@ -12,7 +12,7 @@
             %input.signup-main__input-default{ type: 'text', name: 'captcha', placeholder: '認証番号を入力' }
           %p.signup-main__text
             SMSで届いた認証番号を入力してください
-          = link_to signup_address_path, class:'signup-main__fake-link' do
+          = link_to signup_address_path, class: 'signup-main__fake-link' do
             %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' } 認証して完了
       %form{ action: '#', method: 'POST', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' }
         .signup-main__content

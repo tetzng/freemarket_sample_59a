@@ -50,6 +50,6 @@
             %span.signup-main__form-arbitrary 任意
             %input.signup-main__input-default{ type: 'text', name: 'telephone', placeholder: '例) 09012345678' }
           %input{ type: 'hidden', name: 'after_save_callback' }
-          = link_to signup_credit_card_path, class:'signup-main__fake-link' do
+          = link_to signup_credit_card_path, class: 'signup-main__fake-link' do
             %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' }次へ進む
   = render 'signup/footer'
