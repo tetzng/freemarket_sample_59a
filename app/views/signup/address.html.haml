@@ -3,7 +3,7 @@
   %main.signup-main
     %section.signup-main__container
       %h2.signup-main__head.signup-main__head--registration 発送元・お届け先住所入力
-      = form_with model: @address, url: '/signup/credit_card/', method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+      = form_with model: @address, url: signup_credit_card_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
         .signup-main__content
           .signup-main__form-group
             %label{ for: 'name' } お名前
@@ -50,5 +50,6 @@
             %span.signup-main__form-arbitrary 任意
             %input.signup-main__input-default{ type: 'text', name: 'telephone', placeholder: '例) 09012345678' }
           %input{ type: 'hidden', name: 'after_save_callback' }
-          %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' }次へ進む
+          = link_to signup_credit_card_path, class:'signup-main__fake-link' do
+            %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' }次へ進む
   = render 'signup/footer'
