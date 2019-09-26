@@ -15,7 +15,7 @@ button{
   text-align: center;
   li{
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 10px;
     button{
       text-indent: -9999px;
       position: relative;
@@ -25,7 +25,7 @@ button{
         color: rgba(255, 255, 255, 0.6);
         text-indent: 0px;
         position: absolute;
-        top: -80px;
+        top: -60px;
         left: 0;
       }
     }
@@ -40,30 +40,28 @@ button{
 
 .toppage-slider__wrapper {
   position: relative;
-}
+  .fa-chevron-left {
+    color: $white;
+    text-shadow: -1px 0px 8px gray;
+    font-size: 46px; 
+    position: absolute;
+    bottom: 200px;
+    left: 60px;
+    cursor: pointer;
+    z-index: 1006;
+  }
 
-.fa-chevron-left {
-  color: $white;
-  text-shadow: -1px 0px 8px gray;
-  font-size: 46px; 
-  position: absolute;
-  bottom: 200px;
-  left: 60px;
-  cursor: pointer;
-  z-index: 1006;
+  .fa-chevron-right {
+    color: $white;
+    text-shadow: -1px 0px 8px gray;
+    font-size: 46px; 
+    position: absolute;
+    bottom: 200px;
+    right: 60px;
+    cursor: pointer;
+    z-index: 1005;
+  }
 }
-
-.fa-chevron-right {
-  color: $white;
-  text-shadow: -1px 0px 8px gray;
-  font-size: 46px; 
-  position: absolute;
-  bottom: 200px;
-  right: 60px;
-  cursor: pointer;
-  z-index: 1005;
-}
-
 .toppage-slider {
   height: 390px;
   width: 100vw;
@@ -79,7 +77,7 @@ button{
   width: 100%;
     &-content  {
       width: 100vw;
-      background-image: url('index_keyvisual_pattern.jpg');
+      background-image: image-url('index_keyvisual_pattern.jpg');
       background-size: 10% auto;
       background-repeat: repeat;
       }
@@ -96,7 +94,7 @@ button{
     z-index: 1003;
       &-content {
         align-items: center;
-        background-image: url('top-banner-main.jpg');
+        background-image: image-url('top-banner-main.jpg');
         background-size:  cover;
         position: relative;
         height: 390px;
