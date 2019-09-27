@@ -20,9 +20,10 @@ Rails.application.routes.draw do
   get '/mypage/profile', to: 'mypage#profile'
   get '/logout', to: 'mypage#logout'
 
-
-  # devise_for :users, controllers: {
-  #   omniauth_callbacks: "users/omniauth_callbacks"
-  # }
+  
+  resources :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 
 end
