@@ -82,6 +82,8 @@ gem 'haml-rails'
 gem 'jquery-rails'
 # クレジットカード決済
 gem 'payjp'
+gem 'omniauth', '>=1.9.0'
+gem 'omniauth-rails_csrf_protection', '>=0.1.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # s3に画像アップロード
 gem "aws-sdk-s3", require: false
