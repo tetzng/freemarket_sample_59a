@@ -79,7 +79,13 @@ gem 'font-awesome-sass', '>=5.11.1'
 # パンくず機能
 gem "gretel"
 gem 'haml-rails'
-gem 'jquery-rails'
+gem "jquery-rails"
+# SNS認証
+gem 'omniauth', '>=1.9.0'
+# Google認証
+gem 'omniauth-google-oauth2', '>=0.8.0'
+# omniauthの脆弱性対応
+gem 'omniauth-rails_csrf_protection', '>=0.1.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # s3に画像アップロード
 gem "aws-sdk-s3", require: false
@@ -87,3 +93,8 @@ gem 'mini_magick'
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
+
+
+
+
