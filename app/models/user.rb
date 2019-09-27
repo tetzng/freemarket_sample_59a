@@ -23,6 +23,10 @@ class User < ApplicationRecord
   VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
+  validates :id, presence: true, length: { maximum: 20 }
+  validates :e_mail, presence: true
+  validates :encrypted_password, presence: true, length: { in: 7..128 }
+end
 
 #registration
   validates :nickname, presence: true, length: { maximum: 20 }
