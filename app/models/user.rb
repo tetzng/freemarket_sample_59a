@@ -2,15 +2,18 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable, :omniauthable
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :birth_yyyy
     belongs_to_active_hash :birth_mm
     belongs_to_active_hash :birth_dd
     belongs_to_active_hash :prefecture
     belongs_to_active_hash :paymentyear
-    belongs_to_active_hash :paymentmonth
+    belongs_to_active_hash :paymentmonth   
+  belongs_to :user
+  has_many :shopping_origin_addresses
   has_many :products
+  
   # has_many :shopping_origin_addresses
   # has_many :products
   # has_many :puchases
@@ -54,6 +57,23 @@ class User < ApplicationRecord
   validates :address1, presence: true, length: { maximum: 100 }
   validates :address2, length: { maximum: 100 }
   validates :telephone, length: { maximum: 8 }
+  def self.find_for_facebook_oauth(auth)
+    user = User.where(provider: auth.provider, uid: auth.uid).first
+  
+    unless user
+      user = User.create( name:     auth.extra.raw_info.name,
+                          provider: auth.provider,
+                          uid:      auth.uid,
+                          email:    auth.info.email,
+                          token:    auth.credentials.token,
+                          password: Devise.friendly_token[0,20] )
+    end
+  
+    return user
+    
+  end
+
+end
 
 #signup/credit_card
   validates :payment_card_no, presence: true, length: { maximum: 16 }, numericality: { only_integer: true }
