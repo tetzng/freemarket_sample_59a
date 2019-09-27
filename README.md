@@ -37,7 +37,7 @@ Things you may want to cover:
 |birthday_year|integer|null: false|
 |birthday_month|integer|null: false|
 |birthday_day|integer|null: false|
-|phone_num|integer|null: false|
+|phone_num|string|null: false|
 |authentication_num|integer|null: false|
 |content|text||
 
