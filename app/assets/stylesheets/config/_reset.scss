@@ -219,3 +219,11 @@ select {
   -moz-appearance: none;
   touch-action: manipulation;
 }
+textarea {
+  border-radius: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  touch-action: manipulation;
+  resize: vertical;
+}
