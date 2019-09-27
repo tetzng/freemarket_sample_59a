@@ -14,9 +14,7 @@ class User < ApplicationRecord
 
   validates :id, presence: true, length: { maximum: 20 }
   validates :email, presence: true
-  validates :encrypted_password, presence: true, length: { in: 7..128 },
-  numericality: { only_integer: true }
-
+  validates :encrypted_password, presence: true, length: { in: 7..128 }
   validates :first_name, presence: true, length: { maximum: 35 }
   validates :last_name, presence: true, length: { maximum: 35 }
   validates :first_name_kana, presence: true, length: { maximum: 35 }, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
@@ -24,8 +22,9 @@ class User < ApplicationRecord
   validates :birthday_year, presence: true
   validates :birthday_month, presence: true
   validates :birthday_day, presence: true
-  validates :phone_num, presence: true,numericality: { only_integer: true }
+  validates :phone_num, presence: true
   validates :authentication_num, presence: true,numericality: { only_integer: true }
+  validates :nickname, presence: true, length: { maximum: 20 }
 
 end
 
