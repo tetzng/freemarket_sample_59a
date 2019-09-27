@@ -44,6 +44,7 @@ class User < ApplicationRecord
 #sms_confirmation
   validates :phone_num, presence: true, format: { with: /\A\d{10,11}\z/, message: 'の入力が正しくありません'}
 
+
 #sms_confirmation/sms
   validates :authentication_num, presence: true, numericality: { only_integer: true }
 
@@ -58,6 +59,7 @@ class User < ApplicationRecord
   validates :address1, presence: true, length: { maximum: 100 }
   validates :address2, length: { maximum: 100 }
   validates :telephone, length: { maximum: 8 }
+
   def self.find_for_facebook_oauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
   
