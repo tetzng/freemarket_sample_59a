@@ -9,6 +9,7 @@
       .signup-main__login-form-inner
         %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'facebook-login' }
           = icon 'fab', 'facebook-square'
+          = link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path
           Facebookでログイン
         %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'google-login' }
           Googleでログイン
