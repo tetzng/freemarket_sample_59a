@@ -22,8 +22,25 @@ Rails.application.routes.draw do
 
   
   resources :users
-  devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
+
+  devise_for :users, controllers: { 
+    omniauth_callbacks: 'users/omniauth_callbacks', 
+    sessions: 'users/sessions'
   }
+  resources :signup do
+    collection do
+      get  '/'               => 'signup#new'
+      get  'step1'           => 'signup#step1'
+      get  'step2'           => 'signup#step2'
+      get  'step3'           => 'signup#step3'
+      post 'signup/create'   => 'signup#create'
+    end
+  end
+  # get  'users/auth/facebook',     to: 'users/omniauth_callbacks#passthru', via: [:get, :post], as: :user_facebook_omniauth_authorize_path
+  # match  'signup/facebook/callback', to: 'users/omniauth_callbacks#callback', via: [:get, :post]
+  # get    'signup/facebook',          to: 'users/omniauth_callbacks#new',                          as: :new_user_facebook_omniauth_registration
+  # post   'signup/facebook',          to: 'users/omniauth_callbacks#create',                       as: :create_user_facebook_omniauth_registration
+  # # resources :users
+
 
 end
