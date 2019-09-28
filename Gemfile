@@ -46,8 +46,11 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'factory_bot_rails'
   # validation gem
-  gem 'pry-rails'
   gem 'rspec-rails'
+  # デバック用
+  gem 'pry-rails'
+  gem 'pry-byebug', '>=3.7.0'
+  gem 'pry-doc', '>=1.0.0'
 end
 
 group :development do
@@ -92,10 +95,6 @@ gem "aws-sdk-s3", require: false
 gem 'mini_magick'
 group :production do
   gem 'unicorn', '5.4.1'
-
-gem 'pry-rails'
-gem 'pry-byebug'
-gem 'pry-doc'
 end
 
 
