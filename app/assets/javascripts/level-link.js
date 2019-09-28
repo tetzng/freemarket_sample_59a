@@ -1,4 +1,4 @@
-$(function () {
+$(document).on("turbolinks:load", function() {
   $(".first-category__wrapper").hide();
   $(".second-category__wrapper").hide();
   $(".third-category__wrapper").hide();
