@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  def new
+    super
+  end
+
+  def create
+    super
+  end
+
+  def destroy
+    session[:keeo_signed_out] = true
+    super
+  end
+end
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

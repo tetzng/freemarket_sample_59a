@@ -199,6 +199,24 @@ class SignupController < ApplicationController
 
   def login
   end
+
+  def step1
+    @user = User.new()
+  end
+
+  def step2
+    @user = User.new()
+    sesstion[:nickname] = user_params[:nickname]
+    sesstion[:email]    = user_params[:email]
+  end
+
+  def step3
+    @user = User.new()
+  end
+
+  def create
+  end
+
 end
 
 private
