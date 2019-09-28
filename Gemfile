@@ -44,10 +44,12 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem 'factory_bot_rails'
-  # validation gem
-  gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'pry-byebug', '>=3.7.0'
+  gem 'pry-doc', '>=1.0.0'
+  # バリデーションのテストを行うためのgem
 end
 
 group :development do
@@ -72,6 +74,7 @@ end
 
 # 静的データの管理（住所、都道府県など）
 gem 'active_hash', '~> 1.5.3'
+
 gem 'carrierwave'
 gem 'devise', '>=4.7.1'
 gem 'fog-aws'

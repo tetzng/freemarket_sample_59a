@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_090010) do
+ActiveRecord::Schema.define(version: 2019_09_24_140511) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_090010) do
     t.string "num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_09_24_081726) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -92,10 +92,13 @@ ActiveRecord::Schema.define(version: 2019_09_26_090010) do
     t.integer "phone_num", null: false
     t.integer "authentication_num", null: false
     t.text "content"
+<<<<<<< HEAD
     t.string "provider"
     t.string "uid"
     t.string "token"
 >>>>>>> omniauth
+=======
+>>>>>>> conflict
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
