@@ -26,7 +26,7 @@ class User < ApplicationRecord
   validates :id, presence: true, length: { maximum: 20 }
   validates :e_mail, presence: true
   validates :encrypted_password, presence: true, length: { in: 7..128 }
-end
+
 
 #registration
   validates :nickname, presence: true, length: { maximum: 20 }
