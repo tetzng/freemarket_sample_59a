@@ -92,6 +92,10 @@ gem "aws-sdk-s3", require: false
 gem 'mini_magick'
 group :production do
   gem 'unicorn', '5.4.1'
+
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'pry-doc'
 end
 
 
