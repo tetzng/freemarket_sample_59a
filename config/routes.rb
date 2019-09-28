@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/sell', to: 'sell#index'
   get '/signup', to: 'signup#index'
   get '/signup/registration', to: 'signup#registration'
   get '/signup/sms_confirmation', to: 'signup#sms_confirmation'
