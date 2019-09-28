@@ -5,5 +5,4 @@ class SellControllerTest < ActionDispatch::IntegrationTest
     get sell_index_url
     assert_response :success
   end
-
 end
