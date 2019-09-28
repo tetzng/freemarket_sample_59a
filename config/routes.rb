@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/login', to: 'signup#login'
   root 'toppage#index'
   get 'toppage/buydetails'
+  get 'toppage/itembuy'
   get 'mypage/identification'
   get '/mypage', to: 'mypage#index'
   get 'mypage/card'
