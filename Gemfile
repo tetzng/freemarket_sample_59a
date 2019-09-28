@@ -71,8 +71,6 @@ gem 'active_hash', '~> 1.5.3'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'font-awesome-sass', '>=5.11.1'
-# 画像のスライド
-gem 'owlcarousel-rails'
 gem 'haml-rails'
 gem "jquery-rails"
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
