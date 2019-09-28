@@ -1,5 +1,5 @@
 class SignupController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
   end
@@ -200,6 +200,23 @@ class SignupController < ApplicationController
   end
 
   def login
+  end
+
+  def step1
+    @user = User.new()
+  end
+
+  def step2
+    @user = User.new()
+    session[:nickname]               = user_params[:nickname]
+    session[:email]                  = user_params[:email]
+  end
+
+  def step3
+    @user   = User.new()
+  end
+
+  def create
   end
 end
 
