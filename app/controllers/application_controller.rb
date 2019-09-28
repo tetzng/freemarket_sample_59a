@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -20,6 +21,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
+
+  # before_action :basic_auth, if: :production?
+
 
   private
   def production?
