@@ -10,6 +10,7 @@
         %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'signup-main__facebook-login' }
           = icon 'fab', 'facebook-square'
           Facebookで登録する
-        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'signup-main__google-login' }
-          Googleで登録する
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+          %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'signup-main__google-login' }
+            Googleで登録する
   %form
