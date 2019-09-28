@@ -2,24 +2,43 @@
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  def facebook; basic_action; end
+  # def facebook; basic_action; end
 
   def facebook
-    raise request.env['omniauth.auth'].to_yaml
+    # raise request.env['omniauth.auth'].to_yaml
+    callback_for(:facebook)
   end
 
-  def facebook
-      @user = User.find_for_facebook_oauth(request.env["omniauth.auth"])
+
+  def callback_for(provider)
+    @user = User.find_for_oauth(request.env["omniauth.auth"])
+    if @user.persisted?
+      sign_in_and_redirect @user, event: :authentication 
+    else
+      session[:nickname]            = request.env["omniauth.auth"].info.name
+      session[:provider_data]       = request.env["omniauth.auth"].except("extra")
+      session[:email]               = request.env["omniauth.auth"].info.email
+      session[:uid]                 = request.env["omniauth.auth"].uid
+      session[:provider]            = provider.to_s
+      redirect_to signup_registration_path
+
+    end
+  end
+  # def callback_for(provider)
+  #     @user = User.find_for_facebook_oauth(request.env['omniauth.auth'])
+
+  #     if @user.persisted?
+  #       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
+  #       set_flash_message( :notice, :success, kind: 'Facebook' ) if is_navigational_format?
+  #     else
+  #       session[`devise.#{provider}_data`] = request.env['omniauth.auth'].except('extra')
+  #       redirect_to signup_registration_path
+  #     end
+
+  #     def failure
+  #       redirect_to root_path and return
+  #     end
   
-      if @user.persisted?
-        sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-        set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-      else
-        session["devise.facebook_data"] = request.env["omniauth.auth"]
-        redirect_to signup_registration_path
-      end
-  end
-
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
