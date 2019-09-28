@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable, :omniauthable
+         :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [ :facebook, :google_oauth2 ] 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :birth_yyyy
     belongs_to_active_hash :birth_mm
@@ -10,6 +10,7 @@ class User < ApplicationRecord
     belongs_to_active_hash :prefecture
     belongs_to_active_hash :paymentyear
     belongs_to_active_hash :paymentmonth   
+
   belongs_to :user
   has_many :shopping_origin_addresses
   has_many :products
@@ -40,6 +41,7 @@ class User < ApplicationRecord
   validates :birth_mm_id, presence: true
   validates :birth_dd_id, presence: true
 
+
 #sms_confirmation
   validates :phone_num, presence: true, format: { with: /\A\d{10,11}\z/, message: 'の入力が正しくありません'}
 
@@ -59,11 +61,12 @@ class User < ApplicationRecord
   validates :address2, length: { maximum: 100 }
   validates :telephone, length: { maximum: 8 }
 
-  def self.find_for_facebook_oauth(auth)
-    user = User.where(provider: auth.provider, uid: auth.uid).first
-  
+
+  def self.find_for_oauth(auth)
+    user = User.where(nickname: auth.extra.raw_info.name, email: auth.info.email).first
+    
     unless user
-      user = User.create( name:     auth.extra.raw_info.name,
+      user = User.create( nickname: auth.extra.raw_info.name,
                           provider: auth.provider,
                           uid:      auth.uid,
                           email:    auth.info.email,
@@ -72,7 +75,6 @@ class User < ApplicationRecord
     end
   
     return user
-    
   end
 
 end
