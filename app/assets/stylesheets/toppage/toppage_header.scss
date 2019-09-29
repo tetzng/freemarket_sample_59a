@@ -142,7 +142,10 @@ a {
             }
           }
         }
-    }
+      }
+      &-login {
+        font-size: 14px;
+      }
   }
 }
 
@@ -287,4 +290,20 @@ ul.toppage-header-top__footer-search-categories:after{
   .toppage-header-top {
     width: 1020px;
   }
+}
+
+.pc-header-user-box.pc-header-notification-box.mypage-item-list,
+.pc-header-user-box, .pc-header-todo-box.mypage-item-list,
+.pc-header-user-box, .pc-header-mypage-box {
+  display: none;
+}
+.toppage-header-top__footer-login {
+
+}
+ul.toppage-header-top__footer-login-contents  {
+  display: flex;
+  & a {
+    color: $black;
+  }
+
 }
