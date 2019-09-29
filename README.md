@@ -93,24 +93,27 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user_id|references|null: false|foreign_key: true|
 |name|string|null: false|
 |description|text||
-|category_id|string|null: false|
-|condition|string|null: false|
+|category_id|references|null: false|foreign_key: true|
+|condition_id|references|null: false|foreign_key: true|
+|size_id|references|null: false|foreign_key: true|
+|brand|string|
 |delivery_charge|string|null: false|
+|delivery_way|string|null: false|
 |delivery_area|string|null: false|
 |delivery_days|string|null: false|
 |price|integer|null: false|
-|saler_id|integer|null: false|
-|status|string|null: false|
+|saler_id|references|null: false|foreign_key: true|
+|status|references|null: false|foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_many :likes
 - has_many :comments
 - mount_uploader :image, ImageUploader
-- add_index :products
+- add_index :products, :name #テーブル名、カラム名
 
 
 ## purchasesテーブル
