@@ -4,20 +4,18 @@
     %section.signup-main__container
       %h2.signup-main__chapter-head.signup-main__chapter-head--registration
         電話番号の確認
-      %form{ action: '/signup/sms_confirmation/sms/', method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' }
+      = form_with model: @user, local: true, url: signup_sms_confirmation_sms_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
         .signup-main__content
           .signup-main__form-group
-            %label{ for: 'phone_number' } 携帯電話の番号
-            %input.signup-main__input-default{ type: 'tel', name: 'phone_number', placeholder: '携帯電話の番号を入力' }
+            = f.label '携帯電話の番号'
+            = f.text_field :phone_num, { class: 'signup-main__input-default', placeholder: '携帯電話の番号を入力' }
           %p
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-          = link_to signup_sms_confirmation_sms_path, class: 'signup-main__fake-link' do
-            %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' } SMSを送信する
+          = f.submit class: 'signup-main__btn-default signup-main__btn-red', value: 'SMSを送信する'
           %p
             ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .signup-main__form-group.signup-main__text--right
             = link_to '#', target: '_blank' do
               電話番号の確認が必要な理由
               = icon 'fas', 'chevron-right'
-        %input{ type: 'hidden', name: 'id' }
   = render 'signup/footer'
