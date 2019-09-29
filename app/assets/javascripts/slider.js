@@ -1,5 +1,6 @@
 // Slick(トップページスライダー)の設定
 // [Slick](https://github.com/kenwheeler/slick/)
+
 $(document).on("turbolinks:load", function() {
     $('.toppage-slider__wrapper').slick({
     // ドットにクラスを追加
