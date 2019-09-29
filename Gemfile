@@ -44,10 +44,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
-  # バリデーションのテストを行うためのgem
+  # validation gem
+  gem 'rspec-rails'
   gem 'pry-rails'
 end
 
