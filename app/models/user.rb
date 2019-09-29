@@ -46,7 +46,13 @@ class User < ApplicationRecord
 #   validates :first_name, presence: true, length: { maximum: 35 }
 #   validates :last_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
 #   validates :first_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
-#   validates :zip_code1, presence: true, length: { maximum: 35 }
+#   validates :zip_code1, presence: true, length: { maximum: 8 }
+#   validates :prefecture_id, presence: true, length: { maximum: 8 }
+#   validates :city, presence: true, length: { maximum: 8 }
+#   validates :address1, presence: true, length: { maximum: 8 }
+#   validates :address2, presence: true, length: { maximum: 8 }
+#   validates :telephone, presence: true, length: { maximum: 8 }
+
 
 
 
@@ -58,5 +64,4 @@ class User < ApplicationRecord
 #   session[:telephone] = user_params[:telephone]
 
 
-# end
-
+end
