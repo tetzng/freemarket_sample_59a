@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :signup, only: :create
+  get '/sell', to: 'sell#index'
   get '/signup', to: 'signup#index'
   get '/signup/registration', to: 'signup#registration'
   get '/signup/sms_confirmation', to: 'signup#sms_confirmation'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'toppage#index'
   get 'toppage/buydetails'
+  get 'toppage/itembuy'
   get 'mypage/identification'
   get '/mypage', to: 'mypage#index'
   get 'mypage/card'
