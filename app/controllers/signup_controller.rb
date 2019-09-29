@@ -93,31 +93,31 @@ class SignupController < ApplicationController
   end
 end
 
-# private
-#   def user_params
-#     params.require(:user).permit(
-#       :nickname,
-#       :email,
-#       :password,
-#       :password_confirmation,
-#       :first_name,
-#       :last_name,
-#       :first_name_kana,
-#       :last_name_kana,
-#       :birth_yyyy_id,
-#       :birth_mm_id,
-#       :birth_dd_id,
-#       :phone_num,
-#       :authentication_num,
-#       :zip_code1,
-#       :prefecture_id,
-#       :city,
-#       :address1,
-#       :address2,#任意
-#       :telephone,#任意
-#       :payment_card_no,
-#       :paymentmonth_id,
-#       :paymentyear_id,
-#       :payment_card_security_code
-#     )
-#   end
+private
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :email,
+      :password,
+      :password_confirmation,
+      :first_name,
+      :last_name,
+      :first_name_kana,
+      :last_name_kana,
+      :birth_yyyy_id,
+      :birth_mm_id,
+      :birth_dd_id,
+      :phone_num,
+      :authentication_num,
+      :zip_code1,
+      :prefecture_id,
+      :city,
+      :address1,
+      :address2,#任意
+      :telephone,#任意
+      :payment_card_no,
+      :paymentmonth_id,
+      :paymentyear_id,
+      :payment_card_security_code
+    )
+  end
