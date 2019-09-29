@@ -1,0 +1,162 @@
+.itembuy-container
+  = render 'toppage/header'
+  %section.itembuy-content
+    %h1.itembuy-content__name 【COACH 】コーチ　シグネチャー　ワンハンドル　　ショルダーバッグ
+    .itembuy-content__clearfix
+      .itembuy-content__photo
+        .itembuy-content__owl-carousel
+        = image_tag 'download-app-pc-smartphon.png',
+        class: 'toppage-footer-top__smartphonimage', size: '300x300'
+        .itembuy-content__owl-stage
+        .itembuy-content__owl-bots
+      %table.itembuy-content__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to 'yu-chan', '/'
+              %div
+                .itembuy-user-ratings{ id: 'itembuy-icon-good' }
+                  %i.fas.fa-smile
+                  %span 22
+                .itembuy-user-ratings
+                  %i.fas.fa-meh
+                  %span 25
+                .itembuy-user-ratings
+                  %i.fas.fa-frown
+                  %span 5000
+          %tr
+            %th カテゴリー
+            %td
+              = link_to 'レディース', '/'
+              = link_to '/' do
+                .itembuy-table-sub
+                  %i.fas.fa-chevron-right
+                  バッグ
+              = link_to '/' do
+                .itembuy-table-sub
+                  %i.fas.fa-chevron-right
+                  ショルダーバッグ
+          %tr
+            %th  ブランド
+            %td
+              = link_to 'コーチ', '/'
+          %tr
+            %th 商品の状態
+            %td 傷や汚れあり
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td 普通郵便(定形、定形外)
+          %tr
+            %th 配送元地域
+            %td
+              = link_to '山形県', '/'
+          %tr
+            %th 発送日の目安
+            %td 1~2日で発送
+    .itembuy-content__price
+      %span.itembuy-content__bold ¥3,500
+      %span.itembuy-content__tax (税込)
+      %span.itembuy-content__fee 送料込み
+    = link_to '購入画面に進む', '/', class: 'itembuy-price-box'
+    .itembuy-detail
+      %p.itembuy-detail__inner 商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報商品情報
+    .itembuy-button
+      .itembuy-button__left
+        %button{ type: 'button', name: 'like!', class: 'i far fa-heart' }
+          %span いいね! 22
+        = link_to '/' do
+          %i.far.fa-flag
+            %span 不適切な商品の報告
+      .itembuy-button__right
+        = link_to '/' do
+          %i.fas.fa-shopping-bag
+            %span あんしん・あんぜんへの取り組み
+  .itembuy-content-box
+    .itembuy-detail-message
+      .itembuy-content__comment
+        %form.itembuy-message__form
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea
+          %button
+            %span コメントする
+  %ul.itembuy-nav
+    %li.itembuy-nav__left
+      = link_to '/' do
+        %i.fas.fa-chevron-left
+        消しゴム　マロンクリーム
+    %li.itembuy-nav__right
+      = link_to '/' do
+        天然片栗粉
+        %i.fas.fa-chevron-right
+  .itembuy-media-box
+    %ul.itembuy-media-box__list
+      %li
+        = link_to '/' do
+          %i.fab.fa-facebook-square
+      %li
+        = link_to '/' do
+          %i.fab.fa-twitter-square
+      %li
+        = link_to '/' do
+          %i.fab.fa-line
+      %li
+        = link_to '/' do
+          %i.fab.fa-pinterest-square
+  .itembuy-user-profile
+    %section.itembuy-user-profile__box
+      %h2.itembuy-user-profile__head
+        = link_to 'そらまめさんのその他出品', '/'
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+  = render 'mypage/bread-crumbs'
+  = render 'toppage/footer'
