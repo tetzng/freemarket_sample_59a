@@ -91,7 +91,6 @@ class SignupController < ApplicationController
       render '/signup/registration'
     end
   end
-
 end
 
 # private
