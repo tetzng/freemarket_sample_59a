@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2019_09_29_033440) do
     t.integer "price", null: false
     t.integer "saler_id", null: false
     t.integer "status_id", null: false
-<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"
@@ -100,12 +99,6 @@ ActiveRecord::Schema.define(version: 2019_09_29_033440) do
     t.integer "payment_card_security_code", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-=======
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_products_on_name"
-    t.index ["user_id"], name: "index_products_on_user_id"
->>>>>>> 7b8a4c3dad484a4ea4cfeea8ce00b43518350fe3
   end
 
 end
