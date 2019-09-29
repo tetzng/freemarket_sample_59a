@@ -93,7 +93,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|foreign_key: true|
+|user|references|null: false|foreign_key: true|
 |name|string|null: false|
 |description|text||
 |category_id|references|null: false|foreign_key: true|
@@ -120,7 +120,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user|references|null: false|
 |selar_id|integer|null: false|
 |buyer_id|integer|null: false|
 |status|string|null: false|
@@ -134,7 +134,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user|references|null: false|
 |product_id|integer|null: false|
 
 ### Association
@@ -146,7 +146,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user|references|null: false|
 |product_id|integer|null: false|
 
 ### Association
@@ -160,7 +160,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |content|text||
-|user_id|references|null: false|
+|user|references|null: false|
 |produts_id|integer|null: false|
 |produts_id|integer|null: false|
 
@@ -168,3 +168,67 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 - belongs_to :purchase
+
+
+## products_userテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false|
+|produts_id|integer|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :product
+
+
+## categoryテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|
+
+### Association
+- has_many :products
+
+
+## conditionテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
+
+
+## sizeテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
+
+
+## brandテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
+
+
+## imageテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|product_id|integer|null: false|
+
+### Association
+- belomgs_to :product
