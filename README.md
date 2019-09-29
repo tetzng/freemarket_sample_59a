@@ -170,27 +170,15 @@ Things you may want to cover:
 - belongs_to :purchase
 
 
-## products_userテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user|references|null: false|
-|produts_id|integer|null: false|
-
-### Association
-- belongs_to :user
-- belongs_to :product
-
 
 ## categoryテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|
 
 ### Association
-- has_many :products
+
 
 
 ## conditionテーブル
@@ -223,12 +211,3 @@ Things you may want to cover:
 - has_many :products
 
 
-## imageテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|image|string|null: false|
-|product_id|integer|null: false|
-
-### Association
-- belomgs_to :product
