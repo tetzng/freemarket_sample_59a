@@ -4,9 +4,9 @@
   %main.mypage-container.clearfix
     .mypage-content
       .mypage-content__chapter-container
-        %form.signup-main__inner{ action: '#', method: 'GET' }
+        .signup-main__inner
           .signup-main__content
-            %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' }
+            = link_to destroy_user_session_path, method: 'delete', class: 'signup-main__btn-default signup-main__btn-red' do
               ログアウト
     = render 'mypage/side-bar'
   = render 'toppage/footer'
