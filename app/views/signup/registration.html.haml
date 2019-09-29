@@ -4,27 +4,26 @@
     %section.signup-main__container
       %h2.signup-main__head.signup-main__head--registration
         会員情報入力
-      = form_with model: [@birth_year, BirthMonth.new, BirthDay.new], url: '/signup/sms_confirmation', method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+      = form_with model: @user, local: true, url: signup_sms_confirmation_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
         .signup-main__content
           .signup-main__form-group
-            %label{ for: 'nickname' } ニックネーム
+            = f.label 'ニックネーム'
             %span.signup-main__form-require 必須
-            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', name: 'nickname', placeholder: '例) メルカリ太郎' }
+            = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎' }
             %ul.signup-main__has-error-text
               ニックネーム を入力してください
           .signup-main__form-group
-            %label{ for: 'email' } メールアドレス
+            = f.label 'メールアドレス'
             %span.signup-main__form-require 必須
-            %input.signup-main__input-default{ type: 'email', name: 'email', placeholder: 'PC・携帯どちらでも可' }
-          %input{ type: 'hidden', name: 'login_type' }
+            = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可' }
           .signup-main__form-group
-            %label{ for: 'password' } パスワード
+            = f.label 'パスワード'
             %span.signup-main__form-require 必須
-            %input.signup-main__input-default{ type: 'password', name: 'password', placeholder: '7文字以上' }
+            = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
           .signup-main__form-group
-            %label{ for: 'password' } パスワード (確認)
+            = f.label 'パスワード (確認)'
             %span.signup-main__form-require 必須
-            %input.signup-main__input-default{ type: 'password', name: 'password2', placeholder: '7文字以上' }
+            = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上' }
           .signup-main__form-group
             %h3.signup-main__sub-head
               本人確認
@@ -32,18 +31,18 @@
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
           .signup-main__form-group
             %div
-              %label お名前(全角)
+              = f.label 'お名前(全角)'
               %span.signup-main__form-require 必須
-            %input.signup-main__input-default.signup-main__input-default--half{ type: 'text', name: 'family_name_kanji', placeholder: '例) 山田' }
-            %input.signup-main__input-default.signup-main__input-default--half{ type: 'text', name: 'first_name_kanji', placeholder: '例) 彩' }
+            = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 山田' }
+            = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 彩' }
           .signup-main__form-group
             %div
-              %label{ for: 'family_name_kanji' } お名前カナ(全角)
+              = f.label 'お名前カナ(全角)'
               %span.signup-main__form-require 必須
-            %input.signup-main__input-default.signup-main__input-default--half{ type: 'text', name: 'family_name_kana', placeholder: '例) ヤマダ' }
-            %input.signup-main__input-default.signup-main__input-default--half{ type: 'text', name: 'first_name_kana', placeholder: '例) アヤ' }
+            = f.text_field :last_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) ヤマダ' }
+            = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) アヤ' }
           .signup-main__form-group
-            %label{ for: 'birthday' } 生年月日
+            = f.label '生年月日'
             %span.signup-main__form-require 必須
             %br
             .signup-main__birthday-select-wrap
@@ -59,7 +58,6 @@
                 = icon 'fas', 'chevron-down'
                 = f.collection_select :birth_dd_id, BirthDd.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default'
               %span 日
-            %input{ type: 'hidden', name: 'birthday' }
             .clearfix
           %p.signup-main__form-info-text
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -74,8 +72,7 @@
               = link_to '#', target: '_blank' do
                 利用規約
               に同意したものとみなします
-          = link_to signup_sms_confirmation_path, class: 'signup-main__fake-link' do
-            %button.signup-main__btn-default.signup-main__btn-red{ type: 'submit' } 次へ進む
+          = f.submit class: 'signup-main__btn-default signup-main__btn-red', value: '次へ進む'
           .signup-main__form-group.signup-main__text--right
             %p
               = link_to 'sms_confirmation', target: '_blank' do
