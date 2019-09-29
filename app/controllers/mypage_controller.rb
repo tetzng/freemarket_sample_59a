@@ -2,6 +2,7 @@ class MypageController < ApplicationController
   def identification
   end
   def index
+    @user = current_user
   end
   def profile
   end
