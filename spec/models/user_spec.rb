@@ -3,6 +3,8 @@ require 'rails_helper'
 describe User do
   describe '#create' do
 
+# 文字が入っているかどうかのテスト
+
     it "is invalid without a id" do
       user = build(:user, id: "")
       user.valid?
@@ -70,8 +72,8 @@ describe User do
       user.valid?
       expect(user.errors[:nickname]).to include("can't be blank")
     end
-   
-    # ここまで文字が入っているかどうかのテスト
+
+        # IDが20文字以下なら登録できる
 
     it "is invalid with a nickname that has more than 20 characters" do
       user = build(:user, nickname: "aaaaaaaaaasssssssssaaaaaaaaaaaaaaaa")
@@ -84,8 +86,7 @@ describe User do
       expect(user).to be_valid
     end
 
-    # IDが20文字以下なら登録できる
-
+    # encrypted_passwordが７〜１２８文字であれば登録できる
 
     it "is invalid with a encrypted_password that has more than 128 characters " do
       user = build(:user, encrypted_password: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -105,7 +106,6 @@ describe User do
       expect(user).to be_valid
     end
 
-    # encrypted_passwordが７〜１２８文字であれば登録できる
 
 
 
