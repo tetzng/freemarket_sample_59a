@@ -1,12 +1,12 @@
-.signup-container
-  = render 'signup/header'
+.itembuy-container
+  = render 'toppage/header'
   %section.itembuy-content
     %h1.itembuy-content__name 【COACH 】コーチ　シグネチャー　ワンハンドル　　ショルダーバッグ
     .itembuy-content__clearfix
       .itembuy-content__photo
         .itembuy-content__owl-carousel
         = image_tag 'download-app-pc-smartphon.png',
-        class: 'toppage-footer-top__smartphonimage',size: '300x300'
+        class: 'toppage-footer-top__smartphonimage', size: '300x300'
         .itembuy-content__owl-stage
         .itembuy-content__owl-bots
       %table.itembuy-content__table
@@ -84,7 +84,79 @@
           %button
             %span コメントする
   %ul.itembuy-nav
+    %li.itembuy-nav__left
+      = link_to '/' do
+        %i.fas.fa-chevron-left
+        消しゴム　マロンクリーム
+    %li.itembuy-nav__right
+      = link_to '/' do
+        天然片栗粉
+        %i.fas.fa-chevron-right
   .itembuy-media-box
+    %ul.itembuy-media-box__list
+      %li
+        = link_to '/' do
+          %i.fab.fa-facebook-square
+      %li
+        = link_to '/' do
+          %i.fab.fa-twitter-square
+      %li
+        = link_to '/' do
+          %i.fab.fa-line
+      %li
+        = link_to '/' do
+          %i.fab.fa-pinterest-square
   .itembuy-user-profile
-  %aside.itembuy-model
-  = render 'signup/footer'
+    %section.itembuy-user-profile__box
+      %h2.itembuy-user-profile__head
+        = link_to 'そらまめさんのその他出品', '/'
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+      .itembuy-user-profile__content
+        %section.itembuy-user-profile__items
+          = link_to '/' do
+            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            .itembuy-user-profile__body
+              %h3.itembuy-user-profile__name  メルカリ
+              .itembuy-user-profile__num
+                .itembuy-user-profile__price ¥1,300
+  = render 'mypage/bread-crumbs'
+  = render 'toppage/footer'

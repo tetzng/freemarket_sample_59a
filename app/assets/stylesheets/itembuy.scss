@@ -184,3 +184,80 @@
   width: 700px;
   margin: 8px auto;
 }
+.itembuy-nav{
+  margin: 24px auto 0;
+  width: 700px;
+  &__left{
+    width: 45%;
+    display: inline-block;
+  }
+  &__right{
+    float: right;
+  }
+}
+.itembuy-media-box{
+  margin: 32px auto;
+  padding: 40px 0 24px;
+  width: 700px;
+  clear: both;
+  background-color: #fff;
+  text-align: center; 
+  li{
+    margin: 16px 8px 8px 0;
+    font-size: 44px;
+    display: inline-block;
+    vertical-align: middle;
+    .fab.fa-facebook-square{
+      color:  #385185;
+    }
+    .fab.fa-twitter-square{
+      color: #5d9dc9;
+    }
+    .fab.fa-line{
+      color: green;
+    }
+    .fab.fa-pinterest-square{
+      color: #aa262a;
+    }
+  }
+}
+.itembuy-user-profile{
+  width: 700px;
+  margin: 0 auto;
+  h2{
+    font-size: 22px;
+    margin: 24px 0 8px;
+  }
+  &__content{
+    background: #fff;
+    width: 210px;
+    margin: 0 20px 20px 0;
+    display: inline-block;
+    section{
+      a{
+        display: block;
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+  &__body{
+    padding: 16px;
+    h3{
+      overflow: hidden;
+      position: relative;
+      font-weight: 400;
+      height: 3em;
+      line-height: 1.5;
+      word-break: break-word;
+      white-space: normal;
+      font-size: 16px;
+      color: #333;
+    }
+  }
+  &__price{
+    font-size: 17px;
+    font-weight: 600;
+    color: #333;
+  }
+}
