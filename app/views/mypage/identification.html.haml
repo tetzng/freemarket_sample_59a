@@ -33,7 +33,7 @@
             %span.indentification-content__arbitrary 任意
             .indentification-content__select
               %i.fas.fa-chevron-down
-              = form_with model: @address, local: true do |f|
+              = form_with model: @user, local: true do |f|
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: '--'
             .indentification-content__group
               %label.indentification-content__zipcode 市区町村
