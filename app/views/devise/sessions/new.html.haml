@@ -1,0 +1,57 @@
+-# <h2>Log in</h2>
+
+-# <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+-#   <div class="field">
+-#     <%= f.label :email %><br />
+-#     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= f.label :password %><br />
+-#     <%= f.password_field :password, autocomplete: "current-password" %>
+-#   </div>
+
+-#   <% if devise_mapping.rememberable? %>
+-#     <div class="field">
+-#       <%= f.check_box :remember_me %>
+-#       <%= f.label :remember_me %>
+-#     </div>
+-#   <% end %>
+
+-#   <div class="actions">
+-#     <%= f.submit "Log in" %>
+-#   </div>
+-# <% end %>
+
+-# <%= render "devise/shared/links" %>
+
+.signup-container
+  = render 'signup/header'
+  %main.signup-main
+    .signup-main__login-panel
+      .signup-main__login-no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to '/signup/' do
+          新規会員登録
+      .signup-main__login-form-inner{ id: 'inner-top' }
+        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'facebook-login' }
+          = icon 'fab', 'facebook-square'
+          Facebookでログイン
+        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'google-login' }
+          Googleでログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name), action: '/login/', method: 'POST', novalidate: 'novalidate') do |f|
+        .signup-main__login-form-inner
+          .signup-main__form-group
+            = f.email_field :email, { class: 'signup-main__login-input-text signup-main__input-default', placeholder: 'メールアドレス', autofocus: 'true', autocomplete: 'email' }
+          .signup-main__form-group
+            = f.password_field :password, { class: 'signup-main__login-input-text signup-main__input-default', placeholder: 'パスワード', autocomplete: 'current-password' }
+            = f.submit class: 'signup-main__login-submit signup-main__btn-default signup-main__btn-red', value: 'ログイン'
+          = link_to '#' do
+            パスワードをお忘れの方
+  = render 'signup/footer'
+
+//       = f.submit id: 'submit-button', class: 'signup-main__btn-default signup-main__btn-red', value: '追加する'
+// resource, as: resource_name, url: session_path(resource_name
+
+// = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
