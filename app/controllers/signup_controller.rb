@@ -21,60 +21,60 @@ class SignupController < ApplicationController
     session[:birth_dd_id] = user_params[:birth_dd_id]
     @user = User.new( # 新規インスタンス作成
     # sessionに保存された値をインスタンスに渡す
-    nickname: session[:nickname],
-    email: session[:email],
-    password: session[:password],
-    password_confirmation: session[:password_confirmation],
-    last_name: session[:last_name],
-    first_name: session[:first_name],
-    last_name_kana: session[:last_name_kana],
-    first_name_kana: session[:first_name_kana],
-    birth_yyyy_id: session[:birth_yyyy_id],
-    birth_mm_id: session[:birth_mm_id],
-    birth_dd_id: session[:birth_dd_id],
-    # 入力前の情報は、バリデーションに通る値を仮で入れる
-    phone_num: "08000000000",
-    authentication_num: "1234",
-    zip_code1: "000-0000",
-    prefecture_id: "1",
-    city: "福岡市",
-    address1: "南区",
-    address2: "",
-    telephone: "",
-    payment_card_no: "00000000",
-    paymentmonth_id: "1",
-    paymentyear_id: "1",
-    payment_card_security_code: "111",
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_yyyy_id: session[:birth_yyyy_id],
+      birth_mm_id: session[:birth_mm_id],
+      birth_dd_id: session[:birth_dd_id],
+      # 入力前の情報は、バリデーションに通る値を仮で入れる
+      phone_num: "08000000000",
+      authentication_num: "1234",
+      zip_code1: "000-0000",
+      prefecture_id: "1",
+      city: "福岡市",
+      address1: "南区",
+      address2: "",
+      telephone: "",
+      payment_card_no: "00000000",
+      paymentmonth_id: "1",
+      paymentyear_id: "1",
+      payment_card_security_code: "111"
     )
     render '/signup/registration' unless @user.valid?
   end
-    
+
   def sms_confirmation_sms
     session[:phone_num] = user_params[:phone_num]
     @user = User.new( # 新規インスタンス作成
-    nickname: session[:nickname],
-    email: session[:email],
-    password: session[:password],
-    password_confirmation: session[:password_confirmation],
-    last_name: session[:last_name],
-    first_name: session[:first_name],
-    last_name_kana: session[:last_name_kana],
-    first_name_kana: session[:first_name_kana],
-    birth_yyyy_id: session[:birth_yyyy_id],
-    birth_mm_id: session[:birth_mm_id],
-    birth_dd_id: session[:birth_dd_id],
-    phone_num: session[:phone_num],
-    authentication_num: "1234",
-    zip_code1: "000-0000",
-    prefecture_id: "1",
-    city: "福岡市",
-    address1: "南区",
-    address2: "",
-    telephone: "",
-    payment_card_no: "00000000",
-    paymentmonth_id: "1",
-    paymentyear_id: "1",
-    payment_card_security_code: "111",
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_yyyy_id: session[:birth_yyyy_id],
+      birth_mm_id: session[:birth_mm_id],
+      birth_dd_id: session[:birth_dd_id],
+      phone_num: session[:phone_num],
+      authentication_num: "1234",
+      zip_code1: "000-0000",
+      prefecture_id: "1",
+      city: "福岡市",
+      address1: "南区",
+      address2: "",
+      telephone: "",
+      payment_card_no: "00000000",
+      paymentmonth_id: "1",
+      paymentyear_id: "1",
+      payment_card_security_code: "111"
     )
     render '/signup/sms_confirmation' unless @user.valid?
   end
@@ -178,7 +178,7 @@ class SignupController < ApplicationController
     payment_card_no: session[:payment_card_no],
     paymentmonth_id: session[:paymentmonth_id],
     paymentyear_id: session[:paymentyear_id],
-    payment_card_security_code: session[:payment_card_security_code],
+    payment_card_security_code: session[:payment_card_security_code]
     )
     if @user.save
     # ログインするための情報を保管
@@ -196,7 +196,6 @@ class SignupController < ApplicationController
 
   def login
   end
-
 end
 
 private
@@ -224,6 +223,6 @@ private
       :payment_card_no,
       :paymentmonth_id,
       :paymentyear_id,
-      :payment_card_security_code,
+      :payment_card_security_code
     )
   end
