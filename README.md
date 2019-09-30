@@ -93,31 +93,34 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user|references|null: false|foreign_key: true|
 |name|string|null: false|
 |description|text||
-|category_id|string|null: false|
-|condition|string|null: false|
+|category_id|references|null: false|foreign_key: true|
+|condition_id|references|null: false|foreign_key: true|
+|size_id|references|null: false|foreign_key: true|
+|brand|string|
 |delivery_charge|string|null: false|
+|delivery_way|string|null: false|
 |delivery_area|string|null: false|
 |delivery_days|string|null: false|
 |price|integer|null: false|
-|saler_id|integer|null: false|
-|status|string|null: false|
+|saler_id|references|null: false|foreign_key: true|
+|status|references|null: false|foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_many :likes
 - has_many :comments
 - mount_uploader :image, ImageUploader
-- add_index :products
+- add_index :products, :name #テーブル名、カラム名
 
 
 ## purchasesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user|references|null: false|
 |selar_id|integer|null: false|
 |buyer_id|integer|null: false|
 |status|string|null: false|
@@ -131,7 +134,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user|references|null: false|
 |product_id|integer|null: false|
 
 ### Association
@@ -143,7 +146,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user|references|null: false|
 |product_id|integer|null: false|
 
 ### Association
@@ -157,7 +160,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |content|text||
-|user_id|references|null: false|
+|user|references|null: false|
 |produts_id|integer|null: false|
 |produts_id|integer|null: false|
 
@@ -165,3 +168,44 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 - belongs_to :purchase
+
+
+
+## categoryテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+
+
+
+## conditionテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
+
+
+## sizeテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
+
+
+## brandテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
