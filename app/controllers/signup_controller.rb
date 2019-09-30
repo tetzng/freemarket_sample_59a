@@ -36,13 +36,16 @@ class SignupController < ApplicationController
       phone_num: "08000000000",
       authentication_num: "1234",
       zip_code1: "000-0000",
+      # { id: 1, name: '北海道' } で北海道を呼び出している
       prefecture_id: "1",
       city: "福岡市",
       address1: "南区",
       address2: "",
       telephone: "",
       payment_card_no: "00000000",
+#   {id: 1, num: '01'} から、クレカ有効期限01月を呼び出している
       paymentmonth_id: "1",
+#  { id: 1, num: '19' },から、クレカ有効期限19年を呼び出している
       paymentyear_id: "1",
       payment_card_security_code: "111"
     )
