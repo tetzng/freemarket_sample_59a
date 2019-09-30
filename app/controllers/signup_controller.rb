@@ -43,9 +43,9 @@ class SignupController < ApplicationController
       address2: "",
       telephone: "",
       payment_card_no: "00000000",
-#   {id: 1, num: '01'} から、クレカ有効期限01月を呼び出している
+      # {id: 1, num: '01'} から、クレカ有効期限01月を呼び出している
       paymentmonth_id: "1",
-#  { id: 1, num: '19' },から、クレカ有効期限19年を呼び出している
+      # { id: 1, num: '19' },から、クレカ有効期限19年を呼び出している
       paymentyear_id: "1",
       payment_card_security_code: "111"
     )
