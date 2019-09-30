@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :signup, only: :create
   get '/sell', to: 'sell#index'
-  get '/sell/products', to: 'sell#products'
   get '/signup', to: 'signup#index'
   get '/signup/registration', to: 'signup#registration'
   get '/signup/sms_confirmation', to: 'signup#sms_confirmation'
@@ -20,4 +19,6 @@ Rails.application.routes.draw do
   get '/mypage/card/create', to: 'mypage#card_create'
   get '/mypage/profile', to: 'mypage#profile'
   get '/logout', to: 'mypage#logout'
+
+  resources :sell
 end
