@@ -27,7 +27,7 @@ class User < ApplicationRecord
 #registration
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'のフォーマットが不適切です'}
-  validates :password, presence: true, length: { in: 7..128 }, format: { with: VALID_PASSWORD_REGEX , message: 'は英字と数字両方を含むパスワードを設定してください'}
+  validates :password, presence: true, length: { in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
   validates :password_confirmation, presence: true, length: { in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
   validates :last_name, presence: true, length: { maximum: 35 }
   validates :first_name, presence: true, length: { maximum: 35 }
@@ -60,6 +60,4 @@ class User < ApplicationRecord
   validates :paymentmonth_id, presence: true
   validates :paymentyear_id, presence: true
   validates :payment_card_security_code, presence: true, length: { maximum: 4 }
-
-
 end
