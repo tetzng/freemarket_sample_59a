@@ -1,11 +1,7 @@
 class SellController < ApplicationController
-
-
   def index
     @product = Sell.new
   end
-
-
 
   def create
     @product = Sell.new(product_params)
@@ -14,10 +10,8 @@ class SellController < ApplicationController
   end
 
   private
-
   def product_params
     params.permit(:image, :name, :)
-
   end
 
   def move_to_index
