@@ -4,6 +4,7 @@ class SellController < ApplicationController
   def index
     @product = Sell.new
   end
+<<<<<<< HEAD
 
   def create
     @product = Sell.new(product_params)
@@ -23,3 +24,7 @@ class SellController < ApplicationController
   end
 
 end 
+=======
+  # require(:product).permit(:name, images: [])
+end
+>>>>>>> create products active hash
