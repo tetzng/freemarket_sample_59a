@@ -6,7 +6,7 @@
         %div
           .sell-main__inner
             %h2.sell-main__head 商品の情報を入力
-            = form_with model: @product, url: 'sell', class:'sell-main__form' do |f|
+            = form_with model: @product, url: sell_index_path, class:'sell-main__form' do |f|
               .sell-main__upload-box
                 %h3.sell-main__upload-head
                   出品画像
@@ -98,7 +98,7 @@
                       %span.sell-main__form-arbitrary 任意
                     %div
                       = f.text_field :brand, { class: 'sell-main__input-default', placeholder: '例）シャネル' }
-                      %div
+                    %div
                     %ul.sell-main__has-error-text
                   .sell-main__form-group
                     = f.label :condition do
@@ -141,7 +141,7 @@
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
-                      = f.collection_select :delivery_area_id, Prefecture.all, :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
                       %li
                         選択してください
