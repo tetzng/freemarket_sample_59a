@@ -39,7 +39,8 @@
                         -#     = link_to '' do
                         -#       削除
                   .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0
-                    = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
+                    = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file'
+                    -# , style: 'display: none;'
                     %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
                     %i.fas.fa-camera
                 %ul.sell-main__has-error-text
