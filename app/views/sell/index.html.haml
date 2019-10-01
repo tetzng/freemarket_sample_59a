@@ -15,19 +15,19 @@
                 .sell-main__dropbox-container.clearfix.state-image-number-10
                   .sell-main__upload-items-container
                     -# 投稿数に応じてクラス名変更
-                    .sell-main__upload-items.sell-main__upload-items--have-item-0
-                      %ul
-                        -#画像が投稿されたら下記アペンド
+                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--first' }
+                      %ul{ id: 'output' }
+                        -# 画像が投稿されたら下記アペンド
                         -# %li.sell-main__upload-item
                         -#   %figure.sell-main__upload-figure.sell-main__upload-figure--square
-                        -#     = image_tag 'mercari_profile.png'
+                        -#     = image_tag 'mercari_profile.png', id: 'img1'
                         -#   .sell-main__upload-button
                         -#     = link_to '', class: 'sell-main__upload-edit' do
                         -#       編集
                         -#     = link_to '' do
                         -#       削除
                     -#投稿数が5以上のとき、下記追加
-                    .sell-main__upload-items.sell-main__upload-items--have-item-0
+                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--second' }
                       %ul
                         -#画像が投稿されたら下記アペンド
                         -# %li.sell-main__upload-item
@@ -38,11 +38,12 @@
                         -#       編集
                         -#     = link_to '' do
                         -#       削除
-                  .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0
-                    = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file'
-                    -# , style: 'display: none;'
-                    %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
-                    %i.fas.fa-camera
+                  -# %div
+                  = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
+                    .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
+                      = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
+                      %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                      %i.fas.fa-camera
                 %ul.sell-main__has-error-text
                   %li
                     画像がありません
