@@ -28,7 +28,7 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
 
-#registration
+  #registration
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'のフォーマットが不適切です'}
   validates :password, presence: true, length: { in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
@@ -42,14 +42,14 @@ class User < ApplicationRecord
   validates :birth_dd_id, presence: true
 
 
-#sms_confirmation
+  #sms_confirmation
   validates :phone_num, presence: true, format: { with: /\A\d{10,11}\z/, message: 'の入力が正しくありません'}
 
 
-#sms_confirmation/sms
+  #sms_confirmation/sms
   validates :authentication_num, presence: true, numericality: { only_integer: true }
 
-#signup/address
+  #signup/address
   validates :last_name, presence: true, length: { maximum: 35 }
   validates :first_name, presence: true, length: { maximum: 35 }
   validates :last_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
@@ -77,9 +77,9 @@ class User < ApplicationRecord
     return user
   end
 
-end
 
-#signup/credit_card
+
+  #signup/credit_card
   validates :payment_card_no, presence: true, length: { maximum: 16 }, numericality: { only_integer: true }
   validates :paymentmonth_id, presence: true
   validates :paymentyear_id, presence: true
