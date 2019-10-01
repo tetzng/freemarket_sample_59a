@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :signup, only: :create
+  resources :sell
   get '/sell', to: 'sell#index'
   get '/signup', to: 'signup#index'
   get '/signup/registration', to: 'signup#registration'
@@ -12,13 +13,10 @@ Rails.application.routes.draw do
   get '/login', to: 'signup#login'
   root 'sell#index'
   get 'sell/buydetails'
-  get 'sell/show', to: 'sell#show'
   get 'mypage/identification'
   get '/mypage', to: 'mypage#index'
   get 'mypage/card'
   get '/mypage/card/create', to: 'mypage#card_create'
   get '/mypage/profile', to: 'mypage#profile'
   get '/logout', to: 'mypage#logout'
-
-  resources :sell
 end
