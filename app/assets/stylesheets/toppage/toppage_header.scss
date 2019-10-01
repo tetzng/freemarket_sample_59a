@@ -376,6 +376,11 @@ ul.toppage-header-top__footer-search-categories:after{
     text-align: center;
     color: #ccc;
   }
+  &--mypage {
+    a:hover {
+      color: $sky_blue;
+    }
+  }
   &--mypage-box  {
     box-sizing: border-box;
     background-color: $white;
