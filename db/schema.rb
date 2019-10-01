@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_072909) do
+ActiveRecord::Schema.define(version: 2019_10_01_001308) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,41 @@ ActiveRecord::Schema.define(version: 2019_09_30_072909) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "birth_days", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "birth_dd_id"
+    t.string "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "birth_months", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "birth_mm_id"
+    t.string "month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "birth_years", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "birth_yyyy_id"
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "months", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "paymentmonth_id"
+    t.string "num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", default: "", null: false
@@ -41,13 +76,12 @@ ActiveRecord::Schema.define(version: 2019_09_30_072909) do
     t.integer "condition_id", null: false
     t.integer "size_id", null: false
     t.string "brand", default: ""
-    t.string "delivery_charge_id", default: "", null: false
-    t.string "delivery_way_id", default: "", null: false
-    t.string "prefecture_id", default: "", null: false
-    t.string "delivery_days_id", default: "", null: false
+    t.string "delivery_charge_id", default: ""
+    t.string "delivery_way_id", default: ""
+    t.string "prefecture_id", default: ""
+    t.string "delivery_days_id", default: ""
     t.integer "price", null: false
-    t.integer "saler_id", null: false
-    t.integer "status_id", null: false
+    t.integer "status_id", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"
@@ -66,8 +100,8 @@ ActiveRecord::Schema.define(version: 2019_09_30_072909) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.string "phone_num", null: false
-    t.integer "authentication_num", null: false
+    t.string "phone_num", default: ""
+    t.integer "authentication_num"
     t.text "content"
     t.string "nickname", null: false
     t.integer "birth_yyyy_id", null: false
@@ -78,7 +112,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_072909) do
     t.string "city", null: false
     t.string "address1", null: false
     t.string "address2"
-    t.string "telephone"
+    t.string "telephone", default: "", null: false
     t.integer "payment_card_no", null: false
     t.integer "paymentmonth_id", null: false
     t.integer "paymentyear_id", null: false
