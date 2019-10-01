@@ -48,7 +48,7 @@ button{
     bottom: 200px;
     left: 60px;
     cursor: pointer;
-    z-index: 1006;
+    z-index: 1;
   }
 
   .fa-chevron-right {
@@ -59,7 +59,7 @@ button{
     bottom: 200px;
     right: 60px;
     cursor: pointer;
-    z-index: 1005;
+    z-index: 2;
   }
 }
 .toppage-slider {
@@ -73,7 +73,7 @@ button{
   &__contents-first  {
   box-sizing: border-box;
   height: auto;
-  z-index: 1003;
+  z-index: 1;
   width: 100%;
     &-content  {
       width: 100vw;
@@ -91,7 +91,7 @@ button{
     height: 390px;
     box-sizing: border-box;
     display: inline-block;
-    z-index: 1003;
+    z-index: 1;
       &-content {
         align-items: center;
         background-image: image-url('top-banner-main.jpg');
