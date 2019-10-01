@@ -74,7 +74,6 @@ end
 
 # 静的データの管理（住所、都道府県など）
 gem 'active_hash', '~> 1.5.3'
-
 gem 'carrierwave'
 gem 'devise', '>=4.7.1'
 gem 'fog-aws'
@@ -85,7 +84,8 @@ gem 'haml-rails'
 gem 'jquery-rails'
 # クレジットカード決済
 gem 'payjp'
-gem 'omniauth', '>=1.9.0'
+gem 'omniauth', '>= 1.0.0'
+gem 'omniauth-facebook', '>=5.0.0'
 gem 'omniauth-rails_csrf_protection', '>=0.1.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # s3に画像アップロード
