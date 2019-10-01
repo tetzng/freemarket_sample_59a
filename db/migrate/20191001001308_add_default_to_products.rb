@@ -9,7 +9,6 @@ class AddDefaultToProducts < ActiveRecord::Migration[5.2]
     change_column_null :products, :prefecture_id, true
     change_column_null :products, :delivery_days_id, true
 
-    #serer_idいらない？いるならcontrollerでseler_id: current_user.id
     remove_column :products, :saler_id, :integer, null: false
 
   end

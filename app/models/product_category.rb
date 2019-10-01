@@ -1,4 +1,4 @@
-class Product  < ActiveHash::Base
+class Product < ActiveHash::Base
   include ActiveHash::Associations
   self.data = [
     { id: 1, name: 'レディース' },
@@ -115,7 +115,7 @@ class Product  < ActiveHash::Base
     { id: 14, name: 'ヘアバンド/カチューシャ' },
     { id: 15, name: 'ヘアピン' },
     { id: 16, name: 'その他' },
-    { id: 14, name: '長財布'},
+    { id: 14, name: '長財布' },
     { id: 15, name: '折り財布' },
     { id: 16, name: 'コインケース/小銭入れ' },
     { id: 14, name: '名刺入れ/定期入れ' },
