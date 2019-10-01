@@ -120,7 +120,8 @@
                           %div
                             = image_tag 'member_photo_noimage.png', alt: 'mypage-logo', width: '60px',
                             class: 'toppage-header-top__footer-login-content--mypage-pulldown-user-icon'
-                          %figcaption current_user.nickname
+                          %figcaption
+                            = current_user.nickname
                         %ul.toppage-header-top__footer-login-content--mypage-review-listing
                           %li
                             = link_to '評価: 2', '#'
@@ -166,7 +167,7 @@
               = link_to '/signup' do
                 新規会員登録
             .toppage-header-top__footer-contents--user-login-btn
-              = link_to '/users/sign_in' do
+              = link_to '/login' do
                 ログイン
 
 
