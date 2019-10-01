@@ -56,15 +56,7 @@
                 %p ブランド一覧
     
       .toppage-header-top__footer-contents
-        - unless user_signed_in?
-          .toppage-header-top__footer-contents-wrapper
-            .toppage-header-top__footer-contents--new-register-btn
-              = link_to '/signup' do
-                新規会員登録
-            .toppage-header-top__footer-contents--user-login-btn
-              = link_to '/users/sign_in' do
-                ログイン
-        - else
+        - if user_signed_in?
           .toppage-header-top__footer-contents-wrapper
             .toppage-header-top__footer-login
               %ul.toppage-header-top__footer-login-contents
@@ -167,5 +159,14 @@
                           = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
                             購入した商品 - 過去の取引          
                             = icon('fas', 'chevron-right')
+        - else
+          .toppage-header-top__footer-contents-wrapper
+            .toppage-header-top__footer-contents--new-register-btn
+              = link_to '/signup' do
+                新規会員登録
+            .toppage-header-top__footer-contents--user-login-btn
+              = link_to '/users/sign_in' do
+                ログイン
+
 
 
