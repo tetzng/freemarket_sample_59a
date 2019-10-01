@@ -7,13 +7,11 @@
       .itembuy-content__photo
         .itembuy-content__auter
           .itembuy-content__owl-carousel{ id: 'main' }
-            = image_tag 'shadow1.jpg', class: 'owl-carousel', size: '300x300'
-            = image_tag 'shadow2.jpg', class: 'owl-carousel', size: '300x300'
-            = image_tag 'shadow3.jpg', class: 'owl-carousel', size: '300x300'
+            = @product.images.each do |image|
+              = image_tag image, class: 'owl-carousel', size: '300x300'
         .itembuy-content__owl-carousel-thumb{id: 'thumbs'}
-          = image_tag 'shadow1.jpg', class: 'owl-carousel-sub', size: '60x60'
-          = image_tag 'shadow2.jpg', class: 'owl-carousel-sub', size: '60x60'
-          = image_tag 'shadow3.jpg', class: 'owl-carousel-sub', size: '60x60'
+          = @product.images.each do |image|
+            = image_tag image, class: 'owl-carousel-sub', size: '60x60'
         .itembuy-content__owl-stage
         .itembuy-content__owl-bots
       %table.itembuy-content__table
@@ -21,7 +19,8 @@
           %tr
             %th 出品者
             %td
-              = link_to 'yu-chan', '/'
+              = link_to '/' do
+                = @user.nickname
               %div
                 .itembuy-user-ratings{ id: 'itembuy-icon-good' }
                   %i.fas.fa-smile
@@ -124,7 +123,8 @@
   .itembuy-user-profile
     %section.itembuy-user-profile__box
       %h2.itembuy-user-profile__head
-        = link_to 'そらまめさんのその他出品', '/'
+        = link_to '/' do
+          #{@user.nickname}さんのその他の出品
       .itembuy-user-profile__content
         %section.itembuy-user-profile__items
           = link_to '/' do
