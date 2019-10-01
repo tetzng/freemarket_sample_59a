@@ -1,19 +1,19 @@
 crumb :root do
-  link "メルカリ", root_path
+  link 'メルカリ', root_path
 end
 
 crumb :mypage do
-  link "マイページ", mypage_path
+  link 'マイページ', mypage_path
   parent :root
 end
 
 crumb :user_sign_out do
-  link "ログアウト"
+  link 'ログアウト'
   parent :mypage
 end
 
 crumb :mypage_identification do
-  link "本人情報の確認"
+  link '本人情報の確認'
   parent :mypage
 end
 
@@ -23,27 +23,27 @@ crumb :itembuy do |item|
 end
 
 crumb :mypage_card do
-  link "支払い方法" 
+  link '支払い方法' 
   parent :mypage
 end
 
 crumb :mypage_card_create do
-  link "支払い方法" 
-  parent :mypage
+  link 'クレジットカード情報入力' 
+  parent :mypage_card
 end
 
 crumb :mypage_profile do
-  link "プロフィール" 
+  link 'プロフィール'
   parent :mypage
 end
 
 crumb :sell_item do |q|
-  link "出品した商品"
+  link '出品した商品'
   parent :mypage
 end
 
 # crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
+#   link 'Issues', project_issues_path(project)
 #   parent :project, project
 # end
 
