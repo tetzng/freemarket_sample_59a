@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
   resources :signup, only: :create
   resources :sell
   get '/sell', to: 'sell#index'
