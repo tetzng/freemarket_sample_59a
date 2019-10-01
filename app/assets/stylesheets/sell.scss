@@ -127,6 +127,9 @@
       }
     }
   }
+  &__upload-label{
+    float: right;
+  }
   &__upload-drop-box {
     position: relative;
     min-height: 162px;
@@ -140,7 +143,7 @@
     transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
     cursor: pointer;
     float: right;
-    // margin-left: 2%;
+    margin-left: 2%;
     &--have-item-0 {
       width: 100%;
       margin-left: 0;
@@ -438,7 +441,7 @@
     }
     &__upload-item {
       width: 116px;
-      margin: 0 0 10px 10px;
+      margin: 0 0 10px 6px;
     }
 
     &__upload-drop-box {
@@ -456,6 +459,9 @@
       }
       &--have-item-4 {
         width: 106px;
+      }
+      &--have-item-10 {
+        display: none;
       }
       pre {
         position: absolute;
