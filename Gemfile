@@ -79,6 +79,8 @@ gem 'font-awesome-sass', '>=5.11.1'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# s3に画像アップロード
+gem "aws-sdk-s3", require: false
 group :production do
   gem 'unicorn', '5.4.1'
 end
