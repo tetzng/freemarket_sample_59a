@@ -54,10 +54,118 @@
                 %p シュプリーム
               %li.brand
                 %p ブランド一覧
+    
       .toppage-header-top__footer-contents
-        .toppage-header-top__footer-contents--new-register-btn
-          = link_to '/signup' do
-            新規会員登録
-        .toppage-header-top__footer-contents--user-login-btn
-          = link_to '/login' do
-            ログイン
+        - unless user_signed_in?
+          .toppage-header-top__footer-contents-wrapper
+            .toppage-header-top__footer-contents--new-register-btn
+              = link_to '/signup' do
+                新規会員登録
+            .toppage-header-top__footer-contents--user-login-btn
+              = link_to '/users/sign_in' do
+                ログイン
+        - else
+          .toppage-header-top__footer-contents-wrapper
+            .toppage-header-top__footer-login
+              %ul.toppage-header-top__footer-login-contents
+                %li.toppage-header-top__footer-login-content
+                  = link_to root_path do
+                    = icon('far', 'heart ', alt: 'heart-icon',
+                    style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--heart-icon')
+                    %span いいね！一覧
+                %li.toppage-header-top__footer-login-content--notice
+                  = link_to root_path do
+                    = icon('far', 'bell', alt: 'bell-icon',
+                    style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--bell-icon')
+                    %span お知らせ
+                    .toppage-header-top__footer-login-content--notice-count
+                      99+
+                    
+                  %ul.toppage-header-top__footer-login-content--notice-lists
+                    %li.toppage-header-top__footer-login-content--notice-item
+                      = link_to root_path do
+                        %figure
+                          = image_tag 'mercari_profile.png', alt: 'mercari-logo', size: '48x48', class: 'notice-mercari-logo'
+                        .toppage-header-top__footer-login-content--notice-item-body
+                          .notice-item-text 事務局から個別メッセージ「ログイン通知」
+                          %time
+                            = icon('far', 'clock', alt: 'clock-icon',
+                            style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--clock-icon')
+                            %span 2 分前
+                        = icon 'fas', 'chevron-right'
+                    %li.toppage-header-top__footer-login-content--notice-item
+                      = link_to root_path do
+                        %figure
+                          = image_tag 'mercari_profile.png', alt: 'mercari-logo', size: '48x48', class: 'notice-mercari-logo'
+                        .toppage-header-top__footer-login-content--notice-item-body
+                          .notice-item-text 【明日まで！】スマホ出品で最大1000ポイントがもらえる
+                          %time
+                            = icon('far', 'clock', alt: 'clock-icon',
+                            style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--clock-icon')
+                            %span 16 時間前
+                        = icon 'fas', 'chevron-right'
+
+                %li.toppage-header-top__footer-login-content--todo
+                  = link_to root_path do
+                    = icon('fas', 'check', alt: 'bell-icon',
+                    style: 'color:#cccccc', class: 'toppage-header-top__footer-login-content--ckeck-icon')
+                    %span やることリスト
+                  %ul.toppage-header-top__footer-login-content--todo-list
+                    %li
+                    現在、やることリストはありません
+
+                %li.toppage-header-top__footer-login-content--mypage
+                  = link_to root_path do
+                    %figure
+                      %div
+                        = image_tag 'member_photo_noimage.png', alt: 'mypage-logo', width: '32px',
+                        class: 'toppage-header-top__footer-login-content--mypage-header-user-icon'
+                        %span マイページ
+                    .toppage-header-top__footer-login-content--mypage-box
+                      .toppage-header-top__footer-login-content--mypage-box-content
+                        %figure
+                          %div
+                            = image_tag 'member_photo_noimage.png', alt: 'mypage-logo', width: '60px',
+                            class: 'toppage-header-top__footer-login-content--mypage-pulldown-user-icon'
+                          %figcaption ユーザー名
+                        %ul.toppage-header-top__footer-login-content--mypage-review-listing
+                          %li
+                            = link_to '評価: 2', '#'
+                          %li
+                            = link_to '出品数: 0', '#'
+                        %ul.toppage-header-top__footer-login-content--mypage-sales-point
+                          %li
+                            = link_to '#' do
+                              .mypage-list-left 売上金
+                              .mypage-list-right
+                                ¥0
+                                = icon 'fas', 'chevron-right'
+                          %li
+                            = link_to '#' do
+                              .l-left ポイント
+                              .l-right
+                                P0
+                                = icon 'fas', 'chevron-right'
+                      %ul.toppage-header-top__footer-login-content--mypage-nav-list
+                        %li
+                          = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                            出品した商品 - 出品中
+                            = icon 'fas', 'chevron-right'
+                        %li
+                          = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                            出品した商品 - 取引中
+                            = icon('fas', 'chevron-right')
+                        %li
+                          = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                            出品した商品 - 売却済み
+                            = icon('fas', 'chevron-right')
+                        %li
+                          = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                            購入した商品 - 取引中
+                            = icon('fas', 'chevron-right')
+                        %li
+                          = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                            購入した商品 - 過去の取引          
+                            = icon('fas', 'chevron-right')
+
+
