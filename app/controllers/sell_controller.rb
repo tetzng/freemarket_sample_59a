@@ -1,14 +1,16 @@
 class SellController < ApplicationController
-  # 商品名
+  # 商品情報
   before_action :set_product, only: [:show]
   # カテゴリー
-  before_action :set_category,  only: [:show]
+  before_action :set_category, only: [:show]
   # 商品状態
   before_action :set_condition, only: [:show]
   # 配送元地域
-  before_action :set_prefecture,  only: [:show]
+  before_action :set_prefecture, only: [:show]
   # 発送日目安、配送方法、配送料の負担
-  before_action :set_delivery,  only: [:show]
+  before_action :set_delivery, only: [:show]
+  # ユーザー情報
+  before_action :set_user, only: [:show]
   def index
   end
 
@@ -60,4 +62,7 @@ class SellController < ApplicationController
     @delivery_days = DeliveryDays.find(@product.delivery_days_id)
   end
 
+  def set_user
+    @user = User.find(@product.user_id)
+  end
 end
