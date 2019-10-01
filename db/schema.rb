@@ -10,48 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_110922) do
+ActiveRecord::Schema.define(version: 2019_10_01_001308) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "birth_days", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "birth_dd_id"
-    t.string "day"
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "birth_months", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "birth_mm_id"
-    t.string "month"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "birth_years", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "birth_yyyy_id"
-    t.string "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "months", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "paymentmonth_id"
-    t.string "num"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "paymentyear_id"
-    t.string "num"
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.integer "category_id", null: false
+    t.integer "condition_id", null: false
+    t.integer "size_id", null: false
+    t.string "brand"
+    t.string "delivery_charge_id"
+    t.string "delivery_way_id"
+    t.string "prefecture_id"
+    t.string "delivery_days_id"
+    t.integer "price", null: false
+    t.integer "status_id", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_products_on_name"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,4 +86,5 @@ ActiveRecord::Schema.define(version: 2019_09_28_110922) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

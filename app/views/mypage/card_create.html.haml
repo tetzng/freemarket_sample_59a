@@ -1,12 +1,12 @@
 .mypage-main-container
-  = render 'toppage/header'
+  = render 'sell/header'
   = render 'mypage/bread-crumbs'
   %main.mypage-container.clearfix
     .mypage-content.signup-main
       %section.mypage-content__chapter-container
         %h2.signup-main__chapter-head
           クレジットカード情報入力
-        = form_with model: [@product, Month.new], url: '/signup/done/', method: 'GET', id: 'add-card-form', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+        = form_with model: @user, url: '/signup/done/', method: 'GET', id: 'add-card-form', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
           .signup-main__content
             .signup-main__form-group
               %label{ for: 'payment_card_no' } カード番号
@@ -60,5 +60,5 @@
             %p.signup-main__has-error-text{ id: 'primary-error' }
             = f.submit id: 'submit-button', class: 'signup-main__btn-default signup-main__btn-red', value: '追加する'
     = render 'mypage/side-bar'
-  = render 'toppage/footer'
-  = render 'toppage/sell'
+  = render 'sell/footer'
+  = render 'sell/sellbutton'
