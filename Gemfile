@@ -81,6 +81,7 @@ gem 'jquery-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # s3に画像アップロード
 gem "aws-sdk-s3", require: false
+gem 'mini_magick'
 group :production do
   gem 'unicorn', '5.4.1'
 end
