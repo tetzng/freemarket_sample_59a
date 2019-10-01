@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('#mypage-content__tab-notification').on('click',function(e){
     e.preventDefault();
     $(this).parents('ul').find('li').removeClass('mypage-content__tab--active');
