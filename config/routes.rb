@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :signup, only: :create
   get '/sell', to: 'sell#index'
   get '/signup', to: 'signup#index'
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
   get '/signup/credit_card', to: 'signup#credit_card'
   get '/signup/done', to: 'signup#done'
   get '/login', to: 'signup#login'
-  devise_for :users
   root 'toppage#index'
   get 'toppage/buydetails'
   get 'toppage/itembuy'
