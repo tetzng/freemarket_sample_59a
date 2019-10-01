@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks",
+    sessions: 'users/sessions'
+  }
+  resources :sell
+  resources :users
+
   resources :signup, only: :create
   resources :sell
   get '/sell', to: 'sell#index'
@@ -19,12 +26,8 @@ Rails.application.routes.draw do
   get '/mypage/profile', to: 'mypage#profile'
   get '/logout', to: 'mypage#logout'
 
-  resources :sell
+ 
   
-  devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks",
-    sessions: 'users/sessions'
-  }
   resources :signup do
     collection do
       get  '/'               => 'signup#new'
