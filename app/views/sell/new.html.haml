@@ -1,0 +1,206 @@
+.sell-container
+  = render 'signup/header'
+  %main.sell-main
+    %section.sell-main__container
+      #sell-container
+        %div
+          .sell-main__inner
+            %h2.sell-main__head 商品の情報を入力
+            = form_with model: @product, url: sell_index_path, class:'sell-main__form' do |f|
+              .sell-main__upload-box
+                %h3.sell-main__upload-head
+                  出品画像
+                  %span.sell-main__form-require 必須
+                %p 最大10枚までアップロードできます
+                .sell-main__dropbox-container.clearfix.state-image-number-10
+                  .sell-main__upload-items-container
+                    -# 投稿数に応じてクラス名変更
+                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--first' }
+                      %ul{ id: 'output' }
+                        -# 画像が投稿されたら下記アペンド
+                        -# %li.sell-main__upload-item
+                        -#   %figure.sell-main__upload-figure.sell-main__upload-figure--square
+                        -#     = image_tag 'mercari_profile.png', id: 'img1'
+                        -#   .sell-main__upload-button
+                        -#     = link_to '', class: 'sell-main__upload-edit' do
+                        -#       編集
+                        -#     = link_to '' do
+                        -#       削除
+                    -#投稿数が5以上のとき、下記追加
+                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--second' }
+                      %ul
+                        -# 画像が投稿されたら下記アペンド
+                        -# %li.sell-main__upload-item
+                        -#   %figure.sell-main__upload-figure.sell-main__upload-figure--square
+                        -#     = image_tag 'mercari_profile.png'
+                        -#   .sell-main__upload-button
+                        -#     = link_to '', class: 'sell-main__upload-edit' do
+                        -#       編集
+                        -#     = link_to '' do
+                        -#       削除
+                  -# %div
+                  = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
+                    .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
+                      = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
+                      %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                      %i.fas.fa-camera
+                %ul.sell-main__has-error-text
+                  %li
+                    画像がありません
+              .sell-main__content
+                .sell-main__form-group
+                  = f.label :name do
+                    商品名
+                    %span.sell-main__form-require 必須
+                  %div
+                    = f.text_field :name, { class:'sell-main__input-default', placeholder: '商品名（必須 40文字まで)' }
+                  %ul.sell-main__has-error-text
+                    %li
+                      入力してください
+                .sell-main__form-group
+                  = f.label :description do
+                    商品の説明
+                    %span.sell-main__form-require 必須
+                  = f.text_area :description, { class: 'sell-main__textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5' }
+                  %ul.sell-main__has-error-text
+                    %li
+                      入力してください
+              .sell-main__content.clearfix
+                %h3.sell-main__sub-head 商品の詳細
+                .sell-main__form-box
+                  .sell-main__form-group
+                    = f.label :category_id do
+                      カテゴリー
+                      %span.sell-main__form-require 必須
+                    %div
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub: '1', sub_sub:'0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub_sub: '14'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                      %li
+                  .sell-main__form-group
+                    = f.label :size do
+                      サイズ
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :size_id, Size.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                      %li
+                        選択してください
+                  .sell-main__form-group.sell-main__form-suggest-container
+                    = f.label :brand do
+                      ブランド
+                      %span.sell-main__form-arbitrary 任意
+                    %div
+                      = f.text_field :brand, { class: 'sell-main__input-default', placeholder: '例）シャネル' }
+                    %div
+                    %ul.sell-main__has-error-text
+                  .sell-main__form-group
+                    = f.label :condition do
+                      商品の状態
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :condition_id, Condition.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                      %li
+                        選択してください
+              .sell-main__content.clearfix
+                %h3.sell-main__sub-head 配送について
+                %a.sell-main__form-question{ href: '#', target: '_blank' }
+                  ?
+                .sell-main__form-box
+                  .sell-main__form-group
+                    = f.label :delivery_charge do
+                      配送料の負担
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                      %li
+                        選択してください
+                  .sell-main__form-group
+                    = f.label :delivery_way do
+                      配送の方法
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                      %li
+                        選択してください
+                  .sell-main__form-group
+                    = f.label :delivery_area do
+                      発送元の地域
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                      %li
+                        選択してください
+                  .sell-main__form-group
+                    = f.label :delivery_days do
+                      発送までの日数
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                      %li
+                        選択してください
+              .sell-main__content.clearfix
+                %h3.sell-main__sub-head
+                販売価格(300〜9,999,999)
+                %a.sell-main__form-question{ href: '#', target: '_blank' }
+                  ?
+                .sell-main__form-box
+                  %ul.sell-main__price
+                    %li.sell-main__form-group
+                      .clearfix
+                        = f.label :price, class: 'sell-main__left' do
+                          価格
+                          %span.sell-main__form-require 必須
+                        .sell-main__right.sell-main__price-input
+                          ¥
+                          %div
+                            = f.text_field :price, { class: 'sell-main__input-default', placeholder: '例）300',  value: '' }
+                      %ul.sell-main__has-error-text
+                        %li
+                          300以上9999999以下で入力してください
+                    %li.clearfix
+                      .sell-main__left
+                        販売手数料 (10%)
+                      .sell-main__right -
+                    %li.clearfix.bold
+                      .sell-main__left 販売利益
+                      .sell-main__right -
+              .sell-main__modal{ role: 'dialog', abindex: '-1' }
+                .sell-main__modal-inner
+              .sell-main__content.sell-main__btn-box
+                %div
+                  %p
+                    = link_to '禁止されている出品', '#', target: '_blank'
+                    、
+                    = link_to '行為', '#', target: '_blank'
+                    を必ずご確認ください。
+                  %p
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。
+                    = link_to '偽ブランドの販売', '#', target: '_blank'
+                    は犯罪であり処罰される可能性があります。
+                  %p
+                    また、出品をもちまして
+                    = link_to '加盟店規約', '#'
+                    に同意したことになります。
+                = f.submit class: 'sell-main__btn-default sell-main__btn-red', value: '出品する'
+                %a.sell-main__btn-default.sell-main__btn-gray{ href: '#' }
+                  もどる
+  = render 'signup/footer'

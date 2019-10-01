@@ -1,12 +1,18 @@
 .itembuy-container
-  = render 'toppage/header'
+  = render 'sell/header'
   %section.itembuy-content
-    %h1.itembuy-content__name 【COACH 】コーチ　シグネチャー　ワンハンドル　　ショルダーバッグ
+    %h1.itembuy-content__name 
     .itembuy-content__clearfix
       .itembuy-content__photo
-        .itembuy-content__owl-carousel
-        = image_tag 'download-app-pc-smartphon.png',
-        class: 'toppage-footer-top__smartphonimage', size: '300x300'
+        .itembuy-content__auter
+          .itembuy-content__owl-carousel{ id: 'main' }
+            = image_tag 'shadow1.jpg', class: 'owl-carousel', size: '300x300'
+            = image_tag 'shadow2.jpg', class: 'owl-carousel', size: '300x300'
+            = image_tag 'shadow3.jpg', class: 'owl-carousel', size: '300x300'
+        .itembuy-content__owl-carousel-thumb{id: 'thumbs'}
+          = image_tag 'shadow1.jpg', class: 'owl-carousel-sub', size: '60x60'
+          = image_tag 'shadow2.jpg', class: 'owl-carousel-sub', size: '60x60'
+          = image_tag 'shadow3.jpg', class: 'owl-carousel-sub', size: '60x60'
         .itembuy-content__owl-stage
         .itembuy-content__owl-bots
       %table.itembuy-content__table
@@ -113,7 +119,7 @@
       .itembuy-user-profile__content
         %section.itembuy-user-profile__items
           = link_to '/' do
-            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            = image_tag 'download-app-pc-smartphon.png', size: '220x220'
             .itembuy-user-profile__body
               %h3.itembuy-user-profile__name  メルカリ
               .itembuy-user-profile__num
@@ -121,7 +127,7 @@
       .itembuy-user-profile__content
         %section.itembuy-user-profile__items
           = link_to '/' do
-            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            = image_tag 'download-app-pc-smartphon.png', size: '220x220'
             .itembuy-user-profile__body
               %h3.itembuy-user-profile__name  メルカリ
               .itembuy-user-profile__num
@@ -129,7 +135,7 @@
       .itembuy-user-profile__content
         %section.itembuy-user-profile__items
           = link_to '/' do
-            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            = image_tag 'download-app-pc-smartphon.png', size: '220x220'
             .itembuy-user-profile__body
               %h3.itembuy-user-profile__name  メルカリ
               .itembuy-user-profile__num
@@ -137,7 +143,7 @@
       .itembuy-user-profile__content
         %section.itembuy-user-profile__items
           = link_to '/' do
-            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            = image_tag 'download-app-pc-smartphon.png', size: '220x220'
             .itembuy-user-profile__body
               %h3.itembuy-user-profile__name  メルカリ
               .itembuy-user-profile__num
@@ -145,7 +151,7 @@
       .itembuy-user-profile__content
         %section.itembuy-user-profile__items
           = link_to '/' do
-            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            = image_tag 'download-app-pc-smartphon.png', size: '220x220'
             .itembuy-user-profile__body
               %h3.itembuy-user-profile__name  メルカリ
               .itembuy-user-profile__num
@@ -153,10 +159,10 @@
       .itembuy-user-profile__content
         %section.itembuy-user-profile__items
           = link_to '/' do
-            = image_tag 'download-app-pc-smartphon.png', class: 'toppage-footer-top__smartphonimage', size: '220x220'
+            = image_tag 'download-app-pc-smartphon.png', size: '220x220'
             .itembuy-user-profile__body
               %h3.itembuy-user-profile__name  メルカリ
               .itembuy-user-profile__num
                 .itembuy-user-profile__price ¥1,300
-  = render 'mypage/bread-crumbs'
-  = render 'toppage/footer'
+  = render 'sell/bread-bottom'
+  = render 'sell/footer'
