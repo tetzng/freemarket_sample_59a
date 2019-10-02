@@ -18,12 +18,12 @@
             = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可', value: session[:email] }
           .signup-main__form-group
             = f.label 'パスワード'
-            %span.signup-main__form-require 必須
-            = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
+            %span.signup-main__form-require 必須z
+            = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上', value: session[:password] }
           .signup-main__form-group
             = f.label 'パスワード (確認)'
             %span.signup-main__form-require 必須
-            = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上' }
+            = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上', value: session[:password] }
           .signup-main__form-group
             %h3.signup-main__sub-head
               本人確認
