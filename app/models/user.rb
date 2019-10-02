@@ -3,6 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [ :facebook, :google_oauth2 ] 
+  belongs_to :user
+  has_many :shopping_origin_addresses
+  has_many :products
+
+
+
+
+
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :birth_yyyy
     belongs_to_active_hash :birth_mm
@@ -11,10 +19,8 @@ class User < ApplicationRecord
     belongs_to_active_hash :paymentyear
     belongs_to_active_hash :paymentmonth   
 
-  belongs_to :user
-  has_many :shopping_origin_addresses
-  has_many :products
-  
+  # 
+    
   # has_many :shopping_origin_addresses
   # has_many :products
   # has_many :puchases
