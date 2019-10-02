@@ -8,17 +8,17 @@
           .signup-main__form-group
             = f.label 'お名前'
             %span.signup-main__form-require 必須
-            = f.text_field :last_name, { class: 'signup-main__input-default', placeholder: '例) 山田' }
-            = f.text_field :first_name, { class: 'signup-main__input-default', placeholder: '例) 彩' }
+            = f.text_field :last_name, { class: 'signup-main__input-default', placeholder: '例) 山田', value: '' }
+            = f.text_field :first_name, { class: 'signup-main__input-default', placeholder: '例) 彩', value: '' }
           .signup-main__form-group
             = f.label 'お名前カナ'
             %span.signup-main__form-require 必須
-            = f.text_field :last_name_kana, { class: 'signup-main__input-default', placeholder: '例) ヤマダ' }
-            = f.text_field :first_name_kana, { class: 'signup-main__input-default', placeholder: '例) アヤ' }
+            = f.text_field :last_name_kana, { class: 'signup-main__input-default', placeholder: '例) ヤマダ', value: '' }
+            = f.text_field :first_name_kana, { class: 'signup-main__input-default', placeholder: '例) アヤ', value: '' }
           .signup-main__form-group
             = f.label '郵便番号'
             %span.signup-main__form-require 必須
-            = f.text_field :zip_code1, { class: 'signup-main__input-default signup-main__input-default--has-error',  placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}' }
+            = f.text_field :zip_code1, { class: 'signup-main__input-default signup-main__input-default--has-error',  placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
             %ul.signup-main__has-error-text
               %li 入力してください
               %li フォーマットが不適切です
@@ -32,13 +32,13 @@
           .signup-main__form-group
             = f.label '市区町村'
             %span.signup-main__form-require 必須
-            = f.text_field :city, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 横浜市緑区' }
+            = f.text_field :city, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 横浜市緑区', value: '' }
             %ul.signup-main__has-error-text
               %li 入力してください
           .signup-main__form-group
             = f.label '番地'
             %span.signup-main__form-require 必須
-            = f.text_field :address1, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 青山1−1−1' }
+            = f.text_field :address1, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 青山1−1−1', value: '' }
             %ul.signup-main__has-error-text
               %li 入力してください
           .signup-main__form-group
