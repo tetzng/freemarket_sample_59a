@@ -8,7 +8,7 @@
         .signup-main__content
           .signup-main__form-group
             = f.label '携帯電話の番号'
-            = f.text_field :phone_num, { class: 'signup-main__input-default', placeholder: '携帯電話の番号を入力' }
+            = f.text_field :phone_num, { class: 'signup-main__input-default', placeholder: '携帯電話の番号を入力', value: '' }
           %p
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           = f.submit class: 'signup-main__btn-default signup-main__btn-red', value: 'SMSを送信する'
