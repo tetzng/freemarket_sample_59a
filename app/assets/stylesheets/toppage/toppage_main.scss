@@ -84,6 +84,7 @@ body {
     overflow: hidden;
     background-color: #fff;
     border: 1px solid transparent;
+    position: relative;
     &:hover {
       border-color: rgb(0, 149, 238);
     }
@@ -93,7 +94,6 @@ body {
       box-sizing: border-box;
     }
   }
-     
   &__image {
     width: 188px;
     height: 188px;
@@ -164,5 +164,29 @@ body {
     grid-template-columns: repeat(5, 1fr);
     gap: 20px 20px;
     width: 100%;
+  }
+}
+.toppage-mein-sold{
+  border-width: 80px 80px 0 0;
+  border-color: #ea352d transparent;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  div{
+    bottom: 40px;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
   }
 }
