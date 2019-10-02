@@ -10,10 +10,10 @@ class User < ApplicationRecord
   has_one :card
 
   def self.find_for_oauth(auth)
-  uid = user.uid
-  provider = user.provider
-  @usewr = User.where(uid: uid, provider: provider).first
-  if @user.present?
+  uid = auth.uid
+  provider = auth.uid
+  sns = User.where(uid: uid, provider: provider).first
+  if sns.present?
     @user = User.where(:id)
   else 
     # providerから取得したアドレスがすでに登録されているか確認
