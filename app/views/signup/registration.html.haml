@@ -9,14 +9,13 @@
           .signup-main__form-group
             = f.label 'ニックネーム'
             %span.signup-main__form-require 必須
-            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', name: 'nickname', placeholder: '例) メルカリ太郎', value: session[:nickname] }
+            = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎', value: session[:nickname] }
             %ul.signup-main__has-error-text
               ニックネーム を入力してください
           .signup-main__form-group
             = f.label 'メールアドレス'
             %span.signup-main__form-require 必須
-            %input.signup-main__input-default{ type: 'email', name: 'email', placeholder: 'PC・携帯どちらでも可', value: session[:email] }
-          %input{ type: 'hidden', name: 'login_type' }
+            = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可', value: session[:email] }
           .signup-main__form-group
             = f.label 'パスワード'
             %span.signup-main__form-require 必須
