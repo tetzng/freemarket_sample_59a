@@ -1,0 +1,6 @@
+- if @user.errors.any?
+  - unless @user.valid?
+    - if errors = @user.errors.full_messages_for(column.to_sym)
+      = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎' }
+    - else
+      = f.text_field :nickname, { class: 'signup-main__input-default', placeholder: '例) メルカリ太郎' }
