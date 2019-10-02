@@ -1,5 +1,6 @@
 .mypage-main-container
-  = render 'toppage/header'
+  = render 'sell/header'
+  - breadcrumb :mypage_profile
   = render 'mypage/bread-crumbs'
   %main.mypage-container.clearfix
     .l-content
@@ -16,5 +17,5 @@
             %input.textarea-default{ type: 'hidden', value: '', name: 'after_save_callback' }
             %button.btn-default.btn-red{ type: 'submit' } 変更する
     = render 'mypage/side-bar'
-  = render 'toppage/footer'
-  = render 'toppage/sell'
+  = render 'sell/footer'
+  = render 'sell/sellbutton'

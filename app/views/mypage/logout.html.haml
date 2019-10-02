@@ -1,5 +1,6 @@
 .mypage-main-container
-  = render 'toppage/header'
+  = render 'sell/header'
+  - breadcrumb :user_sign_out
   = render 'mypage/bread-crumbs'
   %main.mypage-container.clearfix
     .mypage-content
@@ -9,5 +10,5 @@
             = link_to destroy_user_session_path, method: 'delete', class: 'signup-main__btn-default signup-main__btn-red' do
               ログアウト
     = render 'mypage/side-bar'
-  = render 'toppage/footer'
-  = render 'toppage/sell'
+  = render 'sell/footer'
+  = render 'sell/sellbutton'

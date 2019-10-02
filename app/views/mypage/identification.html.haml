@@ -1,5 +1,6 @@
 .mypage-main-container
-  = render 'toppage/header'
+  = render 'sell/header'
+  - breadcrumb :mypage_identification
   = render 'mypage/bread-crumbs'
   %main.mypage-container.clearfix
     = render 'mypage/side-bar'
@@ -51,5 +52,5 @@
             %p.indentification-content__textlink{ id: 'textinfo' }
               = link_to '本人情報の登録について', 'https://www.mercari.com/jp/help_center/article/495/'
               %i.fas.fa-chevron-right
-    = render 'toppage/sell'
-  = render 'toppage/footer'
+    = render 'sell/sellbutton'
+  = render 'sell/footer'

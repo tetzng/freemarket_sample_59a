@@ -1,8 +1,9 @@
 .mypage-main-container
-  = render 'toppage/header'
+  = render 'sell/header'
+  - breadcrumb :mypage
   = render 'mypage/bread-crumbs'
   %main.mypage-container.clearfix
     = render 'mypage/content'
     = render 'mypage/side-bar'
-  = render 'toppage/footer'
-  = render 'toppage/sell'
+  = render 'sell/footer'
+  = render 'sell/sellbutton'

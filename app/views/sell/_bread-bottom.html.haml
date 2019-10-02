@@ -1,0 +1,9 @@
+%nav.bread-crumbs{ id: 'bread-bottom' }
+  %ul
+    %li
+      = link_to root_path do
+        メルカリ
+        = icon 'fas', 'chevron-right'
+    %li
+      %span
+        = @product.name

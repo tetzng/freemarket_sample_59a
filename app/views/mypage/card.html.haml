@@ -1,5 +1,6 @@
 .mypage-main-container
-  = render 'toppage/header'
+  = render 'sell/header'
+  - breadcrumb :mypage_card_create
   = render 'mypage/bread-crumbs'
   %main.mypage-container.clearfix
     .mypage-content
@@ -34,5 +35,5 @@
               %span 支払い方法について
               = icon 'fas', 'chevron-right'
     = render 'mypage/side-bar'
-  = render 'toppage/footer'
-  = render 'toppage/sell'
+  = render 'sell/footer'
+  = render 'sell/sellbutton'
