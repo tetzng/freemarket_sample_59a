@@ -19,6 +19,7 @@ class SignupController < ApplicationController
     session[:birth_yyyy_id] = user_params[:birth_yyyy_id]
     session[:birth_mm_id] = user_params[:birth_mm_id]
     session[:birth_dd_id] = user_params[:birth_dd_id]
+
     @user = User.new( # 新規インスタンス作成
     # sessionに保存された値をインスタンスに渡す
       nickname: session[:nickname],
@@ -32,6 +33,7 @@ class SignupController < ApplicationController
       birth_yyyy_id: session[:birth_yyyy_id],
       birth_mm_id: session[:birth_mm_id],
       birth_dd_id: session[:birth_dd_id],
+
       # 入力前の情報は、バリデーションに通る値を仮で入れる
       phone_num: "08000000000",
       authentication_num: "1234",
@@ -67,6 +69,7 @@ class SignupController < ApplicationController
       birth_mm_id: session[:birth_mm_id],
       birth_dd_id: session[:birth_dd_id],
       phone_num: session[:phone_num],
+
       authentication_num: "1234",
       zip_code1: "000-0000",
       prefecture_id: "1",
@@ -98,6 +101,7 @@ class SignupController < ApplicationController
     birth_dd_id: session[:birth_dd_id],
     phone_num: session[:phone_num],
     authentication_num: session[:phone_num],
+
     zip_code1: "000-0000",
     prefecture_id: "1",
     city: "福岡市",
@@ -145,6 +149,7 @@ class SignupController < ApplicationController
     address1: user_params[:address1],
     address2: user_params[:address2],
     telephone: user_params[:telephone],
+
     payment_card_no: "00000000",
     paymentmonth_id: "1",
     paymentyear_id: "1",
@@ -158,8 +163,10 @@ class SignupController < ApplicationController
     session[:paymentmonth_id] = user_params[:paymentmonth_id]
     session[:paymentyear_id] = user_params[:paymentyear_id]
     session[:payment_card_security_code] = user_params[:payment_card_security_code]
+    # SNS認証からユーザ新規登録するとき
+    if session[:provider]
     @user = User.new(
-    nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
+    nickname: session[:nickname],
     email: session[:email],
     password: session[:password],
     password_confirmation: session[:password_confirmation],
@@ -181,25 +188,56 @@ class SignupController < ApplicationController
     payment_card_no: session[:payment_card_no],
     paymentmonth_id: session[:paymentmonth_id],
     paymentyear_id: session[:paymentyear_id],
-    payment_card_security_code: session[:payment_card_security_code]
+    payment_card_security_code: session[:payment_card_security_code],
+    provider: session[:provider],
+    uid: session[:uid],
+    token: session[:token],
     )
-    if @user.save
-    # ログインするための情報を保管
-      session[:id] = @user.id
-      redirect_to signup_done_path
-    else
+    # メールアドレスからユーザ新規登録するとき
+  else
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_yyyy_id: session[:birth_yyyy_id],
+      birth_mm_id: session[:birth_mm_id],
+      birth_dd_id: session[:birth_dd_id],
+      phone_num: session[:phone_num],
+      authentication_num: session[:authentication_num],
+      zip_code1: session[:zip_code1],
+      prefecture_id: session[:prefecture_id],
+      city: session[:city],
+      address1: session[:address1],
+      address2: session[:address2],
+      telephone: session[:telephone],
+      payment_card_no: session[:payment_card_no],
+      paymentmonth_id: session[:paymentmonth_id],
+      paymentyear_id: session[:paymentyear_id],
+      payment_card_security_code: session[:payment_card_security_code]
+      )
+      end
+
+      if @user.save
+        # ログインするための情報を保管
+        session[:id] = @user.id
+        redirect_to signup_done_path
+      else
       render '/signup/credit_card'
     end
   end
 
   def done
-    # render '/signup/credit_card' unless @user.valid?
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 
   def login
+    redirect_to root_path if user_signed_in?
   end
-end
 
 private
   def user_params
@@ -226,6 +264,7 @@ private
       :payment_card_no,
       :paymentmonth_id,
       :paymentyear_id,
-      :payment_card_security_code
+      :payment_card_security_code,
     )
   end
+end
