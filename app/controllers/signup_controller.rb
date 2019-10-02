@@ -109,7 +109,6 @@ class SignupController < ApplicationController
     paymentyear_id: "1",
     payment_card_security_code: "111",
     )
-
     render '/signup/sms_confirmation_sms' unless @user.valid?
   end
 
