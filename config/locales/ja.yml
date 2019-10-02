@@ -1,0 +1,26 @@
+ja:
+  attributes:
+    nickname: ニックネーム
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード (確認) 
+    last_name: 姓
+    first_name: 名
+    last_name_kana: 姓カナ
+    first_name_kana: 名カナ
+    birth_yyyy_id: 年
+    birth_mm_id: 月
+    birth_dd_id: 日
+    phone_num: 電話番号
+    authentication_num: 認証番号
+    prefecture_id: 県名
+    city: 市
+    address1: 番地
+    telephone: 電話番号
+    payment_card_no: カード番号
+    paymentmonth_id: 有効期限(月)
+    paymentyear_id: 有効期限(年)
+    payment_card_security_code: 認証番号
+
+
+
