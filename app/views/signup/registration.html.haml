@@ -59,9 +59,9 @@
               = f.label 'お名前カナ(全角)'
               %span.signup-main__form-require 必須
             = f.text_field :last_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) ヤマダ' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "last-name-kana"}            
+            =  render partial: 'error-messages', locals: {user: @user, column: "last-name-kana"}
             = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) アヤ' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "first-name-kana"}            
+            =  render partial: 'error-messages', locals: {user: @user, column: "first-name-kana"}
           .signup-main__form-group
             = f.label '生年月日'
             %span.signup-main__form-require 必須
@@ -70,17 +70,17 @@
               .signup-main__select-wrap
                 = icon 'fas', 'chevron-down'
                 = f.collection_select :birth_yyyy_id, BirthYyyy.all, :id, :year, name: 'year', prompt: '--', class: 'signup-main__select-default'
-                =  render partial: 'error-messages', locals: {user: @user, column: "birth_yyyy_id"}                
+                =  render partial: 'error-messages', locals: {user: @user, column: "birth_yyyy_id"}
               %span 年
               .signup-main__select-wrap.signup-main__select-wrap--month
                 = icon 'fas', 'chevron-down'
                 = f.collection_select :birth_mm_id, BirthMm.all, :id, :month, name: 'month', prompt: '--', class: 'signup-main__select-default'
-                =  render partial: 'error-messages', locals: {user: @user, column: "birth_mm_id"}                        
+                =  render partial: 'error-messages', locals: {user: @user, column: "birth_mm_id"}
               %span 月
               .signup-main__select-wrap.signup-main__select-wrap--day
                 = icon 'fas', 'chevron-down'
                 = f.collection_select :birth_dd_id, BirthDd.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default'
-                =  render partial: 'error-messages', locals: {user: @user, column: "birth_dd_id"}                        
+                =  render partial: 'error-messages', locals: {user: @user, column: "birth_dd_id"}
               %span 日
             .clearfix
           %p.signup-main__form-info-text
