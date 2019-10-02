@@ -1,9 +1,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  belongs_to :user
+  has_many :shopping_origin_addresses
+  has_many :products
 
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [ :facebook, :google_oauth2 ]
+
+       
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :birth_yyyy
     belongs_to_active_hash :birth_mm
@@ -11,7 +17,7 @@ class User < ApplicationRecord
     belongs_to_active_hash :prefecture
     belongs_to_active_hash :paymentyear
     belongs_to_active_hash :paymentmonth
-  has_many :products
+
   # has_many :shopping_origin_addresses
   # has_many :products
   # has_many :puchases
@@ -24,25 +30,6 @@ class User < ApplicationRecord
   VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
-  validates :id, presence: true, length: { maximum: 20 }
-  validates :email, presence: true
-  validates :encrypted_password, presence: true, length: { in: 7..128 }
-
-  protected
-
-  def self.find_for_oauth(auth)
-    user = User.where( nickname: auth.extra.raw_info.name, email: auth.info.email ).first
-
-     unless user
-        user = User.create( nickname: auth.extra.raw_info.name,
-                            provider: auth.provider,
-                            uid:      auth.uid,
-                            email:    auth.info.email,
-                            token:    auth.credentials.token,
-                            password: Devise.friendly_token[0,20] )
-     end
-    return user
-  end
 
 #registration
   validates :nickname, presence: true, length: { maximum: 20 }
@@ -80,4 +67,20 @@ class User < ApplicationRecord
   validates :paymentmonth_id, presence: true
   validates :paymentyear_id, presence: true
   validates :payment_card_security_code, presence: true, length: { maximum: 4 }
+
+  protected
+
+  def self.find_for_oauth(auth)
+    user = User.where( nickname: auth.extra.raw_info.name, email: auth.info.email ).first
+
+     unless user
+        user = User.create( nickname: auth.extra.raw_info.name,
+                            provider: auth.provider,
+                            uid:      auth.uid,
+                            email:    auth.info.email,
+                            token:    auth.credentials.token,
+                            password: Devise.friendly_token[0,20] )
+     end
+    return user
+  end
 end
