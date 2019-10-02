@@ -182,7 +182,10 @@ class SignupController < ApplicationController
     payment_card_no: session[:payment_card_no],
     paymentmonth_id: session[:paymentmonth_id],
     paymentyear_id: session[:paymentyear_id],
-    payment_card_security_code: session[:payment_card_security_code]
+    payment_card_security_code: session[:payment_card_security_code],
+    provider: session[:provider],
+    uid: session[:uid],
+    token: session[:token]
     )
     if @user.save
     # ログインするための情報を保管
@@ -199,8 +202,14 @@ class SignupController < ApplicationController
   end
 
   def login
+    @user = User.find_for_oauth(request.env['omniauth.auth'])
+    if @user.persisted?
+      #ここにomuniauthのスルー定義
+      # User.find(:user)
+      redirect_to root_path
+    else
+    end
   end
-end
 #   def step1
 #     @user = User.new()
 #   end

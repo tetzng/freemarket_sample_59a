@@ -8,17 +8,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 
   def callback_for(provider)
-    @user = User.find_for_oauth(request.env["omniauth.auth"])
+    @user = User.find_for_oauth(request.env['omniauth.auth'])
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication 
     else
-      session[:nickname]            = request.env["omniauth.auth"].info.name
-      session[:provider_data]       = request.env["omniauth.auth"].except("extra")
-      session[:email]               = request.env["omniauth.auth"].info.email
-      session[:uid]                 = request.env["omniauth.auth"].uid
+      session[:nickname]            = request.env['omniauth.auth'].info.name
+      session[:provider_data]       = request.env['omniauth.auth'].except('extra')
+      session[:email]               = request.env['omniauth.auth'].info.email
+      session[:uid]                 = request.env['omniauth.auth'].uid
       session[:provider]            = provider.to_s
+      session[:token]               = request.env['omniauth.auth'].credentials.token
       redirect_to signup_registration_path
-
     end
   end
   # def callback_for(provider)
