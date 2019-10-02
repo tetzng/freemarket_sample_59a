@@ -1,15 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  belongs_to :user
-  has_many :shopping_origin_addresses
-  has_many :products
-
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [ :facebook, :google_oauth2 ]
-
-       
+         has_many :shopping_origin_addresses
+         has_many :products
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :birth_yyyy
     belongs_to_active_hash :birth_mm
@@ -83,4 +79,30 @@ class User < ApplicationRecord
      end
     return user
   end
+
+  def self.find_for_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+        # providerから取得したアドレスがすでに登録されているか確認
+      user = User.find_by(uid: uid, provider: provider)
+        # providerから登録しているアドレスですでに登録されている時
+      if user 
+        return user
+        
+        # 登録されていない時
+      else
+        password = Devise.friendly_token[0, 20]
+        user = User.new(
+          nickname: auth.info.name,
+          email:    auth.info.email,
+          password: password,
+          password_confirmation: password,
+          uid: uid,
+          provider: provider,
+          token: auth.credentials.token
+          )
+      end
+    return user
+  end
+
 end
