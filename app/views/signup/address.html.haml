@@ -8,13 +8,13 @@
           .signup-main__form-group
             = f.label 'お名前'
             %span.signup-main__form-require 必須
-            = f.text_field :last_name, { class: 'signup-main__input-default', placeholder: '例) 山田', value: '' }
-            = f.text_field :first_name, { class: 'signup-main__input-default', placeholder: '例) 彩', value: '' }
+            = f.text_field :last_name, { class: 'signup-main__input-default', placeholder: '例) 山田', }
+            = f.text_field :first_name, { class: 'signup-main__input-default', placeholder: '例) 彩', }
           .signup-main__form-group
             = f.label 'お名前カナ'
             %span.signup-main__form-require 必須
-            = f.text_field :last_name_kana, { class: 'signup-main__input-default', placeholder: '例) ヤマダ', value: '' }
-            = f.text_field :first_name_kana, { class: 'signup-main__input-default', placeholder: '例) アヤ', value: '' }
+            = f.text_field :last_name_kana, { class: 'signup-main__input-default', placeholder: '例) ヤマダ', }
+            = f.text_field :first_name_kana, { class: 'signup-main__input-default', placeholder: '例) アヤ', }
           .signup-main__form-group
             = f.label '郵便番号'
             %span.signup-main__form-require 必須
