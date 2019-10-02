@@ -17,28 +17,8 @@
                     -# 投稿数に応じてクラス名変更
                     .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--first' }
                       %ul{ id: 'output' }
-                        -# 画像が投稿されたら下記アペンド
-                        -# %li.sell-main__upload-item
-                        -#   %figure.sell-main__upload-figure.sell-main__upload-figure--square
-                        -#     = image_tag 'mercari_profile.png', id: 'img1'
-                        -#   .sell-main__upload-button
-                        -#     = link_to '', class: 'sell-main__upload-edit' do
-                        -#       編集
-                        -#     = link_to '' do
-                        -#       削除
-                    -#投稿数が5以上のとき、下記追加
                     .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--second' }
                       %ul
-                        -#画像が投稿されたら下記アペンド
-                        -# %li.sell-main__upload-item
-                        -#   %figure.sell-main__upload-figure.sell-main__upload-figure--square
-                        -#     = image_tag 'mercari_profile.png'
-                        -#   .sell-main__upload-button
-                        -#     = link_to '', class: 'sell-main__upload-edit' do
-                        -#       編集
-                        -#     = link_to '' do
-                        -#       削除
-                  -# %div
                   = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
                     .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
                       = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
