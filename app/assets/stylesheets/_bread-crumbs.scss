@@ -1,27 +1,27 @@
 .bread-crumbs {
   position: relative;
   border-top: 1px solid #eee;
-  background: #f5f5f5;
-  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background: #fff;
-  ul{
-    padding: 16px;
-    font-size: 0;
-    white-space: nowrap;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  .breadcrumbs-list {
+    width: 1020px;
+    overflow: visible;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
   }
-  li {
+  a {
     display: inline-block;
     font-size: 14px;
     line-height: 1.2;
-  }
-  li:last-child{
-    font-weight: 600;
-  }
-  a{
     color: #333;
+  }
+  span {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #333;
+    font-weight: 600;
   }
   i {
     margin: 0 8px;

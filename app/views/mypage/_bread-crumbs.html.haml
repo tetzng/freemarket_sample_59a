@@ -1,8 +1,2 @@
 %nav.bread-crumbs
-  %ul
-    %li
-      = link_to root_path do
-        %span メルカリ
-      = icon 'fas', 'chevron-right'
-    %li
-      %span マイページ
+  = breadcrumbs pretext: '', separator: ' &rsaquo; ', class: 'breadcrumbs-list'
