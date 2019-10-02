@@ -2,21 +2,36 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [ :facebook, :google_oauth2 ] 
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [ :facebook, :google_oauth2 ] 
 
   def self.find_for_oauth(auth)
-    user = User.where(nickname: auth.extra.raw_info.name, email: auth.info.email).first
-    
-    unless user
-      user = User.create( nickname: auth.extra.raw_info.name,
-                          provider: auth.provider,
-                          uid:      auth.uid,
-                          email:    auth.info.email,
-                          token:    auth.credentials.token,
-                          password: Devise.friendly_token[0,20] )
+  uid = user.uid
+  provider = user.provider
+  @usewr = User.where(uid: uid, provider: provider).first
+  if @user.present?
+    @user = User.where(:id)
+  else 
+    # providerから取得したアドレスがすでに登録されているか確認
+    user = User.where(email: auth.info.email).first
+    if user.present? # 最初(providerに登録しているアドレスですでに登録されている時)
+      User.create(
+        uid: uid,
+        provider: provider,
+        user_id: user.id)
+    else  # 最初(登録されていない時)
+      password = Devise.friendly_token[0, 20]
+      user = User.new(
+        nickname: auth.info.name,
+        email:    auth.info.email,
+        password: password,
+        password_confirmation: password,
+        uid: uid,
+        provider: provider,
+        token: auth.credentials.token
+        )
     end
-  
-    return user
+  end
+  return user
   end
 
   has_many :shopping_origin_addresses
