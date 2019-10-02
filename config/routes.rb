@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :users
 
   devise_for :users, controllers: { 
-    omniauth_callbacks: 'users/omniauth_callbacks', 
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   resources :card, only: [:new, :show] do
