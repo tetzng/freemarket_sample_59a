@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks",
-    sessions: 'users/sessions'
-  }
+  devise_for :users
+
+  # devise_for :users, controllers: {
+  #   omniauth_callbacks: "users/omniauth_callbacks",
+  #   sessions: 'users/sessions'
+  # }
   resources :sell
   resources :users
 
@@ -28,14 +30,15 @@ Rails.application.routes.draw do
 
  
   
-  resources :signup do
-    collection do
-      get  '/'               => 'signup#new'
-      get  'step1'           => 'signup#step1'
-      get  'step2'           => 'signup#step2'
-      get  'step3'           => 'signup#step3'
-      post 'signup/create'   => 'signup#create'
-    end
-  end
+  # resources :signup do
+  #   collection do
+  #     get  '/'               => 'signup#new'
+  #     get  'step1'           => 'signup#step1'
+  #     get  'step2'           => 'signup#step2'
+  #     get  'step3'           => 'signup#step3'
+  #     post 'signup/create'   => 'signup#create'
+  #   end
+  # end
   
 end
+
