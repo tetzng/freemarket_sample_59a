@@ -1,21 +1,7 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   const uploadItemsFirst = '#sell-main__upload-items--first ul';
   const uploadItemsSecond = '#sell-main__upload-items--second ul';
   const uploadDropBox = '#sell-main__upload-drop-box';
-
-  // 書いてる途中のやつ
-  // function appendItem (uploadItems) {
-  //   $(uploadItems).append(`<li class="sell-main__upload-item">
-  //       <figure class="sell-main__upload-figure sell-main__upload-figure--square">
-  //       <img src='${e.target.result}' title='${file.name}'>
-  //       </figure>
-  //       <div class="sell-main__upload-button">
-  //       <a class="sell-main__upload-edit" href="">編集
-  //       </a><a href="">削除
-  //       </a></div>
-  //       </li>
-  //       `);
-  // }
 
   // 画像アップロード時プレビュー表示
   $('#product_images').on('change', function(e){
@@ -57,9 +43,7 @@ $(function(){
       reader.readAsDataURL(file);
     });
   });
-});
 
-$(function(){
   // カテゴリーの選択欄追加
   function appendCategory(){
     let subHTML = `<div class="sell-main__select-wrap">
@@ -70,6 +54,7 @@ $(function(){
                   </div>`;
     $(categoryWrapper).append(subHTML);
   }
+
   // カテゴリーの選択内容追加
   function appendOption(category, appendWrap){
     let subOptionHTML =`<option value="${category.id}", data-size-id="${category.size}", data-brand-id="${category.brand}">${category.name}</option>`;
@@ -244,7 +229,7 @@ $(function(){
   });
 
   const deliveryChargeWrap = '#sell-main__form-group--delivery-charge';
-  const deliveryCharge = '#product_delivery_charge_id'
+  const deliveryCharge = '#product_delivery_charge_id';
   const deliveryWayWrap = '#sell-main__form-group--delivery-way';
 
   // 配送方法選択欄の追加
