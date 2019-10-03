@@ -60,7 +60,7 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d!@#\$%\^\&*\)\(+=._-]{7,128}\z/i
   VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
 
-  #registration
+#registration
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'のフォーマットが不適切です'}
   validates :password, presence: true, length: { in: 7..128 }, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
@@ -73,15 +73,13 @@ class User < ApplicationRecord
   validates :birth_mm_id, presence: true
   validates :birth_dd_id, presence: true
 
-
-  #sms_confirmation
+#sms_confirmation
   validates :phone_num, presence: true, format: { with: /\A\d{10,11}\z/, message: 'の入力が正しくありません'}
 
-
-  #sms_confirmation/sms
+#sms_confirmation/sms
   validates :authentication_num, presence: true, numericality: { only_integer: true }
 
-  #signup/address
+#signup/address
   validates :last_name, presence: true, length: { maximum: 35 }
   validates :first_name, presence: true, length: { maximum: 35 }
   validates :last_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
@@ -93,7 +91,7 @@ class User < ApplicationRecord
   validates :address2, length: { maximum: 100 }
   validates :telephone, length: { maximum: 8 }
 
-  #signup/credit_card
+#signup/credit_card
   validates :payment_card_no, presence: true, length: { maximum: 16 }, numericality: { only_integer: true }
   validates :paymentmonth_id, presence: true
   validates :paymentyear_id, presence: true
@@ -111,4 +109,47 @@ class User < ApplicationRecord
   def birthday
     "#{BirthYyyy.find(self.birth_yyyy_id).year}/#{BirthMm.find(self.birth_mm_id).month}/#{BirthDd.find(self.birth_dd_id).day}"
   end
+  validates :payment_card_security_code, presence: true, length: { maximum: 4 }
+
+  protected
+
+  def self.find_for_oauth(auth)
+    user = User.where( nickname: auth.extra.raw_info.name, email: auth.info.email ).first
+
+     unless user
+        user = User.create( nickname: auth.extra.raw_info.name,
+                            provider: auth.provider,
+                            uid:      auth.uid,
+                            email:    auth.info.email,
+                            token:    auth.credentials.token,
+                            password: Devise.friendly_token[0,20] )
+     end
+    return user
+  end
+
+  def self.find_for_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+        # providerから取得したアドレスがすでに登録されているか確認
+      user = User.find_by(uid: uid, provider: provider)
+        # providerから登録しているアドレスですでに登録されている時
+      if user 
+        return user
+        
+        # 登録されていない時
+      else
+        password = Devise.friendly_token[0, 20]
+        user = User.new(
+          nickname: auth.info.name,
+          email:    auth.info.email,
+          password: password,
+          password_confirmation: password,
+          uid: uid,
+          provider: provider,
+          token: auth.credentials.token
+          )
+      end
+    return user
+  end
+
 end
