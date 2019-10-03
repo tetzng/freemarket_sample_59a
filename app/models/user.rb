@@ -64,21 +64,11 @@ class User < ApplicationRecord
   validates :paymentyear_id, presence: true
   validates :payment_card_security_code, presence: true, length: { maximum: 4 }
 
+#SNS認証
+  validates :provider, presence: true
+
+
   protected
-
-  # def self.find_for_oauth(auth)
-  #   user = User.where( nickname: auth.extra.raw_info.name, email: auth.info.email ).first
-
-  #    unless user
-  #       user = User.create( nickname: auth.extra.raw_info.name,
-  #                           provider: auth.provider,
-  #                           uid:      auth.uid,
-  #                           email:    auth.info.email,
-  #                           token:    auth.credentials.token,
-  #                           password: Devise.friendly_token[0,20] )
-  #    end
-  #   return user
-  # end
 
   def self.find_for_oauth(auth)
     uid = auth.uid
@@ -91,7 +81,9 @@ class User < ApplicationRecord
         
         # 登録されていない時
       else
-        password = Devise.friendly_token[0, 20]
+        first_password = auth.credentials.token.to_s
+        second_password = uid.to_s
+        password = first_password[0, 4] + second_password[0, 4]
         user = User.new(
           nickname: auth.info.name,
           email:    auth.info.email,
@@ -101,8 +93,7 @@ class User < ApplicationRecord
           provider: provider,
           token: auth.credentials.token
           )
-      end
+        end
     return user
   end
-
 end
