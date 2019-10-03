@@ -9,22 +9,21 @@
           .signup-main__form-group
             = f.label 'ニックネーム'
             %span.signup-main__form-require 必須
-            = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎',  id: 'nickname', required:'required', value: session[:nickname] }
+            = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎', value: session[:nickname] }
             %ul.signup-main__has-error-text
               ニックネーム を入力してください
           .signup-main__form-group
             = f.label 'メールアドレス'
             %span.signup-main__form-require 必須
-            = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可', id: 'email', required:'required', value: session[:email]}
-          -# %input{ type: 'hidden', name: 'login_type' }
+            = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可', value: session[:email] }
           .signup-main__form-group
             = f.label 'パスワード'
-            %span.signup-main__form-require 必須
-            = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
+            %span.signup-main__form-require 必須z
+            = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上', value: session[:password] }
           .signup-main__form-group
             = f.label 'パスワード (確認)'
             %span.signup-main__form-require 必須
-            = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上' }
+            = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上', value: session[:password] }
           .signup-main__form-group
             %h3.signup-main__sub-head
               本人確認
@@ -79,33 +78,4 @@
               = link_to 'sms_confirmation', target: '_blank' do
                 本人情報の登録について
                 = icon 'fas', 'chevron-right'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   = render 'signup/footer'
