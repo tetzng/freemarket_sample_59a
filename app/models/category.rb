@@ -343,6 +343,7 @@ class Category < ActiveHash::Base
     { id: 335, name: 'コスプレ', sub: '1', sub_sub: '32', size: '1', brand: '1' },
     { id: 336, name: '下着', sub: '1', sub_sub: '32', size: '1', brand: '1' },
     { id: 337, name: 'その他', sub: '1', sub_sub: '32', size: '1', brand: '1' },
+
     { id: 338, name: 'Tシャツ/カットソー(半袖/袖なし)', sub: '2', sub_sub: '33', size: '1', brand: '1' },
     { id: 339, name: 'Tシャツ/カットソー(七分/長袖)', sub: '2', sub_sub: '33', size: '1', brand: '1' },
     { id: 340, name: 'シャツ', sub: '2', sub_sub: '33', size: '1', brand: '1' },
@@ -473,6 +474,7 @@ class Category < ActiveHash::Base
     { id: 465, name: 'トランクス', sub: '2', sub_sub: '45', size: '1', brand: '1' },
     { id: 466, name: 'ボクサーパンツ', sub: '2', sub_sub: '45', size: '1', brand: '1' },
     { id: 467, name: 'その他', sub: '2', sub_sub: '45', size: '1', brand: '1' },
+
     { id: 468, name: 'トップス', sub: '3', sub_sub: '47', size: '', brand: '' },
     { id: 469, name: 'アウター', sub: '3', sub_sub: '47', size: '', brand: '' },
     { id: 470, name: 'パンツ', sub: '3', sub_sub: '47', size: '', brand: '' },
@@ -592,6 +594,7 @@ class Category < ActiveHash::Base
     { id: 584, name: 'その他', sub: '3', sub_sub: '60', size: '', brand: '' },
     { id: 585, name: '母子手帳用品', sub: '3', sub_sub: '61', size: '', brand: '' },
     { id: 586, name: 'その他', sub: '3', sub_sub: '61', size: '', brand: '' },
+
     { id: 587, name: '食器', sub: '4', sub_sub: '62', size: '', brand: '' },
     { id: 588, name: '調理器具', sub: '4', sub_sub: '62', size: '', brand: '' },
     { id: 589, name: '収納/キッチン雑貨', sub: '4', sub_sub: '62', size: '', brand: '' },
@@ -719,6 +722,7 @@ class Category < ActiveHash::Base
     { id: 711, name: 'クリスマス', sub: '4', sub_sub: '73', size: '', brand: '' },
     { id: 712, name: '冬一般', sub: '4', sub_sub: '73', size: '', brand: '' },
     { id: 713, name: 'その他', sub: '4', sub_sub: '73', size: '', brand: '' },
+
     { id: 714, name: '文学/小説', sub: '5', sub_sub: '75', size: '', brand: '' },
     { id: 715, name: '人文/社会', sub: '5', sub_sub: '75', size: '', brand: '' },
     { id: 716, name: 'ノンフィクション/教養', sub: '5', sub_sub: '75', size: '', brand: '' },
@@ -770,6 +774,7 @@ class Category < ActiveHash::Base
     { id: 762, name: '携帯用ゲームソフト', sub: '5', sub_sub: '', size: '', brand: '' },
     { id: 763, name: 'PCゲーム', sub: '5', sub_sub: '', size: '', brand: '' },
     { id: 764, name: 'その他', sub: '5', sub_sub: '', size: '', brand: '' },
+
     { id: 765, name: 'キャラクターグッズ', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 766, name: 'ぬいぐるみ', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 767, name: '小物/アクセサリー', sub: '6', sub_sub: '', size: '', brand: '' },
@@ -871,6 +876,7 @@ class Category < ActiveHash::Base
     { id: 863, name: 'アマチュア無線', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 864, name: 'パチンコ/パチスロ', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 865, name: 'その他', sub: '6', sub_sub: '', size: '', brand: '' },
+
     { id: 866, name: 'ファンデーション', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 867, name: '化粧下地', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 868, name: 'コントロールカラー', sub: '7', sub_sub: '', size: '', brand: '' },
@@ -959,6 +965,7 @@ class Category < ActiveHash::Base
     { id: 951, name: '看護/介護用品', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 952, name: '救急/衛生用品', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 953, name: 'その他', sub: '7', sub_sub: '', size: '', brand: '' },
+
     { id: 954, name: 'スマートフォン本体', sub: '8', sub_sub: '', size: '', brand: '' },
     { id: 955, name: 'バッテリー/充電器', sub: '8', sub_sub: '', size: '', brand: '' },
     { id: 956, name: '携帯電話本体', sub: '8', sub_sub: '', size: '', brand: '' },
@@ -1034,6 +1041,7 @@ class Category < ActiveHash::Base
     { id: 1026, name: '衣類乾燥機', sub: '8', sub_sub: '', size: '', brand: '' },
     { id: 1027, name: 'その他', sub: '8', sub_sub: '', size: '', brand: '' },
     { id: 1028, name: 'その他', sub: '8', sub_sub: '', size: '', brand: '' },
+
     { id: 1029, name: 'クラブ', sub: '9', sub_sub: '', size: '', brand: '' },
     { id: 1030, name: 'ウエア(男性用)', sub: '9', sub_sub: '', size: '', brand: '' },
     { id: 1031, name: 'ウエア(女性用)', sub: '9', sub_sub: '', size: '', brand: '' },
@@ -1130,6 +1138,7 @@ class Category < ActiveHash::Base
     { id: 1122, name: 'その他', sub: '9', sub_sub: '', size: '', brand: '' },
     { id: 1123, name: '旅行用品', sub: '9', sub_sub: '', size: '', brand: '' },
     { id: 1124, name: 'その他', sub: '9', sub_sub: '', size: '', brand: '' },
+
     { id: 1125, name: 'ピアス', sub: '10', sub_sub: '', size: '', brand: '' },
     { id: 1126, name: 'イヤリング', sub: '10', sub_sub: '', size: '', brand: '' },
     { id: 1127, name: 'ネックレス', sub: '10', sub_sub: '', size: '', brand: '' },
@@ -1170,6 +1179,7 @@ class Category < ActiveHash::Base
     { id: 1162, name: 'その他', sub: '10', sub_sub: '', size: '', brand: '' },
     { id: 1163, name: 'Ingress', sub: '10', sub_sub: '', size: '', brand: '' },
     { id: 1164, name: 'クリエイターズ宇宙兄弟', sub: '10', sub_sub: '', size: '', brand: '' },
+
     { id: 1165, name: '男性アイドル', sub: '11', sub_sub: '', size: '', brand: '' },
     { id: 1166, name: '女性アイドル', sub: '11', sub_sub: '', size: '', brand: '' },
     { id: 1167, name: '韓流', sub: '11', sub_sub: '', size: '', brand: '' },
@@ -1220,6 +1230,7 @@ class Category < ActiveHash::Base
     { id: 1212, name: 'フード/ドリンク券', sub: '11', sub_sub: '', size: '', brand: '' },
     { id: 1213, name: '宿泊券', sub: '11', sub_sub: '', size: '', brand: '' },
     { id: 1214, name: 'その他', sub: '11', sub_sub: '', size: '', brand: '' },
+
     { id: 1215, name: '国内自動車本体', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1216, name: '外国自動車本体', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1217, name: 'タイヤ/ホイールセット', sub: '12', sub_sub: '', size: '', brand: '' },
@@ -1274,6 +1285,7 @@ class Category < ActiveHash::Base
     { id: 1266, name: 'メンテナンス', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1267, name: 'カタログ/マニュアル', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1268, name: 'その他', sub: '12', sub_sub: '', size: '', brand: '' },
+
     { id: 1269, name: 'ペットフード', sub: '13', sub_sub: '', size: '', brand: '' },
     { id: 1270, name: '犬用品', sub: '13', sub_sub: '', size: '', brand: '' },
     { id: 1271, name: '猫用品', sub: '13', sub_sub: '', size: '', brand: '' },
