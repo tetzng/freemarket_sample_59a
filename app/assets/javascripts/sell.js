@@ -14,8 +14,7 @@ $(function(){
         </li>
         `);
   }
-
-  $('#product_images').change(function(e){
+  $('#product_images').on('change', function(e){
     //ファイルオブジェクトを取得する
     var files = e.target.files;
     $.each(files, function(index, file) {
@@ -162,3 +161,169 @@ $(function(){
 //     fileInput.value = '';
 //   });
 // });
+
+$(function(){
+  function appendCategory(){
+    let subHTML = `<div class="sell-main__select-wrap">
+                  <i class="fas fa-chevron-down"></i>
+                  <select class="sell-main__select-default" name="product[category_id]">
+                    <option value="">--</option>
+                  </select>
+                  </div>`;
+    $(categoryWrapper).append(subHTML);
+  }
+  function appendOption(category, appendWrap){
+    let subOptionHTML =`<option value="${category.id}">${category.name}</option>`;
+    $(appendWrap).children('select').append(subOptionHTML);
+  }
+  const categoryWrapper = '#sell-main__select-category--wrapper';
+  const mainCategory = '#sell-main__select-category--main';
+  const subCategory = '#sell-main__select-category--wrapper div:nth-child(2)';
+  const subSubCategory = '#sell-main__select-category--wrapper div:nth-child(3)';
+
+  $(mainCategory).on('change', function(){
+    let sub = $(this).val();
+    let sub_sub = "0";
+
+    $.ajax({
+      type: "GET",
+      url: '/sell/new',
+      data: { sub: sub, sub_sub: sub_sub },
+      dataType: 'json'
+    })
+
+    .done(function(categories){
+      $(subSubCategory).remove();
+      $(subCategory).remove();
+      if(sub != ''){
+        appendCategory();
+        categories.forEach(function(category){
+          appendOption(category, subCategory);
+        });
+      }
+    })
+    .fail(function(){
+      alert('カテゴリー検索に失敗しました');
+    });
+  });
+  $(document).on('change', subCategory, function(){
+    let sub = $(mainCategory).val();
+    let sub_sub = $(this).children('select').val();
+    $.ajax({
+      type: "GET",
+      url: '/sell/new',
+      data: { sub: sub, sub_sub: sub_sub },
+      dataType: 'json'
+    })
+
+    .done(function(categories){
+      $(subSubCategory).remove();
+      if(sub_sub != '' && categories[0]){
+        appendCategory();
+        categories.forEach(function(category){
+          appendOption(category, subSubCategory);
+        });
+      }
+    })
+    .fail(function(){
+      alert('カテゴリー検索に失敗しました');
+    });
+  });
+  const priceInput = '#sell-main__price-input';
+  const feeFeild = '#sell-main__fee';
+  const profitFeild = '#sell-main__profit';
+  $(priceInput).on('keyup', function(){
+    let input = $(this).val();
+    if (input >= 300 && input <= 9999999){
+      let fee = Math.floor(input * 0.1);
+      let profit = "¥" + (input - fee).toLocaleString();
+      $(feeFeild).html("¥" + fee.toLocaleString());
+      $(profitFeild).html(profit);
+    } else {
+      let fee = '-';
+      let profit = '-';
+      $(feeFeild).html(fee);
+      $(profitFeild).html(profit);
+    }
+  });
+  $(document).on('change', subCategory, function(){
+    let sub = $(mainCategory).val();
+    let sub_sub = $(this).children('select').val();
+    $.ajax({
+      type: "GET",
+      url: '/sell/new',
+      data: { sub: sub, sub_sub: sub_sub },
+      dataType: 'json'
+    })
+
+    .done(function(categories){
+      $(subSubCategory).remove();
+      if(sub_sub != '' && categories[0]){
+        appendCategory();
+        categories.forEach(function(category){
+          appendOption(category, subSubCategory);
+        });
+      }
+    })
+    .fail(function(){
+      alert('カテゴリー検索に失敗しました');
+    });
+  });
+});
+
+
+let sizeHTML = `<div class="sell-main__form-group">
+                  <label for="product_size">サイズ
+                    <span class="sell-main__form-require">必須</span>
+                  </label>
+                  <div class="sell-main__select-wrap">
+                    <i class="fas fa-chevron-down"></i>
+                    <select class="sell-main__select-default" name="product[size_id]" id="product_size_id">
+                      <option value="">--</option>
+                      <option value="1">XXS以下</option>
+                      <option value="2">XS(SS)</option>
+                      <option value="3">S</option>
+                      <option value="4">M</option>
+                      <option value="5">L</option>
+                      <option value="6">XL(LL)</option>
+                      <option value="7">2XL(3L)</option>
+                      <option value="8">3XL(4L)</option>
+                      <option value="9">4XL(5L)以上</option>
+                      <option value="10">FREE SIZE</option>
+                    </select>
+                  </div>
+                  <ul class="sell-main__has-error-text"></ul>
+                </div>`;
+
+let brandHTML = `<div class="sell-main__form-group sell-main__form-suggest-container">
+                  <label for="product_brand">ブランド
+                    <span class="sell-main__form-arbitrary">任意</span>
+                  </label>
+                  <div>
+                    <input class="sell-main__input-default" placeholder="例）シャネル" type="text" name="product[brand]" id="product_brand">
+                  </div>
+                  <div></div>
+                  <ul class="sell-main__has-error-text"></ul>
+                </div>`;
+
+let deliveryWayHTML = `<div class="sell-main__form-group">
+                        <label for="product_delivery_way">配送の方法
+                          <span class="sell-main__form-require">必須</span>
+                        </label>
+                        <div class="sell-main__select-wrap">
+                          <i class="fas fa-chevron-down"></i>
+                          <select class="sell-main__select-default" name="product[delivery_way_id]" id="product_delivery_way_id">
+                            <option value="">--</option>
+                            <option value="1">未定</option>
+                            <option value="2">らくらくメルカリ便</option>
+                            <option value="3">ゆうメール</option>
+                            <option value="4">レターパック</option>
+                            <option value="5">普通郵便(定形、定形外)</option>
+                            <option value="6">クロネコヤマト</option>
+                            <option value="7">ゆうパック</option>
+                            <option value="8">クリックポスト</option>
+                            <option value="9">ゆうパケット</option></select>
+                        </div>
+                        <ul class="sell-main__has-error-text">
+                        </ul>
+                      </div>`
