@@ -14,6 +14,7 @@
         = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
           %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'google-login' }
             Googleでログイン
+      = render partial: 'error_message', locals: { user: @user, column: 'provider' }
       %form{ action: '/login/', method: 'POST', novalidate: 'novalidate' }
         .signup-main__login-form-inner
           .signup-main__form-group
