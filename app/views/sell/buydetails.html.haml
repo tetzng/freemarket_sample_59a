@@ -26,11 +26,11 @@
         .buydetails-content__inner
           %h3 配送先
           %address.buydetails-content__user
-            〒123-4567
+            〒 #{current_user.zip_code1}
             %br
-            福岡県福岡市中央区天神１丁目１−１
+            #{Prefecture.find(current_user.prefecture_id).name} #{current_user.city}#{current_user.address1}#{current_user.address2}
             %br
-            text user
+            #{current_user.first_name} #{current_user.last_name}
           = link_to '/', class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'

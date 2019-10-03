@@ -10,4 +10,5 @@ class Product < ApplicationRecord
   belongs_to_active_hash :status
   has_many_attached :images
   belongs_to :user
+  belongs_to :card
 end

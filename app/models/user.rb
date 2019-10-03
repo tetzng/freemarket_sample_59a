@@ -11,6 +11,7 @@ class User < ApplicationRecord
     belongs_to_active_hash :paymentyear
     belongs_to_active_hash :paymentmonth
   has_many :products
+  has_many :cards
   # has_many :shopping_origin_addresses
   # has_many :products
   # has_many :puchases
