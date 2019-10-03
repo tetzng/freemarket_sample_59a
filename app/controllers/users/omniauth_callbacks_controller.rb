@@ -1,4 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  layout '/login'
   def facebook
     callback_for(:facebook)
   end
@@ -9,6 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     @user = User.find_for_oauth(request.env['omniauth.auth'])
+    # パスワードをユーザのtoken(4文字)とuid(4文字)から作成
     first_password = request.env['omniauth.auth'].credentials.token.to_s
     second_password = request.env['omniauth.auth'].uid.to_s
     password = first_password[0, 4] + second_password[0, 4]
