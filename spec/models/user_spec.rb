@@ -134,6 +134,8 @@ describe User do
     end
 
     # last_nameが３５文字以下であれば登録出来る
+    # first_name_kanaが３５字以下かつカタカナであるか
+
 
     it "is invalid with a first_name_kana that has more than 35 characters " do
       user = build(:user, first_name_kana: "アアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアアア")
@@ -152,7 +154,21 @@ describe User do
       expect(user).to be_valid
     end
 
-    # first_name_kanaが３５字以下かつカタカナであるか
+    # SNS認証経由の(providerがある)場合、uid、tokenが登録できるか
+
+    it "is invalid without a provider" do
+      user = build(:user, provider: "facebook")
+      user.valid?
+      expect(user.errors[:uid][0]).to include("can't be blank")
+    end
+
+    it "is invalid without a provider" do
+      user = build(:user, provider: "facebook")
+      user.valid?
+      expect(user.errors[:token][0]).to include("can't be blank")
+    end
+
+
 
 
   end
