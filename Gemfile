@@ -82,10 +82,16 @@ gem 'font-awesome-sass', '>=5.11.1'
 gem "gretel"
 gem 'haml-rails'
 gem 'jquery-rails'
+
 # クレジットカード決済
 gem 'payjp'
-gem 'omniauth', '>= 1.0.0'
+# SNS認証
+gem 'omniauth', '>=1.9.0'
+# Facebook認証
 gem 'omniauth-facebook', '>=5.0.0'
+# Google認証
+gem 'omniauth-google-oauth2', '>=0.8.0'
+# omniauthの脆弱性対応
 gem 'omniauth-rails_csrf_protection', '>=0.1.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # s3に画像アップロード
