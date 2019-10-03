@@ -191,10 +191,10 @@ class SignupController < ApplicationController
     payment_card_security_code: session[:payment_card_security_code],
     provider: session[:provider],
     uid: session[:uid],
-    token: session[:token],
+    token: session[:token]
     )
     # メールアドレスからユーザ新規登録するとき
-  else
+    else
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
