@@ -91,6 +91,7 @@
   }
   &__btn-sns {
     position: relative;
+
     i {
       position: absolute;
       top: 50%;
@@ -99,7 +100,7 @@
       transform: translate(0, -50%);
     }
     &--facebook {
-      margin: 16px 0 0;
+      margin: 30px 0 0;
       background: #385185;
       color: #fff;
       .fa-facebook-square {
@@ -108,14 +109,20 @@
         font-size: 26px;
       }
       &:first-child {
-        margin: 0;
-      }
+        margin-top: 16px;
+      }  
     }
     &--google {
       margin: 16px 0 0;
       background: #fff image-url('google.svg') no-repeat 3px top;
       border: #979797 solid 1px;
       color: #333;
+    }
+    .signup-main__facebook-login  {
+      padding-top: 16px;
+      &a:hover  {
+        text-decoration: none;
+      }
     }
   }
   &__form-group {
