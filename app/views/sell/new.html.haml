@@ -26,7 +26,6 @@
                       %i.fas.fa-camera
                 %ul.sell-main__has-error-text
                   %li
-                    画像がありません
               .sell-main__content
                 .sell-main__form-group
                   = f.label :name do
@@ -36,7 +35,6 @@
                     = f.text_field :name, { class:'sell-main__input-default', placeholder: '商品名（必須 40文字まで)' }
                   %ul.sell-main__has-error-text
                     %li
-                      入力してください
                 .sell-main__form-group
                   = f.label :description do
                     商品の説明
@@ -44,10 +42,9 @@
                   = f.text_area :description, { class: 'sell-main__textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5' }
                   %ul.sell-main__has-error-text
                     %li
-                      入力してください
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head 商品の詳細
-                .sell-main__form-box
+                .sell-main__form-box{ id: 'sell-main__form-box--detail' }
                   .sell-main__form-group
                     = f.label :category_id do
                       カテゴリー
@@ -67,14 +64,13 @@
                       = f.collection_select :condition_id, Condition.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
                       %li
-                        選択してください
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head 配送について
                 %a.sell-main__form-question{ href: '#', target: '_blank' }
                   ?
                 .sell-main__form-box
-                  .sell-main__form-group
-                    = f.label :delivery_charge do
+                  .sell-main__form-group{ id: 'sell-main__form-group--delivery-charge'}
+                    = f.label :delivery_charge_id do
                       配送料の負担
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
@@ -82,19 +78,8 @@
                       = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
                       %li
-                        選択してください
                   .sell-main__form-group
-                    = f.label :delivery_way do
-                      配送の方法
-                      %span.sell-main__form-require 必須
-                    .sell-main__select-wrap
-                      %i.fas.fa-chevron-down
-                      = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
-                    %ul.sell-main__has-error-text
-                      %li
-                        選択してください
-                  .sell-main__form-group
-                    = f.label :delivery_area do
+                    = f.label :delivery_area_id do
                       発送元の地域
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
@@ -102,7 +87,6 @@
                       = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
                       %li
-                        選択してください
                   .sell-main__form-group
                     = f.label :delivery_days do
                       発送までの日数
@@ -112,7 +96,6 @@
                       = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
                       %li
-                        選択してください
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head
                 販売価格(300〜9,999,999)
@@ -131,7 +114,6 @@
                             = f.text_field :price, { class: 'sell-main__input-default',id: 'sell-main__price-input', placeholder: '例）300',  value: '' }
                       %ul.sell-main__has-error-text
                         %li
-                          300以上9999999以下で入力してください
                     %li.clearfix
                       .sell-main__left
                         販売手数料 (10%)
