@@ -66,6 +66,14 @@ class User < ApplicationRecord
 
 #SNS認証
   validates :provider, presence: true
+  # validate :add_error_sample
+
+  # def add_error_sample
+  #   # nameが空のときにエラーメッセージを追加する
+  #   if provider.empty?
+  #     errors.add(:provider, "登録情報はありません")
+  #   end
+  # end
 
 
   protected
@@ -81,6 +89,7 @@ class User < ApplicationRecord
         
         # 登録されていない時
       else
+          # パスワードをユーザのtoken(4文字)とuid(4文字)から作成
         first_password = auth.credentials.token.to_s
         second_password = uid.to_s
         password = first_password[0, 4] + second_password[0, 4]
