@@ -67,20 +67,6 @@ class User < ApplicationRecord
   protected
 
   def self.find_for_oauth(auth)
-    user = User.where( nickname: auth.extra.raw_info.name, email: auth.info.email ).first
-
-     unless user
-        user = User.create( nickname: auth.extra.raw_info.name,
-                            provider: auth.provider,
-                            uid:      auth.uid,
-                            email:    auth.info.email,
-                            token:    auth.credentials.token,
-                            password: Devise.friendly_token[0,20] )
-     end
-    return user
-  end
-
-  def self.find_for_oauth(auth)
     uid = auth.uid
     provider = auth.provider
         # providerから取得したアドレスがすでに登録されているか確認
@@ -101,8 +87,8 @@ class User < ApplicationRecord
           provider: provider,
           token: auth.credentials.token
           )
+          binding.pry
       end
     return user
   end
-
 end
