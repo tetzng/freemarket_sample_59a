@@ -9,6 +9,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     @user = User.find_for_oauth(request.env['omniauth.auth'])
+    first_password = request.env['omniauth.auth'].credentials.token.to_s
+    second_password = request.env['omniauth.auth'].uid.to_s
+    password = first_password[0, 4] + second_password[0, 4]
     if @user.persisted?
       sign_in @user
       redirect_to root_path
@@ -19,7 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:uid]                 = request.env['omniauth.auth'].uid
       session[:provider]            = request.env['omniauth.auth'].provider
       session[:token]               = request.env['omniauth.auth'].credentials.token
-      session[:password]            = Devise.friendly_token[0, 20]
+      session[:password]            = password
       redirect_to signup_registration_path
     end
   end
