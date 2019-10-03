@@ -70,7 +70,7 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
         # providerから取得したアドレスがすでに登録されているか確認
-      user = User.find_by(uid: uid, provider: provider)
+      user = User.find_by(uid: uid)
         # providerから登録しているアドレスですでに登録されている時
       if user 
         return user
@@ -87,7 +87,6 @@ class User < ApplicationRecord
           provider: provider,
           token: auth.credentials.token
           )
-          binding.pry
       end
     return user
   end
