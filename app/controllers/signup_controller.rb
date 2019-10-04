@@ -196,10 +196,6 @@ class SignupController < ApplicationController
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 
-  def login
-  end
-end
-
 private
   def user_params
     params.require(:user).permit(
@@ -228,3 +224,4 @@ private
       :payment_card_security_code
     )
   end
+end
