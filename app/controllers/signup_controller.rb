@@ -218,7 +218,7 @@ class SignupController < ApplicationController
       paymentyear_id: session[:paymentyear_id],
       payment_card_security_code: session[:payment_card_security_code]
       )
-      end
+    end
 
       if @user.save
         # ログインするための情報を保管
@@ -262,7 +262,7 @@ private
       :payment_card_no,
       :paymentmonth_id,
       :paymentyear_id,
-      :payment_card_security_code,
+      :payment_card_security_code
     )
   end
 end
