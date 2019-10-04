@@ -12,7 +12,7 @@
               = f.text_field :payment_card_no, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '半角数字のみ', maxlength: '19', value: '' }
             - else  
               = f.text_field :payment_card_no, { class: 'signup-main__input-default', placeholder: '半角数字のみ', maxlength: '19', value: '' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "payment_card_no"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "payment_card_no"}
             %ul.signup-main__card-list
               %li
                 = image_tag 'visa.svg', width: '49', height: '20'
@@ -49,7 +49,7 @@
               = f.text_field :payment_card_security_code, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: 'カード背面4桁もしくは3桁の番号', value: '' }
             - else  
               = f.text_field :payment_card_security_code, { class: 'signup-main__input-default', placeholder: 'カード背面4桁もしくは3桁の番号', value: '' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "payment_card_security_code"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "payment_card_security_code"}
             %ul.signup-main__has-error-text{ id: 'security-code-error-wrapper' }
             .signup-main__seqcode
               .signup-main__seqcode--text{ id: 'seqcode-tips-toggle' }
