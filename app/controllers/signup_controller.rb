@@ -97,7 +97,7 @@ class SignupController < ApplicationController
     birth_mm_id: session[:birth_mm_id],
     birth_dd_id: session[:birth_dd_id],
     phone_num: session[:phone_num],
-    authentication_num: session[:phone_num],
+    authentication_num: session[:authentication_num],
     zip_code1: "000-0000",
     prefecture_id: "1",
     city: "福岡市",
@@ -109,7 +109,6 @@ class SignupController < ApplicationController
     paymentyear_id: "1",
     payment_card_security_code: "111",
     )
-
     render '/signup/sms_confirmation_sms' unless @user.valid?
   end
 
@@ -138,7 +137,7 @@ class SignupController < ApplicationController
     birth_mm_id: session[:birth_mm_id],
     birth_dd_id: session[:birth_dd_id],
     phone_num: session[:phone_num],
-    authentication_num: session[:phone_num],
+    authentication_num: session[:authentication_num],
     zip_code1: user_params[:zip_code1],
     prefecture_id: user_params[:prefecture_id],
     city: user_params[:city],
