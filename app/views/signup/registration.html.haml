@@ -14,7 +14,7 @@
             - else
               = f.text_field :nickname, { class: 'signup-main__input-default', placeholder: '例) メルカリ太郎' }
             %ul.signup-main__has-error-text
-            =  render partial: 'error-messages', locals: {user: @user, column: "nickname"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "nickname"}
 
           .signup-main__form-group
             = f.label 'メールアドレス'
@@ -23,7 +23,7 @@
               = f.email_field :email, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: 'PC・携帯どちらでも可' }
             - else
               = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "email"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "email"}
             
           .signup-main__form-group
             = f.label 'パスワード'
@@ -32,7 +32,7 @@
               = f.password_field :password, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上' }
             - else
               = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "password"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "password"}
           .signup-main__form-group
             = f.label 'パスワード (確認)'
             %span.signup-main__form-require 必須
@@ -40,7 +40,7 @@
               = f.password_field :password_confirmation, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上' }
             - else
               = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上' }            
-            =  render partial: 'error-messages', locals: {user: @user, column: "password_confirmation"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "password_confirmation"}
           .signup-main__form-group
             %h3.signup-main__sub-head
               本人確認
@@ -58,8 +58,8 @@
               = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 彩' }
             - else
               = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 彩' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "last_name"}
-            =  render partial: 'error-messages', locals: {user: @user, column: "first_name"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name"}
           .signup-main__form-group.signup-main__form-group--half
             %div
               = f.label 'お名前カナ(全角)'
@@ -72,8 +72,8 @@
               = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) アヤ' }
             - else
               = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) アヤ' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "last_name_kana"}
-            =  render partial: 'error-messages', locals: {user: @user, column: "first_name_kana"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name_kana"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name_kana"}
 
           .signup-main__form-group
             = f.label '生年月日'
