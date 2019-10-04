@@ -145,6 +145,14 @@
         border-color: #0099e8;
       }
     }
+    &--half{
+      .field_with_errors{
+        display: inline;
+        &:last-of-type .signup-main__input-default--half{
+          margin-right: 0;
+        }
+      }
+    }
   }
   &__form-require{
     margin-left: 8px;
@@ -410,6 +418,11 @@
   }
   &__fake-link:hover{
     text-decoration: none;
+  }
+}
+.field_with_errors{
+  select{
+    border-color: #ea352d;
   }
 }
 @media screen and (min-width: 768px){

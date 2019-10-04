@@ -5,42 +5,69 @@
       %h2.signup-main__head.signup-main__head--registration 発送元・お届け先住所入力
       = form_with model: @user, local: true, url: signup_credit_card_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
         .signup-main__content
-          .signup-main__form-group
-            = f.label 'お名前'
-            %span.signup-main__form-require 必須
-            = f.text_field :last_name, { class: 'signup-main__input-default', placeholder: '例) 山田' }
-            = f.text_field :first_name, { class: 'signup-main__input-default', placeholder: '例) 彩' }
-          .signup-main__form-group
-            = f.label 'お名前カナ'
-            %span.signup-main__form-require 必須
-            = f.text_field :last_name_kana, { class: 'signup-main__input-default', placeholder: '例) ヤマダ' }
-            = f.text_field :first_name_kana, { class: 'signup-main__input-default', placeholder: '例) アヤ' }
+          .signup-main__form-group.signup-main__form-group--half
+            %div
+              = f.label 'お名前(全角)'
+              %span.signup-main__form-require 必須
+            - if @user.errors.full_messages_for(:last_name).any?
+              = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 山田' }
+            - else
+              = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 山田' }
+            - if @user.errors.full_messages_for(:first_name).any?
+              = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 彩' }
+            - else
+              = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 彩' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name"}
+          .signup-main__form-group.signup-main__form-group--half
+            %div
+              = f.label 'お名前カナ(全角)'
+              %span.signup-main__form-require 必須
+            - if @user.errors.full_messages_for(:last_name_kana).any?
+              = f.text_field :last_name_kana, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) ヤマダ' }
+            - else
+              = f.text_field :last_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) ヤマダ' }
+            - if @user.errors.full_messages_for(:first_name_kana).any?
+              = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) アヤ' }
+            - else
+              = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) アヤ' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name_kana"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name_kana"}
           .signup-main__form-group
             = f.label '郵便番号'
             %span.signup-main__form-require 必須
-            = f.text_field :zip_code1, { class: 'signup-main__input-default signup-main__input-default--has-error',  placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
-            %ul.signup-main__has-error-text
-              %li 入力してください
-              %li フォーマットが不適切です
+            - if @user.errors.full_messages_for(:zip_code1).any?
+              = f.text_field :zip_code1, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
+            - else
+              = f.text_field :zip_code1, { class: 'signup-main__input-default', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "zip_code1"}
           .signup-main__form-group
             = f.label '都道府県'
             %span.signup-main__form-require 必須
             .signup-main__select-wrap
               = icon 'fas', 'chevron-down'
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+              - if @user.errors.full_messages_for(:prefecture_id).any?
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'signup-main__input-default--has-error'
+              - else
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+              =  render partial: 'error-messages', locals: { user: @user, column: "prefecture_id"}
               = icon 'fas', 'chevron-down'
           .signup-main__form-group
             = f.label '市区町村'
             %span.signup-main__form-require 必須
-            = f.text_field :city, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 横浜市緑区', value: '' }
-            %ul.signup-main__has-error-text
-              %li 入力してください
+            - if @user.errors.full_messages_for(:city).any?
+              = f.text_field :city, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 横浜市緑区', value: '' }
+            - else
+              = f.text_field :city, { class: 'signup-main__input-default', placeholder: '例) 横浜市緑区', value: '' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "city"}
           .signup-main__form-group
             = f.label '番地'
             %span.signup-main__form-require 必須
-            = f.text_field :address1, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 青山1−1−1', value: '' }
-            %ul.signup-main__has-error-text
-              %li 入力してください
+            - if @user.errors.full_messages_for(:address1).any?
+              = f.text_field :address1, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 青山1−1−1', value: '' }
+            - else
+              = f.text_field :address1, { class: 'signup-main__input-default', placeholder: '例) 青山1−1−1', value: '' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "address1"}
           .signup-main__form-group
             = f.label '建物名'
             %span.signup-main__form-arbitrary 任意
