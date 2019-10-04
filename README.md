@@ -42,7 +42,6 @@ Things you may want to cover:
 |content|text||
 
 ### Association
-- belongs_to :user
 - has_many :shopping_origin_addresses
 - has_many :products
 - has_many :puchases
