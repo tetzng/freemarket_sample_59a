@@ -12,7 +12,7 @@
               = f.number_field :authentication_num, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '認証番号を入力', value: '' }
             - else
               = f.number_field :authentication_num, { class: 'signup-main__input-default', placeholder: '認証番号を入力', value: '' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "authentication_num"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "authentication_num"}
           %p.signup-main__text
             SMSで届いた認証番号を入力してください
           = f.submit class: 'signup-main__btn-default signup-main__btn-red', value: '認証して完了'
