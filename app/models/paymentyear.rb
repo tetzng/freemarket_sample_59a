@@ -11,6 +11,6 @@ class Paymentyear < ActiveHash::Base
       { id: 8, num: '26' },
       { id: 9, num: '27' },
       { id: 10, num: '28' },
-      { id: 11, num: '29' },
+      { id: 11, num: '29' }
     ]
 end
