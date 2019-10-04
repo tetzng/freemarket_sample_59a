@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   }
   resources :sell
   resources :users
-
+  get '/sell/new_size', to: 'sell#new_size'
   resources :signup, only: :create
   resources :sell
+  namespace :api do
+    resources :sell, only: :new, defaults: { format: 'json' }
+    get '/sell/new_delivery', to: 'sell#new_delivery', defaults: { format: 'json' }
+  end
   get '/sell', to: 'sell#index'
   get '/signup', to: 'signup#index'
   get '/signup/registration', to: 'signup#registration'
