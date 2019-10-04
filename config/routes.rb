@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get '/signup/address', to: 'signup#address'
   get '/signup/credit_card', to: 'signup#credit_card'
   get '/signup/done', to: 'signup#done'
-  get '/login', to: 'signup#login'
   root 'sell#index'
   get 'sell/buydetails'
   get 'mypage/identification'
