@@ -96,14 +96,14 @@
               %span 月
               .signup-main__select-wrap.signup-main__select-wrap--day
                 = icon 'fas', 'chevron-down'
-                - if @user.errors.full_messages_for(:birth_dd_id).any?                
+                - if @user.errors.full_messages_for(:birth_dd_id).any?
                   = f.collection_select :birth_dd_id, BirthDd.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default signup-main__input-default--has-error'
                 - else
                   = f.collection_select :birth_dd_id, BirthDd.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default'
               %span 日
-              =  render partial: 'error-messages', locals: {user: @user, column: "birth_yyyy_id"}
-              =  render partial: 'error-messages', locals: {user: @user, column: "birth_mm_id"}
-              =  render partial: 'error-messages', locals: {user: @user, column: "birth_dd_id"}
+              =  render partial: 'error-messages', locals: { user: @user, column: "birth_yyyy_id"}
+              =  render partial: 'error-messages', locals: { user: @user, column: "birth_mm_id"}
+              =  render partial: 'error-messages', locals: { user: @user, column: "birth_dd_id"}
             .clearfix
           %p.signup-main__form-info-text
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
