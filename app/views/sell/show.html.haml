@@ -47,7 +47,8 @@
           %tr
             %th  ブランド
             %td
-              = link_to 'コーチ', '/'
+              = link_to '/' do
+                = @product.brand
           %tr
             %th 商品の状態
             %td
@@ -73,7 +74,11 @@
       %span.itembuy-content__bold
         ¥#{@product.price}
       %span.itembuy-content__tax (税込)
-      %span.itembuy-content__fee 送料込み
+      %span.itembuy-content__fee
+      - if @product.delivery_charge_id == '1'
+        送料込み
+      - else
+        着払い
     = link_to '購入画面に進む', '/', class: 'itembuy-price-box'
     .itembuy-detail
       %p.itembuy-detail__inner
