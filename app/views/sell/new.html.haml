@@ -17,29 +17,8 @@
                     -# 投稿数に応じてクラス名変更
                     .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--first' }
                       %ul{ id: 'output' }
-                        -# 画像が投稿されたら下記アペンド
-                        -# %li.sell-main__upload-item
-                        -#   %figure.sell-main__upload-figure.sell-main__upload-figure--square
-                        -#     = image_tag 'mercari_profile.png', id: 'img1'
-                        -#   .sell-main__upload-button
-                        -#     = link_to '', class: 'sell-main__upload-edit' do
-                        -#       編集
-                        -#     = link_to '' do
-                        -#       削除
-                    -#投稿数が5以上のとき、下記追加
                     .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--second' }
                       %ul
-                        -# 画像が投稿されたら下記アペンド
-                        -# %li.sell-main__upload-item
-                        -#   %figure.sell-main__upload-figure.sell-main__upload-figure--square
-                        -#     = image_tag 'mercari_profile.png'
-                        -#   .sell-main__upload-button
-                        -#     = link_to '', class: 'sell-main__upload-edit' do
-                        -#       編集
-                        -#     = link_to '' do
-                        -#       削除
-                  -# %div
-
                   = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
                     .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
                       = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
@@ -64,36 +43,16 @@
                   -# =  render partial: 'error-messages', locals: {product: @product, column: ' description'}
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head 商品の詳細
-                .sell-main__form-box
+                .sell-main__form-box{ id: 'sell-main__form-box--detail' }
                   .sell-main__form-group
                     = f.label :category_id do
-                      =  render partial: 'error-messages', locals: {product: @product, column: ' category_id'}
+                      カテゴリー
                       %span.sell-main__form-require 必須
-                    %div
+                    %div{ id: 'sell-main__select-category--wrapper' }
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
-                      .sell-main__select-wrap
-                        %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, Category.where(sub: '1', sub_sub:'0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
-                      .sell-main__select-wrap
-                        %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, Category.where(sub_sub: '14'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
-                  .sell-main__form-group
-                    = f.label :size do
-                      サイズ
-                      %span.sell-main__form-require 必須
-                    .sell-main__select-wrap
-                      %i.fas.fa-chevron-down
-                      = f.collection_select :size_id, Size.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
-                      =  render partial: 'error-messages', locals: {product: @product, column: ' size_id'}
-                  .sell-main__form-group.sell-main__form-suggest-container
-                    = f.label :brand do
-                      ブランド
-                      %span.sell-main__form-arbitrary 任意
-                    %div
-                      = f.text_field :brand, { class: 'sell-main__input-default', placeholder: '例）シャネル' }
-                    %div
+                        = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' category_id'}
                   .sell-main__form-group
                     = f.label :condition do
                       商品の状態
@@ -107,24 +66,17 @@
                 %a.sell-main__form-question{ href: '#', target: '_blank' }
                   ?
                 .sell-main__form-box
-                  .sell-main__form-group
-                    = f.label :delivery_charge do
+                  .sell-main__form-group{ id: 'sell-main__form-group--delivery-charge'}
+                    = f.label :delivery_charge_id do
                       配送料の負担
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
                       = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
                     =  render partial: 'error-messages', locals: {product: @product, column: ' delivery_charge_id'}
-                  .sell-main__form-group
-                    = f.label :delivery_way do
-                      配送の方法
-                      %span.sell-main__form-require 必須
-                    .sell-main__select-wrap
-                      %i.fas.fa-chevron-down
-                      = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
                     =  render partial: 'error-messages', locals: {product: @product, column: ' delivery_way_id'}
                   .sell-main__form-group
-                    = f.label :delivery_area do
+                    = f.label :delivery_area_id do
                       発送元の地域
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
@@ -154,15 +106,15 @@
                         .sell-main__right.sell-main__price-input
                           ¥
                           %div
-                            = f.text_field :price, { class: 'sell-main__input-default', placeholder: '例）300',  value: '' }
+                            = f.text_field :price, { class: 'sell-main__input-default',id: 'sell-main__price-input', placeholder: '例）300',  value: '' }
                         =  render partial: 'error-messages', locals: {product: @product, column: ' price'}
                     %li.clearfix
                       .sell-main__left
                         販売手数料 (10%)
-                      .sell-main__right -
+                      .sell-main__right{ id: 'sell-main__fee' } -
                     %li.clearfix.bold
                       .sell-main__left 販売利益
-                      .sell-main__right -
+                      .sell-main__right{ id: 'sell-main__profit' } -
               .sell-main__modal{ role: 'dialog', abindex: '-1' }
                 .sell-main__modal-inner
               .sell-main__content.sell-main__btn-box
