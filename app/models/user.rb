@@ -65,7 +65,7 @@ class User < ApplicationRecord
   validates :payment_card_security_code, presence: true, length: { maximum: 4 }
 
 #SNS認証
-  validates :provider, presence: true
+  # validates :provider, presence: true
   # validate :add_error_sample
 
   # def add_error_sample
