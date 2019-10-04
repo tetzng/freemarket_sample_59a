@@ -38,9 +38,7 @@
                     商品の説明
                     %span.sell-main__form-require 必須
                   = f.text_area :description, { class: 'sell-main__textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5' }
-                    - if @product.errors.messages[:description].any?
-                    %span.error= @product.errors.messages[:description][0]
-                  -# =  render partial: 'error-messages', locals: {product: @product, column: ' description'}
+                  =  render partial: 'error-messages', locals: {product: @product, column: ' description'}
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head 商品の詳細
                 .sell-main__form-box{ id: 'sell-main__form-box--detail' }
