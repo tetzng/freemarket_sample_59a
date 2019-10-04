@@ -1,5 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  layout '/login'
   def facebook
     callback_for(:facebook)
   end
