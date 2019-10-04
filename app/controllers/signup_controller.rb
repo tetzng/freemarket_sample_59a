@@ -236,7 +236,7 @@ class SignupController < ApplicationController
   end
 
   def login
-    redirect_to root_path unless @user.valid?
+    redirect_to root_path if user_signed_in?
   end
 
 private
