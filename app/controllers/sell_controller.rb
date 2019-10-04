@@ -70,5 +70,4 @@ class SellController < ApplicationController
   def set_user
     @user = User.find(@product.user_id)
   end
-
 end

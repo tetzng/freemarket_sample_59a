@@ -16,6 +16,6 @@ class DeliveryWay < ActiveHash::Base
       { id: 10, value: '未定', charge: '2' },
       { id: 11, value: 'クロネコヤマト', charge: '2' },
       { id: 12, value: 'ゆうパック', charge: '2' },
-      { id: 13, value: 'ゆうメール', charge: '2' },
+      { id: 13, value: 'ゆうメール', charge: '2' }
   ]
 end
