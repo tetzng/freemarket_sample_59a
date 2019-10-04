@@ -1,0 +1,11 @@
+入力してください
+- if product.errors.any?
+  入力してください
+  - unless product.valid?
+    入力してください
+    - if errors = product.errors.full_messages_for(column.to_sym)
+      入力してください
+      %ul.sell-main__has-error-text
+        = errors
+        - errors.each do |error|
+          %li= error

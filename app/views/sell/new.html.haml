@@ -24,8 +24,7 @@
                       = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
                       %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
                       %i.fas.fa-camera
-                %ul.sell-main__has-error-text
-                  %li
+                  = render partial: 'error-messages', locals: { product: @product, column: 'images'}
               .sell-main__content
                 .sell-main__form-group
                   = f.label :name do
@@ -33,15 +32,15 @@
                     %span.sell-main__form-require 必須
                   %div
                     = f.text_field :name, { class:'sell-main__input-default', placeholder: '商品名（必須 40文字まで)' }
-                  %ul.sell-main__has-error-text
-                    %li
+                  =  render partial: 'error-messages', locals: {product: f.object, column: 'name'}
                 .sell-main__form-group
                   = f.label :description do
                     商品の説明
                     %span.sell-main__form-require 必須
                   = f.text_area :description, { class: 'sell-main__textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5' }
-                  %ul.sell-main__has-error-text
-                    %li
+                    - if @product.errors.messages[:description].any?
+                    %span.error= @product.errors.messages[:description][0]
+                  -# =  render partial: 'error-messages', locals: {product: @product, column: ' description'}
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head 商品の詳細
                 .sell-main__form-box{ id: 'sell-main__form-box--detail' }
@@ -53,8 +52,7 @@
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
                         = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
-                    %ul.sell-main__has-error-text
-                      %li
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' category_id'}
                   .sell-main__form-group
                     = f.label :condition do
                       商品の状態
@@ -62,8 +60,7 @@
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
                       = f.collection_select :condition_id, Condition.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
-                    %ul.sell-main__has-error-text
-                      %li
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' condition_id'}
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head 配送について
                 %a.sell-main__form-question{ href: '#', target: '_blank' }
@@ -76,8 +73,8 @@
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
                       = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
-                    %ul.sell-main__has-error-text
-                      %li
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' delivery_charge_id'}
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' delivery_way_id'}
                   .sell-main__form-group
                     = f.label :delivery_area_id do
                       発送元の地域
@@ -85,8 +82,7 @@
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
                       = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
-                    %ul.sell-main__has-error-text
-                      %li
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' prefecture_id'}
                   .sell-main__form-group
                     = f.label :delivery_days do
                       発送までの日数
@@ -94,8 +90,7 @@
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
                       = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
-                    %ul.sell-main__has-error-text
-                      %li
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' delivery_days_id'}
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head
                 販売価格(300〜9,999,999)
@@ -112,8 +107,7 @@
                           ¥
                           %div
                             = f.text_field :price, { class: 'sell-main__input-default',id: 'sell-main__price-input', placeholder: '例）300',  value: '' }
-                      %ul.sell-main__has-error-text
-                        %li
+                        =  render partial: 'error-messages', locals: {product: @product, column: ' price'}
                     %li.clearfix
                       .sell-main__left
                         販売手数料 (10%)

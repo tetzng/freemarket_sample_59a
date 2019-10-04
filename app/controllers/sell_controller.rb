@@ -28,7 +28,7 @@ class SellController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      render :new
+      render '/sell/new'
     end
   end
 
@@ -70,4 +70,5 @@ class SellController < ApplicationController
   def set_user
     @user = User.find(@product.user_id)
   end
+
 end
