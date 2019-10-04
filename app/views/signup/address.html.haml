@@ -17,8 +17,8 @@
               = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 彩' }
             - else
               = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 彩' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "last_name"}
-            =  render partial: 'error-messages', locals: {user: @user, column: "first_name"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name"}
           .signup-main__form-group.signup-main__form-group--half
             %div
               = f.label 'お名前カナ(全角)'
@@ -31,8 +31,8 @@
               = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) アヤ' }
             - else
               = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) アヤ' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "last_name_kana"}
-            =  render partial: 'error-messages', locals: {user: @user, column: "first_name_kana"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name_kana"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name_kana"}
           .signup-main__form-group
             = f.label '郵便番号'
             %span.signup-main__form-require 必須
@@ -40,7 +40,7 @@
               = f.text_field :zip_code1, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
             - else
               = f.text_field :zip_code1, { class: 'signup-main__input-default', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "zip_code1"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "zip_code1"}
           .signup-main__form-group
             = f.label '都道府県'
             %span.signup-main__form-require 必須
@@ -50,7 +50,7 @@
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'signup-main__input-default--has-error'
               - else
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-              =  render partial: 'error-messages', locals: {user: @user, column: "prefecture_id"}
+              =  render partial: 'error-messages', locals: { user: @user, column: "prefecture_id"}
               = icon 'fas', 'chevron-down'
           .signup-main__form-group
             = f.label '市区町村'
@@ -59,7 +59,7 @@
               = f.text_field :city, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 横浜市緑区', value: '' }
             - else
               = f.text_field :city, { class: 'signup-main__input-default', placeholder: '例) 横浜市緑区', value: '' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "city"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "city"}
           .signup-main__form-group
             = f.label '番地'
             %span.signup-main__form-require 必須
@@ -67,7 +67,7 @@
               = f.text_field :address1, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 青山1−1−1', value: '' }
             - else
               = f.text_field :address1, { class: 'signup-main__input-default', placeholder: '例) 青山1−1−1', value: '' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "address1"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "address1"}
           .signup-main__form-group
             = f.label '建物名'
             %span.signup-main__form-arbitrary 任意
