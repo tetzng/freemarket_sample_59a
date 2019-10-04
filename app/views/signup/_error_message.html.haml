@@ -1,6 +1,4 @@
-- if @user.errors.any?
-  - unless user.valid?
-    - if errors = user.errors.full_massages_for(column.to_sym)
-      %ul.signup-main__has-error-text
-        - errors.each do |error|
-          %li = error
+.notification
+  - flash.each do |key, value|
+    = content_tag :p, value, class: key
+  = session[:provider] = nil
