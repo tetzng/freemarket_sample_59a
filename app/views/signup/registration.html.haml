@@ -31,7 +31,7 @@
             - if @user.errors.full_messages_for(:password).any?
               = f.password_field :password, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上', value: session[:password] }
             - else
-              = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
+              = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上', value: session[:password] }
             =  render partial: 'error-messages', locals: { user: @user, column: "password"}
           .signup-main__form-group
             = f.label 'パスワード (確認)'
