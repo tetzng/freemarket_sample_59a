@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -22,9 +21,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
 
-  # before_action :basic_auth, if: :production?
-
-
   private
   def production?
     Rails.env.production?
@@ -40,5 +36,4 @@ class ApplicationController < ActionController::Base
     session[:user_return_to] = request.env['PATH_INFO']
     redirect_to user_facebook_omniauth_authorize_path unless user_signed_in?
   end
-
 end
