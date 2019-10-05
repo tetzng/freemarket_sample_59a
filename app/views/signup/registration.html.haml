@@ -14,7 +14,7 @@
             - else
               = f.text_field :nickname, { class: 'signup-main__input-default', placeholder: '例) メルカリ太郎' }
             %ul.signup-main__has-error-text
-            =  render partial: 'error-messages', locals: {user: @user, column: "nickname"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "nickname"}
 
           .signup-main__form-group
             = f.label 'メールアドレス'
@@ -23,7 +23,7 @@
               = f.email_field :email, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: 'PC・携帯どちらでも可' }
             - else
               = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "email"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "email"}
             
           .signup-main__form-group
             = f.label 'パスワード'
@@ -32,7 +32,7 @@
               = f.password_field :password, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上' }
             - else
               = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "password"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "password"}
           .signup-main__form-group
             = f.label 'パスワード (確認)'
             %span.signup-main__form-require 必須
@@ -40,28 +40,41 @@
               = f.password_field :password_confirmation, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上' }
             - else
               = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上' }            
-            =  render partial: 'error-messages', locals: {user: @user, column: "password_confirmation"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "password_confirmation"}
           .signup-main__form-group
             %h3.signup-main__sub-head
               本人確認
             %p.signup-main__text
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          .signup-main__form-group
+          .signup-main__form-group.signup-main__form-group--half
             %div
               = f.label 'お名前(全角)'
               %span.signup-main__form-require 必須
-            = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 山田' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "last_name"}
-            = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 彩' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "first_name"}
-          .signup-main__form-group
+            - if @user.errors.full_messages_for(:last_name).any?
+              = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 山田' }
+            - else
+              = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 山田' }
+            - if @user.errors.full_messages_for(:first_name).any?
+              = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 彩' }
+            - else
+              = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 彩' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name"}
+          .signup-main__form-group.signup-main__form-group--half
             %div
               = f.label 'お名前カナ(全角)'
               %span.signup-main__form-require 必須
-            = f.text_field :last_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) ヤマダ' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "last-name-kana"}
-            = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) アヤ' }
-            =  render partial: 'error-messages', locals: {user: @user, column: "first-name-kana"}
+            - if @user.errors.full_messages_for(:last_name_kana).any?
+              = f.text_field :last_name_kana, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) ヤマダ' }
+            - else
+              = f.text_field :last_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) ヤマダ' }
+            - if @user.errors.full_messages_for(:first_name).any?
+              = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) アヤ' }
+            - else
+              = f.text_field :first_name_kana, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) アヤ' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "last_name_kana"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "first_name_kana"}
+
           .signup-main__form-group
             = f.label '生年月日'
             %span.signup-main__form-require 必須
@@ -69,19 +82,28 @@
             .signup-main__birthday-select-wrap
               .signup-main__select-wrap
                 = icon 'fas', 'chevron-down'
-                = f.collection_select :birth_yyyy_id, BirthYyyy.all, :id, :year, name: 'year', prompt: '--', class: 'signup-main__select-default'
-                =  render partial: 'error-messages', locals: {user: @user, column: "birth_yyyy_id"}
+                - if @user.errors.full_messages_for(:birth_yyyy_id).any?
+                  = f.collection_select :birth_yyyy_id, BirthYyyy.all, :id, :year, name: 'year', prompt: '--', class: 'signup-main__select-default signup-main__input-default--has-error'
+                - else
+                  = f.collection_select :birth_yyyy_id, BirthYyyy.all, :id, :year, name: 'year', prompt: '--', class: 'signup-main__select-default'
               %span 年
               .signup-main__select-wrap.signup-main__select-wrap--month
                 = icon 'fas', 'chevron-down'
-                = f.collection_select :birth_mm_id, BirthMm.all, :id, :month, name: 'month', prompt: '--', class: 'signup-main__select-default'
-                =  render partial: 'error-messages', locals: {user: @user, column: "birth_mm_id"}
+                - if @user.errors.full_messages_for(:birth_mm_id).any?
+                  = f.collection_select :birth_mm_id, BirthMm.all, :id, :month, name: 'month', prompt: '--', class: 'signup-main__select-default signup-main__input-default--has-error'
+                - else
+                  = f.collection_select :birth_mm_id, BirthMm.all, :id, :month, name: 'month', prompt: '--', class: 'signup-main__select-default'
               %span 月
               .signup-main__select-wrap.signup-main__select-wrap--day
                 = icon 'fas', 'chevron-down'
-                = f.collection_select :birth_dd_id, BirthDd.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default'
-                =  render partial: 'error-messages', locals: {user: @user, column: "birth_dd_id"}
+                - if @user.errors.full_messages_for(:birth_dd_id).any?
+                  = f.collection_select :birth_dd_id, BirthDd.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default signup-main__input-default--has-error'
+                - else
+                  = f.collection_select :birth_dd_id, BirthDd.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default'
               %span 日
+              =  render partial: 'error-messages', locals: { user: @user, column: "birth_yyyy_id"}
+              =  render partial: 'error-messages', locals: { user: @user, column: "birth_mm_id"}
+              =  render partial: 'error-messages', locals: { user: @user, column: "birth_dd_id"}
             .clearfix
           %p.signup-main__form-info-text
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。

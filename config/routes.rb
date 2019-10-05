@@ -17,6 +17,12 @@ Rails.application.routes.draw do
         get 'done', to: 'purchase#done'
       end
     end
+  get '/sell/new_size', to: 'sell#new_size'
+  resources :signup, only: :create
+  resources :sell
+  namespace :api do
+    resources :sell, only: :new, defaults: { format: 'json' }
+    get '/sell/new_delivery', to: 'sell#new_delivery', defaults: { format: 'json' }
   end
   get '/sell', to: 'sell#index'
   get '/signup', to: 'signup#index'
@@ -26,7 +32,6 @@ Rails.application.routes.draw do
   get '/signup/address', to: 'signup#address'
   get '/signup/credit_card', to: 'signup#credit_card'
   get '/signup/done', to: 'signup#done'
-  get '/login', to: 'signup#login'
   root 'sell#index'
   get 'mypage/identification'
   get '/mypage', to: 'mypage#index'
