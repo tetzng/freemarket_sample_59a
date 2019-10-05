@@ -21,7 +21,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/
-  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d!@#\$%\^\&*\)\(+=._-]{7,128}\z/i
   VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
 
 #registration
@@ -52,12 +52,10 @@ class User < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :city, presence: true, length: { maximum: 50 }
   validates :address1, presence: true, length: { maximum: 100 }
-  validates :address2, length: { maximum: 100 }
-  validates :telephone, length: { maximum: 8 }
 
 #signup/credit_card
   validates :payment_card_no, presence: true, length: { maximum: 16 }, numericality: { only_integer: true }
   validates :paymentmonth_id, presence: true
   validates :paymentyear_id, presence: true
-  validates :payment_card_security_code, presence: true, length: { maximum: 4 }
+  validates :payment_card_security_code, presence: true, length: { maximum: 4 }, numericality: { only_integer: true }
 end
