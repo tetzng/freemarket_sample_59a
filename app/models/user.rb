@@ -49,7 +49,7 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
   validates :first_name_kana, presence: true, length: { maximum: 35 }, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
   validates :zip_code1, presence: true, length: { maximum: 8 }, format: { with: VALID_POSTAL_CODE, message: 'のフォーマットが不適切です' }
-  validates :prefecture_id, presence: true
+  validates :prefecture_id, presence: true, numericality: { only_integer: true, less_than: 49 }
   validates :city, presence: true, length: { maximum: 50 }
   validates :address1, presence: true, length: { maximum: 100 }
 
