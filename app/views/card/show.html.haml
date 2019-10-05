@@ -15,20 +15,20 @@
                 クレジットカード一覧
             %ul.mypage-content__payment-list
               %li
-                .signup-main__content.signup-main__content--form{ action: "#", method: "GET" }
+                .signup-main__content.signup-main__content--form{ action: '#', method: 'GET' }
                   %figure
-                    = image_tag 'jcb.svg', width: "26", height: "20", alt: "jcb"
+                    = image_tag 'jcb.svg', width: '26', height: '20', alt: 'jcb'
                   .mypage-content__payment-num
                     **** **** **** #{@default_card_information.last4}
                   .mypage-content__payment-num
                     - exp_month = @default_card_information.exp_month.to_s
                     - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-                    = exp_month + " / " + exp_year
-                  = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm", class: 'mypage-content__card--form') do
-                    %input{ type: "hidden", name: "card_id", value: "" }
+                    = exp_month + ' / ' + exp_year
+                  = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: 'inputForm', class: 'mypage-content__card--form') do
+                    %input{ type: 'hidden', name: 'card_id', value: '' }
                     %button.mypage-content__payment-remove 削除する
             .signup-main__content
-              = link_to new_card_path, class: "signup-main__btn-default signup-main__btn-red signup-main__submit_button" do
+              = link_to new_card_path, class: 'signup-main__btn-default signup-main__btn-red signup-main__submit_button' do
                 = icon 'far', 'credit-card'
                 クレジットカードを追加する
           .mypage-content__not-regist

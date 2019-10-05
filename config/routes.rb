@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         get 'done', to: 'purchase#done'
       end
     end
+  end
   get '/sell/new_size', to: 'sell#new_size'
   resources :signup, only: :create
   resources :sell

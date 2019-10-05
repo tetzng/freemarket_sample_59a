@@ -12,7 +12,7 @@ class PurchaseController < ApplicationController
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      redirect_to controller: 'card', action: 'new'
     else
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -24,11 +24,12 @@ class PurchaseController < ApplicationController
   def pay
     card = Card.where(user_id: current_user.id).first
     Payjp::Charge.create(
-    :amount => @product.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    :customer => card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
-  )
-  redirect_to action: 'done' #完了画面に移動
+    amount: @product.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
+    )
+    @product.update(status_id: 4)
+    redirect_to action: 'done' #完了画面に移動
   end
 
   def done
