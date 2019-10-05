@@ -16,6 +16,11 @@ class SellController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.where(sub: params[:sub], sub_sub: params[:sub_sub])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
@@ -23,7 +28,7 @@ class SellController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      render :new
+      render '/sell/new'
     end
   end
 
