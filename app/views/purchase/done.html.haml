@@ -29,7 +29,7 @@
             %address.buy-user-info-text
               〒 #{current_user.zip_code1}
               %br
-              #{Prefecture.find(current_user.prefecture_id).name} #{current_user.city}#{current_user.address1}#{current_user.address2}
+                = @address_info
               %br
               %span #{current_user.first_name} #{current_user.last_name}     ​
         %section.buy-conten-user-info
