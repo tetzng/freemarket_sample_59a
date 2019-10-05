@@ -25,14 +25,14 @@ class CardController < ApplicationController
   end
   
   def delete #PayjpとCardデータベースを削除します
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
     end
-    redirect_to action: 'new'
+    redirect_to new_card_path
   end
   
   def show #Cardのデータpayjpに送り情報を取り出します
