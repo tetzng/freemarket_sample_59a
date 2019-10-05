@@ -15,7 +15,7 @@ FactoryBot.define do
     phone_num {"08012345678"}
     authentication_num {1234}
     zip_code1 {"111-1111"}
-    prefecture_id {"福岡"}
+    prefecture_id {"1"}
     city {"福岡"}
     address1 {"中央区"}
     payment_card_no {1020304050607080}
