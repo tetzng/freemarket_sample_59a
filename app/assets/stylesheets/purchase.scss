@@ -1,0 +1,68 @@
+.single-main{
+  margin: auto;
+  width: 456px;
+  text-align: center;
+  background: #fff;
+  height:70vw;
+}
+.transact-attention{
+  padding: 20px 0;
+  color: red;
+  background-color: #fff6de;
+  font-size: 18px;
+  font-weight: 600;
+  p{
+    color: black;
+    font-size: 18px;
+    padding: 8px;
+    font-weight: 400;
+  }
+}
+.l-single-head{
+  padding: 10px;
+  border-bottom: 2px solid #eee;
+}
+.buy-item-name{
+  font-size: 20px;
+  padding: 20px;
+  border-bottom: 2px solid #eee;
+}
+.buy-price-ja{
+  font-size: 16px;
+  padding: 20px;
+  border-bottom: 2px solid #eee;
+  text-align: center;
+  span{
+    font-weight: 400;
+  }
+}
+.bold{
+  font-weight: 600;
+}
+.buy-content-text{
+  text-align: left;
+  margin: auto;
+  width: 200px;
+}
+.buy-user-info-text{
+  padding:8px 0 20px 0;
+}
+.buy-conten-user-info{
+  text-align: center;
+  width: 456px;
+  padding: 8px;
+  border-top: 2px solid #eee;
+  .buy-content-price{
+  text-align: left;
+  width: 200px;
+  margin: auto;
+  }
+}
+.buy-contet__text{
+  font-size: 16px;
+}
+.buy-content-bold{
+  font-weight: 600;
+  padding-top: 10px;
+  display: block;
+}
