@@ -4,7 +4,9 @@ class PurchaseController < ApplicationController
   # ユーザー情報
   before_action :set_user, only: [:show, :done]
   # ログインユーザーの住所
-  before_action :address_info, only: [:done]
+  before_action :address_info, only: [:done, :show]
+  # ログインユーザーのフルネーム
+  before_action :full_name, only: [:done, :show]
 
   require 'payjp'
   Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
@@ -51,6 +53,10 @@ class PurchaseController < ApplicationController
   end
 
   def address_info
-  @address_info = Prefecture.find(current_user.prefecture_id).name + current_user.city + current_user.address1 + current_user.address2
+    @address_info = Prefecture.find(current_user.prefecture_id).name + current_user.city + current_user.address1 + current_user.address2
+  end
+
+  def full_name
+    @full_name = current_user.first_name + current_user.last_name
   end
 end
