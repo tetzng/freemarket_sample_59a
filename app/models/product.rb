@@ -20,4 +20,4 @@ class Product < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :delivery_days_id, presence: true
   validates :price, presence: true, inclusion: 300..9999999
-end
+ end

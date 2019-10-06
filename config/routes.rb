@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
+  resources :signup, only: :create
+  get 'sell/buydetails', to: 'sell#buydetails'
+  resources :sell do
+    resources :purchase, only: [:show] do
+      collection do
+        get 'show', to: 'purchase#show'
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
+  end
   get '/sell/new_size', to: 'sell#new_size'
   resources :signup, only: :create
   resources :sell
@@ -18,7 +36,6 @@ Rails.application.routes.draw do
   get '/signup/credit_card', to: 'signup#credit_card'
   get '/signup/done', to: 'signup#done'
   root 'sell#index'
-  get 'sell/buydetails'
   get 'mypage/identification'
   get '/mypage', to: 'mypage#index'
   get 'mypage/card'

@@ -6,12 +6,17 @@
       %section.buydetails-content__item
         .buydetails-content__inner
           %h3.buydetails-content__image
-            = image_tag 'coach-bag.jpg', size: '64x64', class: 'buydetails-contet__image'
-          %p.buydetails-content__item-name COACH コーチ ショルダーバッグ 国内正規品
-          %form.buydetails-content__form
+            = image_tag 'coach-bag.jpg', size: '64x64', class: 'buydetails-contet__image'            
+          %p.buydetails-content__item-name
+            = @product.name
+          .buydetails-content__form
             %p.buydetails-contet__price
-              ¥15,000
-              %span.buydetails-content__fee 送料込み
+              ¥#{@product.price}
+              %span.buydetails-content__fee
+                - if @product.delivery_charge_id == '1'
+                  送料込み
+                - else
+                  着払い
             %ul.buydetails-content__accordion
               %li.buydetails-content__list
                 .buydetails-content__toggle ポイントはありません
@@ -19,25 +24,36 @@
               %li.buydetails-content__youpay
                 .buydetails-content__pricecell 支払い金額
                 .buydetails-content__pricecell
-                  %span.buydetails-content__datapay  ¥15,000
+                  %span.buydetails-content__datapay
+                    ¥#{@product.price}
             .buydetails-content__text 配送先と支払方法の入力を完了してください。
-            %button.buydetails-content__btn{ type: 'submit' } 購入する
+            = form_tag(action: :pay, method: :post) do
+              %button.buydetails-content__btn 購入する
       %section.buydetails-content__info
         .buydetails-content__inner
           %h3 配送先
           %address.buydetails-content__user
-            〒123-4567
+            〒 #{current_user.zip_code1}
             %br
-            福岡県福岡市中央区天神１丁目１−１
+              = @address_info
             %br
-            text user
+              = @full_name
           = link_to '/', class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'
       %section.buydetails-content__info{ id: 'buydetails-bottom' }
         .buydetails-content__inner
           %h3 支払方法
-          %p.buydetails-content__infotext /
+          %p.buydetails-content__infotext
+          - if @default_card_information.blank?
+            %br /
+          - else
+            -#以下カード情報を表示
+            = "**** **** **** " + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          %br
           = link_to '/', class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'
