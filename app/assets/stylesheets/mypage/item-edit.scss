@@ -192,9 +192,9 @@
   }
   &__tab-content  {
     background-color: #fff;
-    a {
-      text-decoration: none;
-    }
+  }
+  &__item-link {
+    background-color: #fff;
   }
   &__item-image {
     float: left;
@@ -204,6 +204,9 @@
     font-size: 14px;
     color: #333;
     line-height: 1;
+    :hover {
+      text-decoration: none;
+    }
   }
   &__item-icons {
     color: #888;
