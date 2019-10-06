@@ -55,76 +55,77 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          .toppage-main__content
-            = link_to 'sell/1' do
+          -@products.each. do |product|
+            .toppage-main__content
+              = link_to `sell_#{product_id}_path(product)` do
               .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
-          .toppage-main__content
-            = link_to 'sell/1' do
-              .toppage-main__image
-                %span ¥300
-                = image_tag 'https://i.imgur.com/YiWdN3V.png'
-              .toppage-main__item-name
-                %span 1234567890123456789012345678901234567890
+                %span= number_with_delimiter(product.price)
+                = image_tag(`#{product_id}.jpg`)
+            -#   .toppage-main__item-name
+            -#     %span= product.name
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
+            -# .toppage-main__content
+            -#   = link_to 'sell/1' do
+            -#     .toppage-main__image
+            -#       %span ¥300
+            -#       = image_tag 'https://i.imgur.com/YiWdN3V.png'
+            -#     .toppage-main__item-name
+            -#       %span 1234567890123456789012345678901234567890
     .toppage-main__category-name
       .toppage-main__text
         メンズ新着アイテム
