@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     resources :sell, only: :new, defaults: { format: 'json' }
     get '/sell/new_delivery', to: 'sell#new_delivery', defaults: { format: 'json' }
   end
-  get '/mypage/listing', to: 'sell#edit'
-  get '/sell', to: 'sell#index'
+  get '/items', to: 'sell#edit'
+  get '/mypage/listing', to: 'sell#product_status'
+
   get '/signup', to: 'signup#index'
   get '/signup/registration', to: 'signup#registration'
   get '/signup/sms_confirmation', to: 'signup#sms_confirmation'
