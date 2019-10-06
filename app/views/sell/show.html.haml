@@ -79,7 +79,7 @@
         送料込み
       - else
         着払い
-    = link_to '購入画面に進む', '/', class: 'itembuy-price-box'
+    = link_to '購入画面に進む', sell_purchase_index_path(@product), class: 'itembuy-price-box'
     .itembuy-detail
       %p.itembuy-detail__inner
         = @product.description

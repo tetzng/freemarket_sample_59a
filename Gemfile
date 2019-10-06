@@ -80,6 +80,8 @@ gem 'font-awesome-sass', '>=5.11.1'
 gem "gretel"
 gem 'haml-rails'
 gem 'jquery-rails'
+# クレジットカード決済
+gem 'payjp'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # s3に画像アップロード
 gem "aws-sdk-s3", require: false
