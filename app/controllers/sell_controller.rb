@@ -12,9 +12,8 @@ class SellController < ApplicationController
   # ユーザー情報
   before_action :set_user, only: [:show]
   def index
-    @products = Product.with_attached_images
+    @products = Product.all
     @category = Category.all
- 
   end
 
   def new
@@ -70,4 +69,5 @@ class SellController < ApplicationController
   def set_user
     @user = User.find(@product.user_id)
   end
+ 
 end
