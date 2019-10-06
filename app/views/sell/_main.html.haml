@@ -54,15 +54,15 @@
         .toppage-main__item-more
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
-        .toppage-main__contents
-          -@products.each. do |product|
-            .toppage-main__content
-              = link_to `sell_#{product_id}_path(product)` do
-              .toppage-main__image
-                %span= number_with_delimiter(product.price)
-                = image_tag(`#{product_id}.jpg`)
-            -#   .toppage-main__item-name
-            -#     %span= product.name
+      .toppage-main__contents
+      - @products.order('created_at DESC').each do |product|
+        .toppage-main__content
+          = link_to sell_index_path, method: :get do
+            .toppage-main__image
+              %span= "¥#{product.price}"
+              = image_tag product.images[0], resize: '188x188'
+            .toppage-main__item-name
+              %span= product.name
             -# .toppage-main__content
             -#   = link_to 'sell/1' do
             -#     .toppage-main__image
