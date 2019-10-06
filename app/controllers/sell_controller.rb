@@ -1,16 +1,16 @@
 class SellController < ApplicationController
   # 商品情報
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show, :edit]
   # カテゴリー
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [:show, :edit]
   # 商品状態
-  before_action :set_condition, only: [:show]
+  before_action :set_condition, only: [:show, :edit]
   # 配送元地域
-  before_action :set_prefecture, only: [:show]
+  before_action :set_prefecture, only: [:show, :edit]
   # 発送日目安、配送方法、配送料の負担
-  before_action :set_delivery, only: [:show]
+  before_action :set_delivery, only: [:show, :edit]
   # ユーザー情報
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :edit]
   def index
   end
 
@@ -40,7 +40,15 @@ class SellController < ApplicationController
 
   # 商品情報編集
   def edit
+    @product = Product.find(params[:id])
   end
+
+  def product_status
+    @products = Product.all
+    # @product = Product.find(params[:id])
+
+  end
+
 
   private
   def product_params
