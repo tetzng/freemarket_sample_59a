@@ -38,15 +38,12 @@ class SellController < ApplicationController
   def buydetails
   end
 
-  # 商品情報編集
   def edit
     @product = Product.find(params[:id])
   end
 
   def product_status
     @products = Product.all
-    # @product = Product.find(params[:id])
-
   end
 
 
