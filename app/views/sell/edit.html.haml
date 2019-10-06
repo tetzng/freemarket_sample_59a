@@ -9,7 +9,7 @@
           .item-edit-content__owl-carousel{ id: 'main' }
             = @product.images.each do |image|
               = image_tag image, class: 'owl-carousel', size: '300x300'
-        .item-edit-content__owl-carousel-thumb{id: 'thumbs'}
+        .item-edit-content__owl-carousel-thumb{ id: 'thumbs' }
           = @product.images.each do |image|
             = image_tag image, class: 'owl-carousel-sub', size: '60x60'
         .item-edit-content__owl-stage
