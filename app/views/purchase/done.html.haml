@@ -31,7 +31,8 @@
               %br
                 = @address_info
               %br
-              %span #{current_user.first_name} #{current_user.last_name}     ​
+              %span
+                = @full_name
         %section.buy-conten-user-info
           .buy-content-price
             %h3 支払い方法
