@@ -38,6 +38,10 @@ class SellController < ApplicationController
   def buydetails
   end
 
+  # 商品情報編集
+  def edit
+  end
+
   private
   def product_params
     params.require(:product).permit( :name, :description, :category_id, :condition_id, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price, images: []).merge(user_id: current_user.id)
