@@ -14,16 +14,13 @@
                 %p 最大10枚までアップロードできます
                 .sell-main__dropbox-container.clearfix.state-image-number-10
                   .sell-main__upload-items-container
-                    -# 投稿数に応じてクラス名変更
-                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--first' }
-                      %ul{ id: 'output' }
-                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--second' }
-                      %ul
-                  = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
-                    .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
-                      = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
-                      %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
-                      %i.fas.fa-camera
+                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items' }
+                      %ul.clearfix{ id: 'output' }
+                        = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
+                          .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
+                            = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
+                            %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                            %i.fas.fa-camera
                   = render partial: 'error-messages', locals: { product: @product, column: 'images'}
               .sell-main__content
                 .sell-main__form-group
