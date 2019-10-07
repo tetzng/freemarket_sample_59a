@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :signup, only: :create
   get 'sell/buydetails', to: 'sell#buydetails'
-  resources :sell, only: [:show] do
+  resources :sell do
     resources :purchase, only: [:show] do
       collection do
         get 'show', to: 'purchase#show'
