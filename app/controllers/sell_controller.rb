@@ -68,7 +68,7 @@ class SellController < ApplicationController
 
   def set_category
     @smallcategory = Category.find(@product.category_id)
-    @category = Category.find(Category.find(@product.category_id).sub_sub)
+    @category = Category.find(Category.find(@product.category_id).sub_sub) unless Category.find(@product.category_id).sub_sub == '0'
     @bigcategory = Category.find(Category.find(@product.category_id).sub)
   end
 
