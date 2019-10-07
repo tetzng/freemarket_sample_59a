@@ -1,0 +1,97 @@
+.item-edit-container
+  = render 'sell/header'
+  %section.item-edit-content
+    %h1.item-edit-content__name 
+      = @product.name
+    .item-edit-content__clearfix
+      .item-edit-content__photo
+        .item-edit-content__auter
+          .item-edit-content__owl-carousel{ id: 'main' }
+            = @product.images.each do |image|
+              = image_tag image, class: 'owl-carousel', size: '300x300'
+        .item-edit-content__owl-carousel-thumb{ id: 'thumbs' }
+          = @product.images.each do |image|
+            = image_tag image, class: 'owl-carousel-sub', size: '60x60'
+        .item-edit-content__owl-stage
+        .item-edit-content__owl-bots
+      %table.item-edit-content__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to '/' do
+                = @user.nickname
+              %div
+                .item-edit-user-ratings{ id: 'item-edit-icon-good' }
+                  %i.fas.fa-smile
+                  %span 22
+                .item-edit-user-ratings
+                  %i.fas.fa-meh
+                  %span 25
+                .item-edit-user-ratings
+                  %i.fas.fa-frown
+                  %span 5000
+          %tr
+            %th カテゴリー
+            %td
+              = link_to  '/' do
+                = @bigcategory.name
+              = link_to '/' do
+                .item-edit-table-sub
+                  %i.fas.fa-chevron-right
+                  = @category.name
+              = link_to '/' do
+                .item-edit-table-sub
+                  %i.fas.fa-chevron-right
+                  = @smallcategory.name
+          %tr
+            %th  ブランド
+            %td
+              = link_to '/' do
+                = @product.brand
+          %tr
+            %th 商品の状態
+            %td
+              = @condition.value
+          %tr
+            %th 配送料の負担
+            %td
+              = @delivery_charge.value
+          %tr
+            %th 配送の方法
+            %td
+              = @delivery_way.value
+          %tr
+            %th 配送元地域
+            %td
+              = link_to '/' do
+                = @prefecture.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @delivery_days.value
+    .item-edit-content__price
+      %span.item-edit-content__bold
+        ¥#{@product.price}
+      %span.item-edit-content__tax (税込)
+      %span.item-edit-content__fee
+      - if @product.delivery_charge_id == '1'
+        送料込み
+      - else
+        着払い
+    .itembuy-detail
+      %p.itembuy-detail__inner
+        = @product.description
+
+  .item-edit-content__change-status
+    .item-edit-content__change-status-btns
+      = link_to '商品の編集', '#', class: 'btn-default btn-edit'
+      %p.text-center or
+      %form{action: '/jp/items/deactivate/m23957564102/', method: 'POST', novalidate: 'novalidate'}
+        %input{name: '__csrf_value', type: 'hidden', value: '9a710e3f138bde49ec9555a3e8f40fc1bf424e6af4a91a88e901cac6ce2e20169bffcdee73bada7b991f3a10aad5b2bc5dc96c5b0d5abf3ed8dd127e883ce1f2a'}/
+        %button.btn-default.btn-gray{type: 'submit'} 出品を一旦停止する
+      %button.btn-default.btn-gray{'data-modal': 'delete-item', 'data-open': 'modal'}
+        この商品を削除する
+
+  = render 'sell/bread-bottom'
+  = render 'sell/footer'
