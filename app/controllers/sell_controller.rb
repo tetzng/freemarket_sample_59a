@@ -43,6 +43,16 @@ class SellController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def update
+		product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.update(product_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   def change_status
     @product = Product.find(params[:mypage_id])
     @smallcategory = Category.find(@product.category_id)
