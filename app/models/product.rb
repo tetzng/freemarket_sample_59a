@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :status
   has_many_attached :images
   belongs_to :user
-  
+
   validates :images, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
@@ -20,4 +20,8 @@ class Product < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :delivery_days_id, presence: true
   validates :price, presence: true, inclusion: 300..9999999
+
+  def jpy
+    "¥#{self.price.to_s(:delimited, delimiter: ',')}"
+  end
  end
