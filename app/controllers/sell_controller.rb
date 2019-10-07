@@ -1,16 +1,16 @@
 class SellController < ApplicationController
   # 商品情報
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show, :edit]
   # カテゴリー
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [:show, :edit]
   # 商品状態
-  before_action :set_condition, only: [:show]
+  before_action :set_condition, only: [:show, :edit]
   # 配送元地域
-  before_action :set_prefecture, only: [:show]
+  before_action :set_prefecture, only: [:show, :edit]
   # 発送日目安、配送方法、配送料の負担
-  before_action :set_delivery, only: [:show]
+  before_action :set_delivery, only: [:show, :edit]
   # ユーザー情報
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :edit]
   def index
     @products = Product.all
     @category = Category.all
@@ -35,6 +35,26 @@ class SellController < ApplicationController
   end
 
   def show
+  end
+
+  def buydetails
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def change_status
+    @product = Product.find(params[:mypage_id])
+    @smallcategory = Category.find(@product.category_id)
+    @category = Category.find(Category.find(@product.category_id).sub_sub)
+    @bigcategory = Category.find(Category.find(@product.category_id).sub)
+    @condition = Condition.find(@product.condition_id)
+    @prefecture = Prefecture.find(@product.prefecture_id)
+    @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
+    @delivery_way = DeliveryWay.find(@product.delivery_way_id)
+    @delivery_days = DeliveryDays.find(@product.delivery_days_id)
+    @user = User.find(@product.user_id)
   end
 
   private

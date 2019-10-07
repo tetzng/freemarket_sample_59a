@@ -11,4 +11,8 @@ class MypageController < ApplicationController
   end
   def card_create
   end
+
+  def product_status
+    @products = current_user.products
+  end
 end

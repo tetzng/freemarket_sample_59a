@@ -1,0 +1,286 @@
+.mypage-content-edit{
+  width: 100%;
+  &__user-icon{
+    position: relative;
+    height: 155px;
+    padding: 20px;
+    background: image-url('user-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    box-sizing: border-box;
+    a {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      color: #333;
+    }
+    figure {
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+  }
+  &__user-name{
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  &__status{
+    margin-top: 8px;
+    font-size: 0;
+    div{
+      display: inline-block;
+      font-size: 14px;
+    }
+    div+div{
+      margin-left: 16px;
+    }
+    span{
+      margin-left: 8px;
+      font-size: 16px;
+    }
+  }
+  &__main-tab-container{
+    margin: 0;
+    background: #fff;
+  }
+  &__tabs{
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    a{
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      font-weight: bold;
+    }
+  }
+  &__tab{
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    &--active{
+      background: #fff;
+      a{
+        border-top: 2px solid #ea352d;
+      }
+    }
+  }
+  &__item-list{
+    display: none;
+    border: 0;
+    &--active{
+      display: block;
+    }
+    li{
+      position: relative;
+      border-bottom: 1px solid #eee;
+      &:last-child {
+        border: 0;
+      }
+    }
+    img{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      opacity: 1;
+      -webkit-transition: opacity .3s;
+      transition: opacity .3s;
+    }
+  }
+  &__item-link{
+    display: block;
+    min-height: 80px;
+    padding: 16px;
+    color: #333;
+    figure{
+      position: relative;
+      overflow: hidden;
+      float: left;
+      width: 48px;
+      height: 48px;
+    }
+    .fa-chevron-right{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    }
+  }
+  &__item-body{
+    margin: 0 40px 0 68px;
+  }
+  &__item-text{
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    max-height: 4.4em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+  }
+  &__go-list{
+    padding: 16px;
+    a{
+      display: block;
+      height: 56px;
+      margin: 0 auto;
+      background: #eee;
+      color: #333;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
+  &__item-not-found{
+    padding: 160px 0 60px;
+    background: image-url('logo-gray-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+  }
+  &__secondary-tab-container{
+    width: 700px;
+    float: right;
+  }
+  &__tab-head{
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+  }
+  &__item-status{
+    display: inline-block;
+    margin: 8px 0 0 0;
+    padding: 5px 6px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #fff;
+    &--done{
+      background: #888;
+    }
+  }
+  &__chapter-container{
+    background: #fff;
+  }
+  &__add-card {
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+  }
+  &__not-regist a {
+    display: block;
+    margin-top: 40px;
+    text-align: right;
+    float: right;
+  }
+  &__tab-content  {
+    background-color: #fff;
+  }
+  &__item-link {
+    background-color: #fff;
+  }
+  &__item-image {
+    float: left;
+  }
+  &__item-text  {
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+    :hover {
+      text-decoration: none;
+    }
+  }
+  &__item-icons {
+    color: #888;
+    font-size: 14px;
+
+  }
+  &__item-status {
+    display: inline-block;
+    margin: 8px 0 0 0;
+    padding: 5px 6px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #0099e8;
+  }
+  &__history  {
+    margin: 40px 0 0;
+    height: 44px;
+    background-color: none;
+    display: flex;
+    justify-content: space-between;
+    &-prev  {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 42px;
+      text-align: center;
+      a {
+        color: #333;
+      }
+      .fa-chevron-right{
+        display: inline-block;
+        font-style: normal;
+        transform: rotateY( 180deg );
+      }
+    }
+    &-next  {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 42px;
+      a {
+        color: #333;
+      }
+      text-align: center;
+      .fa-chevron-right {
+        display: inline-block;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .mypage-content{
+    float: none;
+    width: 700px;
+    &__user-icon {
+      height: 200px;
+    }
+    &__tab-head{
+      padding: 0 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .mypage-content{
+    float: right;
+  }
+}
