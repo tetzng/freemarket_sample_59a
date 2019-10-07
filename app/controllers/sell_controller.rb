@@ -12,6 +12,8 @@ class SellController < ApplicationController
   # ユーザー情報
   before_action :set_user, only: [:show]
   def index
+    @products = Product.all
+    @category = Category.all
   end
 
   def new
