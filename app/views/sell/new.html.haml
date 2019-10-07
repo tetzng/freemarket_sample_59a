@@ -19,7 +19,9 @@
                         = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
                           .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
                             = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
-                            %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                            %pre.sell-main__visible-pc
+                              ドラッグアンドドロップ
+                              またはクリックしてファイルをアップロード
                             %i.fas.fa-camera
                   = render partial: 'error-messages', locals: { product: @product, column: 'images'}
               .sell-main__content
