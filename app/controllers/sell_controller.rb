@@ -11,6 +11,8 @@ class SellController < ApplicationController
   before_action :set_delivery, only: [:show, :edit]
   # ユーザー情報
   before_action :set_user, only: [:show, :edit]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @products = Product.all
     @category = Category.all
@@ -35,9 +37,6 @@ class SellController < ApplicationController
   end
 
   def show
-  end
-
-  def buydetails
   end
 
   def edit
