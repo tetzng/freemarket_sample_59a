@@ -150,6 +150,22 @@ $(document).on('turbolinks:load', function(){
     }
   });
 
+    // 編集時の手数料、利益計算  
+    $(priceInput).ready(function(){
+      let input = $(priceInput).val();
+      if (input >= 300 && input <= 9999999){
+        let fee = Math.floor(input * 0.1);
+        let profit = "¥" + (input - fee).toLocaleString();
+        $(feeFeild).html("¥" + fee.toLocaleString());
+        $(profitFeild).html(profit);
+      } else {
+        let fee = '-';
+        let profit = '-';
+        $(feeFeild).html(fee);
+        $(profitFeild).html(profit);
+      }
+    });  
+
   // サイズ選択欄追加
   function appendSize(){
     const sizeHTML = `<div class="sell-main__form-group" id="sell-main__form-group--size">
