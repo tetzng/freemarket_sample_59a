@@ -2,7 +2,7 @@
   %ul.toppage-slider__wrapper
     %li.toppage-slider__contents-first
       .toppage-slider__contents-first-content
-        = link_to 'https://www.mercari.com/jp/featured/camp/' do
+        = link_to '' do
           = image_tag 'index-keyvisual01.png',
           height: '390px', class: 'toppage-slider__contents-first--camp-photo'
     %li.toppage-slider__contents-second
@@ -19,11 +19,11 @@
             %br
             購入時も安心な独自システムのアプリです
           .toppage-slider__contents-second-content-wrapper-logos
-            = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8' do
+            = link_to '' do
               = image_tag 'app-store.svg',
               class: 'toppage-slider__contents-second-content-wrapper--app-logo', size: '170x50'
             .toppage-slider__contents-second-content-wrapper-space
-            = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' do
+            = link_to '' do
               = image_tag 'google-play.svg',
               id: 'toppage-slider__contents-second-content-wrapper--google-logo',
               size: '170x50'
@@ -33,7 +33,6 @@
         %button#slick-slide-control00
       %li{ role: 'presentation' }
         %button#slick-slide-control01
-
 .toppage-main
   .toppage-main__category-top
     人気のカテゴリー
@@ -59,7 +58,8 @@
           .toppage-main__content
             = link_to sell_index_path, method: :get do
               .toppage-main__image
-                %span ¥#{product.price}
+                %span
+                  = "#{ product.jpy }"
                 = image_tag product.images[0], resize: '188x188'
               .toppage-main__item-name
                 %span= product.name
@@ -74,7 +74,8 @@
           .toppage-main__content
             = link_to sell_index_path, method: :get do
               .toppage-main__image
-                %span ¥#{product.price}
+                %span
+                  = "#{ product.jpy }"
                 = image_tag product.images[0], resize: '188x188'
               .toppage-main__item-name
                 %span= product.name
@@ -89,7 +90,8 @@
           .toppage-main__content
             = link_to sell_index_path, method: :get do
               .toppage-main__image
-                %span ¥#{product.price}
+                %span
+                  = "#{ product.jpy }"
                 = image_tag product.images[0], resize: '188x188'
               .toppage-main__item-name
                 %span= product.name
@@ -104,7 +106,8 @@
           .toppage-main__content
             = link_to sell_index_path, method: :get do
               .toppage-main__image
-                %span ¥#{product.price}
+                %span
+                  = "#{ product.jpy }"
                 = image_tag product.images[0], resize: '188x188'
               .toppage-main__item-name
                 %span= product.name
