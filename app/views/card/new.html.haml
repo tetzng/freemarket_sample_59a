@@ -12,9 +12,8 @@
             .signup-main__form-group
               %label{ for: 'payment_card_no' } カード番号
               %span.signup-main__form-require 必須
-              %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', id: 'card_number', placeholder: '半角数字のみ', maxlength: '19' }
+              %input.signup-main__input-default{ type: 'text', id: 'card_number', placeholder: '半角数字のみ', maxlength: '19' }
               %ul.signup-main__has-error-text{ id: 'card-no-error-wrapper' }
-                %li 半角数字で入力してください
               %ul.signup-main__card-list
                 %li
                   = image_tag 'visa.svg', width: '49', height: '20'
