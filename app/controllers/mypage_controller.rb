@@ -13,6 +13,6 @@ class MypageController < ApplicationController
   end
 
   def product_status
-    @products = Product.where(user_id: current_user.id)
+    @products = current_user.products
   end
 end
