@@ -42,8 +42,17 @@ class SellController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def product_status
-    @products = Product.all
+  def change_status
+    @product = Product.find(params[:mypage_id])
+    @smallcategory = Category.find(@product.category_id)
+    @category = Category.find(Category.find(@product.category_id).sub_sub)
+    @bigcategory = Category.find(Category.find(@product.category_id).sub)
+    @condition = Condition.find(@product.condition_id)
+    @prefecture = Prefecture.find(@product.prefecture_id)
+    @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
+    @delivery_way = DeliveryWay.find(@product.delivery_way_id)
+    @delivery_days = DeliveryDays.find(@product.delivery_days_id)
+    @user = User.find(@product.user_id)
   end
 
   private
