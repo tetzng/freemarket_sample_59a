@@ -11,4 +11,8 @@ class MypageController < ApplicationController
   end
   def card_create
   end
+
+  def product_status
+    @products = Product.where(user_id: current_user.id)
+  end
 end
