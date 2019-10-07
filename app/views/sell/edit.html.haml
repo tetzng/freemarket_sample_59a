@@ -6,7 +6,7 @@
         %div
           .sell-main__inner
             %h2.sell-main__head 商品の情報を入力
-            = form_with model: @product, url: sell_index_path, class:'sell-main__form' do |f|
+            = form_with model: @product, url: sell_path(@product), class:'sell-main__form' do |f|
               .sell-main__upload-box
                 %h3.sell-main__upload-head
                   出品画像
