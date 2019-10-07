@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   get '/signup/done', to: 'signup#done'
   root 'sell#index'
 
-  resources :mypage, only: [:index]do
+  resources :mypage, only: [:index] do
     resources :sell, only: [:edit] do
       collection do
         get 'change_status', to: 'sell#change_status'
