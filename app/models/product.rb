@@ -21,6 +21,7 @@ class Product < ApplicationRecord
   validates :delivery_days_id, presence: true
   validates :price, presence: true, inclusion: 300..9999999
 
+  # ¥1,234 の形式で表示
   def jpy
     "¥#{self.price.to_s(:delimited, delimiter: ',')}"
   end
