@@ -59,4 +59,18 @@ class User < ApplicationRecord
   validates :paymentmonth_id, presence: true
   validates :paymentyear_id, presence: true
   validates :payment_card_security_code, presence: true, length: { maximum: 4 }, numericality: { only_integer: true }
+
+  def full_name
+    "#{self.last_name} #{self.first_name}"
+  end
+
+  def full_name_kana
+    "#{self.last_name_kana} #{self.first_name_kana}"
+  end
+
+  def birthday
+    "#{BirthYyyy.find(self.birth_yyyy_id).year}/#{BirthMm.find(self.birth_mm_id).month}/#{BirthDd.find(self.birth_dd_id).day}"
+  end
+
+
 end
