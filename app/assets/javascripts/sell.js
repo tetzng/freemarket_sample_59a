@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function(){
-  const uploadItems = '#sell-main__upload-items ul';
+  const uploadItemsFirst = '#sell-main__upload-items--first ul';
+  const uploadItemsSecond = '#sell-main__upload-items--second ul';
   const uploadDropBox = '#sell-main__upload-drop-box';
 
   // 画像アップロード時プレビュー表示
@@ -16,37 +17,31 @@ $(document).on('turbolinks:load', function(){
       //アップロードした画像を設定する
       reader.onload = (function(file){
         return function(e){
+          let uploadItems = $(uploadItemsFirst).children('li').length < 5 ? uploadItemsFirst : uploadItemsSecond;
           let itemLength = $(uploadItems).children('li').length;
-          if (itemLength == 10) {
+          if (itemLength == 5) {
             return false;
           } else {
-          $(uploadItems).children('label').before(`<li class="sell-main__upload-item">
-                                  <figure class="sell-main__upload-figure sell-main__upload-figure--square">
-                                    <img src='${e.target.result}' title='${file.name}'>
-                                  </figure>
-                                  <div class="sell-main__upload-button">
-                                    <a class="sell-main__upload-edit" href="">編集
-                                    </a><a class="sell-main__delete-image">削除
-                                    </a>
-                                  </div>
-                                </li>`);
-          $(uploadItems).removeClass().addClass(`sell-main__upload-items sell-main__upload-items--have-item-${itemLength % 5 + 1}`);
-          if (itemLength == 9){
+          $(uploadItems).append(`<li class="sell-main__upload-item">
+                                <figure class="sell-main__upload-figure sell-main__upload-figure--square">
+                                <img src='${e.target.result}' title='${file.name}'>
+                                </figure>
+                                <div class="sell-main__upload-button">
+                                <a class="sell-main__upload-edit" href="">編集
+                                </a><a href="">削除
+                                </a></div>
+                                </li>
+                                `);
+          $(uploadItems).removeClass().addClass(`sell-main__upload-items sell-main__upload-items--have-item-${itemLength + 1}`);
+          if (uploadItems == uploadItemsSecond && itemLength == 4){
             $(uploadDropBox).removeClass().addClass(`sell-main__upload-drop-box sell-main__upload-drop-box--have-item-10`);
-          } else{
-          $(uploadDropBox).removeClass().addClass(`sell-main__upload-drop-box sell-main__upload-drop-box--have-item-${(itemLength + 1) % 5}`);
+          } else {
+          $(uploadDropBox).removeClass().addClass(`sell-main__upload-drop-box sell-main__upload-drop-box--have-item-${itemLength + 1}`);
           }
         }};
       })(file);
       reader.readAsDataURL(file);
     });
-  });
-
-  $(document).on('click', '.sell-main__delete-image', function(){
-    $(this).parents('.sell-main__upload-item').remove();
-    let uploadItemLength = $(uploadItems).children('li').length;
-    $(uploadItems).removeClass().addClass(`sell-main__upload-items sell-main__upload-items--have-item-${uploadItemLength % 5}`);
-    $(uploadDropBox).removeClass().addClass(`sell-main__upload-drop-box sell-main__upload-drop-box--have-item-${uploadItemLength % 5}`);
   });
 
   // カテゴリーの選択欄追加
@@ -186,7 +181,7 @@ $(document).on('turbolinks:load', function(){
   // サイズは必須項目のため、選択欄がないとき用に空のvalueを追加
   function appendSizeNull(){
     const sizeNullHTML = `<div id="sell-main__form-group--size">
-                            <input type="hidden" name="product[size_id]" value="99"></input>
+                            <input type="hidden" name="size" value="99"></input>
                           </div>`;
     $(categoryWrapper).parent().after(sizeNullHTML);
   }
@@ -303,7 +298,7 @@ $(document).on('turbolinks:load', function(){
 });
 
 
-// // ドラッグアンドドロップの処理、書いてる途中
+// ドラッグアンドドロップの処理、書いてる途中
 // document.addEventListener('DOMContentLoaded', function () {
 //   var
 //     dropArea = document.getElementById('dropArea'),
@@ -353,16 +348,16 @@ $(document).on('turbolinks:load', function(){
 //     image.addEventListener('load', function () {
 //       // File/BlobオブジェクトにアクセスできるURLを開放
 //       URL.revokeObjectURL(blobURL);
-//       var imageHTML = `<li class='sell-main__upload-item'><figure class='sell-main__upload-figure sell-main__upload-figure--square'></figure><div class='sell-main__upload-button'><a class='sell-main__upload-edit' href=''>編集</a><a class='sell-main__delete-image'>削除</a></div></li>`;
-//       console.log(typeof imageHTML);
-//       console.log(typeof image);
+//     var imageHTML = "<li class='sell-main__upload-item'><figure class='sell-main__upload-figure sell-main__upload-figure--square'>" + image + "</figure><div class='sell-main__upload-button'><a class='sell-main__upload-edit' href=''>編集</a><a href=''>削除</a></div></li>";
 //       // #output へ出力
-//       // var itemList = document.createElement("li");
-//       // itemList.setAttribute("class", "sell-main__upload-item");
-//       // itemList.innerHTML = "<figure class='sell-main__upload-figure sell-main__upload-figure--square'></figure><div class='sell-main__upload-button'><a class='sell-main__upload-edit' href=''>編集</a><a class='sell-main__delete-image'>削除</a></div>";
-//       // itemList.innerHTML = imageHTML
-//       output.appendChild(imageHTML);
+//     var itemList = document.createElement("li");
+//     itemList.setAttribute("class", "sell-main__upload-item");
+//     itemList.innerHTML     = "<figure class='sell-main__upload-figure sell-main__upload-figure--square'></figure><div class='sell-main__upload-button'><a class='sell-main__upload-edit' href=''>編集</a><a href=''>削除</a></div>";
+//     console.log(itemList);
+//       output.appendChild(itemList);
 //       var imageWrapper = output.lastChild.firstChild;
+//       console.log(output.lastChild.firstChild);
+//       console.log(image);
 //       imageWrapper.appendChild(image);
 //     });
 //   }
@@ -388,6 +383,7 @@ $(document).on('turbolinks:load', function(){
 
 //     dropArea.classList.remove('dragover');
 //     output.textContent = '';
+
 //     // ev.dataTransfer.files に複数のファイルのリストが入っている
 //     organizeFiles(ev.dataTransfer.files);
 //   });
@@ -398,13 +394,13 @@ $(document).on('turbolinks:load', function(){
 //   // });
 
 //   // ファイル参照で画像を追加した場合
-//   // product_images.addEventListener('change', function (ev) {
-//   //   output.textContent = '';
+//   product_images.addEventListener('change', function (ev) {
+//     output.textContent = '';
 
-//   //   // ev.target.files に複数のファイルのリストが入っている
-//   //   organizeFiles(ev.target.files);
+//     // ev.target.files に複数のファイルのリストが入っている
+//     organizeFiles(ev.target.files);
 
-//   //   // 値のリセット
-//   //   fileInput.value = '';
-//   // });
+//     // 値のリセット
+//     fileInput.value = '';
+//   });
 // });
