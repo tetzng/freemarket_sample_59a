@@ -46,14 +46,10 @@
             border-top: 1px solid #ccc;
             width: 50%;
             height: 64px;
-            text-align: center;
             background-color: white;
-          }
-          ic{
-            margin: auto;
-            text-align: center;
-          }
+            line-height: 64px;
 
+          }
           &__delete-bold-button-submit{
             float: right;
             border-left: 1px solid #ccc;
@@ -62,7 +58,9 @@
             width: 50%;
             height: 64px;
             background-color: white;
+            line-height: 64px;
           }
+            
       
       
 
@@ -382,4 +380,20 @@
   cursor: pointer;
   text-align: center;
   margin: 16px 0;
+}
+
+.item-edit-content__delete{
+  opacity: 0;
+  display: none;
+}
+.item-edit-content__deleteon{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2999;
+  background: rgba(0,0,0,0.64);
+  opacity: 1;
+  display: block;
 }
