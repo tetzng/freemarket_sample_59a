@@ -9,7 +9,7 @@
           削除すると二度と復活できません。
           %br/
           削除する代わりに停止することもできます。
-          %br/ 
+          %br/
           %br/
           本当に削除しますか？
         .item-edit-content__delete-bold-button
@@ -20,7 +20,7 @@
             %a
             = link_to '削除する', mypage_sell_path(id: @product.id), method: :delete
 
-    %h1.item-edit-content__name 
+    %h1.item-edit-content__name
       = @product.name
     .item-edit-content__clearfix
       .item-edit-content__photo
