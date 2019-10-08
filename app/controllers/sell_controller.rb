@@ -58,6 +58,7 @@ class SellController < ApplicationController
     @smallcategory = Category.find(@product.category_id)
     @category = Category.find(Category.find(@product.category_id).sub_sub)
     @bigcategory = Category.find(Category.find(@product.category_id).sub)
+    @size = Product.find(@product.size_id)
     @condition = Condition.find(@product.condition_id)
     @prefecture = Prefecture.find(@product.prefecture_id)
     @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
