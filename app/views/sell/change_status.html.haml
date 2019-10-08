@@ -1,7 +1,7 @@
 .item-edit-container
   = render 'sell/header'
   %section.item-edit-content
-    .item-edit-content__delete
+    .item-edit-content__delete{ id: 'item-edit-content__delete-confirm' }
       .item-edit-content__delete-upper
         .item-edit-content__delete-upper-body
           .item-edit-content__delete-bold
@@ -14,7 +14,8 @@
           本当に削除しますか？
         .item-edit-content__delete-bold-button
           .item-edit-content__delete-bold-button-cancel
-            %ic キャンセル
+            %button.btn-default-cancel{ type: 'submit', id: 'delete-button-cancel' }
+              キャンセル
           .item-edit-content__delete-bold-button-submit
             %a
             = link_to '削除する', mypage_sell_path(id: @product.id), method: :delete
@@ -107,7 +108,8 @@
       %p.text-center or
       %form{action: '/jp/items/deactivate/m23957564102/', method: 'POST', novalidate: 'novalidate'}
         %button.btn-default.btn-gray{type: 'submit'} 出品を一旦停止する
-      %button.btn-default.btn-gray{'data-modal': 'delete-item', 'data-open': 'modal'}
+      %button.btn-default.btn-gray{type: 'submit', id: 'delete-button'}
         この商品を削除する
   = render 'sell/bread-bottom'
   = render 'sell/footer'
+
