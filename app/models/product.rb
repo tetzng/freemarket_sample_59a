@@ -11,7 +11,7 @@ class Product < ApplicationRecord
   has_many_attached :images
   belongs_to :user
   
-  validates :images, presence: true
+  validates :images, presence: true, length: {manimum: 1, maximum: 10}
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
   validates :category_id, presence: true
