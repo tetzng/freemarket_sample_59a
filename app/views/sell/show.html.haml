@@ -1,7 +1,7 @@
 .itembuy-container
   = render 'sell/header'
   %section.itembuy-content
-    %h1.itembuy-content__name 
+    %h1.itembuy-content__name
       = @product.name
     .itembuy-content__clearfix
       .itembuy-content__photo
@@ -36,10 +36,11 @@
             %td
               = link_to  '/' do
                 = @bigcategory.name
-              = link_to '/' do
-                .itembuy-table-sub
-                  %i.fas.fa-chevron-right
-                  = @category.name
+              - if @category.present?
+                = link_to '/' do
+                  .itembuy-table-sub
+                    %i.fas.fa-chevron-right
+                    = @category.name
               = link_to '/' do
                 .itembuy-table-sub
                   %i.fas.fa-chevron-right
@@ -72,7 +73,7 @@
               = @delivery_days.value
     .itembuy-content__price
       %span.itembuy-content__bold
-        ¥#{@product.price}
+        = @product.jpy
       %span.itembuy-content__tax (税込)
       %span.itembuy-content__fee
       - if @product.delivery_charge_id == '1'

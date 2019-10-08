@@ -12,12 +12,6 @@ class User < ApplicationRecord
     belongs_to_active_hash :paymentmonth
   has_many :products
   has_one :card
-  # has_many :shopping_origin_addresses
-  # has_many :products
-  # has_many :puchases
-  # has_many :comments
-  # has_one_attached :avatar
-  # has_many :likes, through: :like_users
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
@@ -59,4 +53,17 @@ class User < ApplicationRecord
   validates :paymentmonth_id, presence: true
   validates :paymentyear_id, presence: true
   validates :payment_card_security_code, presence: true, length: { maximum: 4 }, numericality: { only_integer: true }
+
+  def full_name
+    "#{self.last_name} #{self.first_name}"
+  end
+
+  def full_name_kana
+    "#{self.last_name_kana} #{self.first_name_kana}"
+  end
+
+  # yyyy/mm/dd の形式で表示
+  def birthday
+    "#{BirthYyyy.find(self.birth_yyyy_id).year}/#{BirthMm.find(self.birth_mm_id).month}/#{BirthDd.find(self.birth_dd_id).day}"
+  end
 end

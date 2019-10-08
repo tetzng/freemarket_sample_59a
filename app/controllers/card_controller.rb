@@ -1,5 +1,4 @@
 class CardController < ApplicationController
-
   require 'payjp'
   Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
@@ -22,7 +21,7 @@ class CardController < ApplicationController
       end
     end
   end
-  
+
   def delete #PayjpとCardデータベースを削除します
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
@@ -33,7 +32,7 @@ class CardController < ApplicationController
     end
     redirect_to new_card_path
   end
-  
+
   def show #Cardのデータpayjpに送り情報を取り出します
     card = Card.find_by(user_id: current_user.id)
     if card.blank?

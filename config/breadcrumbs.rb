@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  link 'マイページ', mypage_path
+  link 'マイページ', mypage_index_path
   parent :root
 end
 
@@ -23,12 +23,12 @@ crumb :itembuy do |item|
 end
 
 crumb :mypage_card do
-  link '支払い方法' 
+  link '支払い方法'
   parent :mypage
 end
 
 crumb :mypage_card_create do
-  link 'クレジットカード情報入力' 
+  link 'クレジットカード情報入力'
   parent :mypage_card
 end
 
