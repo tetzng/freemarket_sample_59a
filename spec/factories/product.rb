@@ -1,8 +1,8 @@
 FactoryBot.define do
-  factory :product do
-    after(:create) do |product|
-    create(:attachment, name: 'image', record_type: 'product', record_id: product.id)
-    end
+    factory :product do
+    # after(:create) do |product|
+    # create(:attachment, name: 'images', record_type: 'Product', record_id: product.id)
+    
     id {4}
     user_id {1}
     name {"スカート"}
@@ -18,6 +18,6 @@ FactoryBot.define do
     price {"3000"}
     status_id {1}
     association :user, factory: :user
-    
-  end
+
+    end
 end
