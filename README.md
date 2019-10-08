@@ -1,210 +1,150 @@
-# README
+# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-## usersテーブル
-
+## Usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
-|e-mail|string|null: false|
-|encrypted_password|string|null: false|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
-|birthday_year|integer|null: false|
-|birthday_month|integer|null: false|
-|birthday_day|integer|null: false|
-|phone_num|string|null: false|
-|authentication_num|integer|null: false|
+|nickname|string|null: false|
+|email|string|null: false|
+|encrypted_password|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|birthday_yyyy_id|integer|null: false|
+|birthday_mm_id|integer|null: false|
+|birthday_dd_id|integer|null: false|
+|phone_num|string|null: false|
+|authentication_num|integer|null: false|
 |content|text||
-
-### Association
-- has_many :shopping_origin_addresses
-- has_many :products
-- has_many :puchases
-- has_many :comments
-- has_one_attached :avatar
-- has_many :likes, through: :like_users
-
-
-
-## shopping_origin_addressesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
-|postcode|integer|null: false|
-|prefecture|string|null: false|
+|zip_code1|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
-|house_num|string|null: false|
-|buiding_num|string|null: false|
-|phone_num|integer|null: false|
+|address1|string||
+|address2|string||
+|telephone|string||
 
-### Association
-- belongs_to :user
-- has_many :products
+### Association
+- belongs_to_active_hash :birth_yyyy
+- belongs_to_active_hash :birth_mm
+- belongs_to_active_hash :birth_dd
+- belongs_to_active_hash :prefecture
+- has_many :products
+- has_one :card
 
 
-## paymentsテーブル
-
+## Productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
-|card_num|integer|null: false|
-|limit_month|integer|null: false|
-|limit_year|integer|null: false|
-|security_code|integer|null: false|
-
-### Association
-- belongs_to :user
-- has_many :products
-- has_many :puchases
-
-
-## productsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user|references|null: false|foreign_key: true|
-|name|string|null: false|
+|user|references|null: false|foreign_key: true|
+|name|string|null: false|
 |description|text||
-|category_id|references|null: false|foreign_key: true|
-|condition_id|references|null: false|foreign_key: true|
-|size_id|references|null: false|foreign_key: true|
-|brand|string|
-|delivery_charge|string|null: false|
-|delivery_way|string|null: false|
-|delivery_area|string|null: false|
-|delivery_days|string|null: false|
-|price|integer|null: false|
-|saler_id|references|null: false|foreign_key: true|
-|status|references|null: false|foreign_key: true|
+|category|references|null: false|foreign_key: true|
+|condition|references|null: false|foreign_key: true|
+|size|references|null: false|foreign_key: true|
+|brand|string||
+|delivery_charge|references|null: false|foreign_key: true|
+|delivery_way|references|null: false|foreign_key: true|
+|prefecture|references|null: false|foreign_key: true|
+|delivery_days|references|null: false|foreign_key: true|
+|price|integer|null: false|
+|status|references|null: false|foreign_key: true|
 
-### Association
-- belongs_to :user
-- has_many :likes
-- has_many :comments
-- mount_uploader :image, ImageUploader
-- add_index :products, :name #テーブル名、カラム名
+### Association
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :size
+- belongs_to_active_hash :delivery_charge
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :delivery_days
+- belongs_to_active_hash :delivery_way
+- belongs_to_active_hash :status
+- has_many_attached :images
+- belongs_to :user
+- add_index :products, :name #テーブル名、カラム名
 
 
-## purchasesテーブル
-
+## Cardテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false|
-|selar_id|integer|null: false|
-|buyer_id|integer|null: false|
-|status|string|null: false|
+|user|references|null: false|foreign_key: true|
+|customer_id|string|
+|card_id|string|
 
-### Association
-- belongs_to :user
-- has_many :comments
+### Association
+- belongs_to :user
 
 
-## likesテーブル
-
+## Categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false|
-|product_id|integer|null: false|
+|name|string|null: false|
+|sub|integer|
+|sub_sub|integer|
+|size|integer|
+|brand|integer|
 
-### Association
-- belongs_to :user
-- belongs_to :product
+### Association
+- has_many :products
 
 
-## likes_userテーブル
-
+## Conditionテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false|
-|product_id|integer|null: false|
+|value|string|null: false|
 
-### Association
-- belongs_to :user
-- belongs_to :product 
+### Association
+- has_many :products
 
 
-
-## commentsテーブル
-
+## Sizeテーブル
 |Column|Type|Options|
 |------|----|-------|
-|content|text||
-|user|references|null: false|
-|produts_id|integer|null: false|
-|produts_id|integer|null: false|
+|value|string|null: false|
+|group|integer|
 
-### Association
-- belongs_to :user
-- belongs_to :product
-- belongs_to :purchase
+### Association
+- has_many :products
 
 
-
-## categoryテーブル
-
+## DeliveryChargeテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|value|string|null: false|
 
-### Association
+### Association
+- has_many :products
 
 
-
-## conditionテーブル
-
+## DeliveryDaysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|value|string|null: false|
 
-### Association
-- has_many :products
+### Association
+- has_many :products
 
-
-## sizeテーブル
-
+## DeliveryWayテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|value|string|null: false|
+|charge|integer|
 
-### Association
-- has_many :products
+### Association
+- has_many :products
 
 
-## brandテーブル
-
+## Prefectureテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false|
 
-### Association
-- has_many :products
+### Association
+- has_many :products
+
+## Statusテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products
