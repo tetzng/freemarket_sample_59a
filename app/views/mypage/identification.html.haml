@@ -7,50 +7,52 @@
     .indentification-content
       %section.indentification-content__mypage
         %h2.indentification-content__head 本人情報の登録
-        %form.indentification-content__form{ acotion: '/', method: 'get' }
+        = form_with model: @user, local: true, class: 'indentification-content__form' do |f|
           %div
             %p.indentification-content__info
               お客様の本人情報を登録してください。
               %br
               登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
             %p.indentification-content__textlink
-              = link_to '本人確認書類のアップロードについて', 'https://www.mercari.com/jp/help_center/article/495/'
+              = link_to '本人確認書類のアップロードについて', ''
               %i.fas.fa-chevron-right
           .indentification-content__group
-            %label お名前
-            %p test　user
+            = f.label 'お名前'
+            %p
+              = current_user.full_name
           .indentification-content__group
-            %label お名前カナ
-            %p テスト　ユーザー
+            = f.label 'お名前カナ'
+            %p
+              = current_user.full_name_kana
           .indentification-content__group
-            %label.indentification-content__birthday 生年月日
-            %p 1192/10/05
+            = f.label '生年月日', class: 'indentification-content__birthday'
+            %p
+              = current_user.birthday
           .indentification-content__group
-            %label.indentification-content__zipcode 郵便番号
+            = f.label '郵便番号', class: 'indentification-content__zipcode'
             %span.indentification-content__arbitrary 任意
-            %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）1234567' }
+            = f.text_field :zip_code1, { class: 'indentification-content__default', placeholder: '例）1234567', value: "#{ current_user.zip_code1 }" }
           .indentification-content__group
-            %label.indentification-content__prefecture 都道府県
+            = f.label '都道府県', class: 'indentification-content__prefecture'
             %span.indentification-content__arbitrary 任意
             .indentification-content__select
               %i.fas.fa-chevron-down
-              = form_with model: @user, local: true do |f|
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: '--'
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: '--', selected: current_user.prefecture_id
             .indentification-content__group
-              %label.indentification-content__zipcode 市区町村
+              = f.label '市区町村', class: 'indentification-content__zipcode'
               %span.indentification-content__arbitrary 任意
-              %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）横浜市緑区' }
+              = f.text_field :city, { class: 'indentification-content__default', placeholder: '例）横浜市緑区', value: "#{ current_user.city }" }
             .indentification-content__group
-              %label.indentification-content__zipcode 番地
+              = f.label '番地', class: 'indentification-content__zipcode'
               %span.indentification-content__arbitrary 任意
-              %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）青山1-1-1' }          
+              = f.text_field :address1, { class: 'indentification-content__default', placeholder: '例）青山1-1-1', value: "#{ current_user.address1 }" }
             .indentification-content__group
-              %label.indentification-content__zipcode 建物名
+              = f.label '建物名', class: 'indentification-content__zipcode'
               %span.indentification-content__arbitrary 任意
-              %input.indentification-content__default{ type: 'text', name: 'zip_code', placeholder: '例）柳ビル103' }
-              %button.indentification-content__button{ type: 'submit' } 登録する
+              = f.text_field :address2, { class: 'indentification-content__default', placeholder: '例）柳ビル103', value: "#{ current_user.address2 }" }
+              = f.submit '登録する', { class: 'indentification-content__button' }
             %p.indentification-content__textlink{ id: 'textinfo' }
-              = link_to '本人情報の登録について', 'https://www.mercari.com/jp/help_center/article/495/'
+              = link_to '本人情報の登録について', ''
               %i.fas.fa-chevron-right
     = render 'sell/sellbutton'
   = render 'sell/footer'

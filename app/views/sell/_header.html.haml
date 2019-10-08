@@ -54,7 +54,6 @@
                 %p シュプリーム
               %li.brand
                 %p ブランド一覧
-    
       .toppage-header-top__footer-contents
         - if user_signed_in?
           .toppage-header-top__footer-contents-wrapper
@@ -72,7 +71,6 @@
                     %span お知らせ
                     .toppage-header-top__footer-login-content--notice-count
                       99+
-                    
                   %ul.toppage-header-top__footer-login-content--notice-lists
                     %li.toppage-header-top__footer-login-content--notice-item
                       = link_to root_path do
@@ -159,16 +157,11 @@
                             = icon('fas', 'chevron-right')
                         %li
                           = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
-                            購入した商品 - 過去の取引          
+                            購入した商品 - 過去の取引
                             = icon('fas', 'chevron-right')
         - else
           .toppage-header-top__footer-contents-wrapper
             .toppage-header-top__footer-contents--new-register-btn
-              = link_to '/signup' do
-                新規会員登録
+              = link_to '新規会員登録', signup_path
             .toppage-header-top__footer-contents--user-login-btn
-              = link_to '/login' do
-                ログイン
-
-
-
+              = link_to 'ログイン', new_user_session_path

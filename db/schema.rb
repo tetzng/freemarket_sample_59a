@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_001308) do
+ActiveRecord::Schema.define(version: 2019_10_02_082140) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,18 +33,61 @@ ActiveRecord::Schema.define(version: 2019_10_01_001308) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "birth_days", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "birth_dd_id"
+    t.string "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "birth_months", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "birth_mm_id"
+    t.string "month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "birth_years", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "birth_yyyy_id"
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "months", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "paymentmonth_id"
+    t.string "num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "name", null: false
+    t.string "name", default: "", null: false
     t.text "description"
     t.integer "category_id", null: false
     t.integer "condition_id", null: false
     t.integer "size_id", null: false
-    t.string "brand"
-    t.string "delivery_charge_id"
-    t.string "delivery_way_id"
-    t.string "prefecture_id"
-    t.string "delivery_days_id"
+    t.string "brand", default: ""
+    t.string "delivery_charge_id", default: ""
+    t.string "delivery_way_id", default: ""
+    t.string "prefecture_id", default: ""
+    t.string "delivery_days_id", default: ""
     t.integer "price", null: false
     t.integer "status_id", default: 1, null: false
     t.datetime "created_at", null: false
@@ -65,8 +108,8 @@ ActiveRecord::Schema.define(version: 2019_10_01_001308) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.string "phone_num", null: false
-    t.integer "authentication_num", null: false
+    t.string "phone_num", default: ""
+    t.integer "authentication_num"
     t.text "content"
     t.string "nickname", null: false
     t.integer "birth_yyyy_id", null: false
@@ -77,11 +120,14 @@ ActiveRecord::Schema.define(version: 2019_10_01_001308) do
     t.string "city", null: false
     t.string "address1", null: false
     t.string "address2"
-    t.string "telephone"
-    t.integer "payment_card_no", null: false
+    t.string "telephone", default: "", null: false
+    t.string "payment_card_no", null: false
     t.integer "paymentmonth_id", null: false
     t.integer "paymentyear_id", null: false
     t.integer "payment_card_security_code", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

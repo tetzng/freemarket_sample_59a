@@ -97,7 +97,7 @@ class SignupController < ApplicationController
     birth_mm_id: session[:birth_mm_id],
     birth_dd_id: session[:birth_dd_id],
     phone_num: session[:phone_num],
-    authentication_num: session[:phone_num],
+    authentication_num: session[:authentication_num],
     zip_code1: "000-0000",
     prefecture_id: "1",
     city: "福岡市",
@@ -137,7 +137,7 @@ class SignupController < ApplicationController
     birth_mm_id: session[:birth_mm_id],
     birth_dd_id: session[:birth_dd_id],
     phone_num: session[:phone_num],
-    authentication_num: session[:phone_num],
+    authentication_num: session[:authentication_num],
     zip_code1: user_params[:zip_code1],
     prefecture_id: user_params[:prefecture_id],
     city: user_params[:city],
@@ -196,10 +196,6 @@ class SignupController < ApplicationController
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 
-  def login
-  end
-end
-
 private
   def user_params
     params.require(:user).permit(
@@ -228,3 +224,4 @@ private
       :payment_card_security_code
     )
   end
+end

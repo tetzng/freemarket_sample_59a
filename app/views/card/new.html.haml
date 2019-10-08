@@ -7,14 +7,13 @@
       %section.mypage-content__chapter-container
         %h2.signup-main__chapter-head
           クレジットカード情報入力
-        = form_with model: @user, url: '/signup/done/', method: 'GET', id: 'add-card-form', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+        = form_with model: @card, url: '/card/pay/', method: 'POST', id: 'charge-form', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate', html: { name: 'inputForm' } do |f|
           .signup-main__content
             .signup-main__form-group
               %label{ for: 'payment_card_no' } カード番号
               %span.signup-main__form-require 必須
-              %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', id: 'payment_card_no', placeholder: '半角数字のみ', maxlength: '19' }
+              %input.signup-main__input-default{ type: 'text', id: 'card_number', placeholder: '半角数字のみ', maxlength: '19' }
               %ul.signup-main__has-error-text{ id: 'card-no-error-wrapper' }
-                %li 半角数字で入力してください
               %ul.signup-main__card-list
                 %li
                   = image_tag 'visa.svg', width: '49', height: '20'
@@ -35,11 +34,11 @@
               %span.signup-main__form-require 必須
               %br
               .signup-main__select-wrap.signup-main__select-wrap--half
-                = f.collection_select :paymentmonth_id, Paymentmonth.all, :id, :num, id: 'payment_card_expire_mm', class: 'signup-main__select-default'
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'form-signup__month__select'
                 = icon 'fas', 'chevron-down'
                 %span 月
               .signup-main__select-wrap.signup-main__select-wrap--half
-                = f.collection_select :paymentyear_id, Paymentyear.all, :id, :num, id: 'payment_card_expire_yy', class: 'signup-main__select-default'
+                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'form-signup__month__select'
                 = icon 'fas', 'chevron-down'
                 %span 年
               %ul.signup-main__has-error-text{ id: 'expire-mm-error-wrapper' }
@@ -47,7 +46,7 @@
             .signup-main__form-group
               %label{ for: 'payment_card_security_code' } セキュリティコード
               %span.signup-main__form-require 必須
-              %input.signup-main__input-default{ type: 'number', id: 'payment_card_security_code', placeholder: 'カード背面4桁もしくは3桁の番号' }
+              %input.signup-main__input-default{ type: 'text', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号' }
               %ul.signup-main__has-error-text{ id: 'security-code-error-wrapper' }
               .signup-main__seqcode
                 .signup-main__seqcode--text{ id: 'seqcode-tips-toggle' }
@@ -59,7 +58,9 @@
                   %br
                   = image_tag 'seq-card.png', width: '240'
             %p.signup-main__has-error-text{ id: 'primary-error' }
-            = f.submit id: 'submit-button', class: 'signup-main__btn-default signup-main__btn-red', value: '追加する'
+              #card_token
+              = f.submit id: 'token_submit', class: 'signup-main__btn-default signup-main__btn-red', value: '追加する'
     = render 'mypage/side-bar'
   = render 'sell/footer'
   = render 'sell/sellbutton'
+

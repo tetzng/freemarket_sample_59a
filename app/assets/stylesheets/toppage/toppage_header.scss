@@ -51,6 +51,9 @@ a {
           padding: 0px 50px 0px 10px;
           transition: all 0.3s ease-out 0s;
           width: 100%;
+          &:focus{
+            border-color: rgb(0, 149, 238);
+          }
           }
         &--search-btn {
           width: 16px;

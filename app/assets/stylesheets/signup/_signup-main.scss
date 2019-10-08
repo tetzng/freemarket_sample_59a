@@ -1,6 +1,12 @@
 #inner-top{
   border-top: 1px solid #f5f5f5;
 }
+.information-registration__base__main-box__click-area__error-font{
+  font-size: 14px;
+  color: red;
+  margin-top: 8px; 
+}
+
 .signup-main {
   display: block;
   &__container {
@@ -137,6 +143,14 @@
       width: 100%;
       &:focus {
         border-color: #0099e8;
+      }
+    }
+    &--half{
+      .field_with_errors{
+        display: inline;
+        &:last-of-type .signup-main__input-default--half{
+          margin-right: 0;
+        }
       }
     }
   }
@@ -404,6 +418,11 @@
   }
   &__fake-link:hover{
     text-decoration: none;
+  }
+}
+.field_with_errors{
+  select{
+    border-color: #ea352d;
   }
 }
 @media screen and (min-width: 768px){
