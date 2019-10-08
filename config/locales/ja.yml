@@ -22,3 +22,12 @@ ja:
     paymentyear_id: 有効期限(年)
     payment_card_security_code: 認証番号
     zip_code1: 郵便番号
+    description: 説明
+    condition: 商品の状態
+    category: カテゴリー
+    delivery_charge: 配送料の負担
+    prefecture: 配送元の地域
+    delivery_day: 発送までの日数
+    delivery_way: 配送の負担
+    price: 価格
+    image: 出品画像
