@@ -49,7 +49,32 @@
                     %div{ id: 'sell-main__select-category--wrapper' }
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                        = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { include_blank: '--', selected: "#{@bigcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub: "#{@smallcategory.sub}", sub_sub: '0'), :id, :name, { include_blank: '--', selected: "#{@category.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub_sub: "#{@smallcategory.sub_sub}" ), :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                      .sell-main__select-wrap
+                      #sell-main__form-group--size.sell-main__form-group
+                        %label{:for => "product_size"}
+                          サイズ
+                          %span.sell-main__form-require 必須
+                        .sell-main__select-wrap
+                          %i.fas.fa-chevron-down
+                          = f.collection_select :size_id, Size.where(group: ), :id, :value, { include_blank: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                        %ul.sell-main__has-error-text
+                      #sell-main__form-group--brand.sell-main__form-group.sell-main__form-suggest-container
+                        %label{:for => "product_brand"}
+                          ブランド
+                          %span.sell-main__form-arbitrary 任意
+                        %div
+                          %input#product_brand.sell-main__input-default{:name => "product[brand]", :placeholder => "例）シャネル", :type => "text"}/
+                        %div
+                        %ul.sell-main__has-error-text
+
+
                     =  render partial: 'error-messages', locals: {product: @product, column: ' category_id'}
                   .sell-main__form-group
                     = f.label :condition do
@@ -72,6 +97,17 @@
                       %i.fas.fa-chevron-down
                       = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
                     = render partial: 'error-messages', locals: {product: @product, column: ' delivery_charge_id'}
+
+                  #sell-main__form-group--delivery-way.sell-main__form-group
+                    %label{:for => "product_delivery_way"}
+                      配送の方法
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      %select#product_delivery_way_id.sell-main__select-default{:name => "product[delivery_way_id]"}
+                        %option{:value => ""} --
+                    %ul.sell-main__has-error-text
+                  
                   .sell-main__form-group
                     = f.label :delivery_area_id do
                       発送元の地域
