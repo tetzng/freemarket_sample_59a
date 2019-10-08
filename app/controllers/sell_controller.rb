@@ -56,6 +56,16 @@ class SellController < ApplicationController
     @user = User.find(@product.user_id)
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to mypage_listing_path
+    else
+      redirect_to edit_sell_path
+    end
+  end
+
   private
   def product_params
     params.require(:product).permit( :name, :description, :category_id, :condition_id, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price, images: []).merge(user_id: current_user.id)
