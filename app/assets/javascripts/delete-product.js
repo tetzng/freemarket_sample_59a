@@ -1,7 +1,9 @@
-$('#btn-default.btn-gray').on('click',function(e){
-  e.preventDefault();
-  $(this).parents('ul').find('li').removeClass('mypage-content__tab--active');
-  $(this).parents('li').addClass('mypage-content__tab--active');
-  $('#mypage-content__item-list-transaction-old').removeClass('mypage-content__item-list--active');
-  $('#mypage-content__item-list-transaction-now').addClass('mypage-content__item-list--active');
+$(function() {
+  // ボタンをクリックしたら発動
+  $('#delete-button').on('click', function() {
+    $('#item-edit-content__delete-confirm').addClass('item-edit-content__deleteon');
+  });
+  $('#delete-button-cancel').on('click', function() {
+    $('#item-edit-content__delete-confirm').removeClass('item-edit-content__deleteon');
+  });
 });
