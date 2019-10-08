@@ -1,7 +1,25 @@
 .item-edit-container
   = render 'sell/header'
   %section.item-edit-content
-    %h1.item-edit-content__name
+    .item-edit-content__delete
+      .item-edit-content__delete-upper
+        .item-edit-content__delete-upper-body
+          .item-edit-content__delete-bold
+            %ib 確認
+          削除すると二度と復活できません。
+          %br/
+          削除する代わりに停止することもできます。
+          %br/ 
+          %br/
+          本当に削除しますか？
+        .item-edit-content__delete-bold-button
+          .item-edit-content__delete-bold-button-cancel
+            %ic キャンセル
+          .item-edit-content__delete-bold-button-submit
+            %a
+            = link_to '削除する', mypage_sell_path(id: @product.id), method: :delete
+
+    %h1.item-edit-content__name 
       = @product.name
     .item-edit-content__clearfix
       .item-edit-content__photo
