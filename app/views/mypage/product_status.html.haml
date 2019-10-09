@@ -9,15 +9,15 @@
       %ul.mypage-content-edit__tabs
         %li.mypage-content-edit__tab.mypage-content-edit__tab--active
           %h3
-            = link_to '#', id: 'mypage-content__tab-transaction-now' do
+            = link_to mypage_listing_listing_path, id: 'mypage-content-edit__tab-transaction-now' do
               出品中
         %li.mypage-content-edit__tab
           %h3
-            = link_to '#', id: 'mypage-content__tab-transaction-old' do
+            = link_to mypage_listing_in_progress_path, id: 'mypage-content-edit__tab-transaction-old' do
               取引中
         %li.mypage-content-edit__tab
           %h3
-            = link_to '#', id: 'mypage-content__tab-transaction-old' do
+            = link_to mypage_listing_completed_path, id: 'mypage-content-edit__tab-transaction-old' do
               売却済み
       - if @products
         .mypage-content-edit__tab-content
@@ -50,35 +50,7 @@
         .mypage-content-edit__tab-content
           %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
             %li.mypage-content-edit__item-not-found
-              取引中の商品がありません
-          %ul.mypage-content-edit__item-list{ id: 'mypage-content-edit__item-list-transaction-old' }
-            %li
-              = link_to '#', class: 'mypage-content-edit__item-link' do
-                %figure
-                  = image_tag 'mercari_profile.png', size: '48x48'
-                .mypage-content-edit__item-body
-                  .mypage-content-edit__item-text
-                    「SONY ワイヤレスイヤホン WF-1000XM3 新品・未開封品」 を購入しました。
-                    %span
-                      取引が完了しました
-                  .mypage-content-edit__item-status.mypage-content-edit__item-status--done
-                    取引完了
-                = icon 'fas', 'chevron-right'
-              = link_to '#', class: 'mypage-content-edit__item-link' do
-                %figure
-                  = image_tag 'mercari_profile.png', size: '48x48'
-                .mypage-content-edit__item-body
-                  .mypage-content-edit__item-text
-                    「iPhone充電ケーブル3本セット」 を購入しました。
-                    %span
-                      取引が完了しました
-                  .mypage-content-edit__item-status.mypage-content-edit__item-status--done
-                    取引完了
-                = icon 'fas', 'chevron-right'
-              %li.mypage-content-edit__go-list
-                = link_to '#' do
-                  一覧を見る
-                  = icon 'fas', 'chevron-right'
+              出品中の商品がありません
                               
     = render 'mypage/side-bar'
   = render 'sell/footer'
