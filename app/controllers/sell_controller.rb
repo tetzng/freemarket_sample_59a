@@ -43,6 +43,17 @@ class SellController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @size = Size.find(@product.size_id)
+  end
+
+  def update
+		product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.update(product_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def change_status

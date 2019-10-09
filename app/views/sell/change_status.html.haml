@@ -85,7 +85,7 @@
 
   .item-edit-content__change-status
     .item-edit-content__change-status-btns
-      = link_to '商品の編集', '#', class: 'btn-default btn-edit'
+      = link_to '商品の編集', edit_sell_path(@product.id), class: 'btn-default btn-edit'
       %p.text-center or
       %form{action: '/jp/items/deactivate/m23957564102/', method: 'POST', novalidate: 'novalidate'}
         %button.btn-default.btn-gray{type: 'submit'} 出品を一旦停止する

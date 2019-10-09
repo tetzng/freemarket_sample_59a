@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :status
   has_many_attached :images
   belongs_to :user
-  
+
   validates :images, presence: true, length: {manimum: 1, maximum: 10}
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }

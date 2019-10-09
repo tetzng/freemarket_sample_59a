@@ -7,11 +7,11 @@
       %h2.mypage-content-edit__tab-head
         出品した商品
       %ul.mypage-content-edit__tabs
-        %li.mypage-content-edit__tab.mypage-content-edit__tab--active
+        %li.mypage-content-edit__tab
           %h3
             = link_to mypage_listing_listing_path do
               出品中
-        %li.mypage-content-edit__tab
+        %li.mypage-content-edit__tab.mypage-content-edit__tab--active
           %h3
             = link_to mypage_listing_in_progress_path do
               取引中
@@ -36,7 +36,7 @@
                     = icon 'far', 'comment-alt'
                     %span 6
                   .mypage-content-edit__item-status
-                    出品中
+                    取引中
                   = icon 'fas', 'chevron-right'
 
           %ul.mypage-content-edit__history
@@ -50,7 +50,7 @@
         .mypage-content-edit__tab-content
           %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
             %li.mypage-content-edit__item-not-found
-              出品中の商品がありません
+              取引中の商品がありません
                               
     = render 'mypage/side-bar'
   = render 'sell/footer'

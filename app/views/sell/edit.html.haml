@@ -1,0 +1,156 @@
+.sell-container
+  = render 'signup/header'
+  %main.sell-main
+    %section.sell-main__container
+      #sell-container
+        %div
+          .sell-main__inner
+            %h2.sell-main__head 商品の情報を入力
+            = form_with model: @product, url: sell_path(@product), class:'sell-main__form' do |f|
+              .sell-main__upload-box
+                %h3.sell-main__upload-head
+                  出品画像
+                  %span.sell-main__form-require 必須
+                %p 最大10枚までアップロードできます
+                .sell-main__dropbox-container.clearfix.state-image-number-10
+                  .sell-main__upload-items-container
+                    -# 投稿数に応じてクラス名変更
+                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--first' }
+                      %ul{ id: 'output' }
+                    .sell-main__upload-items.sell-main__upload-items--have-item-0{ id: 'sell-main__upload-items--second' }
+                      %ul
+                  = f.label :images, class: 'sell-main__upload-label', id: 'dropArea' do
+                    .sell-main__upload-drop-box.sell-main__upload-drop-box--have-item-0{ id: 'sell-main__upload-drop-box' }
+                      = f.file_field :images, multiple: true, class: 'sell-main__upload-drop-file', style: 'display: none;'
+                      %pre.sell-main__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                      %i.fas.fa-camera
+                  = render partial: 'error-messages', locals: { product: @product, column: 'images'}
+              .sell-main__content
+                .sell-main__form-group
+                  = f.label :name do
+                    商品名
+                    %span.sell-main__form-require 必須
+                  %div
+                    = f.text_field :name, { class:'sell-main__input-default', placeholder: '商品名（必須 40文字まで)' }
+                  = render partial: 'error-messages', locals: {product: f.object, column: 'name'}
+                .sell-main__form-group
+                  = f.label :description do
+                    商品の説明
+                    %span.sell-main__form-require 必須
+                  = f.text_area :description, { class: 'sell-main__textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5' }
+                  = render partial: 'error-messages', locals: {product: @product, column: ' description'}
+              .sell-main__content.clearfix
+                %h3.sell-main__sub-head 商品の詳細
+                .sell-main__form-box{ id: 'sell-main__form-box--detail' }
+                  .sell-main__form-group
+                    = f.label :category_id do
+                      カテゴリー
+                      %span.sell-main__form-require 必須
+                    %div{ id: 'sell-main__select-category--wrapper' }
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { include_blank: '--', selected: "#{@bigcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub: "#{@smallcategory.sub}", sub_sub: '0'), :id, :name, { include_blank: '--', selected: "#{@category.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                      .sell-main__select-wrap
+                        %i.fas.fa-chevron-down
+                        = f.collection_select :category_id, Category.where(sub_sub: "#{@smallcategory.sub_sub}" ), :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                      #sell-main__form-group--size.sell-main__form-group
+                        - if @size.group != ''
+                          %label{for: "product_size"}
+                            サイズ
+                            %span.sell-main__form-require 必須
+                          .sell-main__select-wrap
+                            %i.fas.fa-chevron-down
+                            = f.collection_select :size_id, Size.where(group: "#{@size.group}"), :id, :value, { include_blank: '--', selected: "#{@product.size_id}"  }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                          %ul.sell-main__has-error-text
+                        - else
+                          = f.hidden_field :size_id, value: '99'
+                      #sell-main__form-group--brand.sell-main__form-group.sell-main__form-suggest-container
+                        %label{for: "product_brand"}
+                          ブランド
+                          %span.sell-main__form-arbitrary 任意
+                        %div
+                          %input#product_brand.sell-main__input-default{name: @product.brand, placeholder: "例）シャネル", type: "text"}/
+                        %div
+                        %ul.sell-main__has-error-text
+
+
+                    =  render partial: 'error-messages', locals: {product: @product, column: ' category_id'}
+                  .sell-main__form-group
+                    = f.label :condition do
+                      商品の状態
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :condition_id, Condition.all, :id, :value, { include_blank: '--', selected: "#{@product.condition_id}"  }, class: 'sell-main__select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: ' condition_id'}
+              .sell-main__content.clearfix
+                %h3.sell-main__sub-head 配送について
+                %a.sell-main__form-question{ href: '#', target: '_blank' }
+                  ?
+                .sell-main__form-box
+                  .sell-main__form-group{ id: 'sell-main__form-group--delivery-charge'}
+                    = f.label :delivery_charge_id do
+                      配送料の負担
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { include_blank: '--', selected: "#{@product.delivery_charge_id}" }, class: 'sell-main__select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: ' delivery_charge_id'}
+
+                  #sell-main__form-group--delivery-way.sell-main__form-group
+                    %label{for: "product_delivery_way"}
+                      配送の方法
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, { include_blank: '--', selected: "#{@product.delivery_way_id}" }, class: 'sell-main__select-default'
+                    %ul.sell-main__has-error-text
+                  
+                  .sell-main__form-group
+                    = f.label :delivery_area_id do
+                      発送元の地域
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: '--', selected: "#{@product.prefecture_id}" }, class: 'sell-main__select-default'
+                    = render partial: 'error-messages', locals: { product: @product, column: ' prefecture_id'}
+                  .sell-main__form-group
+                    = f.label :delivery_days do
+                      発送までの日数
+                      %span.sell-main__form-require 必須
+                    .sell-main__select-wrap
+                      %i.fas.fa-chevron-down
+                      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, { include_blank: '--', selected: "#{@product.delivery_days_id}"  }, class: 'sell-main__select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: ' delivery_days_id'}
+              .sell-main__content.clearfix
+                %h3.sell-main__sub-head
+                販売価格(300〜9,999,999)
+                %a.sell-main__form-question{ href: '#', target: '_blank' }
+                  ?
+                .sell-main__form-box
+                  %ul.sell-main__price
+                    %li.sell-main__form-group
+                      .clearfix
+                        = f.label :price, class: 'sell-main__left' do
+                          価格
+                          %span.sell-main__form-require 必須
+                        .sell-main__right.sell-main__price-input
+                          %div
+                            = f.text_field :price, { class: 'sell-main__input-default',id: 'sell-main__price-input', value: "#{@product.price}" }
+                        = render partial: 'error-messages', locals: {product: @product, column: ' price'}
+                    %li.clearfix
+                      .sell-main__left
+                        販売手数料 (10%)
+                      .sell-main__right{ id: 'sell-main__fee' } -
+                    %li.clearfix.bold
+                      .sell-main__left 販売利益
+                      .sell-main__right{ id: 'sell-main__profit' } -
+              .sell-main__modal{ role: 'dialog', abindex: '-1' }
+                .sell-main__modal-inner
+              .sell-main__content.sell-main__btn-box
+                = f.submit class: 'sell-main__btn-default sell-main__btn-red', value: '変更する'
+                = link_to 'キャンセル', root_path, class: 'sell-main__btn-default sell-main__btn-gray'
+  = render 'signup/footer'

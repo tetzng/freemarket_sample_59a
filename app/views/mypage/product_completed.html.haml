@@ -7,7 +7,7 @@
       %h2.mypage-content-edit__tab-head
         出品した商品
       %ul.mypage-content-edit__tabs
-        %li.mypage-content-edit__tab.mypage-content-edit__tab--active
+        %li.mypage-content-edit__tab
           %h3
             = link_to mypage_listing_listing_path do
               出品中
@@ -15,7 +15,7 @@
           %h3
             = link_to mypage_listing_in_progress_path do
               取引中
-        %li.mypage-content-edit__tab
+        %li.mypage-content-edit__tab.mypage-content-edit__tab--active
           %h3
             = link_to mypage_listing_completed_path do
               売却済み
@@ -27,17 +27,16 @@
                 = image_tag product.images[0], class: 'status-mini-image', size: '48x48'
               .mypage-content-edit__item-body
                 .mypage-content-edit__item-text
-                  = product.name
-                .mypage-content-edit__item-icons
-                  %span.listing-item-count
-                    = icon 'far', 'heart'
-                    %span 5
-                  %span.listing-item-count
-                    = icon 'far', 'comment-alt'
-                    %span 6
-                  .mypage-content-edit__item-status
-                    出品中
-                  = icon 'fas', 'chevron-right'
+                  #{product.name} を購入しました。
+                  %span
+                    取引が完了しました
+                .mypage-content-edit__item-status.mypage-content-edit__item-status--done
+                  取引完了
+              = icon 'fas', 'chevron-right'
+            %li.mypage-content-edit__go-list
+              = link_to '#' do
+                一覧を見る
+                = icon 'fas', 'chevron-right'
 
           %ul.mypage-content-edit__history
             %li.mypage-content-edit__history-prev
@@ -50,7 +49,7 @@
         .mypage-content-edit__tab-content
           %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
             %li.mypage-content-edit__item-not-found
-              出品中の商品がありません
+              売却済みの商品がありません
                               
     = render 'mypage/side-bar'
   = render 'sell/footer'
