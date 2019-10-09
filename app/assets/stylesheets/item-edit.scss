@@ -3,6 +3,60 @@
   background: #fff;
   margin: 40px auto 0;
   width: 700px;
+  &__delete{
+    opacity: 1;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3000;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  &__delete-upper{
+    text-align: center;
+    max-width: none;
+    width: 600px;
+    margin: 20px auto;
+    line-height: 1.5;
+    background-color: white;
+  }
+  &__delete-upper-body{
+    line-height: 1.5;
+    text-align: center;
+    padding: 64px;
+    width: 600px;
+    height: 236px;
+  }
+  &__delete-bold{
+    font-weight: 600; 
+  }
+  &__delete-bold-button{
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+  }
+  &__delete-bold-button-cancel{
+    float: left;
+    border-top: 1px solid #ccc;
+    width: 50%;
+    height: 64px;
+    background-color: white;
+    line-height: 64px;
+
+  }
+  &__delete-bold-button-submit{
+    float: right;
+    border-left: 1px solid #ccc;
+    color: #0099e8;
+    border-top: 1px solid #ccc;
+    width: 50%;
+    height: 64px;
+    background-color: white;
+    line-height: 64px;
+  }
   h1{
     font-size: 24px;
     text-align: center;
@@ -319,4 +373,20 @@
   cursor: pointer;
   text-align: center;
   margin: 16px 0;
+}
+
+.item-edit-content__delete{
+  opacity: 0;
+  display: none;
+}
+.item-edit-content__deleteon{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2999;
+  background: rgba(0,0,0,0.64);
+  opacity: 1;
+  display: block;
 }

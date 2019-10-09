@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   root 'sell#index'
 
   resources :mypage, only: [:index] do
-    resources :sell, only: [:edit] do
+    resources :sell, only: [:edit, :destroy] do
       collection do
         get 'change_status', to: 'sell#change_status'
       end

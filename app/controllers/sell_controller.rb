@@ -1,6 +1,6 @@
 class SellController < ApplicationController
   # 商品情報
-  before_action :set_product, only: [:show, :edit]
+  before_action :set_product, only: [:show, :edit, :destroy]
   # カテゴリー
   before_action :set_category, only: [:show, :edit]
   # 商品状態
@@ -66,6 +66,15 @@ class SellController < ApplicationController
     @delivery_way = DeliveryWay.find(@product.delivery_way_id)
     @delivery_days = DeliveryDays.find(@product.delivery_days_id)
     @user = User.find(@product.user_id)
+  end
+
+  def destroy
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to mypage_listing_path
+    else
+      redirect_to edit_sell_path
+    end
   end
 
   private
