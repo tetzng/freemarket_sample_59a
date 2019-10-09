@@ -1,6 +1,6 @@
 class SellController < ApplicationController
   # 商品情報
-  before_action :set_product, only: [:show, :edit]
+  before_action :set_product, only: [:show, :edit, :destroy]
   # カテゴリー
   before_action :set_category, only: [:show, :edit]
   # 商品状態
@@ -57,7 +57,6 @@ class SellController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     if @product.user_id == current_user.id
       @product.destroy
       redirect_to mypage_listing_path
