@@ -3,6 +3,18 @@
   border-top: 1px solid #eee;
   background: #fff;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  ul{
+    padding: 16px;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  li {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+  }
   .breadcrumbs-list {
     width: 1020px;
     overflow: visible;
