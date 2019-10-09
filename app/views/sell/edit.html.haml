@@ -58,19 +58,19 @@
                         = f.collection_select :category_id, Category.where(sub_sub: "#{@smallcategory.sub_sub}" ), :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
                       .sell-main__select-wrap
                       #sell-main__form-group--size.sell-main__form-group
-                        %label{:for => "product_size"}
+                        %label{for: "product_size"}
                           サイズ
                           %span.sell-main__form-require 必須
                         .sell-main__select-wrap
                           %i.fas.fa-chevron-down
-                          = f.collection_select :size_id, Size.where(group: ), :id, :value, { include_blank: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                          = f.collection_select :size_id, Size.where(group: "#{@size.group}"), :id, :value, { include_blank: '--', selected: "#{@product.size_id}"  }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
                         %ul.sell-main__has-error-text
                       #sell-main__form-group--brand.sell-main__form-group.sell-main__form-suggest-container
-                        %label{:for => "product_brand"}
+                        %label{for: "product_brand"}
                           ブランド
                           %span.sell-main__form-arbitrary 任意
                         %div
-                          %input#product_brand.sell-main__input-default{:name => "product[brand]", :placeholder => "例）シャネル", :type => "text"}/
+                          %input#product_brand.sell-main__input-default{name: @product.brand, placeholder: "例）シャネル", type: "text"}/
                         %div
                         %ul.sell-main__has-error-text
 
@@ -82,7 +82,7 @@
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
-                      = f.collection_select :condition_id, Condition.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                      = f.collection_select :condition_id, Condition.all, :id, :value, { include_blank: '--', selected: "#{@product.condition_id}"  }, class: 'sell-main__select-default'
                     = render partial: 'error-messages', locals: {product: @product, column: ' condition_id'}
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head 配送について
@@ -95,17 +95,17 @@
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
-                      = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                      = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { include_blank: '--', selected: "#{@product.delivery_charge_id}" }, class: 'sell-main__select-default'
                     = render partial: 'error-messages', locals: {product: @product, column: ' delivery_charge_id'}
 
                   #sell-main__form-group--delivery-way.sell-main__form-group
-                    %label{:for => "product_delivery_way"}
+                    %label{for: "product_delivery_way"}
                       配送の方法
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
-                      %select#product_delivery_way_id.sell-main__select-default{:name => "product[delivery_way_id]"}
-                        %option{:value => ""} --
+                      %select#product_delivery_way_id.sell-main__select-default{ name: "#{@product.delivery_way_id}"}
+                      = f.collection_select :delivery_way_id, Prefecture.all, :id, :name, { include_blank: '--', selected: "#{@product.prefecture_id}" }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
                   
                   .sell-main__form-group
@@ -114,15 +114,15 @@
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
-                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
-                    = render partial: 'error-messages', locals: {product: @product, column: ' prefecture_id'}
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: '--', selected: "#{@product.prefecture_id}" }, class: 'sell-main__select-default'
+                    = render partial: 'error-messages', locals: { product: @product, column: ' prefecture_id'}
                   .sell-main__form-group
                     = f.label :delivery_days do
                       発送までの日数
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
-                      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, { prompt: '--' }, class: 'sell-main__select-default'
+                      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, { include_blank: '--', selected: "#{@product.delivery_days_id}"  }, class: 'sell-main__select-default'
                     = render partial: 'error-messages', locals: {product: @product, column: ' delivery_days_id'}
               .sell-main__content.clearfix
                 %h3.sell-main__sub-head
