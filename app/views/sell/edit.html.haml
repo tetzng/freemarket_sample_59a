@@ -104,8 +104,7 @@
                       %span.sell-main__form-require 必須
                     .sell-main__select-wrap
                       %i.fas.fa-chevron-down
-                      %select#product_delivery_way_id.sell-main__select-default{ name: "#{@product.delivery_way_id}"}
-                      = f.collection_select :delivery_way_id, Prefecture.all, :id, :name, { include_blank: '--', selected: "#{@product.prefecture_id}" }, class: 'sell-main__select-default'
+                      = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, { include_blank: '--', selected: "#{@product.delivery_way_id}" }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
                   
                   .sell-main__form-group
