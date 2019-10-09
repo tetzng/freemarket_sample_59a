@@ -12,17 +12,19 @@
           .buy-content-inner
             %h3.buy-item-image
               %img.is-higher-width.lazyloaded
-                - @product.images.each do |image|
-                  = image_tag image, class: 'owl-carousel-sub', size: '120x120'
+                = image_tag @product.images[0], class: 'owl-carousel-sub', size: '120x120'
           %p.buydetails-content__item-name
             %p.buy-item-name.bold
               = @product.name
         %section.buy-content.buy-user-info.buy-item
           .buy-content-inner
             %p.buy-price-ja.bold
-              ¥#{@product.price}
-              %span.item-shipping-fee.f14.bold 送料込み
-        ​
+              = @product.jpy
+              %span.item-shipping-fee.f14.bold
+                - if @product.delivery_charge_id == '1'
+                  送料込み
+                - else
+                  着払い
         %section.buy-content.buy-user-info
           .buy-content-text
             %h3 配送先
@@ -42,7 +44,7 @@
               - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
               %br
               = exp_month + ' / ' + exp_year
-              %img{ alt: 'master-card', height: '20', src: '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2687693852', width: '34' }
+              = image_tag 'master-card.svg', alt: 'master-card', height: '20', width: '34'
         %section.buy-content.buy-done-flow
           %h3 発送通知後の流れ
           %div
