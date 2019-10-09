@@ -1,0 +1,25 @@
+!!!
+%html{ lang: 'ja' }
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }/
+    %title メルカリ スマホでかんたん フリマアプリ
+    rel: 'stylesheet', type: 'text/css' }/
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+%body.error-page
+  .toppage-primary-wrapper
+    = render 'sell/header'
+    %nav.bread-crumbs
+      %ul
+        %li
+          %span メルカリ
+    %main.error__container.clearfix
+      .error__content
+        .error__content--404
+          = image_tag 'error404.png', alt: 'ページが見つかりません', class: 'error__image'
+      .error__side
+        .error__large
+          = link_to '', target: '_blank', class: 'side-banner' do
+            = image_tag 'side_banner.jpg', alt: 'Download Mercari Now'
+    = render 'sell/footer'
+    = render 'sell/sellbutton'
