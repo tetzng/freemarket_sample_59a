@@ -46,9 +46,9 @@ Rails.application.routes.draw do
   get 'mypage/identification'
   get '/mypage', to: 'mypage#index'
   get '/mypage/profile', to: 'mypage#profile'
-  get '/logout', to: 'mypage#logout'
   get 'mypage/listing/listing', to: 'mypage#product_status'
   get 'mypage/listing/in_progress', to: 'mypage#product_in_progress'
   get 'mypage/listing/completed', to: 'mypage#product_completed'
+  get '/logout', to: 'mypage#logout'
 
 end
