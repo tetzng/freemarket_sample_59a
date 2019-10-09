@@ -56,15 +56,17 @@
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
                         = f.collection_select :category_id, Category.where(sub_sub: "#{@smallcategory.sub_sub}" ), :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
-                      .sell-main__select-wrap
                       #sell-main__form-group--size.sell-main__form-group
-                        %label{for: "product_size"}
-                          サイズ
-                          %span.sell-main__form-require 必須
-                        .sell-main__select-wrap
-                          %i.fas.fa-chevron-down
-                          = f.collection_select :size_id, Size.where(group: "#{@size.group}"), :id, :value, { include_blank: '--', selected: "#{@product.size_id}"  }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
-                        %ul.sell-main__has-error-text
+                        - if @size.group != ''
+                          %label{for: "product_size"}
+                            サイズ
+                            %span.sell-main__form-require 必須
+                          .sell-main__select-wrap
+                            %i.fas.fa-chevron-down
+                            = f.collection_select :size_id, Size.where(group: "#{@size.group}"), :id, :value, { include_blank: '--', selected: "#{@product.size_id}"  }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                          %ul.sell-main__has-error-text
+                        - else
+                          = f.hidden_field :size_id, value: '99'
                       #sell-main__form-group--brand.sell-main__form-group.sell-main__form-suggest-container
                         %label{for: "product_brand"}
                           ブランド
