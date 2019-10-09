@@ -16,8 +16,6 @@ class SellController < ApplicationController
   def index
     @products = Product.all
     @category = Category.all
-    # last_product_id = params[:last_id].to_i
-    # @m = where("id > #{last_product_id}") 
   end
 
   def new
