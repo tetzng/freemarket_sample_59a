@@ -36,6 +36,7 @@ class SellController < ApplicationController
     else
       render '/sell/new'
     end
+    
   end
 
   def show
