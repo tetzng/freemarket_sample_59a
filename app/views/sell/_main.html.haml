@@ -54,15 +54,15 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-        - @products.order('created_at DESC').each do |product|
-          .toppage-main__content
-            = link_to sell_index_path, method: :get do
-              .toppage-main__image
-                %span
-                  = product.jpy
-                = image_tag product.images[0], resize: '188x188'
-              .toppage-main__item-name
-                %span= product.name
+          - @products.order('created_at DESC').limit(10).each do |product|
+            .toppage-main__content
+              = link_to sell_path(product.id), method: :get do
+                .toppage-main__image
+                  %span
+                    = product.jpy
+                  = image_tag product.images[0], size: '188x252'
+                .toppage-main__item-name
+                  %span= product.name
     .toppage-main__category-name
       .toppage-main__text
         メンズ新着アイテム
@@ -70,15 +70,15 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-        - @products.order('created_at DESC').each do |product|
-          .toppage-main__content
-            = link_to sell_index_path, method: :get do
-              .toppage-main__image
-                %span
-                  = product.jpy
-                = image_tag product.images[0], resize: '188x188'
-              .toppage-main__item-name
-                %span= product.name
+          - @products.order('created_at DESC').limit(10).each do |product|
+            .toppage-main__content
+              = link_to sell_path(product.id), method: :get do
+                .toppage-main__image
+                  %span
+                    = product.jpy
+                  = image_tag product.images[0], resize: '188x188'
+                .toppage-main__item-name
+                  %span= product.name
     .toppage-main__category-name
       .toppage-main__text
         家電・スマホ・カメラ新着アイテム
@@ -86,15 +86,15 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-        - @products.order('created_at DESC').each do |product|
-          .toppage-main__content
-            = link_to sell_index_path, method: :get do
-              .toppage-main__image
-                %span
-                  = product.jpy
-                = image_tag product.images[0], resize: '188x188'
-              .toppage-main__item-name
-                %span= product.name
+          - @products.order('created_at DESC').limit(10).each do |product|
+            .toppage-main__content
+              = link_to sell_path(product.id), method: :get do
+                .toppage-main__image
+                  %span
+                    = product.jpy
+                  = image_tag product.images[0], resize: '188x188'
+                .toppage-main__item-name
+                  %span= product.name
     .toppage-main__category-name
       .toppage-main__text
         おもちゃ・ホビー・グッズ新着アイテム
@@ -102,12 +102,12 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-        - @products.order('created_at DESC').each do |product|
-          .toppage-main__content
-            = link_to sell_index_path, method: :get do
-              .toppage-main__image
-                %span
-                  = product.jpy
-                = image_tag product.images[0], resize: '188x188'
-              .toppage-main__item-name
-                %span= product.name
+          - @products.order('created_at DESC').limit(10).each do |product|
+            .toppage-main__content
+              = link_to sell_path(product.id), method: :get do
+                .toppage-main__image
+                  %span
+                    = product.jpy
+                  = image_tag product.images[0], resize: '188x188'
+                .toppage-main__item-name
+                  %span= product.name
