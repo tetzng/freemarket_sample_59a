@@ -57,6 +57,6 @@ class PurchaseController < ApplicationController
   end
 
   def full_name
-    @full_name = current_user.first_name + current_user.last_name
+    @full_name = current_user.last_name + current_user.first_name
   end
 end
