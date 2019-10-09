@@ -13,6 +13,14 @@ class MypageController < ApplicationController
   end
 
   def product_status
-    @products = current_user.products
+    @products = Product.where( user_id: current_user.id, status_id: '1')
+  end
+
+  def product_in_progress
+    @products = Product.where( user_id: current_user.id, status_id: '2')
+  end
+
+  def product_completed
+    @products = Product.where( user_id: current_user.id, status_id: '4')
   end
 end
