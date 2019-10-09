@@ -6,12 +6,13 @@
       %section.buydetails-content__item
         .buydetails-content__inner
           %h3.buydetails-content__image
-            = image_tag 'coach-bag.jpg', size: '64x64', class: 'buydetails-contet__image'            
+          - @product.images.each do |image|
+            = image_tag image , size: '64x64', class: 'buydetails-contet__image'            
           %p.buydetails-content__item-name
             = @product.name
           .buydetails-content__form
             %p.buydetails-contet__price
-              ¥#{@product.price}
+              = @product.jpy
               %span.buydetails-content__fee
                 - if @product.delivery_charge_id == '1'
                   送料込み
@@ -25,7 +26,7 @@
                 .buydetails-content__pricecell 支払い金額
                 .buydetails-content__pricecell
                   %span.buydetails-content__datapay
-                    ¥#{@product.price}
+                    = @product.jpy
             .buydetails-content__text 配送先と支払方法の入力を完了してください。
             = form_tag(action: :pay, method: :post) do
               %button.buydetails-content__btn 購入する
