@@ -191,6 +191,8 @@ class SignupController < ApplicationController
     end
   end
 
+  
+
   def done
     # render '/signup/credit_card' unless @user.valid?
     sign_in User.find(session[:id]) unless user_signed_in?
