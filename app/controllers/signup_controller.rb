@@ -101,7 +101,7 @@ class SignupController < ApplicationController
     render '/signup/address' unless @user.valid?
   end
 
-  def prefecture
+  def create
     session[:last_name] = user_params[:last_name]
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]

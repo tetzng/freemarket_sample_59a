@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get '/signup/credit_card', to: 'signup#credit_card'
   get '/signup/done', to: 'signup#done'
   post 'signup/pay', to: 'signup#pay'
-  get 'signup/prefecture', to: 'signup#prefecture'
 
   resources :sell do
     resources :purchase, only: [:show] do
