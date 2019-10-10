@@ -81,7 +81,7 @@
       - else
         着払い
     - if not user_signed_in?
-      .itembuy-price-box__none{ id: 'itembuy-price-box__decoration'} 購入画面に進む
+      = link_to '購入画面に進む', sell_purchase_index_path(@product), class: 'itembuy-price-box'
     - elsif @product.status_id == 1 && @product.user_id == current_user.id
       .itembuy-price-box__none{ id: 'itembuy-price-box__decoration'} 購入画面に進む
     - elsif @product.status_id == 4
