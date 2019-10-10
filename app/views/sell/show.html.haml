@@ -80,7 +80,14 @@
         送料込み
       - else
         着払い
-    = link_to '購入画面に進む', sell_purchase_index_path(@product), class: 'itembuy-price-box'
+    - if not user_signed_in?
+      = link_to '購入画面に進む', '/', class: 'itembuy-price-box__none', id: 'itembuy-price-box__decoration'
+    - elsif @product.status_id == 1 && @product.user_id == current_user.id
+      = link_to '購入画面に進む', '/', class: 'itembuy-price-box__none'
+    - elsif @product.status_id == 4
+      = link_to '購入画面に進む', '/', class: 'itembuy-price-box__none'
+    - else
+      = link_to '購入画面に進む', sell_purchase_index_path(@product), class: 'itembuy-price-box'
     .itembuy-detail
       %p.itembuy-detail__inner
         = @product.description
