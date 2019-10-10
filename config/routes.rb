@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/signup/address', to: 'signup#address'
   get '/signup/credit_card', to: 'signup#credit_card'
   get '/signup/done', to: 'signup#done'
+  post 'signup/pay', to: 'signup#pay'
 
   resources :sell do
     resources :purchase, only: [:show] do
@@ -42,7 +43,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
   get 'mypage/identification'
   get '/mypage', to: 'mypage#index'
   get '/mypage/profile', to: 'mypage#profile'
