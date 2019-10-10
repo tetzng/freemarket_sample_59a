@@ -146,6 +146,16 @@
   color: #fff;
   text-align: center;
   font-weight: 600;
+  &__none{
+  font-size: 24px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  background: #aaa;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  }
 }
 .itembuy-detail{
   padding: 32px 0;
@@ -282,4 +292,7 @@
   li{
     display: inline-block;
   }
+}
+#itembuy-price-box__decoration{
+  text-decoration: none;
 }
