@@ -30,15 +30,10 @@
     $ cd freemarket_sample_59a
     $ bundle install
 
-## Anything Else
-
-AnythingAnythingAnything
-AnythingAnythingAnything
-AnythingAnythingAnything
 
 ## Author
 
-[@tetzng](https://twitter.com/tetzng)
+[@tetzng](https://twitter.com/tp_237_335)
 [@yuuspe]()
 [@kurachitoshiaki]()
 [@seicode]()
