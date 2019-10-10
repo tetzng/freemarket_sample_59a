@@ -26,6 +26,7 @@
               .mypage-content-edit__item-image
                 = image_tag product.images[0], class: 'status-mini-image', size: '48x48'
               .mypage-content-edit__item-body
+                = icon 'fas', 'chevron-right', class: 'mypage-content-edit__item-status--right-arrow'
                 .mypage-content-edit__item-text
                   = product.name
                 .mypage-content-edit__item-icons
@@ -35,22 +36,28 @@
                   %span.listing-item-count
                     = icon 'far', 'comment-alt'
                     %span 6
-                  .mypage-content-edit__item-status
-                    出品中
-                  = icon 'fas', 'chevron-right'
-
-          %ul.mypage-content-edit__history
-            %li.mypage-content-edit__history-prev
-              = link_to '#' do
-                = icon 'fas', 'chevron-right'
-            %li.mypage-content-edit__history-next
-              = link_to '#' do
-                = icon 'fas', 'chevron-right'
+                  - if product.status_id == 1
+                    .mypage-content-edit__item-status.mypage-content-edit__item-status--on-display
+                      出品中
+                  - elsif product.status_id == 2
+                    .mypage-content-edit__item-status.mypage-content-edit__item-status--on-display
+                      交渉中
+                  - else product.status_id == 3
+                    .mypage-content-edit__item-status.mypage-content-edit__item-status--done
+                      出品停止中
       - else
         .mypage-content-edit__tab-content
           %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
             %li.mypage-content-edit__item-not-found
               出品中の商品がありません
+
+      %ul.mypage-content-edit__history
+        %li.mypage-content-edit__history-prev
+          = link_to '#' do
+            = icon 'fas', 'chevron-right'
+        %li.mypage-content-edit__history-next
+          = link_to '#' do
+            = icon 'fas', 'chevron-right'
                               
     = render 'mypage/side-bar'
   = render 'sell/footer'
