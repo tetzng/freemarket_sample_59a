@@ -84,9 +84,8 @@ class User < ApplicationRecord
         # providerから取得したアドレスがすでに登録されているか確認
       user = User.find_by(uid: uid, provider: provider)
         # providerから登録しているアドレスですでに登録されている時
-      if user 
+      if user
         return user
-        
         # 登録されていない時
       else
           # パスワードをユーザのtoken(4文字)とuid(4文字)から作成
