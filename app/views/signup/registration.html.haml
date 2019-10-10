@@ -12,7 +12,7 @@
             - if @user.errors.full_messages_for(:nickname).any?
               = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎', value: session[:nickname] }
             - else
-              = f.text_field :nickname, { class: 'signup-main__input-default', placeholder: '例) メルカリ太郎' }
+              = f.text_field :nickname, { class: 'signup-main__input-default', placeholder: '例) メルカリ太郎', value: session[:nickname] }
             %ul.signup-main__has-error-text
             =  render partial: 'error-messages', locals: { user: @user, column: "nickname"}
 
