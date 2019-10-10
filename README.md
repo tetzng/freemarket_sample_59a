@@ -66,11 +66,7 @@ AnythingAnythingAnything
 |phone_num|string|null: false|
 |authentication_num|integer|null: false|
 |content|text|
-|zip_code1|string|null: false|
-|prefecture_id|integer|null: false|
-|city|string|null: false|
-|address1|string|
-|address2|string|
+|address|references|null: false, foreign_key: true|
 |telephone|string|
 
 ### Association
@@ -80,7 +76,20 @@ AnythingAnythingAnything
 - belongs_to_active_hash :prefecture
 - has_many :products
 - has_one :card
+- has_one :address
 
+
+## Addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|zip_code1|string|null: false|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|address1|string|
+|address2|string|
+
+### Association
+- belongs_to :user
 
 ## Productsテーブル
 |Column|Type|Options|
