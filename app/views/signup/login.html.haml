@@ -7,11 +7,13 @@
         = link_to '/signup/' do
           新規会員登録
       .signup-main__login-form-inner
-        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'facebook-login' }
-          = icon 'fab', 'facebook-square'
-          Facebookでログイン
-        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'google-login' }
-          Googleでログイン
+        = link_to user_facebook_omniauth_authorize_path, method: :post do
+          %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'facebook-login' }
+            = icon 'fab', 'facebook-square'
+            Facebookでログイン  
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+          %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'google-login' }
+            Googleでログイン
       %form{ action: '/login/', method: 'POST', novalidate: 'novalidate' }
         .signup-main__login-form-inner
           .signup-main__form-group

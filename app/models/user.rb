@@ -2,16 +2,57 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [ :facebook, :google_oauth2 ] 
+
+  belongs_to :user
+  has_many :shopping_origin_addresses
+  has_many :products
+  has_one :card
+
+  def self.find_for_oauth(auth)
+  uid = auth.uid
+  provider = auth.uid
+  sns = User.where(uid: uid, provider: provider).first
+  if sns.present?
+    @user = User.where(:id)
+  else 
+    # providerから取得したアドレスがすでに登録されているか確認
+    user = User.where(email: auth.info.email).first
+    if user.present? # 最初(providerに登録しているアドレスですでに登録されている時)
+      User.create(
+        uid: uid,
+        provider: provider,
+        user_id: user.id)
+    else  # 最初(登録されていない時)
+      password = Devise.friendly_token[0, 20]
+      user = User.new(
+        nickname: auth.info.name,
+        email:    auth.info.email,
+        password: password,
+        password_confirmation: password,
+        uid: uid,
+        provider: provider,
+        token: auth.credentials.token
+        )
+    end
+  end
+  return user
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :birth_yyyy
     belongs_to_active_hash :birth_mm
     belongs_to_active_hash :birth_dd
     belongs_to_active_hash :prefecture
     belongs_to_active_hash :paymentyear
-    belongs_to_active_hash :paymentmonth
-  has_many :products
-  has_one :card
+    belongs_to_active_hash :paymentmonth   
+  
+  # has_many :shopping_origin_addresses
+  # has_many :products
+  # has_many :puchases
+  # has_many :comments
+  # has_one_attached :avatar
+  # has_many :likes, through: :like_users
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
@@ -47,6 +88,8 @@ class User < ApplicationRecord
   validates :prefecture_id, presence: true, numericality: { only_integer: true, less_than: 49 }
   validates :city, presence: true, length: { maximum: 50 }
   validates :address1, presence: true, length: { maximum: 100 }
+  validates :address2, length: { maximum: 100 }
+  validates :telephone, length: { maximum: 8 }
 
 #signup/credit_card
   validates :payment_card_no, presence: true, length: { maximum: 16 }, numericality: { only_integer: true }
@@ -65,5 +108,48 @@ class User < ApplicationRecord
   # yyyy/mm/dd の形式で表示
   def birthday
     "#{BirthYyyy.find(self.birth_yyyy_id).year}/#{BirthMm.find(self.birth_mm_id).month}/#{BirthDd.find(self.birth_dd_id).day}"
+  end
+  validates :payment_card_security_code, presence: true, length: { maximum: 4 }
+
+#SNS認証
+  # validates :provider, presence: true
+  # validate :add_error_sample
+
+  # def add_error_sample
+  #   # nameが空のときにエラーメッセージを追加する
+  #   if provider.empty?
+  #     errors.add(:provider, "登録情報はありません")
+  #   end
+  # end
+
+
+  protected
+
+  def self.find_for_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+        # providerから取得したアドレスがすでに登録されているか確認
+      user = User.find_by(uid: uid, provider: provider)
+        # providerから登録しているアドレスですでに登録されている時
+      if user 
+        return user
+        
+        # 登録されていない時
+      else
+          # パスワードをユーザのtoken(4文字)とuid(4文字)から作成
+        first_password = auth.credentials.token.to_s
+        second_password = uid.to_s
+        password = first_password[0, 4] + second_password[0, 4]
+        user = User.new(
+          nickname: auth.info.name,
+          email:    auth.info.email,
+          password: password,
+          password_confirmation: password,
+          uid: uid,
+          provider: provider,
+          token: auth.credentials.token
+          )
+        end
+    return user
   end
 end

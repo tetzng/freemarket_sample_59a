@@ -1,7 +1,5 @@
 FactoryBot.define do
-
   factory :user do
-  
     nickname {"abe"}
     email {"494a98sc8d@yahoo.co.jp"}
     password {"a111111"}
@@ -16,7 +14,7 @@ FactoryBot.define do
     phone_num {"08012345678"}
     authentication_num {1234}
     zip_code1 {"111-1111"}
-    prefecture_id {"1"}
+    prefecture_id {"福岡"}
     city {"福岡"}
     address1 {"中央区"}
     payment_card_no {1020304050607080}
@@ -38,5 +36,4 @@ FactoryBot.define do
     # id {1} 
     # email {"aaa@aaa"}
   end
-
 end

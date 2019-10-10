@@ -10,34 +10,36 @@
             = f.label 'ニックネーム'
             %span.signup-main__form-require 必須
             - if @user.errors.full_messages_for(:nickname).any?
-              = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎' }
+              = f.text_field :nickname, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) メルカリ太郎', value: session[:nickname] }
             - else
-              = f.text_field :nickname, { class: 'signup-main__input-default', placeholder: '例) メルカリ太郎' }
+              = f.text_field :nickname, { class: 'signup-main__input-default', placeholder: '例) メルカリ太郎', value: session[:nickname] }
+            %input.signup-main__input-default.signup-main__input-default--has-error{ type: 'text', name: 'nickname', placeholder: '例) メルカリ太郎', value: session[:nickname] }
             %ul.signup-main__has-error-text
             =  render partial: 'error-messages', locals: { user: @user, column: "nickname"}
           .signup-main__form-group
             = f.label 'メールアドレス'
             %span.signup-main__form-require 必須
             - if @user.errors.full_messages_for(:email).any?
-              = f.email_field :email, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: 'PC・携帯どちらでも可' }
+              = f.email_field :email, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: 'PC・携帯どちらでも可', value: session[:email] }
             - else
-              = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可' }
+              = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可', value: session[:email] }
             =  render partial: 'error-messages', locals: { user: @user, column: "email"}
+          %input{ type: 'hidden', name: 'login_type' }
           .signup-main__form-group
             = f.label 'パスワード'
             %span.signup-main__form-require 必須
             - if @user.errors.full_messages_for(:password).any?
-              = f.password_field :password, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上' }
+              = f.password_field :password, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上', value: session[:password] }
             - else
-              = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
+              = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上', value: session[:password] }
             =  render partial: 'error-messages', locals: { user: @user, column: "password"}
           .signup-main__form-group
             = f.label 'パスワード (確認)'
             %span.signup-main__form-require 必須
             - if @user.errors.full_messages_for(:password_confirmation).any?
-              = f.password_field :password_confirmation, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上' }
+              = f.password_field :password_confirmation, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '7文字以上', value: session[:password] }
             - else
-              = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上' }
+              = f.password_field :password_confirmation, { class: 'signup-main__input-default', placeholder: '7文字以上', value: session[:password] }
             =  render partial: 'error-messages', locals: { user: @user, column: "password_confirmation"}
           .signup-main__form-group
             %h3.signup-main__sub-head

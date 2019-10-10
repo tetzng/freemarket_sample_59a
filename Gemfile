@@ -44,10 +44,12 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem 'factory_bot_rails'
-  # validation gem
-  gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'pry-byebug', '>=3.7.0'
+  gem 'pry-doc', '>=1.0.0'
+  # バリデーションのテストを行うためのgem
 end
 
 group :development do
@@ -80,8 +82,17 @@ gem 'font-awesome-sass', '>=5.11.1'
 gem "gretel"
 gem 'haml-rails'
 gem 'jquery-rails'
+
 # クレジットカード決済
 gem 'payjp'
+# SNS認証
+gem 'omniauth', '>=1.9.0'
+# Facebook認証
+gem 'omniauth-facebook', '>=5.0.0'
+# Google認証
+gem 'omniauth-google-oauth2', '>=0.8.0'
+# omniauthの脆弱性対応
+gem 'omniauth-rails_csrf_protection', '>=0.1.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # s3に画像アップロード
 gem "aws-sdk-s3", require: false
