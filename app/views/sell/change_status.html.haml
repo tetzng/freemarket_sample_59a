@@ -90,8 +90,8 @@
             %td
               = @delivery_days.value
     .item-edit-content__price
-      %span.item-edit-content__bold
-        ¥#{@product.price}
+      %span.item-edit-content__bold<
+        = @product.jpy
       %span.item-edit-content__tax (税込)
       %span.item-edit-content__fee
       - if @product.delivery_charge_id == '1'
