@@ -1,4 +1,7 @@
 class SignupController < ApplicationController
+  require 'payjp'
+  Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+
   def index
   end
 
@@ -42,12 +45,6 @@ class SignupController < ApplicationController
       address1: "南区",
       address2: "",
       telephone: "",
-      payment_card_no: "00000000",
-      # {id: 1, num: '01'} から、クレカ有効期限01月を呼び出している
-      paymentmonth_id: "1",
-      # { id: 1, num: '19' },から、クレカ有効期限19年を呼び出している
-      paymentyear_id: "1",
-      payment_card_security_code: "111"
     )
     render '/signup/registration' unless @user.valid?
   end
@@ -74,10 +71,6 @@ class SignupController < ApplicationController
       address1: "南区",
       address2: "",
       telephone: "",
-      payment_card_no: "00000000",
-      paymentmonth_id: "1",
-      paymentyear_id: "1",
-      payment_card_security_code: "111"
     )
     render '/signup/sms_confirmation' unless @user.valid?
   end
@@ -104,15 +97,11 @@ class SignupController < ApplicationController
     address1: "南区",
     address2: "",
     telephone: "",
-    payment_card_no: "00000000",
-    paymentmonth_id: "1",
-    paymentyear_id: "1",
-    payment_card_security_code: "111",
     )
-    render '/signup/sms_confirmation_sms' unless @user.valid?
+    render '/signup/address' unless @user.valid?
   end
 
-  def credit_card
+  def prefecture
     session[:last_name] = user_params[:last_name]
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
@@ -144,53 +133,19 @@ class SignupController < ApplicationController
     address1: user_params[:address1],
     address2: user_params[:address2],
     telephone: user_params[:telephone],
-    payment_card_no: "00000000",
-    paymentmonth_id: "1",
-    paymentyear_id: "1",
-    payment_card_security_code: "111",
     )
-    render '/signup/address' unless @user.valid?
-  end
-
-  def create
-    session[:payment_card_no] = user_params[:payment_card_no]
-    session[:paymentmonth_id] = user_params[:paymentmonth_id]
-    session[:paymentyear_id] = user_params[:paymentyear_id]
-    session[:payment_card_security_code] = user_params[:payment_card_security_code]
-    @user = User.new(
-    nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-    email: session[:email],
-    password: session[:password],
-    password_confirmation: session[:password_confirmation],
-    last_name: session[:last_name],
-    first_name: session[:first_name],
-    last_name_kana: session[:last_name_kana],
-    first_name_kana: session[:first_name_kana],
-    birth_yyyy_id: session[:birth_yyyy_id],
-    birth_mm_id: session[:birth_mm_id],
-    birth_dd_id: session[:birth_dd_id],
-    phone_num: session[:phone_num],
-    authentication_num: session[:authentication_num],
-    zip_code1: session[:zip_code1],
-    prefecture_id: session[:prefecture_id],
-    city: session[:city],
-    address1: session[:address1],
-    address2: session[:address2],
-    telephone: session[:telephone],
-    payment_card_no: session[:payment_card_no],
-    paymentmonth_id: session[:paymentmonth_id],
-    paymentyear_id: session[:paymentyear_id],
-    payment_card_security_code: session[:payment_card_security_code]
-    )
+    render '/signup/prefecture' unless @user.valid?
     if @user.save
-    # ログインするための情報を保管
       session[:id] = @user.id
-      redirect_to signup_done_path
+      redirect_to signup_credit_card_path
     else
-      render '/signup/credit_card'
+      render '/signup/prefecture'
     end
   end
 
+  def credit_card
+  end
+  
   def pay #payjpとCardのデータベース作成を実施します。
     if params['payjp-token'].blank?
       redirect_to action: 'new'
@@ -198,7 +153,7 @@ class SignupController < ApplicationController
       customer = Payjp::Customer.create(
       card: params['payjp-token']
       )
-      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Card.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: 'done'
       else
@@ -234,10 +189,6 @@ private
       :address1,
       :address2,#任意
       :telephone,#任意
-      :payment_card_no,
-      :paymentmonth_id,
-      :paymentyear_id,
-      :payment_card_security_code
     )
   end
 end
