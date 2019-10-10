@@ -42,12 +42,6 @@ class SignupController < ApplicationController
       address1: "南区",
       address2: "",
       telephone: "",
-      payment_card_no: "00000000",
-      # {id: 1, num: '01'} から、クレカ有効期限01月を呼び出している
-      paymentmonth_id: "1",
-      # { id: 1, num: '19' },から、クレカ有効期限19年を呼び出している
-      paymentyear_id: "1",
-      payment_card_security_code: "111"
     )
     render '/signup/registration' unless @user.valid?
   end
@@ -74,10 +68,6 @@ class SignupController < ApplicationController
       address1: "南区",
       address2: "",
       telephone: "",
-      payment_card_no: "00000000",
-      paymentmonth_id: "1",
-      paymentyear_id: "1",
-      payment_card_security_code: "111"
     )
     render '/signup/sms_confirmation' unless @user.valid?
   end
@@ -104,10 +94,6 @@ class SignupController < ApplicationController
     address1: "南区",
     address2: "",
     telephone: "",
-    payment_card_no: "00000000",
-    paymentmonth_id: "1",
-    paymentyear_id: "1",
-    payment_card_security_code: "111",
     )
     render '/signup/sms_confirmation_sms' unless @user.valid?
   end
@@ -144,19 +130,12 @@ class SignupController < ApplicationController
     address1: user_params[:address1],
     address2: user_params[:address2],
     telephone: user_params[:telephone],
-    payment_card_no: "00000000",
-    paymentmonth_id: "1",
-    paymentyear_id: "1",
-    payment_card_security_code: "111",
     )
     render '/signup/address' unless @user.valid?
   end
 
   def create
-    session[:payment_card_no] = user_params[:payment_card_no]
-    session[:paymentmonth_id] = user_params[:paymentmonth_id]
-    session[:paymentyear_id] = user_params[:paymentyear_id]
-    session[:payment_card_security_code] = user_params[:payment_card_security_code]
+
     @user = User.new(
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
@@ -177,10 +156,6 @@ class SignupController < ApplicationController
     address1: session[:address1],
     address2: session[:address2],
     telephone: session[:telephone],
-    payment_card_no: session[:payment_card_no],
-    paymentmonth_id: session[:paymentmonth_id],
-    paymentyear_id: session[:paymentyear_id],
-    payment_card_security_code: session[:payment_card_security_code]
     )
     if @user.save
     # ログインするための情報を保管
