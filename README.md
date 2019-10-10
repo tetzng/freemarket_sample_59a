@@ -33,7 +33,7 @@
 
 ## Author
 
-[@tetzng](https://twitter.com/tp_237_335)
+[@tetzng](https://twitter.com/tp_237)
 [@yuuspe]()
 [@kurachitoshiaki]()
 [@seicode]()
