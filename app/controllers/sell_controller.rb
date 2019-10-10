@@ -44,6 +44,7 @@ class SellController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @size = Size.find(@product.size_id)
+    @images_length = @product.images.length
   end
 
   def update
