@@ -59,7 +59,7 @@ class SellController < ApplicationController
   def destroy
     if @product.user_id == current_user.id
       @product.destroy
-      redirect_to mypage_listing_path
+      redirect_to mypage_listing_listing_path
     else
       redirect_to edit_sell_path
     end
