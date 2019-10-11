@@ -61,31 +61,29 @@
                         = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { include_blank: '--', selected: "#{@bigcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, Category.where(sub: "#{@smallcategory.sub}", sub_sub: '0'), :id, :name, { include_blank: '--', selected: "#{@category.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                        = f.collection_select :category_id, Category.where(sub: "#{@smallcategory.sub}", sub_sub: '0'), :id, :name, { include_blank: '--', selected: "#{@category.id}" }, class: 'sell-main__select-default'
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, Category.where(sub_sub: "#{@smallcategory.sub_sub}" ), :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                        = f.collection_select :category_id, Category.where(sub_sub: "#{@smallcategory.sub_sub}" ), :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default'
                       #sell-main__form-group--size.sell-main__form-group
-                        - if @size.group != ''
+                        - if @size != ''
                           %label{for: "product_size"}
                             サイズ
                             %span.sell-main__form-require 必須
                           .sell-main__select-wrap
                             %i.fas.fa-chevron-down
-                            = f.collection_select :size_id, Size.where(group: "#{@size.group}"), :id, :value, { include_blank: '--', selected: "#{@product.size_id}"  }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                            = f.collection_select :size_id, Size.where(group: "#{@size.group}"), :id, :value, { include_blank: '--', selected: "#{@product.size_id}"  }, class: 'sell-main__select-default'
                           %ul.sell-main__has-error-text
                         - else
                           = f.hidden_field :size_id, value: '99'
                       #sell-main__form-group--brand.sell-main__form-group.sell-main__form-suggest-container
-                        %label{for: "product_brand"}
+                        = f.label :brand do
                           ブランド
                           %span.sell-main__form-arbitrary 任意
                         %div
-                          %input#product_brand.sell-main__input-default{name: @product.brand, placeholder: "例）シャネル", type: "text"}/
+                          = f.text_field :brand, { class: 'sell-main__input-default', placeholder: '例）シャネル' }
                         %div
                         %ul.sell-main__has-error-text
-
-
                     =  render partial: 'error-messages', locals: {product: @product, column: ' category_id'}
                   .sell-main__form-group
                     = f.label :condition do
