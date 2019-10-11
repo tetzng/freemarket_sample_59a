@@ -12,6 +12,10 @@ class SellController < ApplicationController
   # ユーザー情報
   before_action :set_user, only: [:show, :edit]
   before_action :authenticate_user!, except: [:index, :show]
+  # ログインチェック
+  before_action :move_to_sign_in, except: [:index, :show]
+  # 本人のみ操作可能
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @products = Product.all
@@ -38,6 +42,9 @@ class SellController < ApplicationController
   end
 
   def show
+    @my_product = Product.where(user_id: params[:id])
+    @next_product = Product.where("id > ?", @product.id).order("id ASC").first
+    @prev_product = Product.where("id < ?", @product.id).order("id DESC").first
   end
 
   def edit
@@ -109,5 +116,16 @@ class SellController < ApplicationController
 
   def set_user
     @user = User.find(@product.user_id)
+  end
+
+  def correct_user
+    @product = Product.find(params[:id])
+    if @product.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def move_to_sign_in
+    redirect_to signup_path unless user_signed_in?
   end
 end
