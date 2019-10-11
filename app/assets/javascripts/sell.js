@@ -65,6 +65,12 @@ $(document).on('turbolinks:load', function(){
     let subOptionHTML =`<option value="${category.id}", data-size-id="${category.size}", data-brand-id="${category.brand}">${category.name}</option>`;
     $(appendWrap).children('select').append(subOptionHTML);
   }
+  function attrCustomData(category, appendWrap, index){
+    $(appendWrap).children('select').children(`option:nth-child(${index + 2})`).attr({
+      'data-size-id': category.size,
+      'data-brand-id': category.brand,
+    });
+  }
 
   const categoryWrapper = '#sell-main__select-category--wrapper';
   const mainCategory = '#sell-main__select-category--main';
@@ -129,7 +135,33 @@ $(document).on('turbolinks:load', function(){
     .fail(function(){
       alert('カテゴリー検索に失敗しました');
     });
-  });
+  })
+
+  // 編集時、カテゴリー追加
+    $(document).ready(function(){
+      let sub = $(mainCategory).val();
+      let sub_sub = $(subCategory).children('select').val();
+
+      $.ajax({
+        type: "GET",
+        url: '/sell/new',
+        data: { sub: sub, sub_sub: sub_sub },
+        dataType: 'json'
+      })
+
+      .done(function(categories){
+        if(sub != ''){
+          categories.forEach(function(category, index){
+            attrCustomData(category, subSubCategory, index);
+          });
+        }
+      })
+      .fail(function(){
+        alert('カテゴリー編集に失敗しました');
+      });
+    });
+  
+
   const priceInput = '#sell-main__price-input';
   const feeFeild = '#sell-main__fee';
   const profitFeild = '#sell-main__profit';
