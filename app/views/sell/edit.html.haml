@@ -58,13 +58,13 @@
                     %div{ id: 'sell-main__select-category--wrapper' }
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, @bigcategory, :id, :name, { include_blank: '--', selected: "#{@bigcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                        = f.collection_select :category_id, @main_category, :id, :name, { include_blank: '--', selected: "#{@bigcategory.id}" }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, @category, :id, :name, { include_blank: '--', selected: "#{@category.id}" }, class: 'sell-main__select-default'
+                        = f.collection_select :category_id, @sub_category, :id, :name, { include_blank: '--', selected: "#{@category.id}" }, class: 'sell-main__select-default'
                       .sell-main__select-wrap
                         %i.fas.fa-chevron-down
-                        = f.collection_select :category_id, @smallcategory, :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default'
+                        = f.collection_select :category_id, @sub_sub_category, :id, :name, { include_blank: '--', selected: "#{@smallcategory.id}" }, class: 'sell-main__select-default'
                   #sell-main__form-group--size.sell-main__form-group
                     - if @size.group != ''
                       %label{for: "product_size"}
