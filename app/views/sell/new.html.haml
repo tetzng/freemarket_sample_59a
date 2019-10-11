@@ -22,8 +22,8 @@
                             %pre.sell-main__visible-pc
                               ドラッグアンドドロップ
                               またはクリックしてファイルをアップロード
-                            %i.fas.fa-camera
-                  = render partial: 'error-messages', locals: { product: @product, column: 'images'}
+                            %i.fas.fa-camera         
+              = render partial: 'error-messages', locals: { product: @product, column: 'images'}
               .sell-main__content
                 .sell-main__form-group
                   = f.label :name do
