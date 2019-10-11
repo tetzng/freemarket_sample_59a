@@ -1,24 +1,16 @@
 class SellController < ApplicationController
-  # 商品情報
   before_action :set_product, only: [:show, :edit]
   before_action :set_mypage_product, only: [:change_status]
-  # カテゴリー
   before_action :set_category, only: [:show, :edit, :change_status]
-  # 商品状態
   before_action :set_condition, only: [:show, :edit, :change_status]
-  # 配送元地域
   before_action :set_prefecture, only: [:show, :edit, :change_status]
-  # 発送日目安、配送方法、配送料の負担
   before_action :set_delivery, only: [:show, :edit, :change_status]
-  # ユーザー情報
   before_action :set_user, only: [:show, :edit, :change_status]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @products = Product.all
     @category = Category.all
-    # last_product_id = params[:last_id].to_i
-    # @m = where("id > #{last_product_id}") 
   end
 
   def new
@@ -62,16 +54,6 @@ class SellController < ApplicationController
   end
 
   def change_status
-    # @product = Product.find(params[:mypage_id])
-    # @smallcategory = Category.find(@product.category_id)
-    # @category = Category.find(Category.find(@product.category_id).sub_sub)
-    # @bigcategory = Category.find(Category.find(@product.category_id).sub)
-    # @condition = Condition.find(@product.condition_id)
-    # @prefecture = Prefecture.find(@product.prefecture_id)
-    # @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
-    # @delivery_way = DeliveryWay.find(@product.delivery_way_id)
-    # @delivery_days = DeliveryDays.find(@product.delivery_days_id)
-    # @user = User.find(@product.user_id)
   end
 
   private
@@ -79,34 +61,41 @@ class SellController < ApplicationController
     params.require(:product).permit( :name, :description, :category_id, :condition_id, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price, images: []).merge(user_id: current_user.id)
   end
 
+  # 商品情報
   def set_product
     @product = Product.find(params[:id])
   end
 
+  # 商品情報編集
   def set_mypage_product
     @product = Product.find(params[:mypage_id])
   end
 
+  # カテゴリー
   def set_category
     @smallcategory = Category.find(@product.category_id)
     @category = Category.find(Category.find(@product.category_id).sub_sub) unless Category.find(@product.category_id).sub_sub == '0'
     @bigcategory = Category.find(Category.find(@product.category_id).sub)
   end
 
+  # 商品状態
   def set_condition
     @condition = Condition.find(@product.condition_id)
   end
 
+  # 配送元地域
   def set_prefecture
     @prefecture = Prefecture.find(@product.prefecture_id)
   end
 
+  # 発送日目安、配送方法、配送料の負担
   def set_delivery
     @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
     @delivery_way = DeliveryWay.find(@product.delivery_way_id)
     @delivery_days = DeliveryDays.find(@product.delivery_days_id)
   end
-
+  
+ # ユーザー情報
   def set_user
     @user = User.find(@product.user_id)
   end
