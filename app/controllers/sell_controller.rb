@@ -28,7 +28,7 @@ class SellController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      render '/sell/new'
+      render '/sell/new' unless @product.valid?
     end
   end
 
