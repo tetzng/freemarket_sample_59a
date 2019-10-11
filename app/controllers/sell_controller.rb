@@ -1,5 +1,6 @@
 class SellController < ApplicationController
-  before_action :set_product, only: [:show, :edit]
+
+  before_action :set_product, only: [:show, :edit, :destroy]
   before_action :set_mypage_product, only: [:change_status]
   before_action :set_category, only: [:show, :edit, :change_status]
   before_action :set_condition, only: [:show, :edit, :change_status]
@@ -7,6 +8,10 @@ class SellController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :change_status]
   before_action :set_user, only: [:show, :edit, :change_status]
   before_action :authenticate_user!, except: [:index, :show]
+  # ログインチェック
+  before_action :move_to_sign_in, except: [:index, :show]
+  # 本人のみ操作可能
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @products = Product.all
@@ -29,9 +34,13 @@ class SellController < ApplicationController
     else
       render '/sell/new'
     end
+    
   end
 
   def show
+    @my_product = Product.where(user_id: params[:id])
+    @next_product = Product.where("id > ?", @product.id).order("id ASC").first
+    @prev_product = Product.where("id < ?", @product.id).order("id DESC").first
   end
 
   def edit
@@ -54,6 +63,15 @@ class SellController < ApplicationController
   end
 
   def change_status
+  end
+
+  def destroy
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to mypage_listing_listing_path
+    else
+      redirect_to edit_sell_path
+    end
   end
 
   private
@@ -98,5 +116,16 @@ class SellController < ApplicationController
  # ユーザー情報
   def set_user
     @user = User.find(@product.user_id)
+  end
+
+  def correct_user
+    @product = Product.find(params[:id])
+    if @product.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def move_to_sign_in
+    redirect_to signup_path unless user_signed_in?
   end
 end

@@ -1,6 +1,25 @@
 .item-edit-container
   = render 'sell/header'
   %section.item-edit-content
+    .item-edit-content__delete{ id: 'item-edit-content__delete-confirm' }
+      .item-edit-content__delete-upper
+        .item-edit-content__delete-upper-body
+          .item-edit-content__delete-bold
+            %ib 確認
+          削除すると二度と復活できません。
+          %br/
+          削除する代わりに停止することもできます。
+          %br/
+          %br/
+          本当に削除しますか？
+        .item-edit-content__delete-bold-button
+          .item-edit-content__delete-bold-button-cancel
+            %button.btn-default-cancel{ type: 'submit', id: 'delete-button-cancel' }
+              キャンセル
+          .item-edit-content__delete-bold-button-submit
+            %a
+            = link_to '削除する', mypage_sell_path(id: @product.id), method: :delete
+
     %h1.item-edit-content__name
       = @product.name
     .item-edit-content__clearfix
@@ -71,8 +90,8 @@
             %td
               = @delivery_days.value
     .item-edit-content__price
-      %span.item-edit-content__bold
-        ¥#{@product.price}
+      %span.item-edit-content__bold<
+        = @product.jpy
       %span.item-edit-content__tax (税込)
       %span.item-edit-content__fee
       - if @product.delivery_charge_id == '1'
@@ -89,7 +108,8 @@
       %p.text-center or
       %form{action: '/jp/items/deactivate/m23957564102/', method: 'POST', novalidate: 'novalidate'}
         %button.btn-default.btn-gray{type: 'submit'} 出品を一旦停止する
-      %button.btn-default.btn-gray{'data-modal': 'delete-item', 'data-open': 'modal'}
+      %button.btn-default.btn-gray{type: 'submit', id: 'delete-button'}
         この商品を削除する
   = render 'sell/bread-bottom'
   = render 'sell/footer'
+

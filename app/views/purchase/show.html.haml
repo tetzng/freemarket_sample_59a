@@ -27,7 +27,7 @@
                 .buydetails-content__pricecell
                   %span.buydetails-content__datapay
                     = @product.jpy
-            .buydetails-content__text 配送先と支払方法の入力を完了してください。
+            .buydetails-content__text
             = form_tag(action: :pay, method: :post) do
               %button.buydetails-content__btn 購入する
       %section.buydetails-content__info
@@ -50,7 +50,7 @@
             %br /
           - else
             -#以下カード情報を表示
-            = "**** **** **** " + @default_card_information.last4
+            **** **** **** #{@default_card_information.last4}
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
