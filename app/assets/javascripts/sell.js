@@ -69,8 +69,6 @@ $(document).on('turbolinks:load', function(){
     $(appendWrap).children('select').children(`option:nth-child(${index + 2})`).attr({
       'data-size-id': category.size,
       'data-brand-id': category.brand,
-      'data-name': category.name,
-      'data-id': index.id
     });
   }
 
