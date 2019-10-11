@@ -18,7 +18,7 @@ class SellController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @products = Product.where(status_id:(1))
+    @products = Product.all
     @category = Category.all
   end
 

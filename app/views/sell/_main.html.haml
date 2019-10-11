@@ -61,6 +61,14 @@
                   %span
                     = product.jpy
                   = image_tag product.images[0], size: '188x252'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name
     .toppage-main__category-name
@@ -77,6 +85,14 @@
                   %span
                     = product.jpy
                   = image_tag product.images[0], resize: '188x188'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name
     .toppage-main__category-name
@@ -93,6 +109,14 @@
                   %span
                     = product.jpy
                   = image_tag product.images[0], resize: '188x188'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name
     .toppage-main__category-name
@@ -109,5 +133,13 @@
                   %span
                     = product.jpy
                   = image_tag product.images[0], resize: '188x188'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name
