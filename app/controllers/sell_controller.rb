@@ -14,7 +14,7 @@ class SellController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @products = Product.all
+    @products = Product.limit(10).order('created_at DESC')
     @category = Category.all
   end
 

@@ -54,7 +54,7 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
@@ -78,7 +78,7 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
@@ -102,7 +102,7 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
@@ -126,7 +126,7 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
