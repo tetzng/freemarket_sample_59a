@@ -138,6 +138,7 @@ $(document).on('turbolinks:load', function(){
   })
 
   // 編集時、カテゴリー追加
+  if(document.URL.match(/edit/)) { 
     $(document).ready(function(){
       let sub = $(mainCategory).val();
       let sub_sub = $(subCategory).children('select').val();
@@ -160,6 +161,7 @@ $(document).on('turbolinks:load', function(){
         alert('カテゴリー編集に失敗しました');
       });
     });
+  }
   
 
   const priceInput = '#sell-main__price-input';
