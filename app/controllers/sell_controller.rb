@@ -14,10 +14,8 @@ class SellController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @products = Product.all
+    @products = Product.limit(10).order('created_at DESC')
     @category = Category.all
-    # last_product_id = params[:last_id].to_i
-    # @m = where("id > #{last_product_id}") 
   end
 
   def new
