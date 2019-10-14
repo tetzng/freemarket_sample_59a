@@ -105,22 +105,8 @@
             .clearfix
           %p.signup-main__form-info-text
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          !!!
-          %html
-            %head
-              %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}/
-              %title reCAPTCHA demo: Simple page
-              %script{ async: '', defer: 'defer', src: 'https://www.google.com/recaptcha/api.js'}
-              :javascript
-                function validateRecaptcha ( code ) {
-                  if ( !!code ) {
-                    var form = document.querySelector('.recaptcha');
-                    form.removeAttribute('disabled');
-                  }
-                }
-            %body
-              %form{ action: "?", method: "POST"}
-                .g-recaptcha{ 'data-callback': 'validateRecaptcha', 'data-sitekey': '6LemFb0UAAAAAH5iGLiV4b6RNMaA8PaTBeJBWlpc'}
+            %form{ action: "?", method: "POST"}
+              .g-recaptcha{ 'data-callback': 'validateRecaptcha', 'data-sitekey': '6LemFb0UAAAAAH5iGLiV4b6RNMaA8PaTBeJBWlpc'}
           .signup-main__form-group
             %p.signup-main__text.signup-main__text--center
               「次へ進む」のボタンを押すことにより、
