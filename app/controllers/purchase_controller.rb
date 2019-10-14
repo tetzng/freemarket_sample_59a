@@ -3,6 +3,7 @@ class PurchaseController < ApplicationController
   before_action :set_user, only: [:show, :done]
   before_action :address_info, only: [:done]
   before_action :full_name, only: [:done]
+  before_action :authenticate_user!
 
   require 'payjp'
   Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
