@@ -39,7 +39,7 @@
               = @address_info
             %br
               = @full_name
-          = link_to '/', class: 'buydetails-content__fix' do
+          = link_to identification_mypage_index_path, class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'
       %section.buydetails-content__info{ id: 'buydetails-bottom' }
@@ -55,7 +55,7 @@
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
           %br
-          = link_to '/', class: 'buydetails-content__fix' do
+          = link_to new_card_path, class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'
   = render 'signup/footer'
