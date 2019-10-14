@@ -28,7 +28,7 @@
               .mypage-content-edit__item-body
                 = icon 'fas', 'chevron-right', class: 'mypage-content-edit__item-status--right-arrow'
                 .mypage-content-edit__item-text
-                  #{product.name} 
+                  #{product.name}
                 .mypage-content-edit__item-status.mypage-content-edit__item-status--done
                   売約済
               = icon 'fas', 'chevron-right'
@@ -37,7 +37,6 @@
           %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
             %li.mypage-content-edit__item-not-found
               売却済みの商品がありません
-
       %ul.mypage-content-edit__history
         %li.mypage-content-edit__history-prev
           = link_to '#' do
@@ -45,7 +44,6 @@
         %li.mypage-content-edit__history-next
           = link_to '#' do
             = icon 'fas', 'chevron-right'
-                              
     = render 'mypage/side-bar'
   = render 'sell/footer'
   = render 'sell/sellbutton'

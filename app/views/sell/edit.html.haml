@@ -158,6 +158,6 @@
               .sell-main__modal{ role: 'dialog', abindex: '-1' }
                 .sell-main__modal-inner
               .sell-main__content.sell-main__btn-box
-                = f.submit class: 'sell-main__btn-default sell-main__btn-red', value: '変更する'
+                = f.submit '変更する', class: 'sell-main__btn-default sell-main__btn-red'
                 = link_to 'キャンセル', root_path, class: 'sell-main__btn-default sell-main__btn-gray'
   = render 'signup/footer'
