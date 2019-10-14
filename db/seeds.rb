@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 [
-  ['購入テスト', 'buy@test.com', 'hoge1234', 'hoge1234', '田中', '太郎', 'タナカ', 'タロウ', 30, 4, 3, '09012345678', 1234, '123-4567', '13', '渋谷区', '渋谷1-1-1', '', '' ],
+  ['購入テスト', 'buy@test.com', 'hoge1234', 'hoge1234', '田中', '太郎', 'タナカ', 'タロウ', 30, 4, 3, '09012345678', 1234, '123-4567', '13', '渋谷区', '渋谷1-1-1', '', ''],
   ['出品テスト', 'sell@test.com', 'hoge1234', 'hoge1234', '河本', '優那', 'カワモト', 'ユウナ', 43, 1, 27, '08047948027', 1234, '870-1159', '44', '大分市', '宗方台北3-20-1', '宗方台北ステーション413', '097180403'],
   ['ルドルフ', 'test3@test.com', 'hoge1234', 'hoge1234', '池本', '政志', 'イケモト', 'マサシ', 58, 10, 19, '09066463279', 1234, '333-0865', '11', '川口市', '伊刈3-3', '', '0474516116'],
   ['ブーフヴァルト', 'test4@test.com', 'hoge1234', 'hoge1234', '藤川', '凪歩', 'フジカワ', 'ナギホ', 45, 5, 29, '09070416223', 1234, '492-8122', '23', '稲沢市', '治郎丸元町1-2-9', '治郎丸元町タウン104', '0567386465'],
@@ -38,8 +38,7 @@
   ['ルベール', 'test30@test.com', 'hoge1234', 'hoge1234', '酒井', '正徳', 'サカイ', 'マサノリ', 54, 6, 28, '09028662100', 1234, '763-0031', '37', '丸亀市', '城南町1-17-12', '', '0874935907']
 ].each do |nickname, email, password, password_confirmation, last_name, first_name, last_name_kana, first_name_kana, birth_yyyy_id, birth_mm_id, birth_dd_id, phone_num, authentication_num, zip_code1, prefecture_id, city, address1, address2, telephone|
   User.create!(
-    {
-      nickname: nickname,
+    { nickname: nickname,
       email: email,
       password: password,
       password_confirmation: password_confirmation,
