@@ -114,7 +114,7 @@
                 利用規約
               に同意したものとみなします
 
-          = f.submit class: 'signup-main__btn-default signup-main__btn-red recaptcha', value: '次へ進む', disabled: 'disabled', name: 'ACMS_POST_Form_Submit'
+          = f.submit '次へ進む', class: 'signup-main__btn-default signup-main__btn-red recaptcha', disabled: 'disabled', name: 'ACMS_POST_Form_Submit'
           .signup-main__form-group.signup-main__text--right
             %p
               = link_to 'sms_confirmation', target: '_blank' do
