@@ -4,7 +4,7 @@
     %section.signup-main__container
       %h2.signup-main__head.signup-main__head--registration
         会員情報入力
-      = form_with model: @user, local: true, url: signup_sms_confirmation_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+      = form_with model: @user, local: true, url: sms_confirmation_signup_index_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
         .signup-main__content
           .signup-main__form-group
             = f.label 'ニックネーム'
