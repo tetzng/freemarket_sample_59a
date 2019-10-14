@@ -39,7 +39,6 @@
                   .mypage-content-edit__item-status
                     取引中
                   = icon 'fas', 'chevron-right'
-
       - else
         .mypage-content-edit__tab-content
           %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
@@ -53,7 +52,6 @@
         %li.mypage-content-edit__history-next
           = link_to '#' do
             = icon 'fas', 'chevron-right'
-                              
     = render 'mypage/side-bar'
   = render 'sell/footer'
   = render 'sell/sellbutton'
