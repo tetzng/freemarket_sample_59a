@@ -108,9 +108,9 @@
           !!!
           %html
             %head
-              %meta{content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}/
+              %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}/
               %title reCAPTCHA demo: Simple page
-              %script{async: '', defer: 'defer', src: 'https://www.google.com/recaptcha/api.js'}
+              %script{ async: '', defer: 'defer', src: 'https://www.google.com/recaptcha/api.js'}
               :javascript
                 function validateRecaptcha ( code ) {
                   if ( !!code ) {
@@ -119,8 +119,8 @@
                   }
                 }
             %body
-              %form{action: "?", method: "POST"}
-                .g-recaptcha{'data-callback': 'validateRecaptcha', 'data-sitekey': '6LemFb0UAAAAAH5iGLiV4b6RNMaA8PaTBeJBWlpc'}
+              %form{ action: "?", method: "POST"}
+                .g-recaptcha{ 'data-callback': 'validateRecaptcha', 'data-sitekey': '6LemFb0UAAAAAH5iGLiV4b6RNMaA8PaTBeJBWlpc'}
           .signup-main__form-group
             %p.signup-main__text.signup-main__text--center
               「次へ進む」のボタンを押すことにより、
@@ -134,5 +134,5 @@
               = link_to 'sms_confirmation', target: '_blank' do
                 本人情報の登録について
                 = icon 'fas', 'chevron-right'
-                
+
   = render 'signup/footer'
