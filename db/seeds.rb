@@ -56,7 +56,6 @@
       city: city,
       address1: address1,
       address2: address2,
-      telephone: telephone
-    }
+      telephone: telephone }
   )
 end
