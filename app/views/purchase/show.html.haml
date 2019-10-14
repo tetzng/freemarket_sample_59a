@@ -7,7 +7,7 @@
         .buydetails-content__inner
           %h3.buydetails-content__image
           - @product.images.each do |image|
-            = image_tag image , size: '64x64', class: 'buydetails-contet__image'
+            = image_tag image, size: '64x64', class: 'buydetails-contet__image'
           %p.buydetails-content__item-name
             = @product.name
           .buydetails-content__form
