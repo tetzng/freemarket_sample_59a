@@ -1,5 +1,5 @@
-$(function() {
-  // ボタンをクリックしたら発動
+$(document).on('turbolinks:load', function(){
+    // ボタンをクリックしたら発動
   $('#delete-button').on('click', function() {
     $('#item-edit-content__delete-confirm').addClass('item-edit-content__deleteon');
   });

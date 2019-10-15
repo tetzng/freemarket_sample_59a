@@ -54,13 +54,21 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
                   %span
                     = product.jpy
                   = image_tag product.images[0], size: '188x252'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name
     .toppage-main__category-name
@@ -70,13 +78,21 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
                   %span
                     = product.jpy
                   = image_tag product.images[0], resize: '188x188'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name
     .toppage-main__category-name
@@ -86,13 +102,21 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
                   %span
                     = product.jpy
                   = image_tag product.images[0], resize: '188x188'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name
     .toppage-main__category-name
@@ -102,12 +126,20 @@
           = link_to 'もっと見る >', '#', class: 'toppage-main__more-link'
       .toppage-main__item
         .toppage-main__contents
-          - @products.order('created_at DESC').limit(10).each do |product|
+          - @products.each do |product|
             .toppage-main__content
               = link_to sell_path(product.id), method: :get do
                 .toppage-main__image
                   %span
                     = product.jpy
                   = image_tag product.images[0], resize: '188x188'
+                  -if product.status_id == 4
+                    .pickup-content__red
+                    .pickup-content__sold
+                      SOLD
+                  -if product.status_id == 3
+                    .pickup-content__gray
+                    .pickup-content__stop
+                      公開停止
                 .toppage-main__item-name
                   %span= product.name

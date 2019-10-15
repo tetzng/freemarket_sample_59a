@@ -18,19 +18,19 @@
           いいね！一覧
           = icon 'fas', 'chevron-right'
       %li
-        = link_to '#', class: 'mypage-side-bar__list-item' do
+        = link_to new_sell_path, class: 'mypage-side-bar__list-item' do
           出品する
           = icon 'fas', 'chevron-right'
       %li
-        = link_to mypage_listing_listing_path, class: 'mypage-side-bar__list-item' do
+        = link_to listing_listing_mypage_index_path, class: 'mypage-side-bar__list-item' do
           出品した商品 - 出品中
           = icon 'fas', 'chevron-right'
       %li
-        = link_to  mypage_listing_in_progress_path, class: 'mypage-side-bar__list-item' do
+        = link_to  listing_in_progress_mypage_index_path, class: 'mypage-side-bar__list-item' do
           出品した商品 - 取引中
           = icon 'fas', 'chevron-right'
       %li
-        = link_to  mypage_listing_completed_path, class: 'mypage-side-bar__list-item' do
+        = link_to  listing_completed_mypage_index_path, class: 'mypage-side-bar__list-item' do
           出品した商品 - 売却済み
           = icon 'fas', 'chevron-right'
       %li
@@ -72,7 +72,7 @@
       設定
     %ul.mypage-side-bar__list
       %li
-        = link_to mypage_profile_path, class: 'mypage-side-bar__list-item' do
+        = link_to profile_mypage_index_path, class: 'mypage-side-bar__list-item' do
           プロフィール
           = icon 'fas', 'chevron-right'
       %li
@@ -88,7 +88,7 @@
           メール/パスワード
           = icon 'fas', 'chevron-right'
       %li
-        = link_to mypage_identification_path, class: 'mypage-side-bar__list-item' do
+        = link_to identification_mypage_index_path, class: 'mypage-side-bar__list-item' do
           本人情報
           = icon 'fas', 'chevron-right'
       %li
@@ -96,6 +96,6 @@
           電話番号の確認
           = icon 'fas', 'chevron-right'
       %li
-        = link_to logout_path, class: 'mypage-side-bar__list-item' do
+        = link_to logout_mypage_index_path, class: 'mypage-side-bar__list-item' do
           ログアウト
           = icon 'fas', 'chevron-right'

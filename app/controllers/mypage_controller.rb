@@ -1,15 +1,13 @@
 class MypageController < ApplicationController
-  def identification
-  end
+  before_action :authenticate_user!
+
   def index
+  end
+  def identification
   end
   def profile
   end
   def logout
-  end
-  def card
-  end
-  def card_create
   end
 
   # 出品中

@@ -7,7 +7,7 @@
         .buydetails-content__inner
           %h3.buydetails-content__image
           - @product.images.each do |image|
-            = image_tag image , size: '64x64', class: 'buydetails-contet__image'            
+            = image_tag image, size: '64x64', class: 'buydetails-contet__image'
           %p.buydetails-content__item-name
             = @product.name
           .buydetails-content__form
@@ -27,7 +27,7 @@
                 .buydetails-content__pricecell
                   %span.buydetails-content__datapay
                     = @product.jpy
-            .buydetails-content__text 配送先と支払方法の入力を完了してください。
+            .buydetails-content__text
             = form_tag(action: :pay, method: :post) do
               %button.buydetails-content__btn 購入する
       %section.buydetails-content__info
@@ -39,7 +39,7 @@
               = @address_info
             %br
               = @full_name
-          = link_to '/', class: 'buydetails-content__fix' do
+          = link_to identification_mypage_index_path, class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'
       %section.buydetails-content__info{ id: 'buydetails-bottom' }
@@ -50,12 +50,12 @@
             %br /
           - else
             -#以下カード情報を表示
-            = "**** **** **** " + @default_card_information.last4
+            **** **** **** #{@default_card_information.last4}
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
           %br
-          = link_to '/', class: 'buydetails-content__fix' do
+          = link_to new_card_path, class: 'buydetails-content__fix' do
             %span 変更する
             = icon 'fas', 'chevron-right'
   = render 'signup/footer'

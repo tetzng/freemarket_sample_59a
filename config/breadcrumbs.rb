@@ -23,13 +23,13 @@ crumb :itembuy do |item|
 end
 
 crumb :mypage_card do
-  link '支払い方法'
+  link 'クレジットカード情報入力'
   parent :mypage
 end
 
 crumb :mypage_card_create do
-  link 'クレジットカード情報入力'
-  parent :mypage_card
+  link '支払い方法'
+  parent :mypage
 end
 
 crumb :mypage_profile do
