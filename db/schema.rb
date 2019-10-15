@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_082140) do
+ActiveRecord::Schema.define(version: 2019_10_10_112726) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_082140) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
@@ -76,7 +77,6 @@ ActiveRecord::Schema.define(version: 2019_10_02_082140) do
     t.string "phone_num", null: false
     t.integer "authentication_num", null: false
     t.text "content"
-    t.string "nickname", null: false
     t.integer "birth_yyyy_id", null: false
     t.integer "birth_mm_id", null: false
     t.integer "birth_dd_id", null: false
@@ -86,10 +86,6 @@ ActiveRecord::Schema.define(version: 2019_10_02_082140) do
     t.string "address1", null: false
     t.string "address2"
     t.string "telephone"
-    t.string "payment_card_no", null: false
-    t.integer "paymentmonth_id", null: false
-    t.integer "paymentyear_id", null: false
-    t.integer "payment_card_security_code", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

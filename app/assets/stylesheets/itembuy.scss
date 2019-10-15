@@ -146,6 +146,16 @@
   color: #fff;
   text-align: center;
   font-weight: 600;
+  &__none{
+  font-size: 24px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  background: #aaa;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  }
 }
 .itembuy-detail{
   padding: 32px 0;
@@ -245,10 +255,8 @@
     margin: 24px 0 8px;
   }
   &__content{
-    background: #fff;
-    width: 210px;
-    margin: 0 20px 20px 0;
-    display: inline-block;
+    text-decoration: none;
+    display: flex;
     section{
       a{
         display: block;
@@ -257,8 +265,17 @@
       }
     }
   }
+  &__box{
+    background: #fff;
+    width: 220px;
+    margin: 0 20px 20px 0;
+    display: inline-block;
+  }
   &__body{
     padding: 16px;
+    height: 110px;
+    width: 220px;
+    background-color: #ffffff;
     h3{
       overflow: hidden;
       position: relative;
@@ -282,4 +299,7 @@
   li{
     display: inline-block;
   }
+}
+#itembuy-price-box__decoration{
+  text-decoration: none;
 }

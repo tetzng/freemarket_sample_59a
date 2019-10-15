@@ -48,12 +48,6 @@ class User < ApplicationRecord
   validates :city, presence: true, length: { maximum: 50 }
   validates :address1, presence: true, length: { maximum: 100 }
 
-#signup/credit_card
-  validates :payment_card_no, presence: true, length: { maximum: 16 }, numericality: { only_integer: true }
-  validates :paymentmonth_id, presence: true
-  validates :paymentyear_id, presence: true
-  validates :payment_card_security_code, presence: true, length: { maximum: 4 }, numericality: { only_integer: true }
-
   def full_name
     "#{self.last_name} #{self.first_name}"
   end

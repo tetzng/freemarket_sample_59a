@@ -1,4 +1,5 @@
 class CardController < ApplicationController
+  before_action :authenticate_user!
   require 'payjp'
   Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 

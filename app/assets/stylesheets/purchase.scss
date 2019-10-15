@@ -3,11 +3,12 @@
   width: 456px;
   text-align: center;
   background: #fff;
-  height:70vw;
+  height:100%;
+  padding-bottom: 40px;
 }
 .transact-attention{
   padding: 20px 0;
-  color: red;
+  color: #ea352d;
   background-color: #fff6de;
   font-size: 18px;
   font-weight: 600;
@@ -65,4 +66,7 @@
   font-weight: 600;
   padding-top: 10px;
   display: block;
+}
+.done-user-ratings{
+  display: inline-block;
 }

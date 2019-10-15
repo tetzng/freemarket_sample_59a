@@ -4,7 +4,7 @@
     %section.signup-main__container
       %h2.signup-main__chapter-head.signup-main__chapter-head--registration
         電話番号認証
-      = form_with model: @user, local: true, url: signup_address_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+      = form_with model: @user, local: true, url: address_signup_index_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
         .signup-main__content
           .signup-main__form-group
             = f.label '認証番号'
@@ -25,7 +25,7 @@
         .signup-main__content
           %h3.signup-main__chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
           %p
-            = link_to signup_sms_confirmation_path do
+            = link_to sms_confirmation_signup_index_path do
               電話番号を再度入力する
           %p.signup-main__text
             ※SMSが届かない場合は

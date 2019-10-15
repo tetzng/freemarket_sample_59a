@@ -3,7 +3,7 @@
   %main.signup-main
     %section.signup-main__container
       %h2.signup-main__head.signup-main__head--registration 発送元・お届け先住所入力
-      = form_with model: @user, local: true, url: signup_credit_card_path, method: 'GET', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+      = form_with model: @user, local: true, url: signup_index_path, method: 'POST', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
         .signup-main__content
           .signup-main__form-group.signup-main__form-group--half
             %div
