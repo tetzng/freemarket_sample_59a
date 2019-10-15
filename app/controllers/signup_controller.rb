@@ -1,11 +1,10 @@
 class SignupController < ApplicationController
-
   def index
   end
 
   def registration
     @user = User.new
-    render :layout => 'google'
+    render layout: 'google'
   end
 
   def sms_confirmation
