@@ -4,7 +4,7 @@
       新規会員登録
     .signup-main__inner.signup-main__inner--registration-form
       .signup-main__content
-        = link_to '/signup/registration', class: 'signup-main__btn-default signup-main__btn-mail', data: { no: { turbolink: true } } do
+        = link_to '/signup/registration', class: 'signup-main__btn-default signup-main__btn-mail' do
           = icon 'far', 'envelope'
           メールアドレスで登録する
         %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'signup-main__facebook-login' }
@@ -13,9 +13,3 @@
         %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'signup-main__google-login' }
           Googleで登録する
   %form
-
--# = link_to "Sign up", new_registration_path(resource_name), "data-no-turbolink" => true
--# %br/
--# {data: {id: "hoge"}}
--# <%= link_to "Sign up", new_registration_path(resource_name), "data-no-turbolink" => true %><br />
--# {data: {no: "turbolink"}}
