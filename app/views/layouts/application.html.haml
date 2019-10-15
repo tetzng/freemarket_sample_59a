@@ -15,19 +15,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     -# スライダー(Slick)のJS読み込み
     %script{ src: '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js', type: 'text/javascript' }
-    -# リキャプチャの実装
-    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}/
-    %title reCAPTCHA demo: Simple page
-    %script{ async: '', defer: 'defer', src: 'https://www.google.com/recaptcha/api.js'}
-    :javascript
-      $(document).on('turbolinks:load', function () {
-        validateRecaptcha ( code ) {
-          if ( !!code ) {
-            var form = document.querySelector('.recaptcha');
-            form.removeAttribute('disabled');
-          }
-        }
-      });
-
   %body
     = yield
