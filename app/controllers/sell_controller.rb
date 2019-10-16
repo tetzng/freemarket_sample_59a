@@ -41,7 +41,7 @@ class SellController < ApplicationController
   end
 
   def show
-    @my_product = Product.where(user_id: params[:id])
+    @my_product = Product.where(user_id: @product.user_id)
     @next_product = Product.where("id > ?", @product.id).order("id ASC").first
     @prev_product = Product.where("id < ?", @product.id).order("id DESC").first
   end
