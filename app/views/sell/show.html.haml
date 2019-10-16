@@ -110,17 +110,18 @@
           %textarea
           %button
             %span コメントする
-  - if @next_product.present?
-    %ul.itembuy-nav
-      %li.itembuy-nav__left
-        = link_to sell_path(@next_product) do
-          %i.fas.fa-chevron-left
-          = @next_product.name
+      - if @next_product.present?
+        %ul.itembuy-nav
+          %li.itembuy-nav__left
+            = link_to sell_path(@next_product) do
+              %i.fas.fa-chevron-left
+              = @next_product.name
       - if @prev_product.present?
-        %li.itembuy-nav__right
-          = link_to sell_path(@prev_product) do
-            = @prev_product.name
-            %i.fas.fa-chevron-right
+        %ul.itembuy-nav
+          %li.itembuy-nav__right
+            = link_to sell_path(@prev_product) do
+              = @prev_product.name
+              %i.fas.fa-chevron-right
   .itembuy-media-box
     %ul.itembuy-media-box__list
       %li
