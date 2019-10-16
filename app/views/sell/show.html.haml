@@ -145,7 +145,7 @@
       - @my_product.order('created_at DESC').limit(6).each do |my_product|
         .itembuy-user-profile__box
           %section.itembuy-user-profile__items
-            = link_to '/' do
+            = link_to sell_path(my_product) do
               = image_tag my_product.images[0], size: '220x220'
               .itembuy-user-profile__body
                 %h3.itembuy-user-profile__name 
