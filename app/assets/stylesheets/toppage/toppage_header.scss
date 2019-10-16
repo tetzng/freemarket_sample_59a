@@ -162,7 +162,7 @@ ul.toppage-header-top__footer-search  {
   &-categories li{
     float: left;
   }
-  &-categories li a  {
+  &-categories li a {
       font-size: 14px;
       display: block;
       width: 100%;
@@ -187,18 +187,11 @@ ul.toppage-header-top__footer-search-categories:after{
   margin: 0;
   width: 224px;
   padding: 0 16px;
-
   &:hover {
     background-color: $red;
     color: $white;
     opacity: 1;
     }
-  &--active {
-    background-color: $red;
-    color: $white;
-    opacity: 1;
-    }
-
   &__wrapper {
     display: none;
     font-size: 14px;

@@ -23,17 +23,17 @@
                 %span.toppage-header-top__footer-search-text カテゴリーから探す
             %ul.first-category__wrapper
               - @main_category.each do |category|
-                %li.first-category{data: {category: {id: category.id}}}
+                %li.first-category{data: {category: {id: category.id, sub: category.sub, sub_sub: category.sub_sub}}}
                   %div
                     = category.name
                     %ul.second-category__wrapper
                       - @categories.each do |sub|
-                        %li.second-category{data: {category: {id: sub.id}}}
+                        %li.second-category{data: {category: {id: category.id, sub: category.sub, sub_sub: category.sub_sub}}}
                           %div
                             = sub.name
                             %ul.third-category__wrapper
                               - @sub_sub_category.each do |sub_sub|
-                                %li.third-category{data: {category: {id: sub_sub.id}}}
+                                %li.third-category{data: {category: {id: category.id, sub: category.sub, sub_sub: category.sub_sub}}}
                                   = sub_sub.name
           %li.toppage-header-top__footer-search-brand
             %h2
