@@ -28,7 +28,7 @@ class SellController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      redirect_to '/sell/new' unless @product.valid?
+      redirect_to new_sell_path unless @product.valid?
     end
   end
 
