@@ -9,15 +9,15 @@
       %ul.mypage-content-edit__tabs
         %li.mypage-content-edit__tab
           %h3
-            = link_to mypage_listing_listing_path do
+            = link_to listing_listing_mypage_index_path do
               出品中
         %li.mypage-content-edit__tab.mypage-content-edit__tab--active
           %h3
-            = link_to mypage_listing_in_progress_path do
+            = link_to listing_in_progress_mypage_index_path do
               取引中
         %li.mypage-content-edit__tab
           %h3
-            = link_to mypage_listing_completed_path do
+            = link_to listing_completed_mypage_index_path do
               売却済み
       - if @products.exists?
         .mypage-content-edit__tab-content
@@ -39,7 +39,6 @@
                   .mypage-content-edit__item-status
                     取引中
                   = icon 'fas', 'chevron-right'
-
       - else
         .mypage-content-edit__tab-content
           %ul.mypage-content-edit__item-list.mypage-content-edit__item-list--active{ id: 'mypage-content-edit__item-list-transaction-now' }
@@ -53,7 +52,6 @@
         %li.mypage-content-edit__history-next
           = link_to '#' do
             = icon 'fas', 'chevron-right'
-                              
     = render 'mypage/side-bar'
   = render 'sell/footer'
   = render 'sell/sellbutton'

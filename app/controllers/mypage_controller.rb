@@ -1,4 +1,5 @@
 class MypageController < ApplicationController
+  before_action :authenticate_user!
   def identification
   end
 
@@ -15,10 +16,6 @@ class MypageController < ApplicationController
   def profile
   end
   def logout
-  end
-  def card
-  end
-  def card_create
   end
 
   # 出品中

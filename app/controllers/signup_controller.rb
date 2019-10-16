@@ -137,7 +137,7 @@ class SignupController < ApplicationController
     render '/signup/prefecture' unless @user.valid?
     if @user.save
       session[:id] = @user.id
-      redirect_to signup_credit_card_path
+      redirect_to credit_card_signup_index_path
     else
       render '/signup/prefecture'
     end
@@ -145,7 +145,7 @@ class SignupController < ApplicationController
 
   def credit_card
   end
-  
+
   def pay #payjpとCardのデータベース作成を実施します。
     if params['payjp-token'].blank?
       redirect_to action: 'new'
@@ -162,10 +162,7 @@ class SignupController < ApplicationController
     end
   end
 
-  
-
   def done
-    # render '/signup/credit_card' unless @user.valid?
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 

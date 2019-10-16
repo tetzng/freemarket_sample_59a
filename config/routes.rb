@@ -9,15 +9,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :signup, only: :create
-  get '/signup', to: 'signup#index'
-  get '/signup/registration', to: 'signup#registration'
-  get '/signup/sms_confirmation', to: 'signup#sms_confirmation'
-  get '/signup/sms_confirmation/sms', to: 'signup#sms_confirmation_sms'
-  get '/signup/address', to: 'signup#address'
-  get '/signup/credit_card', to: 'signup#credit_card'
-  get '/signup/done', to: 'signup#done'
-  post 'signup/pay', to: 'signup#pay'
+  resources :signup, only: [:index, :create] do
+    collection do
+      get 'registration'
+      get 'sms_confirmation'
+      get 'sms_confirmation/sms', to: 'signup#sms_confirmation_sms'
+      get 'address'
+      get 'credit_card'
+      get 'done'
+      post 'pay'
+    end
+  end
 
   resources :sell do
     resources :purchase, only: [:show] do
@@ -37,18 +39,18 @@ Rails.application.routes.draw do
   root 'sell#index'
 
   resources :mypage, only: [:index] do
+    collection do
+      get 'identification'
+      get 'profile'
+      get 'listing/listing', to: 'mypage#product_status'
+      get 'listing/in_progress', to: 'mypage#product_in_progress'
+      get 'listing/completed', to: 'mypage#product_completed'
+      get 'logout', to: 'mypage#logout'
+    end
     resources :sell, only: [:edit, :destroy] do
       collection do
         get 'change_status', to: 'sell#change_status'
       end
     end
   end
-  get 'mypage/identification'
-  get '/mypage', to: 'mypage#index'
-  get '/mypage/profile', to: 'mypage#profile'
-  get 'mypage/listing/listing', to: 'mypage#product_status'
-  get 'mypage/listing/in_progress', to: 'mypage#product_in_progress'
-  get 'mypage/listing/completed', to: 'mypage#product_completed'
-  get '/logout', to: 'mypage#logout'
-
 end

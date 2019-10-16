@@ -1,67 +1,66 @@
-%body
-  .signup-container
-    = render 'signup/header'
-    %main.single-main
-      %section.l-single-container.buy-item-container
-        .transact-attention
-          %i.far.fa-clock
-          %span 発送をお待ちください
-          %p 出品者からの発送通知をお待ちください
-        %h2.l-single-head 購入が完了しました
-        %section.buy-content.buy-item
-          .buy-content-inner
-            %h3.buy-item-image
-              %img.is-higher-width.lazyloaded
-                = image_tag @product.images[0], class: 'owl-carousel-sub', size: '120x120'
-          %p.buydetails-content__item-name
-            %p.buy-item-name.bold
-              = @product.name
-        %section.buy-content.buy-user-info.buy-item
-          .buy-content-inner
-            %p.buy-price-ja.bold
-              = @product.jpy
-              %span.item-shipping-fee.f14.bold
-                - if @product.delivery_charge_id == '1'
-                  送料込み
-                - else
-                  着払い
-        %section.buy-content.buy-user-info
-          .buy-content-text
-            %h3 配送先
-            %address.buy-user-info-text
-              〒 #{current_user.zip_code1}
-              %br
-                = @address_info
-              %br
-              %span
-                = @full_name
-        %section.buy-conten-user-info
-          .buy-content-price
-            %h3 支払い方法
-            %p.buy-user-info-text
-              = '**** **** ****' + @default_card_information.last4
-              - exp_month = @default_card_information.exp_month.to_s
-              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-              %br
-              = exp_month + '/' + exp_year
-              %br
-              = image_tag 'master-card.svg', alt: 'master-card', height: '15', width: '29'
-        %section.buy-content.buy-done-flow
-          %h3 発送通知後の流れ
-          .done-user-ratings
-            %i.fas.fa-smile
-          .done-user-ratings
-            %i.fas.fa-meh
-          .done-user-ratings
-            %i.fas.fa-frown
-          %p.buy-contet__text
-            %span 商品を受け取ったら
+.signup-container
+  = render 'signup/header'
+  %main.single-main
+    %section.l-single-container.buy-item-container
+      .transact-attention
+        %i.far.fa-clock
+        %span 発送をお待ちください
+        %p 出品者からの発送通知をお待ちください
+      %h2.l-single-head 購入が完了しました
+      %section.buy-content.buy-item
+        .buy-content-inner
+          %h3.buy-item-image
+            %img.is-higher-width.lazyloaded
+              = image_tag @product.images[0], class: 'owl-carousel-sub', size: '120x120'
+        %p.buydetails-content__item-name
+          %p.buy-item-name.bold
+            = @product.name
+      %section.buy-content.buy-user-info.buy-item
+        .buy-content-inner
+          %p.buy-price-ja.bold
+            = @product.jpy
+            %span.item-shipping-fee.f14.bold
+              - if @product.delivery_charge_id == '1'
+                送料込み
+              - else
+                着払い
+      %section.buy-content.buy-user-info
+        .buy-content-text
+          %h3 配送先
+          %address.buy-user-info-text
+            〒 #{current_user.zip_code1}
             %br
-            出品者の評価をしましょう。
+              = @address_info
             %br
-            購入代金が出品者に振り込まれます。
+            %span
+              = @full_name
+      %section.buy-conten-user-info
+        .buy-content-price
+          %h3 支払い方法
+          %p.buy-user-info-text
+            = '**** **** ****' + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2, 3)
             %br
-            評価後に取引は完了です。
-            = link_to mypage_index_path, class: 'buy-content-bold' do
-              マイページへもどる
-= render 'signup/footer'
+            = exp_month + '/' + exp_year
+            %br
+            = image_tag 'master-card.svg', alt: 'master-card', height: '15', width: '29'
+      %section.buy-content.buy-done-flow
+        %h3 発送通知後の流れ
+        .done-user-ratings
+          %i.fas.fa-smile
+        .done-user-ratings
+          %i.fas.fa-meh
+        .done-user-ratings
+          %i.fas.fa-frown
+        %p.buy-contet__text
+          %span 商品を受け取ったら
+          %br
+          出品者の評価をしましょう。
+          %br
+          購入代金が出品者に振り込まれます。
+          %br
+          評価後に取引は完了です。
+          = link_to mypage_index_path, class: 'buy-content-bold' do
+            マイページへもどる
+  = render 'signup/footer'
