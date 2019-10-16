@@ -56,5 +56,5 @@
                 = image_tag 'seq-card.png', width: '240'
           %p.signup-main__has-error-text{ id: 'primary-error' }
             #card_token
-            = f.submit id: 'token_submit', class: 'signup-main__btn-default signup-main__btn-red', value: '次へ進む'
+            = f.submit '次へ進む', id: 'token_submit', class: 'signup-main__btn-default signup-main__btn-red'
   = render 'signup/footer'
