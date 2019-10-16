@@ -98,7 +98,7 @@ class SignupController < ApplicationController
     address2: "",
     telephone: "",
     )
-    render '/signup/address' unless @user.valid?
+    render '/signup/sms_confirmation_sms' unless @user.valid?
   end
 
   def create
@@ -134,12 +134,12 @@ class SignupController < ApplicationController
     address2: user_params[:address2],
     telephone: user_params[:telephone],
     )
-    render '/signup/prefecture' unless @user.valid?
+    render '/signup/address' unless @user.valid?
     if @user.save
       session[:id] = @user.id
       redirect_to credit_card_signup_index_path
     else
-      render '/signup/prefecture'
+      render '/signup/address'
     end
   end
 
