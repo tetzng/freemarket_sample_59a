@@ -12,8 +12,8 @@ $(document).on("turbolinks:load", function() {
   const thirdCategory = 'li.third-category';
 
   // 第二階層カテゴリー表示テンプレ
-  function showSubCategory(data, dataSecond){
-    let showSub = `<li class="second-category" data-category-id="" data-category-sub="${data.id}" data-category-sub-sub="${data.sub}">
+  function showSubCategory(data){
+    let showSub = `<li class="second-category" data-category-id="" data-category-sub="${data.id}" data-category-sub-sub="${data.sub_sub}">
                   <div>
                   ${data.name}
                    </div>
@@ -33,6 +33,7 @@ $(document).on("turbolinks:load", function() {
     let data = {id: firstId,
                 sub: secondId,
                 sub_sub: thirdId };
+    console.log(data);
 
     $.ajax({
       url: '/sell',
@@ -56,7 +57,6 @@ $(document).on("turbolinks:load", function() {
         alert('カテゴリーがありません');
       });
   });
-
 
 // ヘッダー「ブランドから探す」プルダウン
   $(".toppage-header-top__footer-search-brand").hover(function () {
