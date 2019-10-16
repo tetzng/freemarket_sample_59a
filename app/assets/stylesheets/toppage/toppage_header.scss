@@ -233,7 +233,8 @@ ul.toppage-header-top__footer-search-categories:after{
     left: 224px;
     bottom: 0;
     background: #fff;
-    box-shadow: 0 1px 1px 0 $menu-shadow;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
   }
 }
 
@@ -265,7 +266,7 @@ ul.toppage-header-top__footer-search-categories:after{
     position: absolute;
     left: 224px;
     top: 0;
-    box-shadow: 0 1px 1px 0 $menu-shadow;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.02);
     }
   }
 

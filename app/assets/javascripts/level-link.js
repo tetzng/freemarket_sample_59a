@@ -21,7 +21,7 @@ $(document).on("turbolinks:load", function() {
                    <li class="third-category" data-category-id="" data-category-sub="" data-category-sub_sub="">
                    ${data.name}
                    </li>`;
-                  $("ul.second-category__wrapper").append(showSub);
+                  $(".second-category__wrapper").append(showSub);
   }
 
   // 第二階層マウスオーバー表示
