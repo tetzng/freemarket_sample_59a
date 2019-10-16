@@ -951,7 +951,6 @@ $.extend( $.validator, {
 
 				// Refresh error/success class
 				error.removeClass( this.settings.validClass ).addClass( this.settings.errorClass );
-
 				// Replace message on existing label
 				error.html( message );
 			} else {
@@ -961,7 +960,6 @@ $.extend( $.validator, {
 					.attr( "id", elementID + "-error" )
 					.addClass( this.settings.errorClass )
 					.html( message || "" );
-
 				// Maintain reference to the element to be placed into the DOM
 				place = error;
 				if ( this.settings.wrapper ) {
