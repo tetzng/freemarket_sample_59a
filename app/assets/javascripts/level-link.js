@@ -12,11 +12,15 @@ $(document).on("turbolinks:load", function() {
   const thirdCategory = 'li.third-category';
 
   // 第二階層カテゴリー表示テンプレ
-  function showSubCategory(data){
-    let showSub = `<li class="second-category" data-category-id="${data.id}">
+  function showSubCategory(data, dataSecond){
+    let showSub = `<li class="second-category" data-category-id="" data-category-sub="${data.id}" data-category-sub-sub="${data.sub}">
                   <div>
                   ${data.name}
-                   </div>`;
+                   </div>
+                   <ul class="third-category__wrapper">
+                   <li class="third-category" data-category-id="" data-category-sub="" data-category-sub_sub="">
+                   ${data.name}
+                   </li>`;
                   $("ul.second-category__wrapper").append(showSub);
   }
 
@@ -29,18 +33,15 @@ $(document).on("turbolinks:load", function() {
   //                 $("ul.third-category__wrapper").append(showSubSub);
   // }
 
-  // <ul class="third-category__wrapper">
-  // <li class="third-category" data-category-id="${data.id}">
-  // ${data.name}
-  // </li>
-
   // 第二階層マウスオーバー表示
   $("li.first-category").hover(function () {
 
-    let firstId = $(this).attr('data-category-id');
-    let secondId = "0";
-    let data = {sub: firstId,
-                sub_sub: secondId };
+    let firstId = $(this).last().attr('data-category-id');
+    let secondId = $(this).last().attr('data-category-sub');
+    let thirdId = $(this).last().attr('data-category-sub-sub');
+    let data = {id: firstId,
+                sub: secondId,
+                sub_sub: thirdId };
 
     $.ajax({
       url: '/sell',
@@ -50,61 +51,65 @@ $(document).on("turbolinks:load", function() {
     })
 
       .done(function(categories){
-        $(document).addClass(".first-category--active");
-
         $(secondCategory).remove();
         $(thirdCategory).remove();
-        $(".second-category__wrapper").show();
+        $(".second-category__wrapper").show()
+        , function () {
+        $(".second-category__wrapper").hide()
+        };
         categories.forEach(function(data){
         showSubCategory(data)
         })
-      })
-      .fail(function(){
-        alert('カテゴリーがありません');
-      });
-  });
-
-  第三階層マウスオーバー表示
-  $("li.second-category").hover(function () {
-    console.log('ok');
-    let secondId = $(this).attr('data-category-id');
-    let thirdId = $(this).attr('id');
-    let data = {sub: secondId,
-                sub_sub: thirdId };
-    console.log(secondId);
-    console.log(thirdId);
-
-    $.ajax({
-      url: '/sell',
-      type: 'GET',
-      data: data,
-      dataType: 'json',
-    })
-
-      .done(function(categories){
-        $(thirdCategory).remove();
-        $(".third-category__wrapper").show();
-        categories.forEach(function(data){
-        sshowSubSubCategory(data)
-        })
-      })
-      .fail(function(){
-        alert('カテゴリーがありません');
-      });
-  });
-
-        // $("ul.second-category__wrapper").show();
-        // $("li.second-category").show()
-        // }, function () {
-      //   $(".second-category__wrapper").hide();
-
-        //   // ヘッダー「カテゴリーから探す」プルダウン 第三階層
-      //   $(".second-category__wrapper").hover(function () {
-      //     $(".third-category__wrapper").show()
-      //     }, function () {
-      //     $(".third-category__wrapper").hide()
-      //   });
+                  // ヘッダー「カテゴリーから探す」プルダウン 第三階層
+      //             $(".second-category__wrapper").hover(function () {
+      //               $(".third-category__wrapper").show()
+      //               }, function () {
+      //               $(".third-category__wrapper").hide()
+      //             });
       // })
+      .fail(function(){
+        alert('カテゴリーがありません');
+      });
+  });
+});
+
+  // 第三階層マウスオーバー表示
+  // $(document).on({
+  //     'mouseenter': function() {
+  //       let firstId = $(this).attr('data-category-id');
+  //       let secondId = $(this).attr('data-category-sub');
+  //       let thirdId = $(this).attr('data-category-sub-sub');
+  //       let dataSecond = {  id: firstId, 
+  //                           sub: secondId,
+  //                           sub_sub: thirdId };
+  //       console.log(dataSecond);
+  //     },
+  //     'mouseleave': function() {
+  //       console.log('マウスが離れた！')}
+  //     },
+  //     "li.second-category")
+
+
+    // $.ajax({
+    //   url: '/sell',
+    //   type: 'GET',
+    //   data: dataSecond,
+    //   dataType: 'json',
+    // })
+
+    //   .done(function(categories){
+    //     $(thirdCategory).remove();
+    //     $(".third-category__wrapper").show();
+    //     categories.forEach(function(dataSecond){
+    //     sshowSubSubCategory(dataSecond)
+    //     })
+    //   })
+    //   .fail(function(){
+    //     alert('カテゴリーがありません');
+    //   });
+
+
+
 
 // ヘッダー「ブランドから探す」プルダウン
   $(".toppage-header-top__footer-search-brand").hover(function () {
