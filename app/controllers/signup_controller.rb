@@ -7,6 +7,7 @@ class SignupController < ApplicationController
 
   def registration
     @user = User.new
+    render layout: 'google'
   end
 
   def sms_confirmation

@@ -1,0 +1,24 @@
+!!!
+%html{ lang: 'ja' }
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }/
+    %title FreemarketSample59a
+    -# クレジットカード決済
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -# リキャプチャの実装
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}/
+    %title reCAPTCHA demo: Simple page
+    %script{ async: '', defer: 'defer', src: 'https://www.google.com/recaptcha/api.js'}
+    :javascript
+      function validateRecaptcha ( code ) {
+        if ( !!code ) {
+          var form = document.querySelector('.recaptcha');
+          form.removeAttribute('disabled');
+        }
+      }
+  %body
+    = yield

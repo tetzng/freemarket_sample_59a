@@ -15,7 +15,7 @@
             =  render partial: 'error-messages', locals: { user: @user, column: "authentication_num"}
           %p.signup-main__text
             SMSで届いた認証番号を入力してください
-          = f.submit class: 'signup-main__btn-default signup-main__btn-red', value: '認証して完了'
+          = f.submit '認証して完了', class: 'signup-main__btn-default signup-main__btn-red'
       .signup-main__inner.signup-main__inner--registration-form
         .signup-main__content
           %h3.signup-main__chapter-sub-head 30秒たっても認証番号が届かない方へ

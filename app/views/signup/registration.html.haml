@@ -105,21 +105,20 @@
             .clearfix
           %p.signup-main__form-info-text
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-        .signup-main__content
-          .signup-main__form-group
-            .g-recaptcha.signup-recaptcha
-              %div
-                %div
+            %form{ action: "?", method: "POST"}
+              .g-recaptcha{ 'data-callback': 'validateRecaptcha', 'data-sitekey': '6LemFb0UAAAAAH5iGLiV4b6RNMaA8PaTBeJBWlpc'}
           .signup-main__form-group
             %p.signup-main__text.signup-main__text--center
               「次へ進む」のボタンを押すことにより、
               = link_to '#', target: '_blank' do
                 利用規約
               に同意したものとみなします
-          = f.submit class: 'signup-main__btn-default signup-main__btn-red', value: '次へ進む'
+
+          = f.submit '次へ進む', class: 'signup-main__btn-default signup-main__btn-red recaptcha', disabled: 'disabled', name: 'ACMS_POST_Form_Submit'
           .signup-main__form-group.signup-main__text--right
             %p
               = link_to 'sms_confirmation', target: '_blank' do
                 本人情報の登録について
                 = icon 'fas', 'chevron-right'
+
   = render 'signup/footer'
