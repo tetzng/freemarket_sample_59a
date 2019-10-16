@@ -13,7 +13,7 @@
         .mypage-content__sell
           出品数
           %span.mypage-content__sell.bold<>
-            0
+            = current_user.products.length
   %section.mypage-content__main-tab-container
     %ul.mypage-content__tabs
       %li.mypage-content__tab.mypage-content__tab--active

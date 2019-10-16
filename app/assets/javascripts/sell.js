@@ -162,7 +162,7 @@ $(document).on('turbolinks:load', function(){
       });
     });
   }
-  
+
 
   const priceInput = '#sell-main__price-input';
   const feeFeild = '#sell-main__fee';

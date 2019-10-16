@@ -1,10 +1,18 @@
 class MypageController < ApplicationController
   before_action :authenticate_user!
-
-  def index
-  end
   def identification
   end
+
+  def index
+    @main_category = Category.where(sub: '0')
+    @categories = Category.where(sub: params[:sub], sub_sub: params[:sub_sub])
+    @sub_sub_category = Category.where(sub: params[:sub], sub_sub: params[:sub_sub] )
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+  
   def profile
   end
   def logout
