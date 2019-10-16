@@ -15,7 +15,6 @@
 $.extend( $.validator.messages, {
 	image: "画像がありません",
 	required: "入力してください",
-	required: "選択してください",
 	remote: "このフィールドを修正してください。",
 	email: "有効なEメールアドレスを入力してください。",
 	url: "有効なURLを入力してください。",
