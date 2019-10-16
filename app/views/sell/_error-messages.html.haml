@@ -1,6 +1,6 @@
-- if product.errors.any?
-  - unless product.valid?
-    - if errors = product.errors.full_messages_for(column.to_sym)
+- if @product.errors.any?
+  - unless @product.valid?
+    - if errors == @product.errors.full_messages_for(column.to_sym)
       %ul.sell-main__has-error-text
         - errors.each do |error|
           %li= error

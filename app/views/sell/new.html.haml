@@ -22,8 +22,8 @@
                             %pre.sell-main__visible-pc
                               ドラッグアンドドロップ
                               またはクリックしてファイルをアップロード
-                            %i.fas.fa-camera
-                  = render partial: 'error-messages', locals: { product: @product, column: 'images'}
+                            %i.fas.fa-camera         
+                    = render partial: 'error-messages', locals: { product: @product.errors, column: 'images'}
               .sell-main__content
                 .sell-main__form-group
                   = f.label :name do
@@ -99,7 +99,7 @@
                         = f.label :price, class: 'sell-main__left' do
                           価格
                           %span.sell-main__form-require 必須
-                        .sell-main__right.sell-main__price-input
+                        .sell-main__right.sell-main__price-input 
                           ¥
                           %div
                             = f.text_field :price, { class: 'sell-main__input-default',id: 'sell-main__price-input', placeholder: '例）300',  value: '' }

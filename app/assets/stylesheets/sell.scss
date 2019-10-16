@@ -193,6 +193,13 @@
   &__content {
     padding: 40px;
     border-top: 1px solid #eee;
+    li {
+      color: #ea352d;
+      line-height: 1.5;
+      font-size: 14px;
+      list-style: none;
+      margin-top: 8px;
+    }
   }
   &__form-group {
     margin: 40px 0 0;
@@ -321,10 +328,12 @@
   }
   &__left {
     float: left;
+    color: #333;
   }
 
   &__right {
     float: right;
+    color: #333;
   }
   &__price-input {
     text-align: right;
@@ -371,14 +380,7 @@
     border: 1px solid #aaa;
     color: #fff;
   }
-  &__has-error-text {
-    color: #ea352d;
-    line-height: 1.5;
-    font-size: 14px;
-    li {
-      margin-top: 8px;
-    }
-  }
+
   &__form-suggest-container {
     position: relative;
   }
@@ -392,7 +394,6 @@
     background: #ccc;
   }
 }
-
 .modal {
   display: none;
   position: fixed;
