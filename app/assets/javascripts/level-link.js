@@ -24,15 +24,6 @@ $(document).on("turbolinks:load", function() {
                   $("ul.second-category__wrapper").append(showSub);
   }
 
-  // 第三階層カテゴリー表示テンプレ
-  // function showSubSubCategory(data){
-  //   let showSubSub = `<li class="third-category" data-category-id="${data.id}">
-  //                 <div>
-  //                 ${data.name}
-  //                  </div>`;
-  //                 $("ul.third-category__wrapper").append(showSubSub);
-  // }
-
   // 第二階層マウスオーバー表示
   $("li.first-category").hover(function () {
 
@@ -58,57 +49,13 @@ $(document).on("turbolinks:load", function() {
         $(".second-category__wrapper").hide()
         };
         categories.forEach(function(data){
-        showSubCategory(data)
+        showSubCategory(data);
         })
-                  // ヘッダー「カテゴリーから探す」プルダウン 第三階層
-      //             $(".second-category__wrapper").hover(function () {
-      //               $(".third-category__wrapper").show()
-      //               }, function () {
-      //               $(".third-category__wrapper").hide()
-      //             });
-      // })
+      })
       .fail(function(){
         alert('カテゴリーがありません');
       });
   });
-});
-
-  // 第三階層マウスオーバー表示
-  // $(document).on({
-  //     'mouseenter': function() {
-  //       let firstId = $(this).attr('data-category-id');
-  //       let secondId = $(this).attr('data-category-sub');
-  //       let thirdId = $(this).attr('data-category-sub-sub');
-  //       let dataSecond = {  id: firstId, 
-  //                           sub: secondId,
-  //                           sub_sub: thirdId };
-  //       console.log(dataSecond);
-  //     },
-  //     'mouseleave': function() {
-  //       console.log('マウスが離れた！')}
-  //     },
-  //     "li.second-category")
-
-
-    // $.ajax({
-    //   url: '/sell',
-    //   type: 'GET',
-    //   data: dataSecond,
-    //   dataType: 'json',
-    // })
-
-    //   .done(function(categories){
-    //     $(thirdCategory).remove();
-    //     $(".third-category__wrapper").show();
-    //     categories.forEach(function(dataSecond){
-    //     sshowSubSubCategory(dataSecond)
-    //     })
-    //   })
-    //   .fail(function(){
-    //     alert('カテゴリーがありません');
-    //   });
-
-
 
 
 // ヘッダー「ブランドから探す」プルダウン
