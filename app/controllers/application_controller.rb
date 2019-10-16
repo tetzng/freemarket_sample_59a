@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_categories
 
   protected
   def configure_permitted_parameters
@@ -30,5 +31,11 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
+  end
+
+  def set_categories
+    @main_category = Category.where(sub: '0')
+    @categories = Category.where(sub: params[:id], sub_sub: params[:sub_sub])
+    @sub_sub_categories = Category.where(sub: params[:sub_sub], sub_sub: params[:sub] )
   end
 end
