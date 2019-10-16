@@ -11,14 +11,14 @@ $(document).on('turbolinks:load',function(){
             "product[delivery_charge_id]": { required: true },
             "product[prefecture_id]": { required: true },
             "product[delivery_days_id]": { required: true },
-            "product[price]": { required: true, minlength: 300, maxlength: 9999999 }
+            "product[price]": { required: true }
         },
         messages: {
             "product[images][]": { required: "画像がありません" },
             "product[name]": { required: "入力してください" },
             "product[description]": { maxlength: "1000文字以下で入力してください" },
             "product[category_id]":　{ reguired: true, choice: "選択してくだい" },
-            "product[price]": { required: "300からまで9999999の値を入力してください" },
+            "product[price]": { required: "300から9999999までの値を入力してください" },
             "product[category_id]": { required: "選択してください" },
             "product[condition_id]": { required: "選択してください" },
             "product[delivery_charge_id]": { required: "選択してください" },
