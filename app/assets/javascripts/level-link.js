@@ -43,15 +43,15 @@ $(document).on("turbolinks:load", function() {
     })
 
       .done(function(categories){
-        // $(secondCategory).remove();
-        // $(thirdCategory).remove();
+        $(secondCategory).remove();
+        $(thirdCategory).remove();
         $(".second-category__wrapper").show()
         , function () {
         $(".second-category__wrapper").hide()
         };
-        // categories.forEach(function(data){
-        // showSubCategory(data);
-        // })
+        categories.forEach(function(data){
+        showSubCategory(data);
+        })
       })
       .fail(function(){
         alert('カテゴリーがありません');
