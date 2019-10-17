@@ -21,19 +21,19 @@ $(document).on("turbolinks:load", function() {
                    <li class="third-category" data-category-id="" data-category-sub="" data-category-sub_sub="">
                    ${data.name}
                    </li>`;
-                  $("ul.second-category__wrapper").append(showSub);
+                  $(".second-category__wrapper").append(showSub);
   }
 
   // 第二階層マウスオーバー表示
   $("li.first-category").hover(function () {
 
-    let firstId = $(this).last().attr('data-category-id');
-    let secondId = $(this).last().attr('data-category-sub');
-    let thirdId = $(this).last().attr('data-category-sub-sub');
+    let firstId = $(this).attr('data-category-id');
+    let secondId = $(this).attr('data-category-sub');
+    let thirdId = $(this).attr('data-category-sub-sub');
     let data = {id: firstId,
                 sub: secondId,
                 sub_sub: thirdId };
-    console.log(data);
+    console.log(this);
 
     $.ajax({
       url: '/sell',
@@ -56,6 +56,13 @@ $(document).on("turbolinks:load", function() {
       .fail(function(){
         alert('カテゴリーがありません');
       });
+  });
+
+  // 第三階層プルダウン
+  $(".second-category__wrapper").hover(function () {
+    $(".third-category").show()
+    }, function () {
+    $(".third-category").hide()
   });
 
 // ヘッダー「ブランドから探す」プルダウン
