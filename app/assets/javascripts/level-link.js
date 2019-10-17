@@ -27,13 +27,13 @@ $(document).on("turbolinks:load", function() {
   // 第二階層マウスオーバー表示
   $("li.first-category").hover(function () {
 
-    let firstId = $(this).last().attr('data-category-id');
-    let secondId = $(this).last().attr('data-category-sub');
-    let thirdId = $(this).last().attr('data-category-sub-sub');
+    let firstId = $(this).attr('data-category-id');
+    let secondId = $(this).attr('data-category-sub');
+    let thirdId = $(this).attr('data-category-sub-sub');
     let data = {id: firstId,
                 sub: secondId,
                 sub_sub: thirdId };
-    console.log(data);
+    console.log(this);
 
     $.ajax({
       url: '/sell',
@@ -43,19 +43,26 @@ $(document).on("turbolinks:load", function() {
     })
 
       .done(function(categories){
-        $(secondCategory).remove();
-        $(thirdCategory).remove();
+        // $(secondCategory).remove();
+        // $(thirdCategory).remove();
         $(".second-category__wrapper").show()
         , function () {
         $(".second-category__wrapper").hide()
         };
-        categories.forEach(function(data){
-        showSubCategory(data);
-        })
+        // categories.forEach(function(data){
+        // showSubCategory(data);
+        // })
       })
       .fail(function(){
         alert('カテゴリーがありません');
       });
+  });
+
+  // 第三階層プルダウン
+  $(".second-category__wrapper").hover(function () {
+    $(".third-category").show()
+    }, function () {
+    $(".third-category").hide()
   });
 
 // ヘッダー「ブランドから探す」プルダウン
