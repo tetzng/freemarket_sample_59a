@@ -55,10 +55,11 @@
             %td
               = link_to  '/' do
                 = @bigcategory.name
-              = link_to '/' do
-                .item-edit-table-sub
-                  %i.fas.fa-chevron-right
-                  = @category.name
+              - if @category
+                = link_to '/' do
+                  .item-edit-table-sub
+                    %i.fas.fa-chevron-right
+                    = @category.name
               = link_to '/' do
                 .item-edit-table-sub
                   %i.fas.fa-chevron-right
