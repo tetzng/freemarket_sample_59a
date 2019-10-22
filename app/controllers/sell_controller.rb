@@ -77,6 +77,14 @@ class SellController < ApplicationController
     end
   end
 
+  def search
+    if params[:keyword]
+      @products = Product.where('weather LIKE ?', "%#{params[:keyword]}%")
+    else
+      @products = Product.all
+    end
+  end
+
   private
   def product_params
     params.require(:product).permit( :name, :description, :category_id, :condition_id, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price, images: []).merge(user_id: current_user.id)
