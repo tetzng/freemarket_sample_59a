@@ -116,7 +116,6 @@
                       %i.fas.fa-chevron-down
                       = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, { include_blank: '--', selected: "#{@product.delivery_way_id}" }, class: 'sell-main__select-default'
                     %ul.sell-main__has-error-text
-                  
                   .sell-main__form-group
                     = f.label :delivery_area_id do
                       発送元の地域
