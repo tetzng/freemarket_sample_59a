@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   end
 
   resources :sell do
+    collection do
+      get 'search'
+    end
     resources :purchase, only: [:show] do
       collection do
         get 'show'
