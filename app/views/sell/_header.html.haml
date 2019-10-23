@@ -32,7 +32,7 @@
                           %div
                             = sub.name
                             %ul.third-category__wrapper
-                              - @sub_sub_category.each do |sub_sub|
+                              - @sub_sub_categories.each do |sub_sub|
                                 %li.third-category{data: {category: {id: category.id, sub: category.sub, sub_sub: category.sub_sub}}}
                                   = sub_sub.name
           %li.toppage-header-top__footer-search-brand
