@@ -6,12 +6,11 @@
           = image_tag 'mercari-logo-red.svg', alt: 'mercari-logo',
           class: 'toppage-header-top__header-contents--mercari-logo'
         .toppage-header-top__header-search
-          %form{ action: '/', method: 'post' }
-            %input{ name: 'seach', class: 'toppage-header-top__header-search--search-form',
-            placeholder: '何かお探しですか？' }
+          = form_with url: search_sell_index_path, method: 'get', local: true do |f|
+            = f.text_field :keyword, { class: 'toppage-header-top__header-search--search-form', placeholder: '何かお探しですか？' }
           .toppage-header-top__header-search--search-btn
-            = icon('fas', 'search', alt: 'search-icon',
-            class: 'toppage-header-top__header-search--search-btn')
+            = button_tag  do
+              = icon('fas', 'search', alt: 'search-icon', class: 'toppage-header-top__header-search--search-btn')
     .toppage-header-top__footer
       %nav.toppage-header-top__footer-search
         %ul.toppage-header-top__footer-search-categories
