@@ -187,7 +187,7 @@ ul.toppage-header-top__footer-search-categories:after{
   margin: 0;
   width: 224px;
   padding: 0 16px;
-  &:hover {
+  &.active-list {
     background-color: $red;
     color: $white;
     opacity: 1;
@@ -209,7 +209,7 @@ ul.toppage-header-top__footer-search-categories:after{
 }
 
 .second-category {
-  display: block;
+  // display: block;
   box-sizing: border-box;
   color: $black;
   font-size: 14px;
@@ -539,4 +539,5 @@ ul.toppage-header-top__footer-search-categories:after{
       transition: all ease-out .2s;
       }
   }
+
 }
