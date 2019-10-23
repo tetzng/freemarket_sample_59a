@@ -6,7 +6,7 @@ class SellController < ApplicationController
   before_action :set_prefecture, only: [:show, :edit, :change_status]
   before_action :set_delivery, only: [:show, :edit, :change_status]
   before_action :set_user, only: [:show, :edit, :change_status]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :correct_user, only: [:edit, :update]
 
   def index
@@ -79,7 +79,7 @@ class SellController < ApplicationController
 
   def search
     if params[:keyword]
-      @products = Product.where('weather LIKE ?', "%#{params[:keyword]}%")
+      @products = Product.where('name LIKE ?', "%#{params[:keyword]}%")
     else
       @products = Product.all
     end
