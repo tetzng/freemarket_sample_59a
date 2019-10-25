@@ -13,11 +13,9 @@ class SellController < ApplicationController
     @products = Product.limit(10).order('created_at DESC')
     @category = Category.all
 
-    @main_category = Category.where(sub: '0')
-    # @categories = Category.where(sub: params[:sub], sub_sub: '0')
-    # @sub_sub_categories = Category.where(sub: params[:sub_sub], sub_sub: params[:sub] )
-    @categories = Category.where(sub: '1', sub_sub: '0')
-    @sub_sub_categories = Category.where(sub: '1', sub_sub: '16' )
+    @main_categories = Category.where(sub: '0')
+    @sub_categories = Category.where(sub_sub: '0') - Category.where(sub: '0')
+    @sub_sub_categories = Category.all - Category.where(sub_sub: '0')
     respond_to do |format|
       format.html
       format.json
