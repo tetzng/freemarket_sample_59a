@@ -17,12 +17,12 @@ class Category < ActiveHash::Base
     { id: 13, name: 'その他', sub: '0', sub_sub: '0', size: '', brand: '' },
 
   # サブカテゴリー
-    { id: 14, name: 'トップス', sub: '1', sub_sub: '0', size: '', brand: '' },
+    { id: 14, name: 'トップス',          sub: '1', sub_sub: '0', size: '', brand: '' },
     { id: 15, name: 'ジャケット/アウター', sub: '1', sub_sub: '0', size: '', brand: '' },
-    { id: 16, name: 'パンツ', sub: '1', sub_sub: '0', size: '', brand: '' },
-    { id: 17, name: 'スカート', sub: '1', sub_sub: '0', size: '', brand: '' },
-    { id: 18, name: 'ワンピース', sub: '1', sub_sub: '0', size: '', brand: '' },
-    { id: 19, name: '靴', sub: '1', sub_sub: '0', size: '', brand: '' },
+    { id: 16, name: 'パンツ',            sub: '1', sub_sub: '0', size: '', brand: '' },
+    { id: 17, name: 'スカート',          sub: '1', sub_sub: '0', size: '', brand: '' },
+    { id: 18, name: 'ワンピース',        sub: '1', sub_sub: '0', size: '', brand: '' },
+    { id: 19, name: '靴',               sub: '1', sub_sub: '0', size: '', brand: '' },
     { id: 20, name: 'ルームウェア/パジャマ', sub: '1', sub_sub: '0', size: '', brand: '' },
     { id: 21, name: 'レッグウェア', sub: '1', sub_sub: '0', size: '', brand: '' },
     { id: 22, name: '帽子', sub: '1', sub_sub: '0', size: '', brand: '' },
