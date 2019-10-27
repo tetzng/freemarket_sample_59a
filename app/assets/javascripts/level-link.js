@@ -1,15 +1,45 @@
 $(document).on("turbolinks:load", function() {
 // ヘッダー「カテゴリーから探す」プルダウン 第一階層
-  // $(".toppage-header-top__footer-search-wrapper").hover(function () {
-  //   $(".first-category__wrapper").show()
-  //   }, function () {
-  //   $(".first-category__wrapper").hide()
-  // });
+  $(".toppage-header-top__footer-search-wrapper").hover(function () {
+    $(".first-category__wrapper").show()
+    }, function () {
+    $(".first-category__wrapper").hide()
+  });
 
+  // プルダウン 第二階層
+  $(".first-category__wrapper").hover(function () {
+    $(".first-category__wrapper").show()
+    $(".second-category__wrapper").show()
+    }, function () {
+    $(".first-category__wrapper").hide()
+    $(".second-category__wrapper").hide()
+  });
+
+  // プルダウン 第三階層
+  $(".second-category__wrapper").hover(function () {
+    $(".first-category__wrapper").show()
+    $(".second-category__wrapper").show()
+    $(".third-category__wrapper").show()
+    }, function () {
+    $(".first-category__wrapper").hide()
+    $(".second-category__wrapper").hide()
+    $(".third-category__wrapper").hide()
+  });
+
+  // プルダウン 第三階層
+  $(".third-category__wrapper").hover(function () {
+    $(".first-category__wrapper").show()
+    $(".second-category__wrapper").show()
+    $(".third-category__wrapper").show()
+    }, function () {
+    $(".first-category__wrapper").hide()
+    $(".second-category__wrapper").hide()
+    $(".third-category__wrapper").hide()
+  });
 
     // 第二階層カテゴリー表示テンプレ
     function showSubCategory(data){
-      let showSub = `<li class="second-category" data-category-id="${data.id}" data-category-sub="${data.sub}" data-category-sub-sub="${data.sub_sub}">
+      let showSub = `<li class="second-category" data-category-id="${data.id}" data-category-sub="${data.sub}" data-category-sub_sub="${data.sub_sub}">
                     <div>
                     ${data.name}
                       </div>
@@ -18,58 +48,53 @@ $(document).on("turbolinks:load", function() {
     }
 
     // 第三階層カテゴリー表示テンプレ
-    function showSubSubCategory(subData){      
-      let showSubSub = `<li class="third-category" data-category-id="${subData.id}" data-category-sub="${subData.sub}" data-category-sub-sub="${subData.sub_sub}">
-                    <div>
-                    ${subData.name}
+    function showSubSubCategory(subData){
+      let showSubSub = `<li class="third-category" data-category-id="${subData.id}" data-category-sub="${subData.sub}"
+                        data-category-sub-sub="${subData.sub_sub}">
+                      <div>
+                      ${subData.name}
                       </div>
                       </li>`;
                     $(".third-category__wrapper").append(showSubSub);
-                    $(".third-category__wrapper[data-category-sub-sub="0"]).remove()
     }
       
 
   // 第二階層プルダウン
   $("li.first-category").hover(function () {
     let mainId = $(this).attr('data-category-id');
-    console.log(mainId)
-    // $(this).addClass('active-list', function(){
-    // }, function () {
-    // $(this).removeClass('active-list');
-    // });
-
+  
       $.ajax({
       url: '/sell',
       type: 'GET',
-      data: { sub: mainId },
+      data: { parent: mainId },
       dataType: 'json',
     })
 
       .done(function(sub_categories){
         $('.second-category').remove();
         $('.third-category').remove();
+
+        let highlight = $('li.first-category').mouseover(function(e) {
+        $(this).addClass("active-list");
+          })
+          
         sub_categories.forEach(function(data){
         showSubCategory(data)
         })
-        $(".second-category__wrapper").show();
       })
 
       .fail(function(){
         alert('カテゴリーがありません');
       });
-    });
-
-
+  });
 
   // 第三階層プルダウン
   $(document).on({
     mouseenter: function() {
       let subId = $(this).attr('data-category-sub');
       let subSubId = $(this).attr('data-category-id');
-      let subData = {sub: subId,
-                    sub_sub: subSubId};
-      console.log(this);
-      console.log(subSubId);
+      let subData = {child: subId,
+                    grandChild: subSubId};
 
       $.ajax({
         url: '/sell',
@@ -79,11 +104,12 @@ $(document).on("turbolinks:load", function() {
       })
   
         .done(function(sub_sub_categories){
+          highlight(subId);
+          $("[data-category-id="3"]").addClass('active-list');
           $('.third-category').remove();
-          $('.third-category__wrapper').show()
-          , function () {
-          $('.third-category__wrapper').hide()
-          };
+          // $('.third-category[data-category-sub-sub="0"]').remove();
+          // $("ul[class='third-category'][data-category-sub-sub=0]").remove();
+
           sub_sub_categories.forEach(function(subData){
           showSubSubCategory(subData)
           })
@@ -92,37 +118,12 @@ $(document).on("turbolinks:load", function() {
         .fail(function(){
           alert('カテゴリーがありません');
         })
-
     },
-    mouseleave: function() {
-      let subSubId = $(this).attr('data-category-id');
-      console.log(subSubId);
-    }
-
-    }, 'li.second-category')
+    // mouseleave: function() {
+    //   let subSubId = $(this).attr('data-category-id');
+    // }
+  }, 'li.second-category')
   
-  // 各カテゴリーとクラスの紐付け
-  // const firstCategory = 'li.first-category';
-  // const secondCategory = 'li.second-category';
-  // const thirdCategory = 'li.third-category';
-
-
-
-  // 第二階層マウスオーバー表示
-  // $("li.first-category").hover(function () {
-
-  // $(".first-category").hover(function () {
-  //   $(this).children("li").show();
-  //   let category = $(this).children("li")
-  //   console.log(category)
-  //   }, function () {
-  //   $(".second-category").hide()
-  // });
-
-
-  
-
-
 // ヘッダー「ブランドから探す」プルダウン
   $(".toppage-header-top__footer-search-brand").hover(function () {
     $(".brand__wrapper").show()
