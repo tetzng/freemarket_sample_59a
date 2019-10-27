@@ -14,8 +14,8 @@ class SellController < ApplicationController
     @category = Category.all
 
     @main_categories = Category.where(sub: '0')
-    @sub_categories = Category.where(sub_sub: '0') - Category.where(sub: '0')
-    @sub_sub_categories = Category.all - Category.where(sub_sub: '0')
+    @sub_categories = Category.where(sub: params[:sub], sub_sub: '0') - Category.where(sub: '0')
+    @sub_sub_categories = Category.where(sub: params[:sub], sub_sub: params[:sub_sub]) - Category.where(sub_sub: '0')
     respond_to do |format|
       format.html
       format.json
