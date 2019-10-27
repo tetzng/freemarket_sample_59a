@@ -188,11 +188,11 @@ li.first-category {
   margin: 0;
   width: 224px;
   padding: 0 16px;
-  // &.active-list {
-  //   background-color: $red;
-  //   color: $white;
-  //   opacity: 1;
-  //   }
+  &.active-list {
+    background-color: $red;
+    color: $white;
+    opacity: 1;
+    }
   &:hover {
     background-color: $red;
     color: $white;
@@ -200,7 +200,7 @@ li.first-category {
     }
   }
   .first-category__wrapper {
-    // display: none;
+    display: none;
     font-size: 14px;
     height: 572px;
     width: 224px;
@@ -212,7 +212,6 @@ li.first-category {
     left: -40px;
     top: 44px;
     z-index: 1000;
-    // overflow: hidden;
     white-space: nowrap;
   }
 
@@ -232,7 +231,7 @@ li.first-category {
     }
 
   &__wrapper {
-    // display: none;
+    display: none;
     height: 572px;
     line-height: 30px;
     font-weight: normal;
@@ -265,7 +264,7 @@ li.first-category {
     }
 
   &__wrapper  {
-    // display: none;
+    display: none;
     height: 572px;
     width: 320px;  
     font-weight: normal;
@@ -274,7 +273,7 @@ li.first-category {
     bottom: 0;
     box-sizing: border-box;
     position: absolute;
-    left: 400px;
+    left: 407px;
     top: 44px;
     box-shadow: 0 1px 1px 0 $menu-shadow;
     z-index: 1001;
