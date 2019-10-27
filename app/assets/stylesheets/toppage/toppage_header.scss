@@ -188,16 +188,16 @@ li.first-category {
   margin: 0;
   width: 224px;
   padding: 0 16px;
-  &.active-list {
-    background-color: $red;
-    color: $white;
-    opacity: 1;
-    }
-  // &:hover {
+  // &.active-list {
   //   background-color: $red;
   //   color: $white;
   //   opacity: 1;
   //   }
+  &:hover {
+    background-color: $red;
+    color: $white;
+    opacity: 1;
+    }
   }
   .first-category__wrapper {
     // display: none;
