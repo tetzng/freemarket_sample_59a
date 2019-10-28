@@ -193,11 +193,11 @@ li.first-category {
     color: $white;
     opacity: 1;
     }
-  // &:hover {
-  //   background-color: $red;
-  //   color: $white;
-  //   opacity: 1;
-  //   }
+  &:hover {
+    background-color: $red;
+    color: $white;
+    opacity: 1;
+    }
   }
   .first-category__wrapper {
     display: none;
@@ -552,86 +552,4 @@ li.first-category {
       transition: all ease-out .2s;
       }
   }
-
 }
-
-// .pulldown-contents {
-//   overflow: hidden;
-//   width: 750px;
-//   height: 300px;
-//   margin: 0 auto;
-//   padding: 0;
-//   box-sizing: border-box;
-//   display: flex;
-// }
-// .nav {
-//   width: 150px;
-//   margin: 0;
-//   padding: 0;
-// }
-// .nav li {
-//   position: relative;
-//   width: 150px;
-//   height: 40px;
-// }
-// .nav > li {
-//   border-bottom: none;
-// }
-// .nav li:last-child {
-//   border-bottom: none;
-// }
-// .nav li:hover > ul > li {
-//   border-bottom: none;
-// }
-// .nav li > ul > li:last-child {
-//   border-bottom: none;
-// }
-// .nav li a {
-//   display: block;
-//   width: 150px;
-//   height: 40px;
-//   color: #fff;
-//   font-size: 14px;
-//   line-height: 2.8;
-//   padding: 0 5px;
-//   background: #9fb7d4;
-//   border-bottom: 1px solid #eee;
-//   box-sizing: border-box;
-//   text-decoration: none;
-// }
-// .nav > li:hover > a {/*layer-1*/
-//   color: orange;
-//   background: #afc6e2;
-// }
-// .nav > li li:hover > a {/*layer-2*/
-//   color: olive;
-//   background: #afc6e2;
-// }
-// .first-category__wrapper li:hover > ul > li {
-//   overflow: visible;
-//   top: -40px;
-//   left: 150px;
-//   height: 40px;
-// }
-// .first-category__wrapper li ul li {
-//   overflow: hidden;
-//   height: 0;
-//   left: 110px;
-//   list-style: none;
-// }
-// .nav li ul li a {
-//   background: #9fb7d4;
-// }
-// .first-category__wrapper li ul:before {
-//   position: absolute;
-//   content: "";
-//   top: 14px;
-//   left: 140px;
-//   border: 5px solid transparent;
-//   border-left: 5px solid #fff;
-// }
-// .first-category__wrapper li:hover ul li ul li:hover > a {/*layer-3*/
-//   color: pink;
-//   background: #afc6e2;
-// }
-
