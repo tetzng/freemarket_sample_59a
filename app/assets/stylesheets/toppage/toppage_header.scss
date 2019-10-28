@@ -193,11 +193,11 @@ li.first-category {
     color: $white;
     opacity: 1;
     }
-  &:hover {
-    background-color: $red;
-    color: $white;
-    opacity: 1;
-    }
+  // &:hover {
+  //   background-color: $red;
+  //   color: $white;
+  //   opacity: 1;
+  //   }
   }
   .first-category__wrapper {
     display: none;
@@ -243,6 +243,8 @@ li.first-category {
     box-shadow: 0 1px 1px 0 $menu-shadow;
     box-sizing: border-box;
     z-index: 1001;
+    overflow: scroll;
+
   }
 }
 
@@ -277,6 +279,7 @@ li.first-category {
     top: 44px;
     box-shadow: 0 1px 1px 0 $menu-shadow;
     z-index: 1001;
+    overflow: scroll;
     }
   }
 
