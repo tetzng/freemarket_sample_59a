@@ -1,12 +1,12 @@
 $(document).on("turbolinks:load", function() {
-// ヘッダー「カテゴリーから探す」プルダウン 第一階層
+// ヘッダー「カテゴリーから探す」プルダウン 
   $(".toppage-header-top__footer-search-wrapper").hover(function () {
     $(".first-category__wrapper").show()
     }, function () {
     $(".first-category__wrapper").hide()
   });
 
-  // プルダウン 第二階層
+  // プルダウン 第一階層
   $(".first-category__wrapper").hover(function () {
     $(".first-category__wrapper").show()
     $(".second-category__wrapper").show()
@@ -15,7 +15,7 @@ $(document).on("turbolinks:load", function() {
     $(".second-category__wrapper").hide()
   });
 
-  // プルダウン 第三階層
+  // プルダウン 第二階層
   $(".second-category__wrapper").hover(function () {
     $(".first-category__wrapper").show()
     $(".second-category__wrapper").show()
@@ -57,7 +57,6 @@ $(document).on("turbolinks:load", function() {
                       </li>`;
                     $(".third-category__wrapper").append(showSubSub);
     }
-      
 
   // 第二階層プルダウン
   $("li.first-category").hover(function () {
@@ -68,16 +67,17 @@ $(document).on("turbolinks:load", function() {
       type: 'GET',
       data: { parent: mainId },
       dataType: 'json',
-    })
+      })
 
       .done(function(sub_categories){
         $('.second-category').remove();
         $('.third-category').remove();
-
-        let highlight = $('li.first-category').mouseover(function(e) {
-        $(this).addClass("active-list");
-          })
-          
+        $('li.first-category').mouseover(function(e) {
+          $(this).last().addClass("active-list");
+            })
+          $('li.first-category').mouseout(function(e) {
+          $(this).removeClass("active-list");
+            })
         sub_categories.forEach(function(data){
         showSubCategory(data)
         })
@@ -94,7 +94,7 @@ $(document).on("turbolinks:load", function() {
       let subId = $(this).attr('data-category-sub');
       let subSubId = $(this).attr('data-category-id');
       let subData = {child: subId,
-                    grandChild: subSubId};
+                     grandChild: subSubId};
 
       $.ajax({
         url: '/sell',
@@ -104,12 +104,7 @@ $(document).on("turbolinks:load", function() {
       })
   
         .done(function(sub_sub_categories){
-          highlight(subId);
-          $("[data-category-id="3"]").addClass('active-list');
           $('.third-category').remove();
-          // $('.third-category[data-category-sub-sub="0"]').remove();
-          // $("ul[class='third-category'][data-category-sub-sub=0]").remove();
-
           sub_sub_categories.forEach(function(subData){
           showSubSubCategory(subData)
           })
@@ -119,9 +114,6 @@ $(document).on("turbolinks:load", function() {
           alert('カテゴリーがありません');
         })
     },
-    // mouseleave: function() {
-    //   let subSubId = $(this).attr('data-category-id');
-    // }
   }, 'li.second-category')
   
 // ヘッダー「ブランドから探す」プルダウン
