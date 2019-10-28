@@ -182,17 +182,24 @@ ul.toppage-header-top__footer-search-categories:after{
   clear: both;
 }
 
-.first-category {
+
+li.first-category {
   box-sizing: border-box;
   margin: 0;
   width: 224px;
   padding: 0 16px;
+  &.active-list {
+    background-color: $red;
+    color: $white;
+    opacity: 1;
+    }
   &:hover {
     background-color: $red;
     color: $white;
     opacity: 1;
     }
-  &__wrapper {
+  }
+  .first-category__wrapper {
     display: none;
     font-size: 14px;
     height: 572px;
@@ -205,11 +212,11 @@ ul.toppage-header-top__footer-search-categories:after{
     left: -40px;
     top: 44px;
     z-index: 1000;
+    white-space: nowrap;
   }
-}
+
 
 .second-category {
-  display: block;
   box-sizing: border-box;
   color: $black;
   font-size: 14px;
@@ -229,12 +236,15 @@ ul.toppage-header-top__footer-search-categories:after{
     line-height: 30px;
     font-weight: normal;
     position: absolute;
-    top: 0;
-    left: 224px;
+    top: 44px;
+    left: 183px;
     bottom: 0;
     background: #fff;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.02);
+    box-shadow: 0 1px 1px 0 $menu-shadow;
     box-sizing: border-box;
+    z-index: 1001;
+    overflow: scroll;
+
   }
 }
 
@@ -260,13 +270,16 @@ ul.toppage-header-top__footer-search-categories:after{
     height: 572px;
     width: 320px;  
     font-weight: normal;
+    line-height: 30px;
     background: $white;
     bottom: 0;
     box-sizing: border-box;
     position: absolute;
-    left: 224px;
-    top: 0;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.02);
+    left: 407px;
+    top: 44px;
+    box-shadow: 0 1px 1px 0 $menu-shadow;
+    z-index: 1001;
+    overflow: scroll;
     }
   }
 
@@ -290,7 +303,7 @@ ul.toppage-header-top__footer-search-categories:after{
       font-weight: normal;
       position: absolute;
       background: $white;
-      box-shadow: 0 1px 1px 0 $menu-shadow;
+      box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.02);
       box-sizing: border-box;
       top: 44px;
       z-index: 1000;

@@ -21,20 +21,21 @@
                 = icon('fas', 'list-ul lg',
                 alt: 'list-icon', style: 'color:#ea352d')
                 %span.toppage-header-top__footer-search-text カテゴリーから探す
-            %ul.first-category__wrapper
-              - @main_category.each do |category|
-                %li.first-category{data: {category: {id: category.id, sub: category.sub, sub_sub: category.sub_sub}}}
-                  %div
-                    = category.name
-                    %ul.second-category__wrapper
-                      - @categories.each do |sub|
-                        %li.second-category{data: {category: {id: category.id, sub: category.sub, sub_sub: category.sub_sub}}}
-                          %div
-                            = sub.name
-                            %ul.third-category__wrapper
-                              - @sub_sub_category.each do |sub_sub|
-                                %li.third-category{data: {category: {id: category.id, sub: category.sub, sub_sub: category.sub_sub}}}
-                                  = sub_sub.name
+            .categories-wrapper
+              %ul.first-category__wrapper
+                - @main_categories.each do |main_category|
+                  %li.first-category{data: {category: {id: main_category.id, sub: main_category.sub, sub_sub: main_category.sub_sub}}}
+                    %div
+                      = main_category.name
+              %ul.second-category__wrapper
+                - @sub_categories.each do |sub_category|
+                  %li.second-category{data: {category: {id: sub_category.id, sub: sub_category.sub, sub_sub: sub_category.sub_sub}}}
+                    %div
+                      = sub_category.name
+              %ul.third-category__wrapper
+                - @sub_sub_categories.each do |sub_sub_category|
+                  %li.third-category{data: {category: {id: sub_sub_category.id, sub: sub_sub_category.sub, sub_sub: sub_sub_category.sub_sub}}}
+                    = sub_sub_category.name
           %li.toppage-header-top__footer-search-brand
             %h2
               = link_to root_path do
