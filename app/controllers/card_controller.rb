@@ -1,5 +1,7 @@
 class CardController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_pulldown, only: [:new, :show]
+
   require 'payjp'
   Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
@@ -43,4 +45,17 @@ class CardController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
+
+  private
+    # プルダウン用カテゴリー
+    def set_pulldown
+      @main_categories = Category.where(sub: '0')
+      @sub_categories = Category.where(sub: params[:parent], sub_sub: '0') - Category.where(sub: '0')
+      @sub_sub_categories = Category.where(sub: params[:child], sub_sub: params[:grandChild]) - Category.where(sub_sub: '0')
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
+  
 end

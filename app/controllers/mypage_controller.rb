@@ -4,9 +4,9 @@ class MypageController < ApplicationController
   end
 
   def index
-    @main_category = Category.where(sub: '0')
-    @categories = Category.where(sub: params[:sub], sub_sub: params[:sub_sub])
-    @sub_sub_category = Category.where(sub: params[:sub], sub_sub: params[:sub_sub] )
+    @main_categories = Category.where(sub: '0')
+    @sub_categories = Category.where(sub: params[:parent], sub_sub: '0') - Category.where(sub: '0')
+    @sub_sub_categories = Category.where(sub: params[:child], sub_sub: params[:grandChild]) - Category.where(sub_sub: '0')
     respond_to do |format|
       format.html
       format.json
