@@ -51,7 +51,7 @@ class SellController < ApplicationController
     @size = Size.find(@product.size_id)
     @images_length = @product.images.length
     @main_category = Category.where(sub: '0')
-    @sub_category = Category.where(sub: "#{@smallcategory.sub}", sub_sub: '0') unless Category.find(@product.category_id).sub_sub == '0'
+    @sub_category = Category.where(sub: "#{@smallcategory.sub}", sub_sub: '0')
     @sub_sub_category = Category.where(sub_sub: "#{@smallcategory.sub_sub}" )
   end
 
