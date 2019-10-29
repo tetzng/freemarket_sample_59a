@@ -8,7 +8,7 @@ class SellController < ApplicationController
   before_action :set_user, only: [:show, :edit, :change_status]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_pulldown, only: [:index, :show]
+  before_action :set_pulldown, only: [:index, :show, :edit, :change_status]
 
 
   def index
