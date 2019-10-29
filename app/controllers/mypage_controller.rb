@@ -1,20 +1,16 @@
 class MypageController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_pulldown
+
   def identification
   end
 
   def index
-    @main_category = Category.where(sub: '0')
-    @categories = Category.where(sub: params[:sub], sub_sub: params[:sub_sub])
-    @sub_sub_category = Category.where(sub: params[:sub], sub_sub: params[:sub_sub] )
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
   
   def profile
   end
+
   def logout
   end
 
@@ -31,5 +27,13 @@ class MypageController < ApplicationController
   # 売却済み
   def product_completed
     @products = Product.where( user_id: current_user.id, status_id: 5)
+  end
+
+  private
+  # プルダウン用カテゴリー
+  def set_pulldown
+    @main_categories = Category.where(sub: '0')
+    @sub_categories = Category.where(sub: params[:parent], sub_sub: '0') - Category.where(sub: '0')
+    @sub_sub_categories = Category.where(sub: params[:child], sub_sub: params[:grandChild]) - Category.where(sub_sub: '0')
   end
 end
