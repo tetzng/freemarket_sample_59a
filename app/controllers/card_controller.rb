@@ -52,10 +52,6 @@ class CardController < ApplicationController
       @main_categories = Category.where(sub: '0')
       @sub_categories = Category.where(sub: params[:parent], sub_sub: '0') - Category.where(sub: '0')
       @sub_sub_categories = Category.where(sub: params[:child], sub_sub: params[:grandChild]) - Category.where(sub_sub: '0')
-      respond_to do |format|
-        format.html
-        format.json
-      end
     end
   
 end
