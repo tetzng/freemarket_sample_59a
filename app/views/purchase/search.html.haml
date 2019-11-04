@@ -20,19 +20,24 @@
                     %h2.search-main__title 詳細検索
                     = form_with model: @product, url: purchase_search_path, class: 'purchase-main__form' do |f|
                         .search-main__form-group
-                            .search-main__keyword
-                                %i.fas.fa-plus.search_icon
-                                キーワードを追加する
-                            %input.default-input.search-input
-                            = f.text_field :price, { class: 'search-main__head-keyword',id: '', placeholder: '例）値下げ',  value: '' }
+                            %i.fas.fa-plus.search_icon
+                            キーワードを追加する
+                        %input.default-input.search-input
+                        = f.text_field :keyword, { class: 'search-main__input-default',id: '', placeholder: '例）値下げ',  value: '' }
                         .search-main__form-group
-                            .search-main__category
-                                = f.label :category_id do
-                                    %i.far.fa-list-ul
-                                    カテゴリーを選択する
-                                %div{ id: 'sell-main__select-category--wrapper' }
-                                    .sell-main__select-wrap
-                                        %i.fas.fa-chevron-down
-                                        = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
-                        .search-main__form-group                           
+                            = f.label :category_id do
+                                %i.far.fa-list-ul
+                                カテゴリーを選択する
+                            %div{ id: 'sell-main__select-category--wrapper' }
+                                .search-main__select-wrap
+                                    %i.fas.fa-chevron-down
+                                = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
+                        .search-main__form-group-search-extend-brand
+                            %i.fas.fa-tags
+                            ブランド名から探す
+                        %input.default-input.search-input
+                        = f.text_field :brand, { class: 'search-main__input-default',id: '', placeholder: '例）シャネル',  value: '' }
+                        .search-main__form-group
+
+                                                       
 
