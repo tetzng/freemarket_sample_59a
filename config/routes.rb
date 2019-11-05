@@ -38,6 +38,9 @@ Rails.application.routes.draw do
 
   root 'sell#index'
 
+  # 商品検索ページ
+  resources 'search',only: :index
+
   resources :mypage, only: [:index] do
     collection do
       get 'identification'
