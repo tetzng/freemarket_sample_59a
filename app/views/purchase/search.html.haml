@@ -33,8 +33,7 @@
                                     %i.fas.fa-chevron-down
                                 -# = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
                         .search-main__form-group-search-extend-brand
-                            %figure
-                            = image_tag('icon-brand.png', class: 'image-brand', height: '16px', width: '22.66px')
+                            %i.far.fa-tag
                             ブランド名から探す
                         %input.default-input.search-input
                         = f.text_field :brand, { class: 'search-main__input-default',id: '', placeholder: '例）シャネル',  value: '' }
