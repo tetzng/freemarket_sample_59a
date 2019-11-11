@@ -45,6 +45,25 @@
                                     %i.fas.fa-chevron-down
                                     -# = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '--' }, class: 'sell-main__select-default', id: 'sell-main__select-category--main'
                         .search-main__form-group-search-price
+                            %i.far.fa-coin
+                            価格
+                            = f.collection_select :price, :select, Price.all, :id, :name, {prompt: "---"},class:'listing__form__detail__box__form-group__category-select'
+                            = f.text_field :price_min,{ class:'input__form__group__input-small',  placeholder: '¥ Min' }
+                            %span.spacer ~
+                            = f.text_field :price_max,{ class:'input__form__group__input-small',  placeholder: '¥ Max' }
+                        .search-main__form-group
+                            = f.label @condition, class: 'search-main__form-group-condition' do
+                            %i.fas.fa-star
+                            商品の状態
+                            .search-main__form-group-condition-check
+                                %label.check_box
+                                    = check_box 'search','condition'
+                                    = '全て'
+                                - @condition.each do |condition|
+                                .search-main__form-group-check-box
+                                    = = f.check_box @condition, { id: }
+
+
 
 
 
