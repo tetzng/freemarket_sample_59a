@@ -60,8 +60,11 @@
                                     = check_box 'search','condition'
                                     = '全て'
                                 - @condition.each do |condition|
-                                .search-main__form-group-check-box
-                                    = = f.check_box @condition, { id: }
+                                %label.check_box
+                                    = f.check_box :condition_id, Condition.all, :id, :value, class: 'search-main__form-group-condition-default'
+                        .search-main__form-group
+                        
+
 
 
 
