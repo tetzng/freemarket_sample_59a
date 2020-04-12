@@ -1,0 +1,38 @@
+version: '3.3'
+services:
+  web: &web
+    build:
+      context: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    env_file: .env
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+    environment:
+      DB_USER: root
+      DB_PASS: password
+
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+volumes:
+  bundle:
